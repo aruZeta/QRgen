@@ -30,5 +30,5 @@ proc setMostEfficientMode*(qr: QRCode) =
     if c notin alphaNumericValues:
       qr.mode = qrByteMode
       return
-    elif c notin numericValues:
+    elif qr.mode != qrAlphanumericMode and c notin numericValues:
       qr.mode = qrAlphanumericMode
