@@ -3,7 +3,7 @@ import QRgen/types
 type
   QRCode* = ref object
     mode*: QRMode
-    errorCorrectionLevel*: QRErrorCorrectionLevel
+    eccLevel*: QRErrorCorrectionLevel
     data*: string
     sideSize*: uint8 # The QR code is a square, all sides have the same size
     version*: QRVersion
