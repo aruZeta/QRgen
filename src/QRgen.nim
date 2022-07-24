@@ -1,4 +1,5 @@
 import QRgen/types
+import QRgen/capacities
 
 type
   QRCode* = ref object
@@ -28,3 +29,17 @@ proc setMostEfficientMode*(qr: QRCode) =
       return
     elif qr.mode != qrAlphanumericMode and c notin numericValues:
       qr.mode = qrAlphanumericMode
+
+proc setSmallestVersion*(qr: QRCode) =
+  for i, version in (case qr.mode
+                     of qrNumericMode:
+                       numericModeCapacities[qr.eccLevel]
+                     of qrAlphanumericMode:
+                       alphanumericModeCapacities[qr.eccLevel]
+                     of qrByteMode:
+                       byteModeCapacities[qr.eccLevel]):
+    if cast[uint16](qr.data.len) < version:
+      qr.version = i
+      return
+
+  # else the string is too long to fit inside a qr code
