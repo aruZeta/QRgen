@@ -1,5 +1,4 @@
-type
-  QRModeCapacity = array[4, array[40, uint16]]
+import types
 
 const
   numericModeCapacities*: QRModeCapacity = [
