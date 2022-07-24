@@ -14,6 +14,12 @@ const
     ' ', '$', '%', '*', '+', '-', '.', '/', ':', '0'..'9', 'A'..'Z'
   }
 
+proc newQRCode*(data: string,
+                version: QRVersion = 1,
+                eccLevel: QRErrorCorrectionLevel = qrEccL
+               ): QRCode =
+  QRCode(data: data, version: version, eccLevel: eccLevel)
+
 proc setMostEfficientMode*(qr: QRCode) =
   qr.mode = qrNumericMode
   for c in qr.data:
