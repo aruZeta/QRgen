@@ -6,6 +6,7 @@ type
     errorCorrectionLevel*: QRErrorCorrectionLevel
     data*: string
     sideSize*: uint8 # The QR code is a square, all sides have the same size
+    version*: QRVersion
 
 const
   numericValues = {'0'..'9'}

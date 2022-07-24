@@ -6,10 +6,15 @@ type
     # qrECIMode   = 0b0111 (Extended Channel Interpretation) not supported
     # qrKanjiMode = 0b1000                                   not supported
 
-  QRModeCapacity* = array[4, array[40, uint16]]
-
   QRErrorCorrectionLevel* = enum
     qrEccL, #  7% data recovery
     qrEccM, # 15% data recovery
     qrEccQ, # 25% data recovery
     qrEccH  # 30% data recovery
+
+  QRVersion* = range[1..40]
+
+  QRModeCapacity* = array[
+    qrEccL..qrEccH,
+    array[QRVersion, uint16]
+  ]
