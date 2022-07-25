@@ -2,7 +2,7 @@ import unittest
 import QRgen
 import QRgen/types
 
-test "Set efficient mode":
+test "Set most efficient mode":
   let qr1 = newQRCode("0123456789")
   qr1.setMostEfficientMode
   check qr1.mode == qrNumericMode
