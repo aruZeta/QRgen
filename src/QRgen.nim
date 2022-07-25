@@ -1,5 +1,6 @@
 import QRgen/types
 import QRgen/capacities
+import QRgen/bitArray
 
 type
   QRCode* = ref object
@@ -8,6 +9,7 @@ type
     data*: string
     sideSize*: uint8 # The QR code is a square, all sides have the same size
     version*: QRVersion
+    encodedData*: BitArray
 
 const
   numericValues = {'0'..'9'}
@@ -19,7 +21,10 @@ proc newQRCode*(data: string,
                 version: QRVersion = 1,
                 eccLevel: QRErrorCorrectionLevel = qrEccL
                ): QRCode =
-  QRCode(data: data, version: version, eccLevel: eccLevel)
+  QRCode(data: data,
+         version: version,
+         eccLevel: eccLevel,
+         encodedData: newBitArray())
 
 proc setMostEfficientMode*(qr: QRCode) =
   qr.mode = qrNumericMode
