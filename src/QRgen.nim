@@ -43,3 +43,17 @@ proc setSmallestVersion*(qr: QRCode) =
       return
 
   # else the string is too long to fit inside a qr code
+
+proc characterCountIndicatorLen*(qr: QRCode): uint8 =
+  template qrCases(numericVal, alphanumericVal, byteVal: uint8) =
+    case qr.mode
+    of qrNumericMode:      result = numericVal
+    of qrAlphanumericMode: result = alphanumericVal
+    of qrByteMode:         result = byteVal
+
+  if qr.version <= 9:
+    qrCases 10, 9, 8
+  elif qr.version >= 27:
+    qrCases 14, 13, 16
+  else:
+    qrCases 12, 11, 16

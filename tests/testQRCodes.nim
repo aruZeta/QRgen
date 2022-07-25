@@ -33,3 +33,19 @@ test "Set smallest version":
   qr3.setMostEfficientMode
   qr3.setSmallestVersion
   check qr3.version == 4 # The accented characters count by 2
+
+test "Character count indicator len":
+  let qr1 = newQRCode("0123")
+  qr1.setMostEfficientMode
+  qr1.version = 28
+  check qr1.characterCountIndicatorLen() == 14
+
+  let qr2 = newQRCode("0 TEST ALPHANUMERIC 9")
+  qr2.setMostEfficientMode
+  qr2.version = 15
+  check qr2.characterCountIndicatorLen() == 11
+
+  let qr3 = newQRCode("012 Tésting byté modé 789")
+  qr3.setMostEfficientMode
+  qr3.version = 6
+  check qr3.characterCountIndicatorLen() == 8
