@@ -38,11 +38,8 @@ proc add*[T: uint16 | uint32 | uint64](b: var BitArray, val: T, len: uint8) =
 
   template checkLen(size: uint8, uintType: typedesc) =
     if tSize > size and len <= size:
-      raise newException(
-        RangeDefect,
-        "You should use a " & $uintType &
-        " if len is less than or equal to " & $size
-      )
+      b.add cast[uintType](val), len
+      return
 
   checkLen 8, uint8
   checkLen 16, uint16
