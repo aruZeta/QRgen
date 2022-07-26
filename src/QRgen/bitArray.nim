@@ -46,11 +46,11 @@ proc add*[T: uint16 | uint32 | uint64](b: var BitArray, val: T, len: uint8) =
   checkLen 32, uint32
 
   let
-    arrPos: uint32       = b.pos div 8
-    bytePos: uint8       = cast[uint8](b.pos mod 8)
-    bitsLeft: uint8      = 8 - bytePos
-    bytes: uint8         = (len - bitsLeft) div 8
-    remainingBits: uint8 = (len - bitsLeft) mod 8
+    arrPos:        uint32 = b.pos div 8
+    bytePos:       uint8  = cast[uint8](b.pos mod 8)
+    bitsLeft:      uint8  = 8 - bytePos
+    bytes:         uint8  = (len - bitsLeft) div 8
+    remainingBits: uint8  = (len - bitsLeft) mod 8
 
   if arrPos == cast[uint32](b.data.len): b.data.add 0'u8
 
