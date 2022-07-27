@@ -49,3 +49,9 @@ test "Character count indicator len":
   qr3.setMostEfficientMode
   qr3.version = 6
   check qr3.characterCountIndicatorLen() == 8
+
+test "Encoding":
+  let qr1 = newQRCode("8675309")
+  qr1.setMostEfficientMode
+  qr1.setSmallestVersion
+  qr1.encode

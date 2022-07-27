@@ -62,3 +62,57 @@ proc characterCountIndicatorLen*(qr: QRCode): uint8 =
     qrCases 14, 13, 16
   else:
     qrCases 12, 11, 16
+
+proc encode*(qr: QRCode) =
+  const zero: uint8  = cast[uint8]('0')
+
+  # Mode indicator
+  qr.encodedData.add cast[uint8](qr.mode), 4
+
+  # Character count indicator
+  qr.encodedData.add cast[uint16](qr.data.len), qr.characterCountIndicatorLen
+
+  case qr.mode
+  of qrNumericMode:
+    let
+      groups:           uint16 = cast[uint16](qr.data.len div 3)
+      charsLeft:        uint8  = cast[uint8](qr.data.len mod 3)
+      modeAndCountBits: uint16 = cast[uint16](qr.encodedData.pos)
+
+    # Encoded data
+    for i in 0'u16..<groups:
+      let
+        c1: uint16 = cast[uint8](qr.data[i*3]) - zero
+        c2: uint16 = cast[uint8](qr.data[i*3+1]) - zero
+        c3: uint16 = cast[uint8](qr.data[i*3+2]) - zero
+
+      qr.encodedData.add(
+        c1 * 100 + c2 * 10 + c3,
+        (if c1 == 0:
+           if c2 == 0: 0
+           else: 3
+         else: 6) + 4'u8
+      )
+      echo c1 * 100 + c2 * 10 + c3
+
+    if charsLeft == 1:
+      let c1: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
+      qr.encodedData.add c1, 4
+    elif charsLeft == 2:
+      let
+        c1: uint16 = cast[uint8](qr.data[qr.data.len-2]) - zero
+        c2: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
+      qr.encodedData.add c1 * 10 + c2, 7
+
+    let missingBits: uint16 = cast[uint8](
+      (eccCodewords[qr.eccLevel][qr.version] * 8) -
+      (cast[uint16](qr.encodedData.pos) - modeAndCountBits)
+    )
+
+    # Terminator
+    qr.encodedData.add 0b0000'u8, (if missingBits > 4: 4'u8
+                                   else: cast[uint8](missingBits))
+  of qrAlphanumericMode:
+    discard
+  of qrByteMode:
+    discard
