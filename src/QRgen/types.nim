@@ -1,5 +1,5 @@
 type
-  QRMode* = enum
+  QRMode* {.size: sizeof(uint8).} = enum
     qrNumericMode      = 0b0001,
     qrAlphanumericMode = 0b0010,
     qrByteMode         = 0b0100,
