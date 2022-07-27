@@ -37,8 +37,10 @@ proc add*[T: uint8 | uint16 | uint32 | uint64](b: var BitArray, val: T, len: uin
     val = val shr 8
 
   if len <= bitsLeft:
-    b.data[arrPos] += cast[uint8](val shl (bitsLeft - len))
+    let mask: uint8 = 0b11111111'u8 shr (8 - len)
+    b.data[arrPos] += cast[uint8]((val and mask) shl (bitsLeft - len))
   else:
-    b.data[arrPos] += cast[uint8](val)
+    let mask: uint8 = 0b11111111'u8 shr (8 - bitsLeft)
+    b.data[arrPos] += cast[uint8](val and mask)
 
   b.pos += len
