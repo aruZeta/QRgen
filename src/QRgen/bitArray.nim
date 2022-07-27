@@ -6,6 +6,12 @@ type
 proc newBitArray*(): BitArray =
   BitArray(pos: 0, data: @[])
 
+proc nextByte*(b: var BitArray, evenIfBlank: bool = false) =
+  let bytePos: uint8 = cast[uint8](b.pos mod 8)
+  b.pos += (if bytePos > 0: 8 - bytePos
+            elif evenIfBlank: 8'u8
+            else: 0'u8)
+
 proc add*[T: uint8 | uint16 | uint32 | uint64](b: var BitArray, val: T, len: uint8) =
   let tSize: uint8 = 8 * sizeof(T)
   if len > tSize:

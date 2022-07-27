@@ -68,3 +68,11 @@ test "Test masking":
                     0b00010000'u8,
                     0b01100001'u8,
                     0b10000000'u8]
+
+test "Moving to next byte":
+  var b = newBitArray()
+  b.add 0b1'u8, 1
+  b.nextByte
+  b.add 0b1'u8, 1
+
+  check b.data == @[0b10000000'u8, 0b10000000'u8]

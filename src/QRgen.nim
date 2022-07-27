@@ -112,6 +112,9 @@ proc encode*(qr: QRCode) =
     # Terminator
     qr.encodedData.add 0b0000'u8, (if missingBits > 4: 4'u8
                                    else: cast[uint8](missingBits))
+
+    # Fill the last byte
+    qr.encodedData.nextByte
   of qrAlphanumericMode:
     discard
   of qrByteMode:
