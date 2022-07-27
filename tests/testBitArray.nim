@@ -46,3 +46,13 @@ test "Passing types bigger than needed":
                     0b01011101'u8,
                     0b10011100'u8,
                     0b10000000'u8]
+
+test "Test which didn't pass before":
+  var b = newBitArray()
+  b.add 0b0001'u8, 4
+  b.add 0b0000000100'u16, 10
+  b.add 0b0001100'u8, 7
+
+  check b.data == @[0b00010000'u8,
+                    0b00010000'u8,
+                    0b01100000'u8]
