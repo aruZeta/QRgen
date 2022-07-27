@@ -114,6 +114,13 @@ proc encode*(qr: QRCode) =
     # Fill the last byte
     missingBits -= qr.encodedData.nextByte
 
+    # Add pad bytes to fill the missing bits
+    for _ in 1'u16..((missingBits div 8) div 2):
+      qr.encodedData.add 0b11101100'u8, 8
+      qr.encodedData.add 0b00010001'u8, 8
+
+    if ((missingBits div 8) mod 2) == 1:
+      qr.encodedData.add 0b11101100'u8, 8
   of qrAlphanumericMode:
     discard
   of qrByteMode:
