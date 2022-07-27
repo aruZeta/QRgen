@@ -77,7 +77,6 @@ proc encode*(qr: QRCode) =
     let
       groups:           uint16 = cast[uint16](qr.data.len div 3)
       charsLeft:        uint8  = cast[uint8](qr.data.len mod 3)
-      modeAndCountBits: uint16 = cast[uint16](qr.encodedData.pos)
 
     # Encoded data
     for i in 0'u16..<groups:
@@ -93,8 +92,6 @@ proc encode*(qr: QRCode) =
            else: 3
          else: 6) + 4'u8
       )
-      echo c1 * 100 + c2 * 10 + c3
-
     if charsLeft == 1:
       let c1: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
       qr.encodedData.add c1, 4
@@ -104,17 +101,19 @@ proc encode*(qr: QRCode) =
         c2: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
       qr.encodedData.add c1 * 10 + c2, 7
 
-    let missingBits: uint16 = cast[uint8](
-      (eccCodewords[qr.eccLevel][qr.version] * 8) -
-      (cast[uint16](qr.encodedData.pos) - modeAndCountBits)
+    var missingBits: uint16 = cast[uint8](
+      (eccCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
     )
 
     # Terminator
-    qr.encodedData.add 0b0000'u8, (if missingBits > 4: 4'u8
-                                   else: cast[uint8](missingBits))
+    let terminatorBits: uint8 = if missingBits > 4: 4'u8
+                                else: cast[uint8](missingBits)
+    qr.encodedData.add 0b0000'u8, terminatorBits
+    missingBits -= terminatorBits
 
     # Fill the last byte
-    qr.encodedData.nextByte
+    missingBits -= qr.encodedData.nextByte
+
   of qrAlphanumericMode:
     discard
   of qrByteMode:
