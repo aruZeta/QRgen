@@ -1,6 +1,6 @@
 type
   BitArray* = object
-    pos*: uint32
+    pos*: uint16
     data*: seq[uint8]
 
 proc newBitArray*(): BitArray =
@@ -22,7 +22,7 @@ proc add*[T: uint8 | uint16 | uint32 | uint64](b: var BitArray, val: T, len: uin
     )
 
   let
-    arrPos:        uint32 = b.pos div 8
+    arrPos:        uint16 = b.pos div 8
     bytePos:       uint8  = cast[uint8](b.pos mod 8)
     bitsLeft:      uint8  = 8 - bytePos
     bytes:         uint8  = if len <= bitsLeft: 0'u8
@@ -30,7 +30,7 @@ proc add*[T: uint8 | uint16 | uint32 | uint64](b: var BitArray, val: T, len: uin
     remainingBits: uint8  = if len <= bitsLeft: 0'u8
                             else: (len - bitsLeft) mod 8
 
-  if arrPos == cast[uint32](b.data.len): b.data.add 0'u8
+  if arrPos == cast[uint16](b.data.len): b.data.add 0'u8
 
   for _ in 1'u8..bytes: b.data.add 0'u8
 

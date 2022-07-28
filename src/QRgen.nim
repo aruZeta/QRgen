@@ -73,8 +73,8 @@ proc encode*(qr: QRCode) =
   case qr.mode
   of qrNumericMode:
     let
-      groups:           uint16 = cast[uint16](qr.data.len div 3)
-      charsLeft:        uint8  = cast[uint8](qr.data.len mod 3)
+      groups:    uint16 = cast[uint16](qr.data.len div 3)
+      charsLeft: uint8  = cast[uint8](qr.data.len mod 3)
 
     # Encoded data
     for i in 0'u16..<groups:
@@ -99,9 +99,8 @@ proc encode*(qr: QRCode) =
         c2: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
       qr.encodedData.add c1 * 10 + c2, 7
 
-    var missingBits: uint16 = cast[uint8](
+    var missingBits: uint16 =
       (eccCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
-    )
 
     # Terminator
     let terminatorBits: uint8 = if missingBits > 4: 4'u8
