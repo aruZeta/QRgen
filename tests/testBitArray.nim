@@ -1,5 +1,5 @@
 import unittest
-import QRgen/bitArray
+import QRgen/private/bitArray
 
 test "Simple bit array":
   var b = newBitArray()

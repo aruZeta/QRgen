@@ -1,6 +1,4 @@
-import QRgen/types
-import QRgen/capacities
-import QRgen/bitArray
+import QRgen/private/[types, capacities, bitArray]
 
 type
   QRCode* = ref object
