@@ -55,3 +55,23 @@ test "Encoding":
   qr1.setMostEfficientMode
   qr1.setSmallestVersion
   qr1.encode
+
+  check qr1.encodedData.data == @[0b00010000'u8,
+                                  0b00011111'u8,
+                                  0b01100011'u8,
+                                  0b10000100'u8,
+                                  0b10100100'u8,
+                                  0b00000000'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8,
+                                  0b11101100'u8]
