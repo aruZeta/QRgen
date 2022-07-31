@@ -70,6 +70,7 @@ proc encode*(qr: QRCode) =
   # Character count indicator
   qr.encodedData.add cast[uint16](qr.data.len), qr.characterCountIndicatorLen
 
+  # Mode specific data encoding
   case qr.mode
   of qrNumericMode:
     let
@@ -98,27 +99,27 @@ proc encode*(qr: QRCode) =
         c1: uint16 = cast[uint8](qr.data[qr.data.len-2]) - zero
         c2: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
       qr.encodedData.add c1 * 10 + c2, 7
-
-    var missingBits: uint16 =
-      (eccCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
-
-    # Terminator
-    let terminatorBits: uint8 = if missingBits > 4: 4'u8
-                                else: cast[uint8](missingBits)
-    qr.encodedData.add 0b0000'u8, terminatorBits
-    missingBits -= terminatorBits
-
-    # Fill the last byte
-    missingBits -= qr.encodedData.nextByte
-
-    # Add pad bytes to fill the missing bits
-    for _ in 1'u16..((missingBits div 8) div 2):
-      qr.encodedData.add 0b11101100'u8, 8
-      qr.encodedData.add 0b00010001'u8, 8
-
-    if ((missingBits div 8) mod 2) == 1:
-      qr.encodedData.add 0b11101100'u8, 8
   of qrAlphanumericMode:
     discard
   of qrByteMode:
     discard
+
+  var missingBits: uint16 =
+    (eccCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
+
+  # Terminator
+  let terminatorBits: uint8 = if missingBits > 4: 4'u8
+                              else: cast[uint8](missingBits)
+  qr.encodedData.add 0b0000'u8, terminatorBits
+  missingBits -= terminatorBits
+
+  # Fill the last byte
+  missingBits -= qr.encodedData.nextByte
+
+  # Add pad bytes to fill the missing bits
+  for _ in 1'u16..((missingBits div 8) div 2):
+    qr.encodedData.add 0b11101100'u8, 8
+    qr.encodedData.add 0b00010001'u8, 8
+
+  if ((missingBits div 8) mod 2) == 1:
+    qr.encodedData.add 0b11101100'u8, 8
