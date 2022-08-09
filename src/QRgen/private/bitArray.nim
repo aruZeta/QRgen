@@ -32,7 +32,8 @@ proc add*[T: uint8 | uint16 | uint32 | uint64](b: var BitArray, val: T, len: uin
 
   if arrPos == cast[uint16](b.data.len): b.data.add 0'u8
 
-  for _ in 1'u8..bytes: b.data.add 0'u8
+  if bytes > 0:
+    b.data.setLen(b.data.len + cast[int](bytes))
 
   if remBits > 0:
     b.data.add cast[uint8](val shl (8 - remBits))
