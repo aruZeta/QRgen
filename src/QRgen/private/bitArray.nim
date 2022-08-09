@@ -22,22 +22,22 @@ proc add*[T: uint8 | uint16 | uint32 | uint64](b: var BitArray, val: T, len: uin
     )
 
   let
-    arrPos:        uint16 = b.pos div 8
-    bytePos:       uint8  = cast[uint8](b.pos mod 8)
-    bitsLeft:      uint8  = 8 - bytePos
-    bytes:         uint8  = if len <= bitsLeft: 0'u8
-                            else: (len - bitsLeft) div 8
-    remainingBits: uint8  = if len <= bitsLeft: 0'u8
-                            else: (len - bitsLeft) mod 8
+    arrPos:   uint16 = b.pos div 8
+    bytePos:  uint8  = cast[uint8](b.pos mod 8)
+    bitsLeft: uint8  = 8 - bytePos
+    bytes:    uint8  = if len <= bitsLeft: 0'u8
+                       else: (len - bitsLeft) div 8
+    remBits:  uint8  = if len <= bitsLeft: 0'u8
+                       else: (len - bitsLeft) mod 8
 
   if arrPos == cast[uint16](b.data.len): b.data.add 0'u8
 
   for _ in 1'u8..bytes: b.data.add 0'u8
 
-  if remainingBits > 0:
-    b.data.add cast[uint8](val shl (8 - remainingBits))
+  if remBits > 0:
+    b.data.add cast[uint8](val shl (8 - remBits))
 
-  var val = val shr remainingBits
+  var val = val shr remBits
 
   for i in 0'u8..<bytes:
     b.data[arrPos + bytes - i] = cast[uint8](val)
