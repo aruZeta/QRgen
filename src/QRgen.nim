@@ -1,4 +1,4 @@
-import QRgen/private/[types, capacities, bitArray]
+import QRgen/private/[qrTypes, capacities, bitArray]
 
 type
   QRCode* = ref object
@@ -123,3 +123,5 @@ proc encode*(qr: QRCode) =
 
   if ((missingBits div 8) mod 2) == 1:
     qr.encodedData.add 0b11101100'u8, 8
+
+export qrTypes

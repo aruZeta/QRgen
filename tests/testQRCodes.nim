@@ -1,6 +1,5 @@
 import unittest
 import QRgen
-import QRgen/private/types
 
 test "Set most efficient mode":
   let qr1 = newQRCode("0123456789")

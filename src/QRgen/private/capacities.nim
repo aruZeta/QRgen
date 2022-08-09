@@ -1,4 +1,4 @@
-import types
+import qrTypes
 
 const
   numericModeCapacities*: QRModeCapacity = [
