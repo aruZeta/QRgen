@@ -10,10 +10,30 @@ type
     encodedData*: BitArray
 
 const
-  numericValues = {'0'..'9'}
-  alphaNumericValues = {
-    ' ', '$', '%', '*', '+', '-', '.', '/', ':', '0'..'9', 'A'..'Z'
-  }
+  numericValues      = {'0'..'9'}
+  alphaValues        = {'A'..'Z'}
+  symbolValues       = {' ', '$', '%', '*', '+', '-', '.', '/', ':'}
+  alphaNumericValues = symbolValues + numericValues + alphaValues
+
+proc getAlphanumeric(val: char): uint8 =
+  result = 0xFF'u8 # Means it is not an alphanumeric value
+
+  if val in numericValues:
+    result = cast[uint8](val) - cast[uint8]('0')
+  elif val in alphaValues:
+    result = cast[uint8](val) - cast[uint8]('A') + 10
+  elif val in symbolValues:
+    case val
+    of ' ': result = 36
+    of '$': result = 37
+    of '%': result = 38
+    of '*': result = 39
+    of '+': result = 40
+    of '-': result = 41
+    of '.': result = 42
+    of '/': result = 43
+    of ':': result = 44
+    else: discard
 
 proc newQRCode*(data: string,
                 version: QRVersion = 1,
@@ -62,8 +82,6 @@ proc characterCountIndicatorLen*(qr: QRCode): uint8 =
     qrCases 12, 11, 16
 
 proc encode*(qr: QRCode) =
-  const zero: uint8  = cast[uint8]('0')
-
   # Mode indicator
   qr.encodedData.add cast[uint8](qr.mode), 4
 
@@ -80,9 +98,9 @@ proc encode*(qr: QRCode) =
     # Encoded data
     for i in 0'u16..<groups:
       let
-        c1: uint16 = cast[uint8](qr.data[i*3]) - zero
-        c2: uint16 = cast[uint8](qr.data[i*3+1]) - zero
-        c3: uint16 = cast[uint8](qr.data[i*3+2]) - zero
+        c1: uint16 = qr.data[i*3].getAlphanumeric
+        c2: uint16 = qr.data[i*3+1].getAlphanumeric
+        c3: uint16 = qr.data[i*3+2].getAlphanumeric
 
       qr.encodedData.add(
         c1 * 100 + c2 * 10 + c3,
@@ -92,12 +110,12 @@ proc encode*(qr: QRCode) =
          else: 6) + 4'u8
       )
     if charsLeft == 1:
-      let c1: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
+      let c1: uint16 = qr.data[qr.data.len-1].getAlphanumeric
       qr.encodedData.add c1, 4
     elif charsLeft == 2:
       let
-        c1: uint16 = cast[uint8](qr.data[qr.data.len-2]) - zero
-        c2: uint16 = cast[uint8](qr.data[qr.data.len-1]) - zero
+        c1: uint16 = qr.data[qr.data.len-2].getAlphanumeric
+        c2: uint16 = qr.data[qr.data.len-1].getAlphanumeric
       qr.encodedData.add c1 * 10 + c2, 7
   of qrAlphanumericMode:
     discard
