@@ -93,3 +93,28 @@ test "Encoding":
                                   0b11101100'u8,
                                   0b00010001'u8,
                                   0b11101100'u8]
+
+  let qr3 = newQRCode("Hello, world!")
+  qr3.setMostEfficientMode
+  qr3.setSmallestVersion
+  qr3.encode
+
+  check qr3.encodedData.data == @[0b01000000'u8,
+                                  0b11010100'u8,
+                                  0b10000110'u8,
+                                  0b01010110'u8,
+                                  0b11000110'u8,
+                                  0b11000110'u8,
+                                  0b11110010'u8,
+                                  0b11000010'u8,
+                                  0b00000111'u8,
+                                  0b01110110'u8,
+                                  0b11110111'u8,
+                                  0b00100110'u8,
+                                  0b11000110'u8,
+                                  0b01000010'u8,
+                                  0b00010000'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8,
+                                  0b11101100'u8,
+                                  0b00010001'u8]

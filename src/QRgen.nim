@@ -1,4 +1,5 @@
 import QRgen/private/[qrTypes, capacities, bitArray]
+import std/encodings
 
 type
   QRCode* = ref object
@@ -129,7 +130,8 @@ proc encode*(qr: QRCode) =
     if charsLeft == 1:
       qr.encodedData.add qr.data[qr.data.len-1].getAlphanumeric, 6
   of qrByteMode:
-    discard
+    for c in convert(qr.data, "ISO 8859-1", "UTF-8"):
+      qr.encodedData.add cast[uint8](c), 8
 
   var missingBits: uint16 =
     (eccCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
