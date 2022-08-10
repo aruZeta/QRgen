@@ -1,4 +1,4 @@
-import unittest
+import std/unittest
 import QRgen/private/bitArray
 
 test "Simple bit array":

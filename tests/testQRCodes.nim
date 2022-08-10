@@ -1,4 +1,4 @@
-import unittest
+import std/unittest
 import QRgen
 
 test "Set most efficient mode":
