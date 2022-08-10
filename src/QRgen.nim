@@ -115,7 +115,19 @@ proc encode*(qr: QRCode) =
         c2: uint16 = qr.data[qr.data.len-1].getAlphanumeric
       qr.encodedData.add c1 * 10 + c2, 7
   of qrAlphanumericMode:
-    discard
+    let
+      groups:    uint16 = cast[uint16](qr.data.len div 2)
+      charsLeft: uint8  = cast[uint8](qr.data.len mod 2)
+
+    # Encoded data
+    for i in 0'u16..<groups:
+      let
+        c1: uint8 = qr.data[i*2].getAlphanumeric
+        c2: uint8  = qr.data[i*2+1].getAlphanumeric
+
+      qr.encodedData.add c1 * 45'u16 + c2, 11
+    if charsLeft == 1:
+      qr.encodedData.add qr.data[qr.data.len-1].getAlphanumeric, 6
   of qrByteMode:
     discard
 
