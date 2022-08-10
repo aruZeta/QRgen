@@ -15,25 +15,22 @@ const
   symbolValues       = {' ', '$', '%', '*', '+', '-', '.', '/', ':'}
   alphaNumericValues = symbolValues + numericValues + alphaValues
 
-proc getAlphanumeric(val: char): uint8 =
-  result = 0xFF'u8 # Means it is not an alphanumeric value
+proc getSymbolValue(symbol: char): uint8 =
+  const symbolValuesArr = [' ', '$', '%', '*', '+', '-', '.', '/', ':']
+  for i, val in symbolValuesArr:
+    if val == symbol:
+      return cast[uint8](i) + 36
 
-  if val in numericValues:
-    result = cast[uint8](val) - cast[uint8]('0')
-  elif val in alphaValues:
-    result = cast[uint8](val) - cast[uint8]('A') + 10
-  elif val in symbolValues:
-    case val
-    of ' ': result = 36
-    of '$': result = 37
-    of '%': result = 38
-    of '*': result = 39
-    of '+': result = 40
-    of '-': result = 41
-    of '.': result = 42
-    of '/': result = 43
-    of ':': result = 44
-    else: discard
+proc getAlphanumeric(val: char): uint8 =
+  result =
+    if val in numericValues:
+      cast[uint8](val) - cast[uint8]('0')
+    elif val in alphaValues:
+      cast[uint8](val) - cast[uint8]('A') + 10
+    elif val in symbolValues:
+      getSymbolValue val
+    else:
+      0xFF
 
 proc newQRCode*(data: string,
                 version: QRVersion = 1,
