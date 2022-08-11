@@ -14,12 +14,7 @@ type
 
   QRVersion* = range[1..40]
 
-  QRModeCapacity16* = array[
+  QRModeCapacity*[T: uint8 | uint16] = array[
     qrEccL..qrEccH,
-    array[QRVersion, uint16]
-  ]
-
-  QRModeCapacity8* = array[
-    qrEccL..qrEccH,
-    array[QRVersion, uint8]
+    array[QRVersion, T]
   ]

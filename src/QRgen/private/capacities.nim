@@ -1,7 +1,7 @@
 import qrTypes
 
 const
-  numericModeCapacities*: QRModeCapacity16 = [
+  numericModeCapacities*: QRModeCapacity[uint16] = [
     [ # ECC L
       41'u16, 77, 127, 187, 255, 322, 370, 461, 552, 652, 772, 883, 1022, 1101,
       1250, 1408, 1548, 1725, 1903, 2061, 2232, 2409, 2620, 2812, 3057, 3283,
@@ -28,7 +28,7 @@ const
     ]
   ]
 
-  alphanumericModeCapacities*: QRModeCapacity16 = [
+  alphanumericModeCapacities*: QRModeCapacity[uint16] = [
     [ # ECC L
       25'u16, 47, 77, 114, 154, 195, 224, 279, 335, 395, 468, 535, 619, 667,
       758, 854, 938, 1046, 1153, 1249, 1352, 1460, 1588, 1704, 1853, 1990, 2132,
@@ -52,7 +52,7 @@ const
     ]
   ]
 
-  byteModeCapacities*: QRModeCapacity16 = [
+  byteModeCapacities*: QRModeCapacity[uint16] = [
     [ # ECC L
       17'u16, 32, 53, 78, 106, 134, 154, 192, 230, 271, 321, 367, 425, 458, 520,
       586, 644, 718, 792, 858, 929, 1003, 1091, 1171, 1273, 1367, 1465, 1528,
@@ -75,7 +75,7 @@ const
     ]
   ]
 
-  totalDataCodewords*: QRModeCapacity16 = [
+  totalDataCodewords*: QRModeCapacity[uint16] = [
     [ # ECC L
       19'u16, 34, 55, 80, 108, 136, 156, 194, 232, 274, 324, 370, 428, 461,
       523, 589, 647, 721, 795, 861, 932, 1006, 1094, 1174, 1276, 1370, 1468,
@@ -99,7 +99,7 @@ const
     ]
   ]
 
-  group1Blocks*: QRModeCapacity8 = [
+  group1Blocks*: QRModeCapacity[uint8] = [
     [ # ECC L
       1'u8, 1, 1, 1, 1, 2, 2, 2, 2, 2, 4, 2, 4, 3, 5, 5, 1, 5, 3, 3, 4, 2, 4,
       6, 8, 10, 8, 3, 7, 5, 13, 17, 17, 13, 12, 6, 17, 4, 20, 19
@@ -119,7 +119,7 @@ const
     ]
   ]
 
-  group1BlockDataCodewords*: QRModeCapacity8 = [
+  group1BlockDataCodewords*: QRModeCapacity[uint8] = [
     [
       19'u8, 34, 55, 80, 108, 68, 78, 97, 116, 68, 81, 92, 107, 115, 87, 98,
       107, 120, 113, 107, 116, 111, 121, 117, 106, 114, 122, 117, 116, 115,
@@ -142,7 +142,7 @@ const
     ]
   ]
 
-  group2Blocks*: QRModeCapacity8 = [
+  group2Blocks*: QRModeCapacity[uint8] = [
     [
       0'u8, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 1, 1, 1, 5, 1, 4, 5, 4, 7, 5,
       4, 4, 2, 4, 10, 7, 10, 3, 0, 1, 6, 7, 14, 4, 18, 4, 6
@@ -161,7 +161,7 @@ const
     ]
   ]
 
-  group2BlockDataCodewords*: QRModeCapacity8 = [
+  group2BlockDataCodewords*: QRModeCapacity[uint8] = [
     [
       0'u8, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 93, 0, 116, 88, 99, 108, 121, 114,
       108, 117, 112, 122, 118, 107, 115, 123, 118, 117, 116, 116, 0, 116, 116,
@@ -184,7 +184,7 @@ const
     ]
   ]
 
-  blockECCodewords*: QRModeCapacity8 = [
+  blockECCodewords*: QRModeCapacity[uint8] = [
     [
       7'u8, 10, 15, 20, 26, 18, 20, 24, 30, 18, 20, 24, 26, 30, 22, 24, 28, 30,
       28, 28, 28, 28, 30, 30, 26, 28, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30,
