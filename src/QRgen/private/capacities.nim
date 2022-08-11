@@ -1,7 +1,7 @@
 import qrTypes
 
 const
-  numericModeCapacities*: QRModeCapacity = [
+  numericModeCapacities*: QRModeCapacity16 = [
     [ # ECC L
       41'u16, 77, 127, 187, 255, 322, 370, 461, 552, 652, 772, 883, 1022, 1101,
       1250, 1408, 1548, 1725, 1903, 2061, 2232, 2409, 2620, 2812, 3057, 3283,
@@ -28,7 +28,7 @@ const
     ]
   ]
 
-  alphanumericModeCapacities*: QRModeCapacity = [
+  alphanumericModeCapacities*: QRModeCapacity16 = [
     [ # ECC L
       25'u16, 47, 77, 114, 154, 195, 224, 279, 335, 395, 468, 535, 619, 667,
       758, 854, 938, 1046, 1153, 1249, 1352, 1460, 1588, 1704, 1853, 1990, 2132,
@@ -52,7 +52,7 @@ const
     ]
   ]
 
-  byteModeCapacities*: QRModeCapacity = [
+  byteModeCapacities*: QRModeCapacity16 = [
     [ # ECC L
       17'u16, 32, 53, 78, 106, 134, 154, 192, 230, 271, 321, 367, 425, 458, 520,
       586, 644, 718, 792, 858, 929, 1003, 1091, 1171, 1273, 1367, 1465, 1528,
@@ -75,7 +75,7 @@ const
     ]
   ]
 
-  totalDataCodewords*: QRModeCapacity = [
+  totalDataCodewords*: QRModeCapacity16 = [
     [ # ECC L
       19'u16, 34, 55, 80, 108, 136, 156, 194, 232, 274, 324, 370, 428, 461,
       523, 589, 647, 721, 795, 861, 932, 1006, 1094, 1174, 1276, 1370, 1468,
