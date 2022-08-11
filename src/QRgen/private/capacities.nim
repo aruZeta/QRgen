@@ -75,7 +75,7 @@ const
     ]
   ]
 
-  eccCodewords*: QRModeCapacity = [
+  totalDataCodewords*: QRModeCapacity = [
     [ # ECC L
       19'u16, 34, 55, 80, 108, 136, 156, 194, 232, 274, 324, 370, 428, 461,
       523, 589, 647, 721, 795, 861, 932, 1006, 1094, 1174, 1276, 1370, 1468,

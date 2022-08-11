@@ -134,7 +134,7 @@ proc encode*(qr: QRCode) =
       qr.encodedData.add cast[uint8](c), 8
 
   var missingBits: uint16 =
-    (eccCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
+    (totalDataCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
 
   # Terminator
   let terminatorBits: uint8 = if missingBits > 4: 4'u8
