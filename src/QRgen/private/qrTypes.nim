@@ -18,3 +18,8 @@ type
     qrEccL..qrEccH,
     array[QRVersion, uint16]
   ]
+
+  QRModeCapacity8* = array[
+    qrEccL..qrEccH,
+    array[QRVersion, uint8]
+  ]
