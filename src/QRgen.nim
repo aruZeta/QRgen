@@ -10,6 +10,8 @@ type
     version*: QRVersion
     encodedData*: BitArray
 
+template `[]`[T: uint8 | uint16](capacity: QRCapacity[T], qr: QRCode): T =
+  capacity[qr.eccLevel][qr.version]
 
 proc newQRCode*(data: string,
                 version: QRVersion = 1,
@@ -112,7 +114,7 @@ proc encode*(qr: QRCode) =
       qr.encodedData.add cast[uint8](c), 8
 
   var missingBits: uint16 =
-    (totalDataCodewords[qr.eccLevel][qr.version] * 8) - qr.encodedData.pos
+    (totalDataCodewords[qr] * 8) - qr.encodedData.pos
 
   # Terminator
   let terminatorBits: uint8 = if missingBits > 4: 4'u8
