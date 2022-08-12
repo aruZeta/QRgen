@@ -1,4 +1,4 @@
-import QRgen/private/[qrTypes, capacities, bitArray]
+import QRgen/private/[qrTypes, qrCapacities, bitArray, qrCharacters]
 import std/encodings
 
 type
@@ -10,28 +10,6 @@ type
     version*: QRVersion
     encodedData*: BitArray
 
-const
-  numericValues      = {'0'..'9'}
-  alphaValues        = {'A'..'Z'}
-  symbolValues       = {' ', '$', '%', '*', '+', '-', '.', '/', ':'}
-  alphaNumericValues = symbolValues + numericValues + alphaValues
-
-proc getSymbolValue(symbol: char): uint8 =
-  const symbolValuesArr = [' ', '$', '%', '*', '+', '-', '.', '/', ':']
-  for i, val in symbolValuesArr:
-    if val == symbol:
-      return cast[uint8](i) + 36
-
-proc getAlphanumeric(val: char): uint8 =
-  result =
-    if val in numericValues:
-      cast[uint8](val) - cast[uint8]('0')
-    elif val in alphaValues:
-      cast[uint8](val) - cast[uint8]('A') + 10
-    elif val in symbolValues:
-      getSymbolValue val
-    else:
-      0xFF
 
 proc newQRCode*(data: string,
                 version: QRVersion = 1,
@@ -96,9 +74,9 @@ proc encode*(qr: QRCode) =
     # Encoded data
     for i in 0'u16..<groups:
       let
-        c1: uint16 = qr.data[i*3].getAlphanumeric
-        c2: uint16 = qr.data[i*3+1].getAlphanumeric
-        c3: uint16 = qr.data[i*3+2].getAlphanumeric
+        c1: uint16 = getAlphanumericValue qr.data[i*3]
+        c2: uint16 = getAlphanumericValue qr.data[i*3+1]
+        c3: uint16 = getAlphanumericValue qr.data[i*3+2]
 
       qr.encodedData.add(
         c1 * 100 + c2 * 10 + c3,
@@ -108,12 +86,12 @@ proc encode*(qr: QRCode) =
          else: 6) + 4'u8
       )
     if charsLeft == 1:
-      let c1: uint16 = qr.data[qr.data.len-1].getAlphanumeric
+      let c1: uint16 = getAlphanumericValue qr.data[qr.data.len-1]
       qr.encodedData.add c1, 4
     elif charsLeft == 2:
       let
-        c1: uint16 = qr.data[qr.data.len-2].getAlphanumeric
-        c2: uint16 = qr.data[qr.data.len-1].getAlphanumeric
+        c1: uint16 = getAlphanumericValue qr.data[qr.data.len-2]
+        c2: uint16 = getAlphanumericValue qr.data[qr.data.len-1]
       qr.encodedData.add c1 * 10 + c2, 7
   of qrAlphanumericMode:
     let
@@ -123,12 +101,12 @@ proc encode*(qr: QRCode) =
     # Encoded data
     for i in 0'u16..<groups:
       let
-        c1: uint8 = qr.data[i*2].getAlphanumeric
-        c2: uint8  = qr.data[i*2+1].getAlphanumeric
+        c1: uint8 = getAlphanumericValue qr.data[i*2]
+        c2: uint8 = getAlphanumericValue qr.data[i*2+1]
 
       qr.encodedData.add c1 * 45'u16 + c2, 11
     if charsLeft == 1:
-      qr.encodedData.add qr.data[qr.data.len-1].getAlphanumeric, 6
+      qr.encodedData.add getAlphanumericValue(qr.data[qr.data.len-1]), 6
   of qrByteMode:
     for c in convert(qr.data, "ISO 8859-1", "UTF-8"):
       qr.encodedData.add cast[uint8](c), 8
