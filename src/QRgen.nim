@@ -133,4 +133,29 @@ proc encode*(qr: QRCode) =
   if ((missingBits div 8) mod 2) == 1:
     qr.encodedData.add 0b11101100'u8, 8
 
+proc interleave*(qr: QRCode) =
+  if group1Blocks[qr] == 1 and group2Blocks[qr] == 0:
+    return
+
+  # What a mess
+  iterator codewordPositions: uint16 {.inline.} =
+    for i in 0'u8..<max(group1BlockDataCodewords[qr],
+                        group2BlockDataCodewords[qr]):
+      if i < group1BlockDataCodewords[qr]:
+        for j in 0'u8..<group1Blocks[qr]:
+          yield j * group1BlockDataCodewords[qr] + i
+
+      if i < group2BlockDataCodewords[qr]:
+        for j in 0'u8..<group2Blocks[qr]:
+          yield group1Blocks[qr] * group1BlockDataCodewords[qr] +
+            j * group2BlockDataCodewords[qr] + i
+
+  var
+    dataCopy: seq[uint8] = qr.encodedData.data
+    i: int16 = 0
+
+  for pos in codewordPositions():
+    qr.encodedData.data[i] = dataCopy[pos]
+    inc i
+
 export qrTypes
