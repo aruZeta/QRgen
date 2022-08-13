@@ -139,16 +139,17 @@ proc interleave*(qr: QRCode) =
 
   # What a mess
   iterator codewordPositions: uint16 {.inline.} =
-    for i in 0'u8..<max(group1BlockDataCodewords[qr],
-                        group2BlockDataCodewords[qr]):
-      if i < group1BlockDataCodewords[qr]:
-        for j in 0'u8..<group1Blocks[qr]:
-          yield j * group1BlockDataCodewords[qr] + i
+    template g1c: uint8 = group1BlockDataCodewords[qr]
+    template g2c: uint8 = group2BlockDataCodewords[qr]
 
-      if i < group2BlockDataCodewords[qr]:
+    for i in 0'u8..<max(g1c, g2c):
+      if i < g1c:
+        for j in 0'u8..<group1Blocks[qr]:
+          yield j * g1c + i
+
+      if i < g2c:
         for j in 0'u8..<group2Blocks[qr]:
-          yield group1Blocks[qr] * group1BlockDataCodewords[qr] +
-            j * group2BlockDataCodewords[qr] + i
+          yield group1Blocks[qr] * g1c + j * g2c + i
 
   var
     dataCopy: seq[uint8] = qr.encodedData.data
