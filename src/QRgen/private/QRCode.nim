@@ -1,5 +1,4 @@
 import qrTypes, qrCharacters, qrCapacities
-import std/options
 
 type
   QRCode* = object
@@ -38,18 +37,26 @@ proc calcSmallestVersion(mode: QRMode,
     "The data can't fit in any QR code version"
   )
 
+type Nothing = object
+
 proc newQRCode*(data: string,
-                mode: Option[QRMode] = none(QRMode),
-                version: Option[QRVersion] = none(QRVersion),
+                mode: QRMode | Nothing = Nothing(),
+                version: QRVersion | Nothing = Nothing(),
                 eccLevel: QRErrorCorrectionLevel = qrEccL
                ): QRCode =
   let
     mode: QRMode =
-      if mode.isNone: calcMostEfficientMode data
-      else: get mode
+      when mode is Nothing: calcMostEfficientMode data
+      else: mode
     version: QRVersion =
-      if version.isNone: calcSmallestVersion mode, eccLevel, data
-      else: get version
+      when version is Nothing: calcSmallestVersion mode, eccLevel, data
+      else:
+        if data.len > getCapacities(mode)[eccLevel][version]:
+          raise newException(
+            DataSizeDefect,
+            "The data can't fit in the specified QR code version"
+          )
+        else: version
 
   QRCode(mode: mode, version: version, eccLevel: eccLevel, data: data)
 
