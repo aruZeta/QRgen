@@ -2,7 +2,7 @@ from qrTypes import QRErrorCorrectionLevel, QRVersion
 
 type
   QRCapacity*[T: uint8 | uint16] = array[
-    qrEccL..qrEccH,
+    QRErrorCorrectionLevel,
     array[QRVersion, T]
   ]
 

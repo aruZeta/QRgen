@@ -6,7 +6,7 @@ type
     # qrECIMode   = 0b0111 (Extended Channel Interpretation) not supported
     # qrKanjiMode = 0b1000                                   not supported
 
-  QRErrorCorrectionLevel* = enum
+  QRErrorCorrectionLevel* {.size: sizeof(uint8).} = enum
     qrEccL, #  7% data recovery
     qrEccM, # 15% data recovery
     qrEccQ, # 25% data recovery
