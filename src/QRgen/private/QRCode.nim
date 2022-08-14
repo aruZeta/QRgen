@@ -8,6 +8,8 @@ type
     eccLevel*: QRErrorCorrectionLevel
     data*: string
 
+  DataSizeDefect = object of Defect
+
 proc getCapacities(mode: QRMode): QRCapacity[uint16] =
   case mode
   of qrNumericMode:      numericModeCapacities
@@ -29,6 +31,12 @@ proc calcSmallestVersion(mode: QRMode,
   for i, version in getCapacities(mode)[eccLevel]:
     if cast[uint16](data.len) <= version:
       return i
+
+  result = high(QRVersion)
+  raise newException(
+    DataSizeDefect,
+    "The data can't fit in any QR code version"
+  )
 
 proc newQRCode*(data: string,
                 mode: Option[QRMode] = none(QRMode),
