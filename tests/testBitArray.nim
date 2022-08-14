@@ -76,3 +76,10 @@ test "Moving to next byte":
   b.add 0b1'u8, 1
 
   check b.data == @[0b10000000'u8, 0b10000000'u8]
+
+test "Adding 0 bits":
+  var b = newBitArray()
+  b.add 0b11111111'u8, 8
+  b.add 0b00000000'u8, 0
+
+  check b.data == @[0b11111111'u8]

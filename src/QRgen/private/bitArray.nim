@@ -20,6 +20,8 @@ proc add*[T: uint8 | uint16 | uint32 | uint64](b: var BitArray, val: T, len: uin
       RangeDefect,
       "len can't be bigger than " & $tSize & " in a " & $T
     )
+  elif len == 0:
+    return
 
   let
     arrPos:   uint16 = b.pos div 8
