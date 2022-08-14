@@ -162,4 +162,7 @@ proc interleave*(qr: QRCode) =
 proc addRemainderBits*(qr: QRCode) =
   qr.encodedData.add 0b00000000'u8, remainderBits[qr.version]
 
+proc calculateSideSize*(qr: QRCode) =
+  qr.sideSize = (cast[uint8](qr.version) - 1) * 4 + 21
+
 export qrTypes

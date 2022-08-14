@@ -157,3 +157,9 @@ test "Remainder bits":
 
   # 7 bits were added
   check qr1.encodedData.pos mod 8 == 7
+
+test "Calculate side size":
+  let qr1 = newQRCode("", version = 32)
+  qr1.calculateSideSize
+
+  check qr1.sideSize == 145
