@@ -8,6 +8,12 @@ type
     eccLevel*: QRErrorCorrectionLevel
     data*: string
 
+proc getCapacities(mode: QRMode): QRCapacity[uint16] =
+  case mode
+  of qrNumericMode:      numericModeCapacities
+  of qrAlphanumericMode: alphanumericModeCapacities
+  of qrByteMode:         byteModeCapacities
+
 proc calcMostEfficientMode(data: string): QRMode =
   result = qrNumericMode
   for c in data:
@@ -20,13 +26,8 @@ proc calcMostEfficientMode(data: string): QRMode =
 proc calcSmallestVersion(mode: QRMode,
                          eccLevel: QRErrorCorrectionLevel,
                          data: string): QRVersion =
-  for i, version in (
-    case mode
-    of qrNumericMode: numericModeCapacities[eccLevel]
-    of qrAlphanumericMode: alphanumericModeCapacities[eccLevel]
-    of qrByteMode: byteModeCapacities[eccLevel]
-  ):
-    if cast[uint16](data.len) < version:
+  for i, version in getCapacities(mode)[eccLevel]:
+    if cast[uint16](data.len) <= version:
       return i
 
 proc newQRCode*(data: string,
@@ -55,12 +56,7 @@ proc setMostEfficientMode*(qr: var QRCode) =
       qr.mode = qrAlphanumericMode
 
 proc setSmallestVersion*(qr: var QRCode) =
-  for i, version in (
-    case qr.mode
-    of qrNumericMode: numericModeCapacities[qr.eccLevel]
-    of qrAlphanumericMode: alphanumericModeCapacities[qr.eccLevel]
-    of qrByteMode: byteModeCapacities[qr.eccLevel]
-  ):
+  for i, version in getCapacities(qr.mode)[qr.eccLevel]:
     if cast[uint16](qr.data.len) < version:
       qr.version = i
       return
