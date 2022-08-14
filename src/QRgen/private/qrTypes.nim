@@ -12,5 +12,5 @@ type
     qrEccQ, # 25% data recovery
     qrEccH  # 30% data recovery
 
-  QRVersion* = range[1..40]
+  QRVersion* = range[1'u8..40'u8]
 
