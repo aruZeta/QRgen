@@ -37,28 +37,32 @@ proc calcSmallestVersion(mode: QRMode,
     "The data can't fit in any QR code version"
   )
 
-type Nothing = object
-
 proc newQRCode*(data: string,
-                mode: QRMode | Nothing = Nothing(),
-                version: QRVersion | Nothing = Nothing(),
-                eccLevel: QRErrorCorrectionLevel = qrEccL
-               ): QRCode =
-  let
-    mode: QRMode =
-      when mode is Nothing: calcMostEfficientMode data
-      else: mode
-    version: QRVersion =
-      when version is Nothing: calcSmallestVersion mode, eccLevel, data
-      else:
-        if data.len > getCapacities(mode)[eccLevel][version]:
-          raise newException(
-            DataSizeDefect,
-            "The data can't fit in the specified QR code version"
-          )
-        else: version
+                mode: QRMode,
+                version: QRVersion,
+                eccLevel: QRErrorCorrectionLevel = qrEccL): QRCode =
+  if cast[uint16](data.len) > getCapacities(mode)[eccLevel][version]:
+    raise newException(
+      DataSizeDefect,
+      "The data can't fit in the specified QR code version"
+    )
 
   QRCode(mode: mode, version: version, eccLevel: eccLevel, data: data)
+
+proc newQRCode*(data: string,
+                version: QRVersion,
+                eccLevel: QRErrorCorrectionLevel = qrEccL): QRCode =
+  newQRCode(data, calcMostEfficientMode data, version, eccLevel)
+
+proc newQRCode*(data: string,
+                mode: QRMode,
+                eccLevel: QRErrorCorrectionLevel = qrEccL): QRCode =
+  newQRCode(data, mode, calcSmallestVersion(mode, eccLevel, data), eccLevel)
+
+proc newQRCode*(data: string,
+                eccLevel: QRErrorCorrectionLevel = qrEccL): QRCode =
+  let mode = calcMostEfficientMode data
+  newQRCode(data, mode, calcSmallestVersion(mode, eccLevel, data), eccLevel)
 
 # The same as the calc procs but meant to be used in var QRCode
 proc setMostEfficientMode*(qr: var QRCode) =
