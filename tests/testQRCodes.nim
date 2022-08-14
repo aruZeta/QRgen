@@ -34,19 +34,16 @@ test "Set smallest version":
   check qr3.version == 4 # The accented characters count by 2
 
 test "Character count indicator len":
-  let qr1 = newQRCode("0123")
+  let qr1 = newQRCode("0123", version = 28)
   qr1.setMostEfficientMode
-  qr1.version = 28
   check qr1.characterCountIndicatorLen() == 14
 
-  let qr2 = newQRCode("0 TEST ALPHANUMERIC 9")
+  let qr2 = newQRCode("0 TEST ALPHANUMERIC 9", version = 15)
   qr2.setMostEfficientMode
-  qr2.version = 15
   check qr2.characterCountIndicatorLen() == 11
 
-  let qr3 = newQRCode("012 Tésting byté modé 789")
+  let qr3 = newQRCode("012 Tésting byté modé 789", version = 6)
   qr3.setMostEfficientMode
-  qr3.version = 6
   check qr3.characterCountIndicatorLen() == 8
 
 test "Encoding":
@@ -120,9 +117,7 @@ test "Encoding":
                                   0b00010001'u8]
 
 test "Interleaving":
-  let qr1 = newQRCode("")
-  qr1.version = 5
-  qr1.eccLevel = qrEccQ
+  let qr1 = newQRCode("", version = 5, eccLevel = qrEccQ)
 
   qr1.encodedData.data = @[
     67'u8,85,70,134,87,38,85,194,119,50,6,18,6,103,38,246,246,66,7,118,134,242,
@@ -139,9 +134,7 @@ test "Interleaving":
   ]
 
 test "Remainder bits":
-  let qr1 = newQRCode("")
-  qr1.version = 5
-  qr1.eccLevel = qrEccQ
+  let qr1 = newQRCode("", version = 5, eccLevel = qrEccQ)
 
   qr1.encodedData.data = @[
     67'u8,85,70,134,87,38,85,194,119,50,6,18,6,103,38,246,246,66,7,118,134,242,
