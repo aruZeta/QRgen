@@ -159,4 +159,7 @@ proc interleave*(qr: QRCode) =
     qr.encodedData.data[i] = dataCopy[pos]
     inc i
 
+proc addRemainderBits*(qr: QRCode) =
+  qr.encodedData.add 0b00000000'u8, remainderBits[qr.version]
+
 export qrTypes
