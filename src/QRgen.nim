@@ -1,4 +1,4 @@
-import QRgen/private/[qrTypes, qrCapacities, bitArray, qrCharacters]
+import QRgen/private/[BitArray, qrTypes, qrCapacities, qrCharacters]
 import std/encodings
 
 type
