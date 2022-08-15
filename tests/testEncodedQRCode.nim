@@ -11,7 +11,7 @@ test "charCountIndicatorLen(mode, version)":
   let qr3 = newQRCode("012 Tésting byté modé 789", version = 6)
   check charCountIndicatorLen(qr3.mode, qr3.version) == 8
 
-test "Encoding QRCode":
+test "encodeOnly(QRCode)":
   let qr1 = encodeOnly newQRCode("8675309")
 
   check qr1.encodedData.data == @[0b00010000'u8,
@@ -73,7 +73,7 @@ test "Encoding QRCode":
                                   0b11101100'u8,
                                   0b00010001'u8]
 
-test "Interleaving":
+test "interleaveData(EncodedQRCode, eccLevel)":
   var qr1 = newEncodedQRCode(5, eccLevel = qrEccQ)
 
   qr1.encodedData.data = @[
