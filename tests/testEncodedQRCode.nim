@@ -64,7 +64,7 @@ test "Encoding QRCode":
                                          0b00010001'u8]
 
 test "Interleaving":
-  var encodedQr1 = newEncodedQRCode(5)
+  var encodedQr1 = newEncodedQRCode(5, eccLevel = qrEccQ)
 
   encodedQr1.encodedData.data = @[
     67'u8,85,70,134,87,38,85,194,119,50,6,18,6,103,38,246,246,66,7,118,134,242,
