@@ -1,7 +1,8 @@
 type
   Drawing* = object
-    matrix: seq[uint8]
-    size: uint8
+    matrix*: seq[uint8]
+    size*: uint8
+
   DrawingPrint* = enum
     dpTerminal
 
