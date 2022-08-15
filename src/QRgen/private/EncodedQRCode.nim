@@ -12,19 +12,23 @@ type
 proc encodeModeIndicator(qr: var EncodedQRCode, mode: QRMode) =
   qr.encodedData.add cast[uint8](mode), 4
 
-proc encodeCharCountIndicator(qr: var EncodedQRCode,
-                              mode: QRMode,
-                              data: string) =
+proc charCountIndicatorLen*(mode: QRMode, version: QRVersion): uint8 =
   template qrCases(numericVal, alphanumericVal, byteVal: uint8): uint8 =
     case mode
     of qrNumericMode:      numericVal
     of qrAlphanumericMode: alphanumericVal
     of qrByteMode:         byteVal
 
-  qr.encodedData.add cast[uint16](data.len), (
-    if qr.version <= 9:    qrCases 10, 9, 8
-    elif qr.version >= 27: qrCases 14, 13, 16
-    else:                  qrCases 12, 11, 16
+  if version <= 9:    qrCases 10, 9, 8
+  elif version >= 27: qrCases 14, 13, 16
+  else:                qrCases 12, 11, 16
+
+proc encodeCharCountIndicator*(qr: var EncodedQRCode,
+                               mode: QRMode,
+                               data: string) =
+  qr.encodedData.add(
+    cast[uint16](data.len),
+    charCountIndicatorLen(mode, qr.version)
   )
 
 proc encodeNumericModeData(qr: var EncodedQRCode, data: string) =
@@ -143,7 +147,19 @@ proc newEncodedQRCode*(version:  QRVersion,
 
   EncodedQRCode(version: version,
                 encodedData: newBitArray(dataSize),
-                eccCodewords: newBitArray(eccSize)) 
+                eccCodewords: newBitArray(eccSize))
+
+proc newEncodedQRCode*(qr: QRCode): EncodedQRCode =
+  let
+    dataSize: uint16 = totalDataCodewords[qr.eccLevel][qr.version]
+    eccSize:  uint16 = (0'u16 +
+                        group1Blocks[qr.eccLevel][qr.version] +
+                        group2Blocks[qr.eccLevel][qr.version]) *
+                       blockECCodewords[qr.eccLevel][qr.version]
+
+  EncodedQRCode(version: qr.version,
+                encodedData: newBitArray(dataSize),
+                eccCodewords: newBitArray(eccSize))
 
 proc encode*(qr: QRCode): EncodedQRCode =
   result = newEncodedQRCode(qr.version, qr.eccLevel)

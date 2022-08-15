@@ -1,6 +1,16 @@
 import std/unittest
 import QRgen/private/[QRCode, EncodedQRCode, qrTypes]
 
+test "charCountIndicatorLen(mode, version)":
+  let qr1 = newQRCode("0123", version = 28)
+  check charCountIndicatorLen(qr1.mode, qr1.version) == 14
+
+  let qr2 = newQRCode("0 TEST ALPHANUMERIC 9", version = 15)
+  check charCountIndicatorLen(qr2.mode, qr2.version) == 11
+
+  let qr3 = newQRCode("012 Tésting byté modé 789", version = 6)
+  check charCountIndicatorLen(qr3.mode, qr3.version) == 8
+
 test "Encoding QRCode":
   let qr1 = encodeOnly newQRCode("8675309")
 
