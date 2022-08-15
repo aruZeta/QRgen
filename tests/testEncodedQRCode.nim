@@ -1,6 +1,68 @@
 import std/unittest
 import QRgen/private/[QRCode, EncodedQRCode, qrTypes]
 
+test "Encoding QRCode":
+  let encodedQr1 = encodeOnly newQRCode("8675309")
+
+  check encodedQr1.encodedData.data == @[0b00010000'u8,
+                                         0b00011111'u8,
+                                         0b01100011'u8,
+                                         0b10000100'u8,
+                                         0b10100100'u8,
+                                         0b00000000'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8]
+
+
+  let encodedQr2 = encodeOnly newQRCode("HELLO WORLD", eccLevel = qrEccQ)
+
+  check encodedQr2.encodedData.data == @[0b00100000'u8,
+                                         0b01011011'u8,
+                                         0b00001011'u8,
+                                         0b01111000'u8,
+                                         0b11010001'u8,
+                                         0b01110010'u8,
+                                         0b11011100'u8,
+                                         0b01001101'u8,
+                                         0b01000011'u8,
+                                         0b01000000'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8]
+
+  let encodedQr3 = encodeOnly newQRCode("Hello, world!")
+
+  check encodedQr3.encodedData.data == @[0b01000000'u8,
+                                         0b11010100'u8,
+                                         0b10000110'u8,
+                                         0b01010110'u8,
+                                         0b11000110'u8,
+                                         0b11000110'u8,
+                                         0b11110010'u8,
+                                         0b11000010'u8,
+                                         0b00000111'u8,
+                                         0b01110110'u8,
+                                         0b11110111'u8,
+                                         0b00100110'u8,
+                                         0b11000110'u8,
+                                         0b01000010'u8,
+                                         0b00010000'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8,
+                                         0b11101100'u8,
+                                         0b00010001'u8]
+
 test "Interleaving":
   var encodedQr1 = newEncodedQRCode(5)
 

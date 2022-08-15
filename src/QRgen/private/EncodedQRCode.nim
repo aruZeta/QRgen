@@ -155,3 +155,15 @@ proc encode*(qr: QRCode): EncodedQRCode =
   # Calculate ECC codewords and add them
   result.interleaveData qr.eccLevel
   result.calcRemainderBits
+
+proc encodeOnly*(qr: QRCode): EncodedQRCode =
+  ## The same as `encode` but without interleaving.
+  ## Meant for testing
+  result = newEncodedQRCode(qr.version, qr.eccLevel)
+
+  result.encodeModeIndicator qr.mode
+  result.encodeCharCountIndicator qr.mode, qr.data
+  result.encodeData qr.mode, qr.data
+  result.finishEncoding qr.eccLevel
+  # Calculate ECC codewords and add them
+  result.calcRemainderBits
