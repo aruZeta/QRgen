@@ -6,7 +6,7 @@ type
     dpTerminal
 
 proc newDrawing*(size: uint8): Drawing =
-  Drawing(matrix: newSeq[uint8]((size * size) div 8 + 1),
+  Drawing(matrix: newSeq[uint8]((cast[uint16](size) * size) div 8 + 1),
           size: size)
 
 proc `[]=`(d: var Drawing, y, x: uint8, val: bool) =
@@ -27,14 +27,17 @@ proc fillRectangle*(d: var Drawing, width, height: Slice[uint8]) =
     for x in width:
       d[y, x] = true
 
-template fillRectangle*(d: var Drawing, width, height: uint8) =
-  fillRectangle(d, 0'u8..width, 0'u8..height)
-
 template fillRectangle*(d: var Drawing, width: Slice[uint8], height: uint8) =
-  fillRectangle(d, width, 0'u8..height)
+  fillRectangle(d, width, height..height)
 
 template fillRectangle*(d: var Drawing, width: uint8, height: Slice[uint8]) =
-  fillRectangle(d, 0'u8..width, height)
+  fillRectangle(d, width..width, height)
+
+template fillRectangle*(d: var Drawing, size: Slice[uint8]) =
+  fillRectangle(d, size, size)
+
+template fillPoint*(d: var Drawing, width, height: uint8) =
+  fillRectangle(d, width..width, height..height)
 
 template fillRow*(d: var Drawing, row: uint8) =
   fillRectangle(d, 0'u8..d.size-1, row..row)
