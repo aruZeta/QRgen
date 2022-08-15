@@ -5,7 +5,8 @@ type
   EncodedQRCode* = object
     version*: QRVersion # Needed for drawing the QR code
     encodedData*: BitArray
-    eccCodewords*: BitArray # Yet to implement the algorithm to generate them
+    # Yet to implement the algorithm to generate them
+    eccCodewords*: BitArray
     remainderBits*: uint8
 
 proc encodeModeIndicator(qr: var EncodedQRCode, mode: QRMode) =
@@ -130,13 +131,22 @@ proc interleaveData*(qr: var EncodedQRCode, eccLevel: QRErrorCorrectionLevel) =
 proc calcRemainderBits(qr: var EncodedQRCode) =
   qr.remainderBits = remainderBits[qr.version]
 
-proc newEncodedQRCode*(version: QRVersion): EncodedQRCode =
+proc newEncodedQRCode*(version:  QRVersion,
+                       eccLevel: QRErrorCorrectionLevel
+                      ): EncodedQRCode =
+  let
+    dataSize: uint16 = totalDataCodewords[eccLevel][version]
+    eccSize:  uint16 = (0'u16 +
+                        group1Blocks[eccLevel][version] +
+                        group2Blocks[eccLevel][version]) *
+                       blockECCodewords[eccLevel][version]
+
   EncodedQRCode(version: version,
-                encodedData: newBitArray(),
-                eccCodewords: newBitArray())
+                encodedData: newBitArray(dataSize),
+                eccCodewords: newBitArray(eccSize)) 
 
 proc encode*(qr: QRCode): EncodedQRCode =
-  result = newEncodedQRCode qr.version
+  result = newEncodedQRCode(qr.version, qr.eccLevel)
 
   result.encodeModeIndicator qr.mode
   result.encodeCharCountIndicator qr.mode, qr.data

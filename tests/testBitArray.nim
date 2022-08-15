@@ -1,13 +1,13 @@
 import std/unittest
-import QRgen/private/bitArray
+import QRgen/private/BitArray
 
 test "Simple bit array":
-  var b = newBitArray()
+  var b = newBitArray(1)
   b.add 12'u8, 8
   check b.data[0] == 12
 
 test "Complex bit array":
-  var b = newBitArray()
+  var b = newBitArray(3)
   b.add 12'u8, 8
   b.add 24'u8, 8
   b.add 0b101'u8, 3
@@ -16,7 +16,7 @@ test "Complex bit array":
   check b.data[2] == 160
 
 test "Passing different uint types to bit array":
-  var b = newBitArray()
+  var b = newBitArray(9)
   b.add 0b101'u8, 3
   b.add 0b1000010101'u16, 10
   b.add 0b100101010011100101'u32, 18
@@ -32,7 +32,7 @@ test "Passing different uint types to bit array":
                     0b10000000'u8]
 
 test "Passing types bigger than needed":
-  var b = newBitArray()
+  var b = newBitArray(9)
   b.add 0b101'u64, 3
   b.add 0b1000010101'u64, 10
   b.add 0b100101010011100101'u64, 18
@@ -48,7 +48,7 @@ test "Passing types bigger than needed":
                     0b10000000'u8]
 
 test "Test which didn't pass before":
-  var b = newBitArray()
+  var b = newBitArray(3)
   b.add 0b0001'u8, 4
   b.add 0b0000000100'u16, 10
   b.add 0b0001100'u8, 7
@@ -58,7 +58,7 @@ test "Test which didn't pass before":
                     0b01100000'u8]
 
 test "Test masking":
-  var b = newBitArray()
+  var b = newBitArray(4)
   b.add 0b0001'u8, 4
   b.add 0b0000000100'u16, 10
   b.add 0b0001100'u8, 7
@@ -70,7 +70,7 @@ test "Test masking":
                     0b10000000'u8]
 
 test "Moving to next byte":
-  var b = newBitArray()
+  var b = newBitArray(2)
   b.add 0b1'u8, 1
   discard b.nextByte
   b.add 0b1'u8, 1
@@ -78,7 +78,7 @@ test "Moving to next byte":
   check b.data == @[0b10000000'u8, 0b10000000'u8]
 
 test "Adding 0 bits":
-  var b = newBitArray()
+  var b = newBitArray(1)
   b.add 0b11111111'u8, 8
   b.add 0b00000000'u8, 0
 
