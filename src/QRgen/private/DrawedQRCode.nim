@@ -13,8 +13,8 @@ proc drawFinderPatterns*(d: var DrawedQRCode) =
     d.drawing.fillRectangle x+2..x+4, y+2..y+4
 
   drawFinderPattern 0'u8, 0'u8
-  drawFinderPattern d.drawing.size - 8'u8, 0'u8
-  drawFinderPattern 0'u8, d.drawing.size - 8'u8
+  drawFinderPattern d.drawing.size - 7'u8, 0'u8
+  drawFinderPattern 0'u8, d.drawing.size - 7'u8
 
 proc calcVersion(size: uint8): QRVersion =
   (size - 21'u8) div 4'u8 + 1'u8
