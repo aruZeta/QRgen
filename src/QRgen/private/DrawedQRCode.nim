@@ -6,11 +6,11 @@ type
 
 proc drawFinderPatterns*(d: var DrawedQRCode) =
   template drawFinderPattern(x, y: uint8) =
-    d.drawing.fillRectangle x+0'u8..x+6'u8, y+0'u8
-    d.drawing.fillRectangle x+0'u8..x+6'u8, y+6'u8
-    d.drawing.fillRectangle x+0'u8,         y+1'u8..y+5'u8
-    d.drawing.fillRectangle x+6'u8,         y+1'u8..y+5'u8
-    d.drawing.fillRectangle x+2'u8..x+4'u8, y+2'u8..y+4'u8
+    d.drawing.fillRectangle x..x+6,   y
+    d.drawing.fillRectangle x..x+6,   y+6
+    d.drawing.fillRectangle x,        y+1..y+5
+    d.drawing.fillRectangle x+6,      y+1..y+5
+    d.drawing.fillRectangle x+2..x+4, y+2..y+4
 
   drawFinderPattern 0'u8, 0'u8
   drawFinderPattern d.drawing.size - 8'u8, 0'u8
