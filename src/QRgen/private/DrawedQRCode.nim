@@ -49,6 +49,9 @@ proc drawTimingPatterns*(d: var DrawedQRCode) =
     d.drawing.fillPoint (margin + pos * 2), 6'u8
     d.drawing.fillPoint 6'u8, (margin + pos * 2)
 
+proc drawDarkModule*(d: var DrawedQRCode) =
+  d.drawing.fillPoint 8'u8, (d.drawing.size - 8)
+
 proc newDrawedQRCode*(version: QRVersion): DrawedQRCode =
   DrawedQRCode(drawing: newDrawing((version - 1) * 4 + 21))
 
@@ -61,3 +64,4 @@ proc draw*(qr: EncodedQRCode): DrawedQRCode =
   result.drawFinderPatterns
   result.drawAlignmentPatterns
   result.drawTimingPatterns
+  result.drawDarkModule
