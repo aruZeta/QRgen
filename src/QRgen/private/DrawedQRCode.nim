@@ -42,6 +42,13 @@ proc drawAlignmentPatterns*(d: var DrawedQRCode) =
       if pos != pos2:
         drawFinderPattern pos2, pos
 
+proc drawTimingPatterns*(d: var DrawedQRCode) =
+  const
+    margin: uint8 = 7 + 1
+  for pos in 0'u8..((d.drawing.size - margin * 2) div 2 + 1):
+    d.drawing.fillPoint (margin + pos * 2), 6'u8
+    d.drawing.fillPoint 6'u8, (margin + pos * 2)
+
 proc newDrawedQRCode*(version: QRVersion): DrawedQRCode =
   DrawedQRCode(drawing: newDrawing((version - 1) * 4 + 21))
 
@@ -53,3 +60,4 @@ proc draw*(qr: EncodedQRCode): DrawedQRCode =
 
   result.drawFinderPatterns
   result.drawAlignmentPatterns
+  result.drawTimingPatterns
