@@ -16,28 +16,29 @@ proc drawFinderPatterns*(d: var DrawedQRCode) =
   drawFinderPattern d.drawing.size - 7'u8, 0'u8
   drawFinderPattern 0'u8, d.drawing.size - 7'u8
 
+iterator alignmentPatternCoords*(version: QRVersion): tuple[x, y: uint8] =
+  let locations = alignmentPatternLocations[version]
+  for i, pos in locations:
+    if i < locations.len - 1:
+      yield (x: 6'u8, y: pos)
+      yield (x: pos, y: 6'u8)
+
+    for pos2 in locations[i..<locations.len]:
+      yield (x: pos, y: pos2)
+      if pos != pos2:
+        yield (x: pos2, y: pos)
+
 proc drawAlignmentPatterns*(d: var DrawedQRCode, version: QRVersion) =
   const version2Size: uint8 = 1 * 4 + 21
   if d.drawing.size < version2Size:
     return
 
-  template drawFinderPattern(x, y: uint8) =
+  for x, y in alignmentPatternCoords(version):
     d.drawing.fillPoint     x,        y
     d.drawing.fillRectangle x-2..x+2, y-2
     d.drawing.fillRectangle x-2..x+2, y+2
     d.drawing.fillRectangle x-2,      y-1..y+1
     d.drawing.fillRectangle x+2,      y-1..y+1
-
-  let locations = alignmentPatternLocations[version]
-  for i, pos in locations:
-    if i < locations.len - 1:
-      drawFinderPattern 6'u8, pos
-      drawFinderPattern pos, 6'u8
-
-    for pos2 in locations[i..<locations.len]:
-      drawFinderPattern pos, pos2
-      if pos != pos2:
-        drawFinderPattern pos2, pos
 
 proc drawTimingPatterns*(d: var DrawedQRCode) =
   const
