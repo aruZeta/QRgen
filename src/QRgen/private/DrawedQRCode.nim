@@ -16,10 +16,7 @@ proc drawFinderPatterns*(d: var DrawedQRCode) =
   drawFinderPattern d.drawing.size - 7'u8, 0'u8
   drawFinderPattern 0'u8, d.drawing.size - 7'u8
 
-proc calcVersion(size: uint8): QRVersion =
-  (size - 21'u8) div 4'u8 + 1'u8
-
-proc drawAlignmentPatterns*(d: var DrawedQRCode) =
+proc drawAlignmentPatterns*(d: var DrawedQRCode, version: QRVersion) =
   const version2Size: uint8 = 1 * 4 + 21
   if d.drawing.size < version2Size:
     return
@@ -31,7 +28,7 @@ proc drawAlignmentPatterns*(d: var DrawedQRCode) =
     d.drawing.fillRectangle x-2,      y-1..y+1
     d.drawing.fillRectangle x+2,      y-1..y+1
 
-  let locations = alignmentPatternLocations[calcVersion d.drawing.size]
+  let locations = alignmentPatternLocations[version]
   for i, pos in locations:
     if i < locations.len - 1:
       drawFinderPattern 6'u8, pos
@@ -62,6 +59,6 @@ proc draw*(qr: EncodedQRCode): DrawedQRCode =
   result = newDrawedQRCode qr.version
 
   result.drawFinderPatterns
-  result.drawAlignmentPatterns
+  result.drawAlignmentPatterns qr.version
   result.drawTimingPatterns
   result.drawDarkModule
