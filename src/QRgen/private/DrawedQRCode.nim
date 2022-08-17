@@ -29,8 +29,7 @@ iterator alignmentPatternCoords*(version: QRVersion): tuple[x, y: uint8] =
         yield (x: pos2, y: pos)
 
 proc drawAlignmentPatterns*(d: var DrawedQRCode, version: QRVersion) =
-  const version2Size: uint8 = 1 * 4 + 21
-  if d.drawing.size < version2Size:
+  if version == 1:
     return
 
   for x, y in alignmentPatternCoords(version):
