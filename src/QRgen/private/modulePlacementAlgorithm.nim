@@ -38,46 +38,25 @@ var
   x: uint8 = d.drawing.size - 1
   y: uint8 = x
 
-let y8BoundsX: set[uint8] = {0'u8..8'u8, d.drawing.size-8..d.drawing.size-1}
+let topIgnoredX: set[uint8] = {0'u8..8'u8, d.drawing.size-8..d.drawing.size-1}
 
 var
   alignmentPatternBoundsX: set[uint8]
-  alignmentPatternBoundsY: set[uint8]
-  corner2BoundsX: set[uint8] # Top right
-  corner2BoundsY: set[uint8]
-  corner3BoundsX: set[uint8] # Bottom left
-  corner3BoundsY: set[uint8]
+  alignmentPatternUpperBoundsY: set[uint8]
+  alignmentPatternLowerBoundsY: set[uint8]
 
 if alignmentPatternLocations[qr.version].len > 1:
   alignmentPatternBoundsX.incl {4'u8..8'u8}
-  alignmentPatternBoundsY.incl {4'u8, 8'u8}
-
-  let lastLocation = alignmentPatternLocations[qr.version][^1]
-
-  corner2BoundsX.incl {lastLocation-2}
-  corner2BoundsY.incl {4'u8, 8'u8}
-
-  corner3BoundsX.incl {4'u8..5'u8}
-  corner3BoundsY.incl {lastLocation-2}
-
-#[
-also could make them into upper bound and lower bound,
-upper for dUpRight and lower for dDownRight
-]#
+  alignmentPatternUpperBoundsY.incl {4'u8}
+  alignmentPatternLowerBoundsY.incl {8'u8}
 
 for pos in alignmentPatternLocations[qr.version]:
   alignmentPatternBoundsX.incl {pos-2..pos+2}
-  alignmentPatternBoundsY.incl {pos-2, pos+2}
+  alignmentPatternUpperBoundsY.incl {pos-2}
+  alignmentPatternLowerBoundsY.incl {pos+2}
 
 if qr.version >= 7:
   discard
-
-echo alignmentPatternBoundsX
-echo alignmentPatternBoundsY
-echo corner2BoundsX
-echo corner2BoundsY
-echo corner3BoundsX
-echo corner3BoundsY
 
 var
   aX: uint8 = x
@@ -113,7 +92,7 @@ for module in 1..<qr.encodedData.data.len * 8 + qr.eccCodewords.data.len * 8:
     if repeat > 0: repeat -= 1
     else: direction = dDownRight
 
-  if true: #module > 1600:
+  if false: #module > 1600:
     # sleep 200
     discard stdin.readLine # Advance pressing Enter key
     d.drawing.print dpTerminal
@@ -132,46 +111,51 @@ for module in 1..<qr.encodedData.data.len * 8 + qr.eccCodewords.data.len * 8:
   aY = y
 
   if direction == dUpRight:
-    if y == 9 and x in y8BoundsX:
+    if y == 9 and x in topIgnoredX: # Format information area
       direction = dLeft
       orientation = downwards
       repeat = 1
       if x == 7:
         x -= 1
-    elif y == 0:
+    elif y == 0: # Top of the qr code
       direction = dLeft
       orientation = downwards
       repeat = 1
-    elif y == 7:
+    elif y == 7: # Timing pattern
       y -= 1
-    elif x+1 in alignmentPatternBoundsX and
-         y-1 in alignmentPatternBoundsY and
-         not (x+1 in corner2BoundsX and y-1 in corner2BoundsY):
-      if x notin alignmentPatternBoundsX:
+    elif not (x+1 == d.drawing.size-9 and y-1 == 8) and # Alignment patterns
+         x+1 in alignmentPatternBoundsX and             # Note it ignores
+         y-1 in alignmentPatternLowerBoundsY:           # the one in the top
+      if x notin alignmentPatternBoundsX:               # right corner
         direction = dUp
         repeat = 4
       else:
         y -= 5
   elif direction == dDownRight:
-    if y == d.drawing.size-1 or (y == d.drawing.size-9 and x < 6):
+    if y == d.drawing.size-1 or # Bottom of the qr code and botomm left corner
+      (y == d.drawing.size-9 and x in {0'u8..6'u8}):
       direction = dLeft
       orientation = upwards
       repeat = 1
       if x == 9:
         y -= 8
-    elif y == 5:
+    elif y == 5: # Timing pattern
       y += 1
-    elif x+1 in alignmentPatternBoundsX and
-         y+1 in alignmentPatternBoundsY and
-         not (x+1 in corner3BoundsX and y+1 in corner3BoundsY):
-      if x notin alignmentPatternBoundsX:
+    elif not (x+1 == 5'u8 and y+1 == d.drawing.size-9) and # Alignment patterns
+         x+1 in alignmentPatternBoundsX and                # Note it ignores the
+         y+1 in alignmentPatternUpperBoundsY:              # one in the bottom
+      if x notin alignmentPatternBoundsX:                  # left corner
         direction = dDown
         repeat = 4
       else:
         y += 5
   elif direction == dDown:
-    if y == 5:
+    if y == 5: # Timing pattern
       y += 1
+      if repeat > 0: repeat -= 1
+  elif direction == dUp:
+    if y == 7: # Timing pattern
+      y -= 1
       if repeat > 0: repeat -= 1
 
 d.drawing.print dpTerminal
