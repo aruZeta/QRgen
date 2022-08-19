@@ -6,8 +6,8 @@ type
     version*: QRVersion # Needed for drawing the QR code
     encodedData*: BitArray
     # Yet to implement the algorithm to generate them
-    eccCodewords*: BitArray
     remainderBits*: uint8
+    # eccCodewords*: BitArray # will be added in encodedData BitArray
 
 proc encodeModeIndicator(qr: var EncodedQRCode, mode: QRMode) =
   qr.encodedData.add cast[uint8](mode), 4
@@ -146,8 +146,7 @@ proc newEncodedQRCode*(version:  QRVersion,
                        blockECCodewords[eccLevel][version]
 
   EncodedQRCode(version: version,
-                encodedData: newBitArray(dataSize),
-                eccCodewords: newBitArray(eccSize))
+                encodedData: newBitArray(dataSize + eccSize))
 
 proc newEncodedQRCode*(qr: QRCode): EncodedQRCode =
   let
@@ -158,8 +157,7 @@ proc newEncodedQRCode*(qr: QRCode): EncodedQRCode =
                        blockECCodewords[qr.eccLevel][qr.version]
 
   EncodedQRCode(version: qr.version,
-                encodedData: newBitArray(dataSize),
-                eccCodewords: newBitArray(eccSize))
+                encodedData: newBitArray(dataSize + eccSize))
 
 proc encode*(qr: QRCode): EncodedQRCode =
   result = newEncodedQRCode(qr.version, qr.eccLevel)
