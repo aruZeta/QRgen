@@ -63,3 +63,8 @@ test "Dark module":
   qr3.drawTimingPatterns
   qr3.drawDarkModule
   qr3.drawing.print dpTerminal
+
+test "Drawing data":
+  let qr = newQRCode("Hello World", version = 2).encode
+
+  qr.drawOnly.drawing.print dpTerminal
