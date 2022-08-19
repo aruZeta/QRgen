@@ -213,11 +213,6 @@ const
     ]
   ]
 
-  remainderBits*: array[QRVersion, uint8] = [
-    0'u8, 7, 7, 7, 7, 7, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4,
-    4, 4, 4, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0
-  ]
-
   alignmentPatternLocations*: array[QRVersion, seq[uint8]] = [
     @[],
     @[18'u8],
