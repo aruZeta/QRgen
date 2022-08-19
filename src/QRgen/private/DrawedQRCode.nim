@@ -87,9 +87,6 @@ proc drawData*(d: var DrawedQRCode, data: BitArray, version: QRVersion) =
     alignmentPatternUpperBoundsY.incl {pos-2}
     alignmentPatternLowerBoundsY.incl {pos+2}
 
-  if version >= 7:
-    discard # Yet to implement the Version Information areas
-
   template changeOrientation(o: OrientationKind) =
     pos.direction = dLeft
     pos.repeat = 1
@@ -112,7 +109,14 @@ proc drawData*(d: var DrawedQRCode, data: BitArray, version: QRVersion) =
         changeOrientation oDownwards
 
       elif pos.y == 7:
-        pos.y -= 1 # Avoid top timing pattern
+        if version >= 7 and pos.x == size-10:
+          pos.x -= 2
+          pos.y = 0xFF # No negatives in here sir (will be turned to 0 below)
+          pos.direction = dDown
+          pos.orientation = oDownwards
+          pos.repeat = 5
+        else:
+          pos.y -= 1 # Avoid top timing pattern
 
       elif pos.y == 9 and pos.x in {0'u8..8'u8, size-8..size-1}:
         changeOrientation oDownwards
@@ -133,6 +137,7 @@ proc drawData*(d: var DrawedQRCode, data: BitArray, version: QRVersion) =
         pos.y += 1
 
       elif pos.y == size-1 or
+           (version >= 7 and pos.y == size-12 and pos.x in {0'u8..5'u8}) or
            (pos.y == size-9 and pos.x in 0'u8..6'u8):
         changeOrientation oUpwards
         if pos.x == 9:
