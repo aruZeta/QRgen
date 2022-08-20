@@ -21,15 +21,7 @@ test "Passing different uint types to bit array":
   b.add 0b1000010101'u16, 10
   b.add 0b100101010011100101'u32, 18
   b.add 0b10010101010101100010111011001110010'u64, 35
-  check b.data == @[0b10110000'u8,
-                    0b10101100'u8,
-                    0b10101001'u8,
-                    0b11001011'u8,
-                    0b00101010'u8,
-                    0b10101100'u8,
-                    0b01011101'u8,
-                    0b10011100'u8,
-                    0b10000000'u8]
+  check b.data == @[0b10110000'u8,0b10101100,0b10101001,0b11001011,0b00101010,0b10101100,0b01011101,0b10011100,0b10000000]
 
 test "Passing types bigger than needed":
   var b = newBitArray(9)
@@ -37,15 +29,7 @@ test "Passing types bigger than needed":
   b.add 0b1000010101'u64, 10
   b.add 0b100101010011100101'u64, 18
   b.add 0b10010101010101100010111011001110010'u64, 35
-  check b.data == @[0b10110000'u8,
-                    0b10101100'u8,
-                    0b10101001'u8,
-                    0b11001011'u8,
-                    0b00101010'u8,
-                    0b10101100'u8,
-                    0b01011101'u8,
-                    0b10011100'u8,
-                    0b10000000'u8]
+  check b.data == @[0b10110000'u8,0b10101100,0b10101001,0b11001011,0b00101010,0b10101100,0b01011101,0b10011100,0b10000000]
 
 test "Test which didn't pass before":
   var b = newBitArray(3)
@@ -53,9 +37,7 @@ test "Test which didn't pass before":
   b.add 0b0000000100'u16, 10
   b.add 0b0001100'u8, 7
 
-  check b.data == @[0b00010000'u8,
-                    0b00010000'u8,
-                    0b01100000'u8]
+  check b.data == @[0b00010000'u8,0b00010000,0b01100000]
 
 test "Test masking":
   var b = newBitArray(4)
@@ -64,10 +46,7 @@ test "Test masking":
   b.add 0b0001100'u8, 7
   b.add 0b110011'u8, 4 # should add 0011, not 110011
 
-  check b.data == @[0b00010000'u8,
-                    0b00010000'u8,
-                    0b01100001'u8,
-                    0b10000000'u8]
+  check b.data == @[0b00010000'u8,0b00010000,0b01100001,0b10000000]
 
 test "Moving to next byte":
   var b = newBitArray(2)
@@ -75,7 +54,7 @@ test "Moving to next byte":
   discard b.nextByte
   b.add 0b1'u8, 1
 
-  check b.data == @[0b10000000'u8, 0b10000000'u8]
+  check b.data == @[0b10000000'u8,0b10000000]
 
 test "Adding 0 bits":
   var b = newBitArray(1)
