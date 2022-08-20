@@ -4,7 +4,8 @@ type
     data*: seq[uint8]
 
 proc newBitArray*(size: uint16): BitArray =
-  BitArray(pos: 0, data: newSeq[uint8](size))
+  result = BitArray(pos: 0, data: newSeqOfCap[uint8](size))
+  result.data.setLen(size)
 
 proc nextByte*(b: var BitArray, evenIfBlank: bool = false): uint8 =
   let bytePos: uint8 = cast[uint8](b.pos mod 8)

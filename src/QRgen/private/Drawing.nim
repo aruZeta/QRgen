@@ -7,8 +7,9 @@ type
     dpTerminal
 
 proc newDrawing*(size: uint8): Drawing =
-  Drawing(matrix: newSeq[uint8]((cast[uint16](size) * size) div 8 + 1),
-          size: size)
+  let matrixSize: uint16 = (cast[uint16](size) * size) div 8 + 1
+  result = Drawing(matrix: newSeqOfCap[uint8](matrixSize), size: size)
+  result.matrix.setLen(matrixSize)
 
 proc `[]=`(d: var Drawing, y, x: uint8, val: bool) =
   let
