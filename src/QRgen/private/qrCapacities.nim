@@ -6,7 +6,8 @@ type
     array[QRVersion, T]
   ]
 
-const
+{.push compileTime.}
+let
   numericModeCapacities*: QRCapacity[uint16] = [
     [ # ECC L
       41'u16, 77, 127, 187, 255, 322, 370, 461, 552, 652, 772, 883, 1022, 1101,
@@ -255,3 +256,4 @@ const
     @[26'u8, 54, 82, 110, 138, 166],
     @[30'u8, 58, 86, 114, 142, 170]
   ]
+{.pop.}
