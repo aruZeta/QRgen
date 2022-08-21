@@ -11,6 +11,17 @@ proc newDrawing*(size: uint8): Drawing =
   result = Drawing(matrix: newSeqOfCap[uint8](matrixSize), size: size)
   result.matrix.setLen(matrixSize)
 
+proc `[]`*(d: var Drawing, x, y: uint8): bool =
+  let
+    bitPos:  uint16 = cast[uint16](y) * d.size + x
+    arrPos:  uint16 = bitPos div 8
+    bytePos: uint8  = cast[uint8](bitPos mod 8)
+
+  if ((d.matrix[arrPos] shr (7 - bytePos)) and 0x01) == 0x01:
+    true
+  else:
+    false
+
 proc `[]=`*(d: var Drawing, x, y: uint8, val: bool) =
   let
     bitPos:  uint16 = cast[uint16](y) * d.size + x
@@ -25,6 +36,10 @@ proc `[]=`*(d: var Drawing, x, y: uint8, val: bool) =
 
 template fillPoint*(d: var Drawing, x, y: uint8) =
   d[x, y] = true
+
+template flipPoint*(d: var Drawing, x, y: uint8) =
+  if d[x, y]: d[x, y] = false
+  else:       d[x, y] = true
 
 proc fillRectangle*(d: var Drawing, width, height: Slice[uint8]) =
   for y in height:
