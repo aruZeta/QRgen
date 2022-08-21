@@ -11,7 +11,7 @@ proc newDrawing*(size: uint8): Drawing =
   result = Drawing(matrix: newSeqOfCap[uint8](matrixSize), size: size)
   result.matrix.setLen(matrixSize)
 
-proc `[]`*(d: var Drawing, x, y: uint8): bool =
+proc `[]`*(d: Drawing, x, y: uint8): bool =
   let
     bitPos:  uint16 = cast[uint16](y) * d.size + x
     arrPos:  uint16 = bitPos div 8
