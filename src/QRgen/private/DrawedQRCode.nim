@@ -295,6 +295,16 @@ proc evaluateCondition1*(qr: DrawedQRCode): uint =
     mayAddPenalty stateRow, countRow
     mayAddPenalty stateCol, countCol
 
+proc evaluateCondition2*(qr: DrawedQRCode): uint =
+  result = 0
+  for i in 0'u8..<qr.drawing.size-1:
+    for j in 0'u8..<qr.drawing.size-1:
+      let actual = qr.drawing[j, i]
+      if not ((actual xor qr.drawing[j+1, i]) or
+              (actual xor qr.drawing[j, i+1]) or
+              (actual xor qr.drawing[j+1, i+1])):
+        result += 3
+
 proc newDrawedQRCode*(version: QRVersion): DrawedQRCode =
   DrawedQRCode(drawing: newDrawing((version - 1) * 4 + 21))
 
