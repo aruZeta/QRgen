@@ -261,6 +261,40 @@ proc mask7*(x, y: uint8): bool =
   (((y + x) mod 2) +
    ((y * x) mod 3)) mod 2 == 0
 
+proc evaluateCondition1*(qr: DrawedQRCode): uint =
+  result = 0
+
+  var
+    stateCol: bool
+    countCol: uint
+    stateRow: bool
+    countRow: uint
+
+  template mayAddPenalty(state, count: untyped) =
+    if   count == 5: result += 3
+    elif count >= 5: result += count - 2
+
+  template check(state, count, getter: untyped) =
+    if not (state xor getter):
+      count += 1
+    else:
+      mayAddPenalty state, count
+      state = not state
+      count = 1
+
+  for i in 0'u8..<qr.drawing.size:
+    stateRow = qr.drawing[0, i]
+    countRow = 1
+    stateCol = qr.drawing[i, 0]
+    countCol = 1
+
+    for j in 1'u8..<qr.drawing.size:
+      check stateRow, countRow, qr.drawing[j, i]
+      check stateCol, countCol, qr.drawing[i, j]
+
+    mayAddPenalty stateRow, countRow
+    mayAddPenalty stateCol, countCol
+
 proc newDrawedQRCode*(version: QRVersion): DrawedQRCode =
   DrawedQRCode(drawing: newDrawing((version - 1) * 4 + 21))
 
