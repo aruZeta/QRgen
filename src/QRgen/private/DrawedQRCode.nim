@@ -232,6 +232,8 @@ proc applyMaskPattern*(qr: var DrawedQRCode,
           qr.drawing.flipPoint(x, y)
 
 proc mask0*(x, y: uint8): bool =
+  # No need to make y a uint16 since using mod 2:
+  # 255 mod 2 = 1, 256 -> 0 mod 2 = 0, correct
   (y + x) mod 2 == 0
 
 proc mask1*(x, y: uint8): bool =
@@ -241,6 +243,9 @@ proc mask2*(x, y: uint8): bool =
   x mod 3 == 0
 
 proc mask3*(x, y: uint8): bool =
+  # Need to make y a uint16 since using mod 3:
+  # 255 mod 3 = 0, 256 mod 3 = 1 -> 0 mod 3 = 0, incorrect
+  let y = cast[uint16](y)
   (y + x) mod 3 == 0
 
 proc mask4*(x, y: uint8): bool =
