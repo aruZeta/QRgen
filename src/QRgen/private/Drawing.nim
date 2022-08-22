@@ -38,8 +38,7 @@ template fillPoint*(d: var Drawing, x, y: uint8) =
   d[x, y] = true
 
 template flipPoint*(d: var Drawing, x, y: uint8) =
-  if d[x, y]: d[x, y] = false
-  else:       d[x, y] = true
+  d[x, y] = not d[x, y]
 
 proc fillRectangle*(d: var Drawing, width, height: Slice[uint8]) =
   for y in height:
