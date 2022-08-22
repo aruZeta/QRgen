@@ -1,12 +1,12 @@
-import std/unittest
+import myTestSuite
 import QRgen/private/BitArray
 
-test "Simple bit array":
+benchmarkTest "Simple bit array":
   var b = newBitArray(1)
   b.add 12'u8, 8
   check b.data[0] == 12
 
-test "Complex bit array":
+benchmarkTest "Complex bit array":
   var b = newBitArray(3)
   b.add 12'u8, 8
   b.add 24'u8, 8
@@ -15,7 +15,7 @@ test "Complex bit array":
   check b.data[1] == 24
   check b.data[2] == 160
 
-test "Passing different uint types to bit array":
+benchmarkTest "Passing different uint types to bit array":
   var b = newBitArray(9)
   b.add 0b101'u8, 3
   b.add 0b1000010101'u16, 10
@@ -23,7 +23,7 @@ test "Passing different uint types to bit array":
   b.add 0b10010101010101100010111011001110010'u64, 35
   check b.data == @[0b10110000'u8,0b10101100,0b10101001,0b11001011,0b00101010,0b10101100,0b01011101,0b10011100,0b10000000]
 
-test "Passing types bigger than needed":
+benchmarkTest "Passing types bigger than needed":
   var b = newBitArray(9)
   b.add 0b101'u64, 3
   b.add 0b1000010101'u64, 10
@@ -31,7 +31,7 @@ test "Passing types bigger than needed":
   b.add 0b10010101010101100010111011001110010'u64, 35
   check b.data == @[0b10110000'u8,0b10101100,0b10101001,0b11001011,0b00101010,0b10101100,0b01011101,0b10011100,0b10000000]
 
-test "Test which didn't pass before":
+benchmarkTest "Test which didn't pass before":
   var b = newBitArray(3)
   b.add 0b0001'u8, 4
   b.add 0b0000000100'u16, 10
@@ -39,7 +39,7 @@ test "Test which didn't pass before":
 
   check b.data == @[0b00010000'u8,0b00010000,0b01100000]
 
-test "Test masking":
+benchmarkTest "Test masking":
   var b = newBitArray(4)
   b.add 0b0001'u8, 4
   b.add 0b0000000100'u16, 10
@@ -48,7 +48,7 @@ test "Test masking":
 
   check b.data == @[0b00010000'u8,0b00010000,0b01100001,0b10000000]
 
-test "Moving to next byte":
+benchmarkTest "Moving to next byte":
   var b = newBitArray(2)
   b.add 0b1'u8, 1
   discard b.nextByte
@@ -56,7 +56,7 @@ test "Moving to next byte":
 
   check b.data == @[0b10000000'u8,0b10000000]
 
-test "Adding 0 bits":
+benchmarkTest "Adding 0 bits":
   var b = newBitArray(1)
   b.add 0b11111111'u8, 8
   b.add 0b00000000'u8, 0

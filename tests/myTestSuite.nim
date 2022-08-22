@@ -1,0 +1,14 @@
+import std/unittest
+export unittest
+
+when defined(benchmark):
+  import benchy
+  export benchy
+
+template benchmarkTest*(name: string, body: untyped) =
+  when defined(benchmark):
+    timeIt name:
+      body
+  else:
+    test name:
+      body

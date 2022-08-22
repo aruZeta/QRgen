@@ -1,7 +1,7 @@
-import std/unittest
+import myTestSuite
 import QRgen/private/[QRCode, qrTypes]
 
-test "newQRCode()":
+benchmarkTest "newQRCode()":
   let qr1 = newQRCode("0123456789")
   check qr1.mode == qrNumericMode
 
