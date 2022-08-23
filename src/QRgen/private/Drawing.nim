@@ -11,61 +11,53 @@ proc newDrawing*(size: uint8): Drawing =
   result = Drawing(matrix: newSeqOfCap[uint8](matrixSize), size: size)
   result.matrix.setLen(matrixSize)
 
-proc `[]`*(d: Drawing, x, y: uint8): bool =
-  let
-    bitPos:  uint16 = cast[uint16](y) * d.size + x
-    arrPos:  uint16 = bitPos div 8
-    bytePos: uint8  = cast[uint8](bitPos mod 8)
+proc `[]`*(self: Drawing, x, y: uint8): bool =
+  let bitPos: uint16 = cast[uint16](y) * self.size + x
+  ((self.matrix[bitPos div 8] shr (7 - (bitPos mod 8))) and 0x01) == 0x01
 
-  if ((d.matrix[arrPos] shr (7 - bytePos)) and 0x01) == 0x01:
-    true
-  else:
-    false
+proc `[]=`*(self: var Drawing, x, y: uint8, val: bool) =
+  let bitPos: uint16 = cast[uint16](y) * self.size + x
+  template arrPos: uint16 = bitPos div 8
+  template bytePos: uint16 = bitPos mod 8
+  self.matrix[arrPos] =
+    if val:
+      self.matrix[arrPos] or (0x01'u8 shl (7 - bytePos))
+    else:
+      self.matrix[arrPos] and (0xFF'u8 xor (0x01'u8 shl (7 - bytePos)))
 
-proc `[]=`*(d: var Drawing, x, y: uint8, val: bool) =
-  let
-    bitPos:  uint16 = cast[uint16](y) * d.size + x
-    arrPos:  uint16 = bitPos div 8
-    bytePos: uint8  = cast[uint8](bitPos mod 8)
+template fillPoint*(self: var Drawing, x, y: uint8) =
+  self[x, y] = true
 
-  if val:
-    d.matrix[arrPos] = d.matrix[arrPos] or (0x01'u8 shl (7 - bytePos))
-  else:
-    d.matrix[arrPos] =
-      d.matrix[arrPos] and (0xFF'u8 xor (0x01'u8 shl (7 - bytePos)))
+template flipPoint*(self: var Drawing, x, y: uint8) =
+  self[x, y] = not self[x, y]
 
-template fillPoint*(d: var Drawing, x, y: uint8) =
-  d[x, y] = true
+proc fillRectangle*(self: var Drawing, xRange, yRange: Slice[uint8]) =
+  for y in yRange:
+    for x in xRange:
+      self.fillPoint x, y
 
-template flipPoint*(d: var Drawing, x, y: uint8) =
-  d[x, y] = not d[x, y]
+template fillRectangle*(self: var Drawing, xRange: Slice[uint8], y: uint8) =
+  self.fillRectangle xRange, y..y
 
-proc fillRectangle*(d: var Drawing, width, height: Slice[uint8]) =
-  for y in height:
-    for x in width:
-      d[x, y] = true
+template fillRectangle*(self: var Drawing, x: uint8, yRange: Slice[uint8]) =
+  self.fillRectangle x..x, yRange
 
-template fillRectangle*(d: var Drawing, width: Slice[uint8], height: uint8) =
-  fillRectangle(d, width, height..height)
+template fillRectangle*(self: var Drawing, xyRange: Slice[uint8]) =
+  self.fillRectangle xyRange, xyRange
 
-template fillRectangle*(d: var Drawing, width: uint8, height: Slice[uint8]) =
-  fillRectangle(d, width..width, height)
-
-template fillRectangle*(d: var Drawing, size: Slice[uint8]) =
-  fillRectangle(d, size, size)
-
-proc printTerminal*(d: Drawing) =
-  for y in 0'u8..<d.size:
-    for x in 0'u8..<d.size:
-      let bitPos:  uint16 = cast[uint16](y) * d.size + x
-      if ((d.matrix[bitPos div 8] shr
-          (7 - (cast[uint8](bitPos mod 8)))) and 1'u8) == 1'u8:
-        stdout.write "██"
-      else:
-        stdout.write "  "
+proc printTerminal*(self: Drawing) =
+  stdout.write "\n\n\n\n\n"
+  for y in 0'u8..<self.size:
+    stdout.write "          "
+    for x in 0'u8..<self.size:
+      stdout.write(
+        if self[x, y]: "██"
+        else:          "  "
+      )
     stdout.write "\n"
+  stdout.write "\n\n\n\n\n"
 
-proc print*(d: Drawing, output: DrawingPrint) =
+proc print*(self: Drawing, output: DrawingPrint) =
   case output
   of dpTerminal:
-    printTerminal d
+    printTerminal self

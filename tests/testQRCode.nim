@@ -11,11 +11,11 @@ benchmarkTest "newQRCode()":
   let qr3 = newQRCode("Tésting byté modé")
   check qr3.mode == qrByteMode
 
-  let qr4 = newQRCode("0123", eccLevel = qrEccH)
+  let qr4 = newQRCode("0123", ecLevel = qrEcH)
   check qr4.version == 1
 
-  let qr5 = newQRCode("0 TEST ALPHANUMERIC 9", eccLevel = qrEccQ)
+  let qr5 = newQRCode("0 TEST ALPHANUMERIC 9", ecLevel = qrEcQ)
   check qr5.version == 2
 
-  let qr6 = newQRCode("012 Tésting byté modé 789", eccLevel = qrEccH)
+  let qr6 = newQRCode("012 Tésting byté modé 789", ecLevel = qrEcH)
   check qr6.version == 4 # The accented characters count by 2

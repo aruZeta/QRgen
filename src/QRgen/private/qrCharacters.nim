@@ -4,19 +4,23 @@ const
   specialValues*      = {' ', '$', '%', '*', '+', '-', '.', '/', ':'}
   alphaNumericValues* = specialValues + numericValues + alphaValues
 
-const specialValuesArr = [' ', '$', '%', '*', '+', '-', '.', '/', ':']
+iterator pairs[T](a: set[T]): tuple[key: uint8, val: T] =
+  var x: uint8 = 0'u8
+  for c in a:
+    yield (key: x, val: c)
+    inc x
 
-proc getSpecialValue(c: char): uint8 =
-  for i, val in specialValuesArr:
+proc getSpecialValue*(c: char): uint8 =
+  for i, val in specialValues:
     if val == c:
-      return cast[uint8](i) + 36
+      return i + 36'u8
 
 proc getAlphanumericValue*(c: char): uint8 =
-  if c in numericValues:
-    cast[uint8](c) - cast[uint8]('0')
-  elif c in alphaValues:
-    cast[uint8](c) - cast[uint8]('A') + 10
-  elif c in specialValues:
-    getSpecialValue c
-  else:
-    0xFF
+  const
+    firstNumericPos: uint8 = cast[uint8]('0')
+    firstAlphaPos: uint8 = cast[uint8]('A') - 10
+  case c
+  of numericValues: cast[uint8](c) - firstNumericPos
+  of alphaValues: cast[uint8](c) - firstAlphaPos
+  of specialValues: getSpecialValue c
+  else: 0xFF

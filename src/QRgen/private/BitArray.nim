@@ -3,56 +3,56 @@ type
     pos*: uint16
     data*: seq[uint8]
 
+  LenDefect* = object of Defect
+
 proc newBitArray*(size: uint16): BitArray =
   result = BitArray(pos: 0, data: newSeqOfCap[uint8](size))
   result.data.setLen(size)
 
-proc nextByte*(b: var BitArray, evenIfBlank: bool = false): uint8 =
-  let bytePos: uint8 = cast[uint8](b.pos mod 8)
-  result = (if bytePos > 0: 8 - bytePos
-            elif evenIfBlank: 8'u8
-            else: 0'u8)
-  b.pos += result
+template `[]`*(self: BitArray, i: SomeInteger): uint8 =
+  self.data[i]
 
-proc add*[T: uint8 | uint16 | uint32 | uint64
-         ](b: var BitArray, val: T, len: uint8) =
-  template tSize: int = 8 * sizeof(T)
+template `[]`*(self: BitArray, i: Slice[SomeInteger]): seq[uint8] =
+  self.data[i]
 
+template `[]=`*(self: BitArray, i: SomeInteger, val: uint8) =
+  self.data[i] = val
+
+proc nextByte*(self: var BitArray, evenIfBlank: bool = false): uint8 =
+  let bytePos: uint8 = cast[uint8](self.pos mod 8)
+  result =
+    if bytePos > 0: 8 - bytePos
+    elif evenIfBlank: 8'u8
+    else: 0'u8
+  self.pos += result
+
+proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
+  template tSize: int = 8 * sizeof(val)
   if len > tSize:
     raise newException(
-      RangeDefect,
-      "len can't be bigger than " & $tSize & " in a " & $T
+      LenDefect,
+      "Len can't be bigger than " & $tSize & " in a " & $typedesc(val)
     )
-  elif len == 0:
-    return
-
+  elif len == 0: return
   template castU8(expr: untyped): uint8 =
-    ## If T is not u8, cast val to u8 when putting it in the BitArray
-    when T isnot uint8: cast[uint8](expr)
-    else:               expr
-
+    when val isnot uint8: cast[uint8](expr)
+    else: expr
   let
-    arrPos:   uint16 = b.pos div 8
-    bitsLeft: uint8  = 8 - cast[uint8](b.pos mod 8)
-
+    arrPos: uint16 = self.pos div 8
+    bitsLeft: uint8 = 8 - cast[uint8](self.pos mod 8)
   if len <= bitsLeft:
-    b.data[arrPos] += castU8(
+    self[arrPos] += castU8(
       (val and (0xFF'u8 shr (8 - len))) shl (bitsLeft - len)
     )
   else:
     let
-      bytes:   uint8  = (len - bitsLeft) div 8
-      remBits: uint8  = (len - bitsLeft) mod 8
-
+      bytes: uint8 = (len - bitsLeft) div 8
+      remBits: uint8 = (len - bitsLeft) mod 8
     if remBits > 0:
-      b.data[arrPos + bytes + 1] = castU8(val shl (8 - remBits))
-
+      self[arrPos + bytes + 1] = castU8(val shl (8 - remBits))
     var val = val shr remBits
-
     for i in 0'u8..<bytes:
-      b.data[arrPos + bytes - i] = castU8(val)
+      self[arrPos + bytes - i] = castU8(val)
       val = val shr 8
-
-    b.data[arrPos] += castU8(val and (0xFF'u8 shr (8 - bitsLeft)))
-
-  b.pos += len
+    self[arrPos] += castU8(val and (0xFF'u8 shr (8 - bitsLeft)))
+  self.pos += len

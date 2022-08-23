@@ -2,52 +2,57 @@ import Drawing, EncodedQRCode, BitArray, qrTypes, qrCapacities
 
 type
   DrawedQRCode* = object
+    mode*: QRMode
+    version*: QRVersion
+    ecLevel*: QREcLevel
     drawing*: Drawing
 
-proc drawFinderPatterns*(d: var DrawedQRCode) =
+proc drawFinderPatterns*(self: var DrawedQRCode) =
   template drawFinderPattern(x, y: uint8) =
-    d.drawing.fillRectangle x..x+6,   y
-    d.drawing.fillRectangle x..x+6,   y+6
-    d.drawing.fillRectangle x,        y+1..y+5
-    d.drawing.fillRectangle x+6,      y+1..y+5
-    d.drawing.fillRectangle x+2..x+4, y+2..y+4
-
+    self.drawing.fillRectangle x..x+6,   y
+    self.drawing.fillRectangle x..x+6,   y+6
+    self.drawing.fillRectangle x,        y+1..y+5
+    self.drawing.fillRectangle x+6,      y+1..y+5
+    self.drawing.fillRectangle x+2..x+4, y+2..y+4
   drawFinderPattern 0'u8, 0'u8
-  drawFinderPattern d.drawing.size - 7'u8, 0'u8
-  drawFinderPattern 0'u8, d.drawing.size - 7'u8
+  drawFinderPattern self.drawing.size - 7'u8, 0'u8
+  drawFinderPattern 0'u8, self.drawing.size - 7'u8
 
-iterator alignmentPatternCoords*(version: QRVersion): tuple[x, y: uint8] =
+iterator alignmentPatternCoords(version: QRVersion): tuple[x, y: uint8] =
   let locations = alignmentPatternLocations[version]
   for i, pos in locations:
     if i < locations.len - 1:
       yield (x: 6'u8, y: pos)
       yield (x: pos, y: 6'u8)
-
     for pos2 in locations[i..<locations.len]:
       yield (x: pos, y: pos2)
       if pos != pos2:
         yield (x: pos2, y: pos)
 
-proc drawAlignmentPatterns*(d: var DrawedQRCode, version: QRVersion) =
-  if version == 1:
+proc drawAlignmentPatterns*(self: var DrawedQRCode) =
+  if self.version == 1:
     return
+  for x, y in alignmentPatternCoords(self.version):
+    self.drawing.fillPoint     x,        y
+    self.drawing.fillRectangle x-2..x+2, y-2
+    self.drawing.fillRectangle x-2..x+2, y+2
+    self.drawing.fillRectangle x-2,      y-1..y+1
+    self.drawing.fillRectangle x+2,      y-1..y+1
 
-  for x, y in alignmentPatternCoords(version):
-    d.drawing.fillPoint     x,        y
-    d.drawing.fillRectangle x-2..x+2, y-2
-    d.drawing.fillRectangle x-2..x+2, y+2
-    d.drawing.fillRectangle x-2,      y-1..y+1
-    d.drawing.fillRectangle x+2,      y-1..y+1
+iterator step(start, stop: uint8, step: int): uint8 =
+  var x = start
+  while x <= stop:
+    yield x
+    x.inc step
 
-proc drawTimingPatterns*(d: var DrawedQRCode) =
-  const
-    margin: uint8 = 7 + 1
-  for pos in 0'u8..((d.drawing.size - margin * 2) div 2 + 1):
-    d.drawing.fillPoint (margin + pos * 2), 6'u8
-    d.drawing.fillPoint 6'u8, (margin + pos * 2)
+proc drawTimingPatterns*(self: var DrawedQRCode) =
+  const margin: uint8 = 7 + 1
+  for pos in step(margin, self.drawing.size-margin, 2):
+    self.drawing.fillPoint pos, 6'u8
+    self.drawing.fillPoint 6'u8, pos
 
-proc drawDarkModule*(d: var DrawedQRCode) =
-  d.drawing.fillPoint 8'u8, (d.drawing.size - 8)
+proc drawDarkModule*(self: var DrawedQRCode) =
+  self.drawing.fillPoint 8'u8, (self.drawing.size - 8)
 
 type
   DirectionKind = enum
@@ -63,53 +68,44 @@ type
     orientation: OrientationKind
     repeat: uint8
 
-proc drawData*(d: var DrawedQRCode, data: BitArray, version: QRVersion) =
-  let size: uint8 = d.drawing.size
-
+proc drawData*(self: var DrawedQRCode, data: BitArray) =
+  let size: uint8 = self.drawing.size
   var pos = Position(x: size-1,
                      y: size-1,
                      direction: dLeft,
                      orientation: oUpwards,
                      repeat: 0)
-
   var
     alignmentPatternBoundsX: set[uint8]
     alignmentPatternUpperBoundsY: set[uint8]
     alignmentPatternLowerBoundsY: set[uint8]
-
-  if alignmentPatternLocations[version].len > 1:
+  if alignmentPatternLocations[self.version].len > 1:
     alignmentPatternBoundsX.incl {4'u8..8'u8}
     alignmentPatternUpperBoundsY.incl {4'u8}
     alignmentPatternLowerBoundsY.incl {8'u8}
-
-  for pos in alignmentPatternLocations[version]:
+  for pos in alignmentPatternLocations[self.version]:
     alignmentPatternBoundsX.incl {pos-2..pos+2}
     alignmentPatternUpperBoundsY.incl {pos-2}
     alignmentPatternLowerBoundsY.incl {pos+2}
-
   template changeOrientation(o: OrientationKind) =
     pos.direction = dLeft
     pos.repeat = 1
     pos.orientation = o
-
   template checkRepeat(elseBody: untyped) =
     if pos.repeat > 0:
       pos.repeat -= 1
     else:
       elseBody
-
   for module in 0..<data.data.len * 8:
     if ((data.data[module div 8] shr (7 - (module mod 8))) and 0x01) == 0x01:
-      d.drawing.fillPoint pos.x, pos.y
-
+      self.drawing.fillPoint pos.x, pos.y
     # Avoiding stuff, changing orientation in borders, etc block
     case pos.direction
     of dUpRight:
       if pos.y == 0:
         changeOrientation oDownwards
-
       elif pos.y == 7:
-        if version >= 7 and pos.x == size-10:
+        if self.version >= 7 and pos.x == size-10:
           pos.x -= 2
           pos.y = 0xFF # No negatives in here sir (will be turned to 0 below)
           pos.direction = dDown
@@ -117,12 +113,10 @@ proc drawData*(d: var DrawedQRCode, data: BitArray, version: QRVersion) =
           pos.repeat = 5
         else:
           pos.y -= 1 # Avoid top timing pattern
-
       elif pos.y == 9 and pos.x in {0'u8..8'u8, size-8..size-1}:
         changeOrientation oDownwards
         if pos.x == 7:
           pos.x -= 1 # Avoid left timing pattern
-
       elif not (pos.x == size-10 and pos.y == 9) and
            pos.x+1 in alignmentPatternBoundsX and
            pos.y-1 in alignmentPatternLowerBoundsY:
@@ -131,18 +125,15 @@ proc drawData*(d: var DrawedQRCode, data: BitArray, version: QRVersion) =
           pos.repeat = 4
         else:
           pos.y -= 5
-
     of dDownRight:
       if pos.y == 5:
         pos.y += 1
-
       elif pos.y == size-1 or
-           (version >= 7 and pos.y == size-12 and pos.x in {0'u8..5'u8}) or
+           (self.version >= 7 and pos.y == size-12 and pos.x in 0'u8..5'u8) or
            (pos.y == size-9 and pos.x in 0'u8..6'u8):
         changeOrientation oUpwards
         if pos.x == 9:
           pos.y -= 8 # Start from above the dark module
-
       elif not (pos.x == 4 and pos.y == size-10) and
            pos.x+1 in alignmentPatternBoundsX and
            pos.y+1 in alignmentPatternUpperBoundsY:
@@ -151,76 +142,65 @@ proc drawData*(d: var DrawedQRCode, data: BitArray, version: QRVersion) =
           pos.repeat = 4
         else:
           pos.y += 5
-
     of dDown:
       if pos.y == 5:
         pos.y += 1
         if pos.repeat > 0: pos.repeat -= 1
-
     of dUp:
       if pos.y == 7:
         pos.y -= 1
         if pos.repeat > 0: pos.repeat -= 1
-
     else: discard
     # End of the block
-
     # Applying the direction block
     case pos.direction
     of dLeft:
       pos.x -= 1
       checkRepeat:
-        pos.direction = case pos.orientation
-                        of oUpwards: dUpRight
-                        of oDownwards: dDownRight
-
+        pos.direction =
+          case pos.orientation
+          of oUpwards: dUpRight
+          of oDownwards: dDownRight
     of dUpRight:
       pos.x += 1
       pos.y -= 1
       checkRepeat:
         pos.direction = dLeft
-
     of dUp:
       pos.y -= 1
       checkRepeat:
         pos.direction = dUpRight
-
     of dDownRight:
       pos.x += 1
       pos.y += 1
       checkRepeat:
         pos.direction = dLeft
-
     of dDown:
       pos.y += 1
       checkRepeat:
         pos.direction = dDownRight
     # End of the block
 
-proc applyMaskPattern*(qr: var DrawedQRCode,
-                       version: QRVersion,
-                       maskProc: proc(x,y: uint8): bool) =
-  let size: uint8 = qr.drawing.size
+type MaskProc = proc(x,y: uint8): bool
 
+proc applyMaskPattern*(self: var DrawedQRCode, maskProc: MaskProc) =
+  let size: uint8 = self.drawing.size
   var
     alignmentPatternBoundsX: set[uint8]
     alignmentPatternBoundsY: set[uint8]
-
-  if alignmentPatternLocations[version].len > 1:
+  if alignmentPatternLocations[self.version].len > 1:
     alignmentPatternBoundsX.incl {4'u8..8'u8}
     alignmentPatternBoundsY.incl {4'u8..8'u8}
-
-  for pos in alignmentPatternLocations[version]:
+  for pos in alignmentPatternLocations[self.version]:
     alignmentPatternBoundsX.incl {pos-2..pos+2}
     alignmentPatternBoundsY.incl {pos-2..pos+2}
-
-  for x in 0'u8..<qr.drawing.size:
-    for y in 0'u8..<qr.drawing.size:
+  for x in 0'u8..<self.drawing.size:
+    for y in 0'u8..<self.drawing.size:
       if not ((x in 0'u8..8'u8 and y in {0'u8..8'u8, size-8..size-1}) or
               (x in size-8..size-1 and y in 0'u8..8'u8) or
               (x in 9'u8..size-9 and y == 6) or
               (x == 6 and y in 9'u8..size-9) or
-              (version >= 7 and
+              (self.version >= 7 and
                ((x in 0'u8..5'u8 and y in size-11..size-9) or
                 (x in size-11..size-9 and y in 0'u8..5'u8))
               ) or
@@ -229,7 +209,7 @@ proc applyMaskPattern*(qr: var DrawedQRCode,
                x in alignmentPatternBoundsX and y in alignmentPatternBoundsY)
              ):
         if maskProc(x, y):
-          qr.drawing.flipPoint(x, y)
+          self.drawing.flipPoint(x, y)
 
 proc mask0*(x, y: uint8): bool =
   # No need to make y a uint16 since using mod 2:
@@ -266,19 +246,16 @@ proc mask7*(x, y: uint8): bool =
   (((y + x) mod 2) +
    ((y * x) mod 3)) mod 2 == 0
 
-proc evaluateCondition1*(qr: DrawedQRCode): uint =
+proc evaluateCondition1*(self: DrawedQRCode): uint =
   result = 0
-
   var
     stateCol: bool
     countCol: uint
     stateRow: bool
     countRow: uint
-
   template mayAddPenalty(state, count: untyped) =
     if   count == 5: result += 3
     elif count >= 5: result += count - 2
-
   template check(state, count, getter: untyped) =
     if not (state xor getter):
       count += 1
@@ -286,50 +263,56 @@ proc evaluateCondition1*(qr: DrawedQRCode): uint =
       mayAddPenalty state, count
       state = not state
       count = 1
-
-  for i in 0'u8..<qr.drawing.size:
-    stateRow = qr.drawing[0, i]
+  for i in 0'u8..<self.drawing.size:
+    stateRow = self.drawing[0, i]
     countRow = 1
-    stateCol = qr.drawing[i, 0]
+    stateCol = self.drawing[i, 0]
     countCol = 1
-
-    for j in 1'u8..<qr.drawing.size:
-      check stateRow, countRow, qr.drawing[j, i]
-      check stateCol, countCol, qr.drawing[i, j]
-
+    for j in 1'u8..<self.drawing.size:
+      check stateRow, countRow, self.drawing[j, i]
+      check stateCol, countCol, self.drawing[i, j]
     mayAddPenalty stateRow, countRow
     mayAddPenalty stateCol, countCol
 
-proc evaluateCondition2*(qr: DrawedQRCode): uint =
+proc evaluateCondition2*(self: DrawedQRCode): uint =
   result = 0
-  for i in 0'u8..<qr.drawing.size-1:
-    for j in 0'u8..<qr.drawing.size-1:
-      let actual = qr.drawing[j, i]
-      if not ((actual xor qr.drawing[j+1, i]) or
-              (actual xor qr.drawing[j, i+1]) or
-              (actual xor qr.drawing[j+1, i+1])):
+  for i in 0'u8..<self.drawing.size-1:
+    for j in 0'u8..<self.drawing.size-1:
+      let actual = self.drawing[j, i]
+      if not ((actual xor self.drawing[j+1, i]) or
+              (actual xor self.drawing[j, i+1]) or
+              (actual xor self.drawing[j+1, i+1])):
         result += 3
 
-proc newDrawedQRCode*(version: QRVersion): DrawedQRCode =
-  DrawedQRCode(drawing: newDrawing((version - 1) * 4 + 21))
+proc newDrawedQRCode*(version: QRVersion,
+                      mode: QRMode = qrByteMode,
+                      ecLevel: QREcLevel = qrEcL
+                     ): DrawedQRCode =
+  DrawedQRCode(mode: mode,
+               version: version,
+               ecLevel: ecLevel,
+               drawing: newDrawing((version - 1) * 4 + 21))
 
 proc newDrawedQRCode*(qr: EncodedQRCode): DrawedQRCode =
-  DrawedQRCode(drawing: newDrawing((qr.version - 1) * 4 + 21))
+  DrawedQRCode(mode: qr.mode,
+               version: qr.version,
+               ecLevel: qr.ecLevel,
+    drawing: newDrawing((qr.version - 1) * 4 + 21))
 
 proc draw*(qr: EncodedQRCode): DrawedQRCode =
-  result = newDrawedQRCode qr.version
+  result = newDrawedQRCode qr
 
   result.drawFinderPatterns
-  result.drawAlignmentPatterns qr.version
+  result.drawAlignmentPatterns
   result.drawTimingPatterns
   result.drawDarkModule
-  result.drawData qr.encodedData, qr.version
+  result.drawData qr.encodedData
 
 proc drawOnly*(qr: EncodedQRCode): DrawedQRCode =
-  result = newDrawedQRCode qr.version
+  result = newDrawedQRCode qr
 
   result.drawFinderPatterns
-  result.drawAlignmentPatterns qr.version
+  result.drawAlignmentPatterns
   result.drawTimingPatterns
   result.drawDarkModule
-  result.drawData qr.encodedData, qr.version
+  result.drawData qr.encodedData
