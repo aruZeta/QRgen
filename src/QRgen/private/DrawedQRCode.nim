@@ -284,6 +284,27 @@ proc evaluateCondition2*(self: DrawedQRCode): uint =
               (actual xor self.drawing[j+1, i+1])):
         result += 3
 
+proc evaluateCondition4*(self: DrawedQRCode): uint =
+  var darkModules: uint32 = 0
+  for i in 0..<self.drawing.matrix.len:
+    var b = self.drawing.matrix[i]
+    while b > 0:
+      darkModules += 1
+      b = b and (b - 1)
+  case ((darkModules * 100) div
+        (cast[uint16](self.drawing.size) * self.drawing.size))
+  of 45..54: 0
+  of 40..44, 55..59: 10
+  of 35..39, 60..64: 20
+  of 30..34, 65..69: 30
+  of 25..29, 70..74: 40
+  of 20..24, 75..79: 50
+  of 15..19, 80..84: 60
+  of 10..14, 85..89: 70
+  of 05..09, 90..94: 80
+  of 00..04, 95..99: 90
+  else: 0 # Should not be reached
+
 proc newDrawedQRCode*(version: QRVersion,
                       mode: QRMode = qrByteMode,
                       ecLevel: QREcLevel = qrEcL
