@@ -284,6 +284,15 @@ proc evaluateCondition2*(self: DrawedQRCode): uint =
               (actual xor self.drawing[j+1, i+1])):
         result += 3
 
+proc evaluateCondition3*(self: DrawedQRCode): uint =
+  result = 0
+  for i in 0'u8..<self.drawing.size:
+    for j in 0'u8..<self.drawing.size-10:
+      if self.drawing[j..j+10, i] in {0b10111010000'u16, 0b00001011101}:
+        result += 40
+      if self.drawing[i, j..j+10] in {0b10111010000'u16, 0b00001011101}:
+        result += 40
+
 proc evaluateCondition4*(self: DrawedQRCode): uint =
   var darkModules: uint32 = 0
   for i in 0..<self.drawing.matrix.len:

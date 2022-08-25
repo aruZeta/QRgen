@@ -15,6 +15,19 @@ proc `[]`*(self: Drawing, x, y: uint8): bool =
   let bitPos: uint16 = cast[uint16](y) * self.size + x
   ((self.matrix[bitPos div 8] shr (7 - (bitPos mod 8))) and 0x01) == 0x01
 
+proc `[]`*(self: Drawing, x: Slice[uint8], y: uint8): uint16 =
+  let bitPosY: uint16 = cast[uint16](y) * self.size
+  for b in (bitPosY + x.a)..(bitPosY + x.b):
+    result = result shl 1 +
+             ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
+
+proc `[]`*(self: Drawing, x: uint8, y: Slice[uint8]): uint16 =
+  let size: uint16 = cast[uint16](self.size)
+  for y in y:
+    let b: uint16 = size * y + x
+    result = result shl 1 +
+             ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
+
 proc `[]=`*(self: var Drawing, x, y: uint8, val: bool) =
   let bitPos: uint16 = cast[uint16](y) * self.size + x
   template arrPos: uint16 = bitPos div 8

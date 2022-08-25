@@ -302,4 +302,5 @@ benchmarkTest "evaluateConditionX()":
 
   check qr1.evaluateCondition1 == 180
   check qr1.evaluateCondition2 == 90
+  check qr1.evaluateCondition3 == 80
   check qr1.evaluateCondition4 == 0
