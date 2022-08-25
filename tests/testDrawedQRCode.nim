@@ -1,5 +1,5 @@
 import myTestSuite
-import QRgen/private/[DrawedQRCode, EncodedQRCode, Drawing, qrTypes]
+import QRgen/private/[DrawedQRCode, EncodedQRCode, QRCode, Drawing, qrTypes]
 
 benchmarkTest "drawFinderPatterns()":
   var qr1 = newDrawedQRCode 1
@@ -304,3 +304,11 @@ benchmarkTest "evaluateConditionX()":
   check qr1.evaluateCondition2 == 90
   check qr1.evaluateCondition3 == 80
   check qr1.evaluateCondition4 == 0
+
+benchMarkTest "applyBestMaskPattern()":
+  var qr1 = newQRCode("Hello World").encode.drawOnly
+  var copy = qr1
+  qr1.applyBestMaskPattern
+  copy.applyMaskPattern mask0
+
+  check qr1.drawing == copy.drawing

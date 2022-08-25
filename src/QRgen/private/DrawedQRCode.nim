@@ -314,6 +314,25 @@ proc evaluateCondition4*(self: DrawedQRCode): uint =
   of 00..04, 95..99: 90
   else: 0 # Should not be reached
 
+proc calcPenalty*(self: DrawedQRCode): uint =
+  self.evaluateCondition1 +
+  self.evaluateCondition2 +
+  self.evaluateCondition3 +
+  self.evaluateCondition4
+
+proc applyBestMaskPattern*(self: var DrawedQRCode) =
+  var
+    bestPenalty: uint = uint.high
+    bestMask: MaskProc
+  for mask in [mask0, mask1, mask2, mask3, mask4, mask5, mask6, mask7]:
+    var copy = self
+    copy.applyMaskPattern mask
+    let penalty = copy.calcPenalty
+    if penalty < bestPenalty:
+      bestPenalty = penalty
+      bestMask = mask
+  self.applyMaskPattern bestMask
+
 proc newDrawedQRCode*(version: QRVersion,
                       mode: QRMode = qrByteMode,
                       ecLevel: QREcLevel = qrEcL
@@ -337,6 +356,7 @@ proc draw*(qr: EncodedQRCode): DrawedQRCode =
   result.drawTimingPatterns
   result.drawDarkModule
   result.drawData qr.encodedData
+  result.applyBestMaskPattern
 
 proc drawOnly*(qr: EncodedQRCode): DrawedQRCode =
   result = newDrawedQRCode qr
