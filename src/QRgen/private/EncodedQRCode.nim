@@ -130,7 +130,6 @@ proc newEncodedQRCode*(qr: QRCode): EncodedQRCode =
 
 proc encode*(qr: QRCode): EncodedQRCode =
   result = newEncodedQRCode qr
-
   result.encodeModeIndicator
   result.encodeCharCountIndicator qr.data
   result.encodeData qr.data
@@ -142,7 +141,6 @@ proc encodeOnly*(qr: QRCode): EncodedQRCode =
   ## The same as `encode` but without interleaving.
   ## Meant for testing
   result = newEncodedQRCode qr
-
   result.encodeModeIndicator
   result.encodeCharCountIndicator qr.data
   result.encodeData qr.data

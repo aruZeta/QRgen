@@ -2,7 +2,6 @@ import Drawing, EncodedQRCode, BitArray, qrTypes, qrCapacities
 
 type
   DrawedQRCode* = object
-    mode*: QRMode
     version*: QRVersion
     ecLevel*: QREcLevel
     drawing*: Drawing
@@ -334,23 +333,19 @@ proc applyBestMaskPattern*(self: var DrawedQRCode) =
   self.applyMaskPattern bestMask
 
 proc newDrawedQRCode*(version: QRVersion,
-                      mode: QRMode = qrByteMode,
                       ecLevel: QREcLevel = qrEcL
                      ): DrawedQRCode =
-  DrawedQRCode(mode: mode,
-               version: version,
+  DrawedQRCode(version: version,
                ecLevel: ecLevel,
                drawing: newDrawing((version - 1) * 4 + 21))
 
 proc newDrawedQRCode*(qr: EncodedQRCode): DrawedQRCode =
-  DrawedQRCode(mode: qr.mode,
-               version: qr.version,
+  DrawedQRCode(version: qr.version,
                ecLevel: qr.ecLevel,
-    drawing: newDrawing((qr.version - 1) * 4 + 21))
+               drawing: newDrawing((qr.version - 1) * 4 + 21))
 
 proc draw*(qr: EncodedQRCode): DrawedQRCode =
   result = newDrawedQRCode qr
-
   result.drawFinderPatterns
   result.drawAlignmentPatterns
   result.drawTimingPatterns
@@ -360,7 +355,6 @@ proc draw*(qr: EncodedQRCode): DrawedQRCode =
 
 proc drawOnly*(qr: EncodedQRCode): DrawedQRCode =
   result = newDrawedQRCode qr
-
   result.drawFinderPatterns
   result.drawAlignmentPatterns
   result.drawTimingPatterns
