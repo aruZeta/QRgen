@@ -11,6 +11,12 @@ type
 template `[]`*[T](self: QRCapacity[T], qr: EncodedQRCode): T =
   self[qr.ecLevel][qr.version]
 
+template `[]`*(self: EncodedQRCode, i: SomeInteger): uint8 =
+  self.encodedData[i]
+
+template `[]=`*(self: EncodedQRCode, i: SomeInteger, val: uint8) =
+  self.encodedData[i] = val
+
 proc encodeModeIndicator*(self: var EncodedQRCode) =
   self.encodedData.add cast[uint8](self.mode), 4
 
@@ -80,6 +86,56 @@ proc finishEncoding*(self: var EncodedQRCode) =
   if (missingBytes mod 2) == 1:
     self.encodedData.add 0b11101100'u8, 8
 
+proc gf256Mod285Multiply(x, y: uint8): uint8 =
+  result = 0
+  for i in 0'u8..7'u8:
+    result = cast[uint8]((result shl 1) xor ((result shr 7) * 0x11D))
+    result = result xor (((y shr (7 - i)) and 0x01) * x)
+
+proc calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8] =
+  let degree: uint8 = blockECCodewords[self.ecLevel][self.version]
+  result = newSeqOfCap[uint8](degree)
+  result.setLen(degree)
+  result[^1] = 1
+  var root: uint8 = 1
+  template mult(pos: uint8 | BackwardsIndex) =
+    result[pos] = gf256Mod285Multiply(result[pos], root)
+  for _ in 0'u8..<degree:
+    for i in 0'u8..<degree-1:
+      mult(i)
+      result[i] = result[i] xor result[i+1]
+    mult(^1)
+    root = gf256Mod285Multiply(root, 0x02)
+
+proc calcBlockPositions*(self: EncodedQRCode): seq[uint16] =
+  result = newSeqOfCap[uint16](group1Blocks[self] + group2Blocks[self] + 1)
+  result.setLen(group1Blocks[self] + group2Blocks[self] + 1)
+  for i in 0'u8..group1Blocks[self]:
+    result[i] = cast[uint16](i) * group1BlockDataCodewords[self]
+  for i in 0'u8..group2Blocks[self]:
+    result[i + group1Blocks[self]] =
+      (cast[uint16](i) * group2BlockDataCodewords[self]) +
+      (cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self])
+  result[^1] = result[^2] + (
+    if group2Blocks[self] > 1: group2BlockDataCodewords[self]
+    else: group1BlockDataCodewords[self]
+  )
+
+proc encodeEcCodewords*(self: var EncodedQRCode) =
+  let
+    positions: seq[uint16] = self.calcBlockPositions
+    generator: seq[uint8] = self.calcGeneratorPolynomial
+    degree: uint8 = cast[uint8](generator.len)
+  for i in 0'u8..<cast[uint8](positions.len)-1:
+    for j in positions[i]..<positions[i+1]:
+      let actualEcPos: uint16 = positions[^1]+blockECCodewords[self]*i
+      let factor = self[j] xor self[actualEcPos]
+      self.encodedData.data.delete actualEcPos
+      self.encodedData.data.add 0
+      for k in 0'u8..<degree:
+        self[actualEcPos+k] =
+          self[actualEcPos+k] xor (gf256Mod285Multiply(generator[k], factor))
+
 proc interleaveData*(self: var EncodedQRCode) =
   if group1Blocks[self] == 1 and group2Blocks[self] == 0:
     return
@@ -134,8 +190,9 @@ proc encode*(qr: QRCode): EncodedQRCode =
   result.encodeCharCountIndicator qr.data
   result.encodeData qr.data
   result.finishEncoding
-  # Calculate ECC codewords and add them
+  result.encodeEcCodewords
   result.interleaveData
+  #result.interleaveEcCodewords
 
 proc encodeOnly*(qr: QRCode): EncodedQRCode =
   ## The same as `encode` but without interleaving.
@@ -145,4 +202,4 @@ proc encodeOnly*(qr: QRCode): EncodedQRCode =
   result.encodeCharCountIndicator qr.data
   result.encodeData qr.data
   result.finishEncoding
-  # Calculate ECC codewords and add them
+  result.encodeEcCodewords
