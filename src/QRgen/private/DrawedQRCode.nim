@@ -334,6 +334,18 @@ proc applyBestMaskPattern*(self: var DrawedQRCode) =
       self.mask = cast[uint8](i)
   self.applyMaskPattern bestMask
 
+proc calcLen[T: uint16 | uint32](bits: T): uint8 =
+  const maxLen: uint8 = sizeof(T) * 8
+  const initialMask: T =
+    when T is uint16: 0b1000_0000_0000_0000'u16
+    elif T is uint32: 0b1000_0000_0000_0000_0000_0000_0000_0000'u32
+  result = maxLen
+  while result > 0:
+    let mask: T = initialMask shr (maxLen - result)
+    if (bits and mask) == mask:
+      return result
+    result.dec
+
 proc drawFormatInformation*(self: var DrawedQRCode) =
   var bits: uint16 = ((
     case self.ecLevel
@@ -342,13 +354,6 @@ proc drawFormatInformation*(self: var DrawedQRCode) =
     of qrEcQ: 0b11'u16
     of qrEcH: 0b10'u16
   ) shl 3) + self.mask
-  proc calcLen(bits: uint16): uint8 =
-    result = 16
-    while result > 0:
-      let mask: uint16 = 0b1000_0000_0000_0000'u16 shr (16 - result)
-      if (bits and mask) == mask:
-        return result
-      result.dec
   const
     gPolynomial: uint16 = 0b101_0011_0111'u16
     polynomialLen: uint8 = gPolynomial.calcLen
@@ -380,6 +385,27 @@ proc drawFormatInformation*(self: var DrawedQRCode) =
       self.drawing.fillPoint 8'u8, 14-i
       self.drawing.fillPoint self.drawing.size-15+i, 8'u8
 
+proc drawVersionInformation*(self: var DrawedQRCode) =
+  if self.version < 7:
+    return
+  var bits: uint32 = cast[uint32](self.version)
+  const
+    gPolynomial: uint32 = 0b1_1111_0010_0101'u32
+    polynomialLen: uint8 = gPolynomial.calcLen
+  var
+    ecBits: uint32 = bits shl 12
+    ecBitsLen: uint8 = ecBits.calcLen
+  while ecBitsLen > 12:
+    let polynomial: uint32 = gPolynomial shl (ecBitsLen - polynomialLen)
+    ecBits = ecBits xor polynomial
+    ecBitsLen = ecBits.calcLen
+  bits = (bits shl 26) or (ecBits shl 14)
+  template check(i: uint8): bool = ((bits shr (31 - i)) and 0x01) == 0x01
+  for i in 0'u8..17'u8:
+    if check i:
+      self.drawing.fillPoint 5 - i div 3, self.drawing.size-9-(i mod 3)
+      self.drawing.fillPoint self.drawing.size-9-(i mod 3), 5 - i div 3
+
 proc newDrawedQRCode*(version: QRVersion,
                       ecLevel: QREcLevel = qrEcL
                      ): DrawedQRCode =
@@ -401,6 +427,7 @@ proc draw*(qr: EncodedQRCode): DrawedQRCode =
   result.drawData qr.encodedData
   result.applyBestMaskPattern
   result.drawFormatInformation
+  result.drawVersionInformation
 
 proc drawOnly*(qr: EncodedQRCode): DrawedQRCode =
   result = newDrawedQRCode qr
