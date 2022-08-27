@@ -4,7 +4,7 @@ type
   QRCode* = object
     mode*: QRMode
     version*: QRVersion
-    ecLevel*: QREcLevel
+    ecLevel*: QRECLevel
     data*: string
 
   DataSizeDefect* = object of Defect
@@ -18,7 +18,7 @@ template getCapacities(mode: QRMode): QRCapacity[uint16] =
   of qrAlphanumericMode: alphanumericModeCapacities
   of qrByteMode: byteModeCapacities
 
-proc setMostEfficientMode*(self: var QRCode) =
+proc setMostEfficientMode(self: var QRCode) =
   self.mode = qrNumericMode
   for c in self.data:
     if c notin alphaNumericValues:
@@ -27,7 +27,7 @@ proc setMostEfficientMode*(self: var QRCode) =
     elif self.mode != qrAlphanumericMode and c notin numericValues:
       self.mode = qrAlphanumericMode
 
-proc setSmallestVersion*(self: var QRCode) =
+proc setSmallestVersion(self: var QRCode) =
   for i, version in getCapacities(self.mode)[self.ecLevel]:
     if cast[uint16](self.data.len) < version:
       self.version = i
@@ -36,7 +36,7 @@ proc setSmallestVersion*(self: var QRCode) =
 proc newQRCode*(data: string,
                 mode: QRMode,
                 version: QRVersion,
-                ecLevel: QREcLevel = qrEcL
+                ecLevel: QRECLevel = qrECL
                ): QRCode =
   if cast[uint16](data.len) > getCapacities(mode)[ecLevel][version]:
     raise newException(
@@ -47,20 +47,20 @@ proc newQRCode*(data: string,
 
 proc newQRCode*(data: string,
                 version: QRVersion,
-                ecLevel: QREcLevel = qrEcL
+                ecLevel: QRECLevel = qrECL
                ): QRCode =
   result = QRCode(version: version, ecLevel: ecLevel, data: data)
   result.setMostEfficientMode
 
 proc newQRCode*(data: string,
                 mode: QRMode,
-                ecLevel: QREcLevel = qrEcL
+                ecLevel: QRECLevel = qrECL
                ): QRCode =
   result = QRCode(mode: mode, version: 1, ecLevel: ecLevel, data: data)
   result.setSmallestVersion
 
 proc newQRCode*(data: string,
-                ecLevel: QREcLevel = qrEcL
+                ecLevel: QRECLevel = qrECL
                ): QRCode =
   result = QRCode(version: 1, ecLevel: ecLevel, data: data)
   result.setMostEfficientMode

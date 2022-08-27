@@ -3,28 +3,46 @@ import Drawing, EncodedQRCode, BitArray, qrTypes, qrCapacities
 type
   DrawedQRCode* = object
     version*: QRVersion
-    ecLevel*: QREcLevel
+    ecLevel*: QRECLevel
     mask*: range[0'u8..7'u8]
     drawing*: Drawing
 
+template `[]`(self: DrawedQRCode, x, y: uint8): bool =
+  self.drawing[x, y]
+
+template `[]`(self: DrawedQRCode, x, y: untyped): uint16 =
+  self.drawing[x, y]
+
+template fillPoint(self: var DrawedQRCode, x, y: uint8) =
+  self.drawing.fillPoint x, y
+
+template flipPoint(self: var DrawedQRCode, x, y: uint8) =
+  self.drawing.flipPoint x, y
+
+template fillRectangle(self: var DrawedQRCode, x, y: untyped) =
+  self.drawing.fillRectangle x, y
+
+template size(self: DrawedQRCode): uint8 =
+  self.drawing.size
+
 proc drawFinderPatterns*(self: var DrawedQRCode) =
   template drawFinderPattern(x, y: uint8) =
-    self.drawing.fillRectangle x..x+6,   y
-    self.drawing.fillRectangle x..x+6,   y+6
-    self.drawing.fillRectangle x,        y+1..y+5
-    self.drawing.fillRectangle x+6,      y+1..y+5
-    self.drawing.fillRectangle x+2..x+4, y+2..y+4
+    self.fillRectangle x..x+6,   y
+    self.fillRectangle x..x+6,   y+6
+    self.fillRectangle x,        y+1..y+5
+    self.fillRectangle x+6,      y+1..y+5
+    self.fillRectangle x+2..x+4, y+2..y+4
   drawFinderPattern 0'u8, 0'u8
-  drawFinderPattern self.drawing.size - 7'u8, 0'u8
-  drawFinderPattern 0'u8, self.drawing.size - 7'u8
+  drawFinderPattern self.size - 7'u8, 0'u8
+  drawFinderPattern 0'u8, self.size - 7'u8
 
 iterator alignmentPatternCoords(version: QRVersion): tuple[x, y: uint8] =
   let locations = alignmentPatternLocations[version]
   for i, pos in locations:
-    if i < locations.len - 1:
+    if i < locations.len-1:
       yield (x: 6'u8, y: pos)
       yield (x: pos, y: 6'u8)
-    for pos2 in locations[i..<locations.len]:
+    for pos2 in locations[i..^1]:
       yield (x: pos, y: pos2)
       if pos != pos2:
         yield (x: pos2, y: pos)
@@ -33,26 +51,25 @@ proc drawAlignmentPatterns*(self: var DrawedQRCode) =
   if self.version == 1:
     return
   for x, y in alignmentPatternCoords(self.version):
-    self.drawing.fillPoint     x,        y
-    self.drawing.fillRectangle x-2..x+2, y-2
-    self.drawing.fillRectangle x-2..x+2, y+2
-    self.drawing.fillRectangle x-2,      y-1..y+1
-    self.drawing.fillRectangle x+2,      y-1..y+1
-
-iterator step(start, stop: uint8, step: int): uint8 =
-  var x = start
-  while x <= stop:
-    yield x
-    x.inc step
+    self.fillPoint     x,        y
+    self.fillRectangle x-2..x+2, y-2
+    self.fillRectangle x-2..x+2, y+2
+    self.fillRectangle x-2,      y-1..y+1
+    self.fillRectangle x+2,      y-1..y+1
 
 proc drawTimingPatterns*(self: var DrawedQRCode) =
+  iterator step(start, stop, step: uint8): uint8 =
+    var x = start
+    while x <= stop:
+      yield x
+      x += step
   const margin: uint8 = 7 + 1
-  for pos in step(margin, self.drawing.size-margin, 2):
-    self.drawing.fillPoint pos, 6'u8
-    self.drawing.fillPoint 6'u8, pos
+  for pos in step(margin, self.size-margin, 2):
+    self.fillPoint pos, 6'u8
+    self.fillPoint 6'u8, pos
 
 proc drawDarkModule*(self: var DrawedQRCode) =
-  self.drawing.fillPoint 8'u8, (self.drawing.size - 8)
+  self.fillPoint 8'u8, self.size-8
 
 type
   DirectionKind = enum
@@ -69,7 +86,7 @@ type
     repeat: uint8
 
 proc drawData*(self: var DrawedQRCode, data: BitArray) =
-  let size: uint8 = self.drawing.size
+  template size: uint8 = self.size
   var pos = Position(x: size-1,
                      y: size-1,
                      direction: dLeft,
@@ -98,7 +115,7 @@ proc drawData*(self: var DrawedQRCode, data: BitArray) =
       elseBody
   for module in 0..<data.data.len * 8:
     if ((data.data[module div 8] shr (7 - (module mod 8))) and 0x01) == 0x01:
-      self.drawing.fillPoint pos.x, pos.y
+      self.fillPoint pos.x, pos.y
     # Avoiding stuff, changing orientation in borders, etc block
     case pos.direction
     of dUpRight:
@@ -184,7 +201,7 @@ proc drawData*(self: var DrawedQRCode, data: BitArray) =
 type MaskProc = proc(x,y: uint8): bool
 
 proc applyMaskPattern*(self: var DrawedQRCode, maskProc: MaskProc) =
-  let size: uint8 = self.drawing.size
+  template size: uint8 = self.size
   var
     alignmentPatternBoundsX: set[uint8]
     alignmentPatternBoundsY: set[uint8]
@@ -194,8 +211,8 @@ proc applyMaskPattern*(self: var DrawedQRCode, maskProc: MaskProc) =
   for pos in alignmentPatternLocations[self.version]:
     alignmentPatternBoundsX.incl {pos-2..pos+2}
     alignmentPatternBoundsY.incl {pos-2..pos+2}
-  for x in 0'u8..<self.drawing.size:
-    for y in 0'u8..<self.drawing.size:
+  for x in 0'u8..<self.size:
+    for y in 0'u8..<self.size:
       if not ((x in 0'u8..8'u8 and y in {0'u8..8'u8, size-8..size-1}) or
               (x in size-8..size-1 and y in 0'u8..8'u8) or
               (x in 9'u8..size-9 and y == 6) or
@@ -209,7 +226,7 @@ proc applyMaskPattern*(self: var DrawedQRCode, maskProc: MaskProc) =
                x in alignmentPatternBoundsX and y in alignmentPatternBoundsY)
              ):
         if maskProc(x, y):
-          self.drawing.flipPoint(x, y)
+          self.flipPoint(x, y)
 
 proc mask0*(x, y: uint8): bool =
   # No need to make y a uint16 since using mod 2:
@@ -246,13 +263,13 @@ proc mask7*(x, y: uint8): bool =
   (((y + x) mod 2) +
    ((y * x) mod 3)) mod 2 == 0
 
-proc evaluateCondition1*(self: DrawedQRCode): uint =
+proc evaluateCondition1*(self: DrawedQRCode): uint16 =
   result = 0
   var
     stateCol: bool
-    countCol: uint
+    countCol: uint16
     stateRow: bool
-    countRow: uint
+    countRow: uint16
   template mayAddPenalty(state, count: untyped) =
     if   count == 5: result += 3
     elif count >= 5: result += count - 2
@@ -263,45 +280,44 @@ proc evaluateCondition1*(self: DrawedQRCode): uint =
       mayAddPenalty state, count
       state = not state
       count = 1
-  for i in 0'u8..<self.drawing.size:
-    stateRow = self.drawing[0, i]
+  for i in 0'u8..<self.size:
+    stateRow = self[0, i]
     countRow = 1
-    stateCol = self.drawing[i, 0]
+    stateCol = self[i, 0]
     countCol = 1
-    for j in 1'u8..<self.drawing.size:
-      check stateRow, countRow, self.drawing[j, i]
-      check stateCol, countCol, self.drawing[i, j]
+    for j in 1'u8..<self.size:
+      check stateRow, countRow, self[j, i]
+      check stateCol, countCol, self[i, j]
     mayAddPenalty stateRow, countRow
     mayAddPenalty stateCol, countCol
 
-proc evaluateCondition2*(self: DrawedQRCode): uint =
+proc evaluateCondition2*(self: DrawedQRCode): uint16 =
   result = 0
-  for i in 0'u8..<self.drawing.size-1:
-    for j in 0'u8..<self.drawing.size-1:
-      let actual = self.drawing[j, i]
-      if not ((actual xor self.drawing[j+1, i]) or
-              (actual xor self.drawing[j, i+1]) or
-              (actual xor self.drawing[j+1, i+1])):
+  for i in 0'u8..<self.size-1:
+    for j in 0'u8..<self.size-1:
+      let actual = self[j, i]
+      if not ((actual xor self[j+1, i]) or
+              (actual xor self[j, i+1]) or
+              (actual xor self[j+1, i+1])):
         result += 3
 
-proc evaluateCondition3*(self: DrawedQRCode): uint =
+proc evaluateCondition3*(self: DrawedQRCode): uint16 =
   result = 0
-  for i in 0'u8..<self.drawing.size:
-    for j in 0'u8..<self.drawing.size-10:
-      if self.drawing[j..j+10, i] in {0b10111010000'u16, 0b00001011101}:
+  for i in 0'u8..<self.size:
+    for j in 0'u8..<self.size-10:
+      if self[j..j+10, i] in {0b10111010000'u16, 0b00001011101}:
         result += 40
-      if self.drawing[i, j..j+10] in {0b10111010000'u16, 0b00001011101}:
+      if self[i, j..j+10] in {0b10111010000'u16, 0b00001011101}:
         result += 40
 
-proc evaluateCondition4*(self: DrawedQRCode): uint =
+proc evaluateCondition4*(self: DrawedQRCode): uint16 =
   var darkModules: uint32 = 0
   for i in 0..<self.drawing.matrix.len:
-    var b = self.drawing.matrix[i]
+    var b: uint8 = self.drawing.matrix[i]
     while b > 0:
       darkModules += 1
       b = b and (b - 1)
-  case ((darkModules * 100) div
-        (cast[uint16](self.drawing.size) * self.drawing.size))
+  case ((darkModules * 100) div (cast[uint16](self.size) * self.size))
   of 45..54: 0
   of 40..44, 55..59: 10
   of 35..39, 60..64: 20
@@ -314,7 +330,7 @@ proc evaluateCondition4*(self: DrawedQRCode): uint =
   of 00..04, 95..99: 90
   else: 0 # Should not be reached
 
-proc calcPenalty*(self: DrawedQRCode): uint =
+proc calcPenalty(self: DrawedQRCode): uint16 =
   self.evaluateCondition1 +
   self.evaluateCondition2 +
   self.evaluateCondition3 +
@@ -322,7 +338,7 @@ proc calcPenalty*(self: DrawedQRCode): uint =
 
 proc applyBestMaskPattern*(self: var DrawedQRCode) =
   var
-    bestPenalty: uint = uint.high
+    bestPenalty: uint16 = uint16.high
     bestMask: MaskProc
   for i, mask in [mask0, mask1, mask2, mask3, mask4, mask5, mask6, mask7]:
     var copy = self
@@ -346,13 +362,13 @@ proc calcLen[T: uint16 | uint32](bits: T): uint8 =
       return result
     result.dec
 
-proc drawFormatInformation*(self: var DrawedQRCode) =
+proc drawFormatInformation(self: var DrawedQRCode) =
   var bits: uint16 = ((
     case self.ecLevel
-    of qrEcL: 0b01'u16
-    of qrEcM: 0b00'u16
-    of qrEcQ: 0b11'u16
-    of qrEcH: 0b10'u16
+    of qrECL: 0b01'u16
+    of qrECM: 0b00'u16
+    of qrECQ: 0b11'u16
+    of qrECH: 0b10'u16
   ) shl 3) + self.mask
   const
     gPolynomial: uint16 = 0b101_0011_0111'u16
@@ -365,27 +381,27 @@ proc drawFormatInformation*(self: var DrawedQRCode) =
     ecBits = ecBits xor polynomial
     ecBitsLen = ecBits.calcLen
   bits = (bits shl 11) or (ecBits shl 1)
-  bits = bits xor 0b1010_1000_0010_0100'u16
+  bits = bits xor 0b10_101_00000100100'u16
   template check(i: uint8): bool = ((bits shr (15 - i)) and 0x01) == 0x01
   for i in 0'u8..5'u8:
     if check i:
-      self.drawing.fillPoint i, 8'u8
-      self.drawing.fillPoint 8'u8, self.drawing.size-1-i
+      self.fillPoint i, 8'u8
+      self.fillPoint 8'u8, self.size-1-i
   if check 6'u8:
-    self.drawing.fillPoint 7'u8, 8'u8
-    self.drawing.fillPoint 8'u8, self.drawing.size-7
+    self.fillPoint 7'u8, 8'u8
+    self.fillPoint 8'u8, self.size-7
   if check 7'u8:
-    self.drawing.fillPoint 8'u8, 8'u8
-    self.drawing.fillPoint self.drawing.size-8, 8'u8
+    self.fillPoint 8'u8, 8'u8
+    self.fillPoint self.size-8, 8'u8
   if check 8'u8:
-    self.drawing.fillPoint 8'u8, 7'u8
-    self.drawing.fillPoint self.drawing.size-7, 8'u8
+    self.fillPoint 8'u8, 7'u8
+    self.fillPoint self.size-7, 8'u8
   for i in 9'u8..14'u8:
     if check i:
-      self.drawing.fillPoint 8'u8, 14-i
-      self.drawing.fillPoint self.drawing.size-15+i, 8'u8
+      self.fillPoint 8'u8, 14-i
+      self.fillPoint self.size-15+i, 8'u8
 
-proc drawVersionInformation*(self: var DrawedQRCode) =
+proc drawVersionInformation(self: var DrawedQRCode) =
   if self.version < 7:
     return
   var bits: uint32 = cast[uint32](self.version)
@@ -403,11 +419,11 @@ proc drawVersionInformation*(self: var DrawedQRCode) =
   template check(i: uint8): bool = ((bits shr (31 - i)) and 0x01) == 0x01
   for i in 0'u8..17'u8:
     if check i:
-      self.drawing.fillPoint 5 - i div 3, self.drawing.size-9-(i mod 3)
-      self.drawing.fillPoint self.drawing.size-9-(i mod 3), 5 - i div 3
+      self.fillPoint 5 - i div 3, self.size-9-(i mod 3)
+      self.fillPoint self.size-9-(i mod 3), 5 - i div 3
 
 proc newDrawedQRCode*(version: QRVersion,
-                      ecLevel: QREcLevel = qrEcL
+                      ecLevel: QRECLevel = qrECL
                      ): DrawedQRCode =
   DrawedQRCode(version: version,
                ecLevel: ecLevel,

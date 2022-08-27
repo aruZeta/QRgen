@@ -6,10 +6,10 @@ type
     # qrECIMode   = 0b0111 (Extended Channel Interpretation) not supported
     # qrKanjiMode = 0b1000                                   not supported
 
-  QREcLevel* {.size: sizeof(uint8).} = enum
-    qrEcL, #  7% data recovery
-    qrEcM, # 15% data recovery
-    qrEcQ, # 25% data recovery
-    qrEcH  # 30% data recovery
+  QRECLevel* {.size: sizeof(uint8).} = enum
+    qrECL, #  7% data recovery
+    qrECM, # 15% data recovery
+    qrECQ, # 25% data recovery
+    qrECH  # 30% data recovery
 
   QRVersion* = range[1'u8..40'u8]

@@ -18,11 +18,10 @@ template `[]`*(self: BitArray, i: Slice[SomeInteger]): seq[uint8] =
 template `[]=`*(self: BitArray, i: SomeInteger, val: uint8) =
   self.data[i] = val
 
-proc nextByte*(self: var BitArray, evenIfBlank: bool = false): uint8 =
+proc nextByte*(self: var BitArray): uint8 =
   let bytePos: uint8 = cast[uint8](self.pos mod 8)
   result =
     if bytePos > 0: 8 - bytePos
-    elif evenIfBlank: 8'u8
     else: 0'u8
   self.pos += result
 

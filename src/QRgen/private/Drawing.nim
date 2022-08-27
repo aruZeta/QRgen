@@ -22,9 +22,8 @@ proc `[]`*(self: Drawing, x: Slice[uint8], y: uint8): uint16 =
              ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
 
 proc `[]`*(self: Drawing, x: uint8, y: Slice[uint8]): uint16 =
-  let size: uint16 = cast[uint16](self.size)
   for y in y:
-    let b: uint16 = size * y + x
+    let b: uint16 =  cast[uint16](self.size) * y + x
     result = result shl 1 +
              ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
 
@@ -58,7 +57,7 @@ template fillRectangle*(self: var Drawing, x: uint8, yRange: Slice[uint8]) =
 template fillRectangle*(self: var Drawing, xyRange: Slice[uint8]) =
   self.fillRectangle xyRange, xyRange
 
-proc printTerminal*(self: Drawing) =
+template printTerminal(self: Drawing) =
   stdout.write "\n\n\n\n\n"
   for y in 0'u8..<self.size:
     stdout.write "          "
@@ -72,5 +71,4 @@ proc printTerminal*(self: Drawing) =
 
 proc print*(self: Drawing, output: DrawingPrint) =
   case output
-  of dpTerminal:
-    printTerminal self
+  of dpTerminal: printTerminal self

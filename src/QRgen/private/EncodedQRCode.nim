@@ -5,19 +5,28 @@ type
   EncodedQRCode* = object
     mode*: QRMode
     version*: QRVersion
-    ecLevel*: QREcLevel
+    ecLevel*: QRECLevel
     encodedData*: BitArray
 
-template `[]`*[T](self: QRCapacity[T], qr: EncodedQRCode): T =
+template `[]`[T](self: QRCapacity[T], qr: EncodedQRCode): T =
   self[qr.ecLevel][qr.version]
 
-template `[]`*(self: EncodedQRCode, i: SomeInteger): uint8 =
+template `[]`(self: EncodedQRCode, i: SomeInteger): uint8 =
   self.encodedData[i]
 
-template `[]=`*(self: EncodedQRCode, i: SomeInteger, val: uint8) =
+template `[]=`(self: EncodedQRCode, i: SomeInteger, val: uint8) =
   self.encodedData[i] = val
 
-proc encodeModeIndicator*(self: var EncodedQRCode) =
+template add(self: EncodedQRCode, val: SomeUnsignedInt, len: uint8) =
+  self.encodedData.add val, len
+
+template unsafeAdd(self: EncodedQRCode, val: uint8) =
+  self.encodedData.data.add val
+
+template unsafeDelete(self: EncodedQRCode, pos: uint16) =
+  self.encodedData.data.delete pos
+
+proc encodeModeIndicator(self: var EncodedQRCode) =
   self.encodedData.add cast[uint8](self.mode), 4
 
 proc encodeCharCountIndicator*(self: var EncodedQRCode, data: string) =
@@ -26,10 +35,10 @@ proc encodeCharCountIndicator*(self: var EncodedQRCode, data: string) =
     of qrNumericMode: numericVal
     of qrAlphanumericMode: alphanumericVal
     of qrByteMode: byteVal
-  self.encodedData.add(cast[uint16](data.len), (
-      if self.version <= 9:    modeCases 10, 9, 8
-      elif self.version >= 27: modeCases 14, 13, 16
-      else:                    modeCases 12, 11, 16
+  self.add(cast[uint16](data.len), (
+    if self.version <= 9:    modeCases 10, 9, 8
+    elif self.version >= 27: modeCases 14, 13, 16
+    else:                    modeCases 12, 11, 16
   ))
 
 iterator step(start, stop, step: int): int =
@@ -38,53 +47,53 @@ iterator step(start, stop, step: int): int =
     yield x
     x.inc step
 
-template getVal(c: char): uint16 = cast[uint16](getAlphanumericValue c)
+template getVal16(c: char): uint16 = cast[uint16](getAlphanumericValue c)
 template getVal8(c: char): uint8 = getAlphanumericValue c
 
 template encodeNumericModeData(self: var EncodedQRCode, data: string) =
   for i in step(0, data.len, 3):
-    self.encodedData.add(
-      getVal(data[i]) * 100 + getVal(data[i+1]) * 10 + getVal(data[i+2]),
+    self.add(
+      getVal16(data[i]) * 100 + getVal16(data[i+1]) * 10 + getVal8(data[i+2]),
       (if data[i] == '0':
          if data[i+1] == '0': 4'u8
          else: 7'u8
        else: 10'u8)
     )
   case (data.len mod 3)
-  of 1: self.encodedData.add getVal8(data[^1]), 4
-  of 2: self.encodedData.add getVal8(data[^2]) * 10 + getVal8(data[^1]), 7
+  of 1: self.add getVal8(data[^1]), 4
+  of 2: self.add getVal16(data[^2]) * 10 + getVal8(data[^1]), 7
   else: discard
 
 template encodeAlphanumericModeData(self: var EncodedQRCode, data: string) =
   for i in step(0, data.len, 2):
-    self.encodedData.add getVal(data[i]) * 45'u16 + getVal(data[i+1]), 11
+    self.add getVal16(data[i]) * 45 + getVal8(data[i+1]), 11
   if (data.len mod 2) == 1:
-    self.encodedData.add getVal8(data[^1]), 6
+    self.add getVal8(data[^1]), 6
 
 template encodeByteModeData(self: var EncodedQRCode, data: string) =
   for c in convert(data, "ISO 8859-1", "UTF-8"):
-    self.encodedData.add cast[uint8](c), 8
+    self.add cast[uint8](c), 8
 
-proc encodeData*(self: var EncodedQRCode, data: string) =
+proc encodeData(self: var EncodedQRCode, data: string) =
   case self.mode
   of qrNumericMode:      encodeNumericModeData self, data
   of qrAlphanumericMode: encodeAlphanumericModeData self, data
   of qrByteMode:         encodeByteModeData self, data
 
-proc finishEncoding*(self: var EncodedQRCode) =
+proc finishEncoding(self: var EncodedQRCode) =
   var missingBits: uint16 =
     (totalDataCodewords[self] * 8) - self.encodedData.pos
   let terminatorBits: uint8 =
     if missingBits > 4: 4'u8
     else: cast[uint8](missingBits)
-  self.encodedData.add 0b0000'u8, terminatorBits
+  self.add 0b0000'u8, terminatorBits
   missingBits -= terminatorBits + self.encodedData.nextByte
   let missingBytes: uint16 = missingBits div 8
   for _ in 1'u16..(missingBytes div 2):
-    self.encodedData.add 0b11101100'u8, 8
-    self.encodedData.add 0b00010001'u8, 8
+    self.add 0b11101100'u8, 8
+    self.add 0b00010001'u8, 8
   if (missingBytes mod 2) == 1:
-    self.encodedData.add 0b11101100'u8, 8
+    self.add 0b11101100'u8, 8
 
 proc gf256Mod285Multiply(x, y: uint8): uint8 =
   result = 0
@@ -93,7 +102,7 @@ proc gf256Mod285Multiply(x, y: uint8): uint8 =
     result = result xor (((y shr (7 - i)) and 0x01) * x)
 
 proc calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8] =
-  let degree: uint8 = blockECCodewords[self.ecLevel][self.version]
+  let degree: uint8 = blockECCodewords[self]
   result = newSeqOfCap[uint8](degree)
   result.setLen(degree)
   result[^1] = 1
@@ -107,7 +116,7 @@ proc calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8] =
     mult(^1)
     root = gf256Mod285Multiply(root, 0x02)
 
-proc calcBlockPositions*(self: EncodedQRCode): seq[uint16] =
+proc calcBlockPositions(self: EncodedQRCode): seq[uint16] =
   result = newSeqOfCap[uint16](group1Blocks[self] + group2Blocks[self] + 1)
   result.setLen(group1Blocks[self] + group2Blocks[self] + 1)
   result[0] = 0
@@ -117,7 +126,7 @@ proc calcBlockPositions*(self: EncodedQRCode): seq[uint16] =
       else: group2BlockDataCodewords[self]
     )
 
-proc encodeEcCodewords*(self: var EncodedQRCode) =
+proc encodeECC(self: var EncodedQRCode) =
   let
     positions: seq[uint16] = self.calcBlockPositions
     generator: seq[uint8] = self.calcGeneratorPolynomial
@@ -127,8 +136,8 @@ proc encodeEcCodewords*(self: var EncodedQRCode) =
       let actualEcPos: uint16 =
         positions[^1] + (cast[uint16](blockECCodewords[self]) * i)
       let factor = self[j] xor self[actualEcPos]
-      self.encodedData.data.delete actualEcPos
-      self.encodedData.data.add 0
+      self.unsafeDelete actualEcPos
+      self.unsafeAdd 0
       for k in 0'u8..<degree:
         self[actualEcPos+k] =
           self[actualEcPos+k] xor (gf256Mod285Multiply(generator[k], factor))
@@ -154,16 +163,16 @@ proc interleaveData*(self: var EncodedQRCode) =
     dataCopy: seq[uint8] = self.encodedData.data
     i: int16 = 0
   for pos in codewordPositions():
-    self.encodedData[i] = dataCopy[pos]
+    self[i] = dataCopy[pos]
     i.inc
 
-proc calcEcBlockPositions*(self: EncodedQRCode): seq[uint16] =
+proc calcEcBlockPositions(self: EncodedQRCode): seq[uint16] =
   result = newSeqOfCap[uint16](group1Blocks[self] + group2Blocks[self])
   result.setLen(group1Blocks[self] + group2Blocks[self])
   for i in 0'u8..<group1Blocks[self]+group2Blocks[self]:
     result[i] = cast[uint16](blockECCodewords[self]) * i
 
-proc interleaveEcCodewords(self: var EncodedQRCode) =
+proc interleaveECC(self: var EncodedQRCode) =
   let
     firstEcBlockPos: uint16 =
       (cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self]) +
@@ -178,22 +187,20 @@ proc interleaveEcCodewords(self: var EncodedQRCode) =
       n.inc
 
 proc newEncodedQRCode*(version: QRVersion,
-                       ecLevel: QREcLevel = qrEcL,
+                       ecLevel: QRECLevel = qrECL,
                        mode: QRMode = qrByteMode
                       ): EncodedQRCode =
-  template dataSize: uint16 = totalDataCodewords[ecLevel][version]
+  template get[T](self: QRCapacity[T]): T = self[ecLevel][version]
+  template dataSize: uint16 = totalDataCodewords.get
   template eccSize: uint16 =
-    cast[uint16](
-      group1Blocks[ecLevel][version] +
-      group2Blocks[ecLevel][version]
-    ) * blockECCodewords[ecLevel][version]
+    cast[uint16](group1Blocks.get + group2Blocks.get) * blockECCodewords.get
   EncodedQRCode(mode: mode,
                 version: version,
                 ecLevel: ecLevel,
                 encodedData: newBitArray(dataSize + eccSize))
 
 proc newEncodedQRCode*(qr: QRCode): EncodedQRCode =
-  template dataSize: uint16 = totalDataCodewords[qr.ecLevel][qr.version]
+  template dataSize: uint16 = totalDataCodewords[qr]
   template eccSize: uint16 =
     cast[uint16](group1Blocks[qr] + group2Blocks[qr]) * blockECCodewords[qr]
   EncodedQRCode(mode: qr.mode,
@@ -207,9 +214,9 @@ proc encode*(qr: QRCode): EncodedQRCode =
   result.encodeCharCountIndicator qr.data
   result.encodeData qr.data
   result.finishEncoding
-  result.encodeEcCodewords
+  result.encodeECC
   result.interleaveData
-  result.interleaveEcCodewords
+  result.interleaveECC
 
 proc encodeOnly*(qr: QRCode): EncodedQRCode =
   ## The same as `encode` but without interleaving.
@@ -219,4 +226,4 @@ proc encodeOnly*(qr: QRCode): EncodedQRCode =
   result.encodeCharCountIndicator qr.data
   result.encodeData qr.data
   result.finishEncoding
-  result.encodeEcCodewords
+  result.encodeECC

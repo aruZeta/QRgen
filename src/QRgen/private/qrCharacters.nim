@@ -10,7 +10,7 @@ iterator pairs[T](a: set[T]): tuple[key: uint8, val: T] =
     yield (key: x, val: c)
     inc x
 
-proc getSpecialValue*(c: char): uint8 =
+proc getSpecialValue(c: char): uint8 =
   for i, val in specialValues:
     if val == c:
       return i + 36'u8

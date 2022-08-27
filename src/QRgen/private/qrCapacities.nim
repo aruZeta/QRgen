@@ -2,7 +2,7 @@ import qrTypes
 
 type
   QRCapacity*[T: uint8 | uint16] = array[
-    QREcLevel,
+    QRECLevel,
     array[QRVersion, T]
   ]
 

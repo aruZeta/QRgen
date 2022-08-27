@@ -1,7 +1,6 @@
 import QRgen/private/[QRCode, EncodedQRCode, DrawedQRCode, Drawing, qrTypes]
 
-export QRCode.QRCode
-export EncodedQRCode.EncodedQRCode
+export QRCode.DataSizeDefect
 export DrawedQRCode.DrawedQRCode
 export Drawing.Drawing, Drawing.DrawingPrint
 export qrTypes
@@ -9,24 +8,24 @@ export qrTypes
 proc newQR*(data: string,
             mode: QRMode,
             version: QRVersion,
-            ecLevel: QREcLevel = qrEcL
+            ecLevel: QRECLevel = qrECL
            ): DrawedQRCode =
   newQRCode(data, mode, version, ecLevel).encode.draw
 
 proc newQR*(data: string,
             version: QRVersion,
-            ecLevel: QREcLevel = qrEcL
+            ecLevel: QRECLevel = qrECL
            ): DrawedQRCode =
   newQRCode(data, version, ecLevel).encode.draw
 
 proc newQR*(data: string,
             mode: QRMode,
-            ecLevel: QREcLevel = qrEcL
+            ecLevel: QRECLevel = qrECL
            ): DrawedQRCode =
   newQRCode(data, mode, ecLevel).encode.draw
 
 proc newQR*(data: string,
-            ecLevel: QREcLevel = qrEcL
+            ecLevel: QRECLevel = qrECL
            ): DrawedQRCode =
   newQRCode(data, ecLevel).encode.draw
 
