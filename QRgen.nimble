@@ -2,7 +2,7 @@
 
 version       = "0.0.1"
 author        = "aruZeta"
-description   = "A library to generate QR codes"
+description   = "A QR code generation library written in nim."
 license       = "MIT"
 srcDir        = "src"
 
