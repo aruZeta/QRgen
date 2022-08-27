@@ -43,7 +43,7 @@ benchmarkTest "interleaveData() not touching ecc codewords":
   var qr1 = encodeOnly newQRCode("Hello, world!", version = 3, ecLevel = qrEcQ)
   qr1.interleaveData
 
-  check qr1.encodedData.data == @[64'u8,236,212,17,134,236,86,17,198,236,198,17,242,236,194,17,7,236,118,17,247,236,38,17,198,236,66,17,16,236,236,17,17,236,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+  check qr1.encodedData.data[34..69] == @[135'u8,92,231,244,155,101,127,60,162,188,37,72,136,36,55,77,65,44,105,32,214,166,21,0,169,197,123,43,92,124,82,170,23,172,216,71]
 
 benchmarkTest "encodeEcCodewords()":
   var qr1 = encodeOnly newQRCode("HELLO WORLD", ecLevel = qrEcM)

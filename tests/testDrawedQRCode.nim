@@ -309,6 +309,6 @@ benchMarkTest "applyBestMaskPattern()":
   var qr1 = newQRCode("Hello World").encode.drawOnly
   var copy = qr1
   qr1.applyBestMaskPattern
-  copy.applyMaskPattern mask0
+  copy.applyMaskPattern mask2
 
   check qr1.drawing == copy.drawing
