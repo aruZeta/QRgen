@@ -110,16 +110,12 @@ proc calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8] =
 proc calcBlockPositions*(self: EncodedQRCode): seq[uint16] =
   result = newSeqOfCap[uint16](group1Blocks[self] + group2Blocks[self] + 1)
   result.setLen(group1Blocks[self] + group2Blocks[self] + 1)
-  for i in 0'u8..group1Blocks[self]:
-    result[i] = cast[uint16](i) * group1BlockDataCodewords[self]
-  for i in 0'u8..group2Blocks[self]:
-    result[i + group1Blocks[self]] =
-      (cast[uint16](i) * group2BlockDataCodewords[self]) +
-      (cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self])
-  result[^1] = result[^2] + (
-    if group2Blocks[self] > 1: group2BlockDataCodewords[self]
-    else: group1BlockDataCodewords[self]
-  )
+  result[0] = 0
+  for i in 1'u8..group1Blocks[self]+group2Blocks[self]:
+    result[i] = result[i-1] + (
+      if i <= group1Blocks[self]: group1BlockDataCodewords[self]
+      else: group2BlockDataCodewords[self]
+    )
 
 proc encodeEcCodewords*(self: var EncodedQRCode) =
   let
