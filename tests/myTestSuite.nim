@@ -12,3 +12,8 @@ template benchmarkTest*(name: string, body: untyped) =
   else:
     test name:
       body
+
+template benchmark*(name: string, body: untyped) =
+  when defined(benchmark):
+    timeIt name:
+      body
