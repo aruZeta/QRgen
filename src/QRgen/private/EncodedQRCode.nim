@@ -160,6 +160,26 @@ proc interleaveData*(self: var EncodedQRCode) =
     self.encodedData[i] = dataCopy[pos]
     i.inc
 
+proc calcEcBlockPositions*(self: EncodedQRCode): seq[uint16] =
+  result = newSeqOfCap[uint16](group1Blocks[self] + group2Blocks[self])
+  result.setLen(group1Blocks[self] + group2Blocks[self])
+  for i in 0'u8..<group1Blocks[self]+group2Blocks[self]:
+    result[i] = cast[uint16](blockECCodewords[self]) * i
+
+proc interleaveEcCodewords(self: var EncodedQRCode) =
+  let
+    firstEcBlockPos: uint16 =
+      (cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self]) +
+      (cast[uint16](group2Blocks[self]) * group2BlockDataCodewords[self])
+    positions: seq[uint16] = self.calcEcBlockPositions
+  var
+    dataCopy: seq[uint8] = self.encodedData.data[firstEcBlockPos..^1]
+    n: uint16 = firstEcBlockPos
+  for i in 0'u8..<blockECCodewords[self]:
+    for j in positions:
+      self[n] = dataCopy[j+i]
+      n.inc
+
 proc newEncodedQRCode*(version: QRVersion,
                        ecLevel: QREcLevel = qrEcL,
                        mode: QRMode = qrByteMode
@@ -192,7 +212,7 @@ proc encode*(qr: QRCode): EncodedQRCode =
   result.finishEncoding
   result.encodeEcCodewords
   result.interleaveData
-  #result.interleaveEcCodewords
+  result.interleaveEcCodewords
 
 proc encodeOnly*(qr: QRCode): EncodedQRCode =
   ## The same as `encode` but without interleaving.
