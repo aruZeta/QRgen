@@ -2,7 +2,7 @@ import QRgen/private/[QRCode, EncodedQRCode, DrawedQRCode, Drawing, qrTypes]
 
 export QRCode.DataSizeDefect
 export DrawedQRCode.DrawedQRCode
-export Drawing.Drawing, Drawing.DrawingPrint
+export Drawing.DrawingPrint
 export qrTypes
 
 proc newQR*(data: string,
