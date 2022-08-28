@@ -9,3 +9,8 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 1.6.6"
+
+# Tasks
+
+task gendocs, "Generate documentation in docs folder":
+  exec "nim doc --project --git.url:\"https://github.com/aruZeta/QRgen\" --git.commit:develop --docInternal --outdir:docs --path:src src/QRgen.nim"
