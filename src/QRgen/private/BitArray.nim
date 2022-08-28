@@ -3,8 +3,6 @@ type
     pos*: uint16
     data*: seq[uint8]
 
-  LenDefect* = object of Defect
-
 proc newBitArray*(size: uint16): BitArray =
   result = BitArray(pos: 0, data: newSeqOfCap[uint8](size))
   result.data.setLen(size)
@@ -27,12 +25,7 @@ proc nextByte*(self: var BitArray): uint8 =
 
 proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
   template tSize: int = 8 * sizeof(val)
-  if len > tSize:
-    raise newException(
-      LenDefect,
-      "Len can't be bigger than " & $tSize & " in a " & $typedesc(val)
-    )
-  elif len == 0: return
+  if len == 0: return
   template castU8(expr: untyped): uint8 =
     when val isnot uint8: cast[uint8](expr)
     else: expr
