@@ -32,18 +32,25 @@ proc setSmallestVersion(self: var QRCode) =
     if cast[uint16](self.data.len) < version:
       self.version = i
       return
+  raise newException(
+    DataSizeDefect,
+    "The data can't fit in any QR code version with the specified ecLevel"
+  )
+
+template checkSize(self: QRCode) =
+  if cast[uint16](self.data.len) > getCapacities(self.mode)[self]:
+    raise newException(
+      DataSizeDefect,
+      "The data can't fit in the specified QR code version"
+    )
 
 proc newQRCode*(data: string,
                 mode: QRMode,
                 version: QRVersion,
                 ecLevel: QRECLevel = qrECL
                ): QRCode =
-  if cast[uint16](data.len) > getCapacities(mode)[ecLevel][version]:
-    raise newException(
-      DataSizeDefect,
-      "The data can't fit in the specified QR code version"
-    )
-  QRCode(mode: mode, version: version, ecLevel: ecLevel, data: data)
+  result = QRCode(mode: mode, version: version, ecLevel: ecLevel, data: data)
+  result.checkSize
 
 proc newQRCode*(data: string,
                 version: QRVersion,
@@ -51,6 +58,7 @@ proc newQRCode*(data: string,
                ): QRCode =
   result = QRCode(version: version, ecLevel: ecLevel, data: data)
   result.setMostEfficientMode
+  result.checkSize
 
 proc newQRCode*(data: string,
                 mode: QRMode,
