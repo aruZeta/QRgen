@@ -129,29 +129,41 @@ proc encodeECC(self: var EncodedQRCode) =
       for k in 0'u8..<degree:
         self.data[actualEcPos+k] ^= (gf256Mod285Multiply(generator[k], factor))
 
+proc calcEcStart(self: EncodedQRCode): uint16 =
+  (cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self]) +
+  (cast[uint16](group2Blocks[self]) * group2BlockDataCodewords[self])
+
+iterator g1BlockPositions(self: EncodedQRCode): uint16 {.inline.} =
+  var pos: uint16 = 0
+  var b: uint8 = 0
+  while b < group1Blocks[self]:
+    yield pos
+    pos += group1BlockDataCodewords[self]
+    b.inc
+
+iterator g2BlockPositions(self: EncodedQRCode): uint16 {.inline.} =
+  var pos: uint16 =
+    cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self]
+  var b: uint8 = 0
+  while b < group2Blocks[self]:
+    yield pos
+    pos += group2BlockDataCodewords[self]
+    b.inc
+
 proc interleaveData*(self: var EncodedQRCode) =
   if group1Blocks[self] == 1 and group2Blocks[self] == 0:
     return
-  let
-    g1b: uint16 = cast[uint16](group1Blocks[self])
-    g2b: uint16 = cast[uint16](group2Blocks[self])
-    g1c: uint16 = cast[uint16](group1BlockDataCodewords[self])
-    g2c: uint16 = cast[uint16](group2BlockDataCodewords[self])
-  iterator codewordPositions: uint16 {.inline.} =
-    let g2bStart = g1b * g1c
-    for i in 0'u16..<max(g1c, g2c):
-      if i < g1c:
-        for j in 0'u16..<g1b:
-          yield j * g1c + i
-      if i < g2c:
-        for j in 0'u16..<g2b:
-          yield g2bStart + j * g2c + i
   var
-    dataCopy: seq[uint8] = self.data.data
-    i: int16 = 0
-  for pos in codewordPositions():
-    self.data[i] = dataCopy[pos]
-    i.inc
+    dataCopy: seq[uint8] = self.data[0..self.calcEcStart-1]
+    n: uint16 = 0
+  template setData(pos: uint16) =
+    self.data[n] = dataCopy[pos]
+    n.inc
+  for i in 0'u8..<group1BlockDataCodewords[self]:
+    for j in self.g1BlockPositions: setData j+i
+    for j in self.g2BlockPositions: setData j+i
+  if group2Blocks[self] > 0:
+    for j in self.g2BlockPositions: setData j+group2BlockDataCodewords[self]-1
 
 proc calcEcBlockPositions(self: EncodedQRCode): seq[uint16] =
   result = newSeqOfCap[uint16](group1Blocks[self] + group2Blocks[self])
@@ -161,9 +173,7 @@ proc calcEcBlockPositions(self: EncodedQRCode): seq[uint16] =
 
 proc interleaveECC(self: var EncodedQRCode) =
   let
-    firstEcBlockPos: uint16 =
-      (cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self]) +
-      (cast[uint16](group2Blocks[self]) * group2BlockDataCodewords[self])
+    firstEcBlockPos: uint16 = self.calcEcStart
     positions: seq[uint16] = self.calcEcBlockPositions
   var
     dataCopy: seq[uint8] = self.data[firstEcBlockPos..^1]
