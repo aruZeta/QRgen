@@ -123,18 +123,27 @@ proc print*(self: Drawing, output: DrawingPrint) =
 # Getters/setters section
 
 proc `[]`*(self: Drawing, i: SomeInteger): uint8 =
+  ## Getter. Get the value of `self.matrix` in index `i`.
   self.matrix[i]
 
 proc size*(self: Drawing): uint8 =
+  ## Getter. Get the value of `self.size`.
   self.size
 
 proc len*(self: Drawing): int =
+  ## Getter. Get the value of `self.matrix.len`.
   self.matrix.len
 
 # - Used only in tests:
 
 proc matrix*(self: Drawing): seq[uint8] =
+  ## Getter. Get the value of `self.matrix`.
+  ##
+  ## .. note:: At the moment it's only used in tests.
   self.matrix
 
 proc `matrix=`*(self: var Drawing, val: seq[uint8]) =
+  ## Setter. Set the value of `self.matrix`.
+  ##
+  ## .. note:: At the moment it's only used in tests.
   self.matrix = val

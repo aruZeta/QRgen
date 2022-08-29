@@ -117,7 +117,7 @@ proc len*(self: BitArray): int =
   ## Getter. Get the value of `self.data`.
   self.data.len
 
-# - Used only in testing:
+# - Used only in tests:
 
 proc `data=`*(self: var BitArray, val: seq[uint8]) =
   ## Setter. Set the value of `self.data` to `val`.
