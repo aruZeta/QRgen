@@ -24,7 +24,6 @@ proc nextByte*(self: var BitArray): uint8 =
   self.pos += result
 
 proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
-  template tSize: int = 8 * sizeof(val)
   if len == 0: return
   template castU8(expr: untyped): uint8 =
     when val isnot uint8: cast[uint8](expr)
