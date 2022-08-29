@@ -1,22 +1,59 @@
+## # Bit array implementation
+##
+## This module implements a simple `BitArray` object which consists of a
+## regular `seq[uint8]` and a `pos`.
+## It only provides 2 procedures, one to add more bits to the BitArray,
+## `add<#add%2CBitArray%2CSomeUnsignedInt%2Cuint8>`_,
+## and another to skip to the next byte,
+## `nextByte<#nextByte%2CBitArray>`_.
+##
+## For ease of use there are some templates to help write less code, like
+## `[]<#[].t%2CBitArray%2CSlice[SomeInteger]>`_,
+## so instead of writing `myBitArray.data[i]` you would write `myBitArray[i]`,
+## as if `BitArray` was a regular `seq[uint8]`.
+
 type
   BitArray* = object
+    ## A BitArray object used by `EncodedQRCode<EncodedQRCode.html>`_.
+    ##
+    ## `pos` is used to keep track of where new bits will be placed.
     pos*: uint16
     data*: seq[uint8]
 
 proc newBitArray*(size: uint16): BitArray =
+  ## Creates a new `BitArray` object whose `data` will have a cap of `size`
+  ## and it's len will also be set to `size`.
   result = BitArray(pos: 0, data: newSeqOfCap[uint8](size))
   result.data.setLen(size)
 
 template `[]`*(self: BitArray, i: SomeInteger): uint8 =
+  ## A shorthand to writing `myBitArray.data[i]`
   self.data[i]
 
 template `[]`*(self: BitArray, i: Slice[SomeInteger]): seq[uint8] =
+  ## A shorthand to writing `myBitArray.data[i1..i2]`
   self.data[i]
 
 template `[]=`*(self: BitArray, i: SomeInteger, val: uint8) =
+  ## A shorthand to writing `myBitArray.data[i] = val`
   self.data[i] = val
 
 proc nextByte*(self: var BitArray): uint8 =
+  ## Moves `pos` to the next byte, unless it is pointing to the start of an
+  ## empty byte.
+  ##
+  ## **Example**:
+  ##
+  ## .. code::
+  ##    myBitArray.data:
+  ##    0101_0110, 1010_0000, 0000_0000
+  ##                    ^ pos points here
+  ##
+  ##    after using nextByte():
+  ##
+  ##    myBitArray.data:
+  ##    0101_0110, 1010_0000, 0000_0000
+  ##                          ^ pos points here
   let bytePos: uint8 = cast[uint8](self.pos mod 8)
   result =
     if bytePos > 0: 8 - bytePos
@@ -24,6 +61,12 @@ proc nextByte*(self: var BitArray): uint8 =
   self.pos += result
 
 proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
+  ## Add `len` amount of bits from `val` starting from the rightmost bit.
+  runnableExamples:
+    var myBitArray = newBitArray(1)
+    myBitArray.add 0b110011'u8, 4 # should add 0011, not 110011
+    assert myBitArray[0] == 0b0011_0000
+    #                              ^ pos will be here
   if len == 0: return
   template castU8(expr: untyped): uint8 =
     when val isnot uint8: cast[uint8](expr)
