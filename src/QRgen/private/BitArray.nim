@@ -3,27 +3,41 @@
 ## This module implements a simple `BitArray` object which consists of a
 ## regular `seq[uint8]` and a `pos`.
 ##
-## The `BitArray` object is encapsulated, hence, in order to access it's
-## attributes there are some procedures that can be used.
-##
 ## There are 2 main procedures, one to add more bits to the BitArray,
 ## `add<#add%2CBitArray%2CSomeUnsignedInt%2Cuint8>`_,
 ## and another to skip to the next byte,
 ## `nextByte<#nextByte%2CBitArray>`_.
+##
+## For ease of use there are some templates to help write less code, like
+## `[]<#[].t%2CBitArray%2CSomeInteger>`_,
+## so instead of writing `myBitArray.data[i]` you would write `myBitArray[i]`,
+## as if `BitArray` was a regular `seq[uint8]`.
 
 type
   BitArray* = object
     ## A BitArray object used by `EncodedQRCode<EncodedQRCode.html>`_.
     ##
     ## `pos` is used to keep track of where new bits will be placed.
-    pos: uint16
-    data: seq[uint8]
+    pos*: uint16
+    data*: seq[uint8]
 
 proc newBitArray*(size: uint16): BitArray =
   ## Creates a new `BitArray` object whose `data` will have a cap of `size`
   ## and it's len will also be set to `size`.
   result = BitArray(pos: 0, data: newSeqOfCap[uint8](size))
   result.data.setLen(size)
+
+template `[]`*(self: BitArray, i: SomeInteger): uint8 =
+  ## Get the value of `data` in index `i`.
+  self.data[i]
+
+template `[]`*[T,S](self: BitArray, i: HSlice[T,S]): seq[uint8] =
+  ## Get the values of `data` in the slice `i`.
+  self.data[i]
+
+template `[]=`*(self: var BitArray, i: SomeInteger, val: uint8) =
+  ## Set the value of `data` in index `i` to `val`.
+  self.data[i] = val
 
 proc nextByte*(self: var BitArray): uint8 =
   ## Moves `pos` to the next byte, unless it is pointing to the start of an
@@ -62,7 +76,7 @@ proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
     arrPos: uint16 = self.pos div 8
     bitsLeft: uint8 = 8 - cast[uint8](self.pos mod 8)
   if len <= bitsLeft:
-    self.data[arrPos] += castU8(
+    self[arrPos] += castU8(
       (val and (0xFF'u8 shr (8 - len))) shl (bitsLeft - len)
     )
   else:
@@ -70,57 +84,28 @@ proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
       bytes: uint8 = (len - bitsLeft) div 8
       remBits: uint8 = (len - bitsLeft) mod 8
     if remBits > 0:
-      self.data[arrPos + bytes + 1] = castU8(val shl (8 - remBits))
+      self[arrPos + bytes + 1] = castU8(val shl (8 - remBits))
     var val = val shr remBits
     for i in 0'u8..<bytes:
-      self.data[arrPos + bytes - i] = castU8(val)
+      self[arrPos + bytes - i] = castU8(val)
       val = val shr 8
-    self.data[arrPos] += castU8(val and (0xFF'u8 shr (8 - bitsLeft)))
+    self[arrPos] += castU8(val and (0xFF'u8 shr (8 - bitsLeft)))
   self.pos += len
 
-proc unsafeAdd*(self: var BitArray, val: uint8) =
-  ## Add a `val` to the end of `data`.
+template unsafeAdd*(self: var BitArray, val: uint8) =
+  ## Add `val` to the end of `data`.
   ##
-  ## .. warning:: This is an unsafe procedure since, by default, `data`'s len
+  ## .. warning:: This is unsafe since, by default, `data`'s len
   ##    is set to it's max capacity and `pos` is not updated.
   self.data.add val
 
-proc unsafeDelete*(self: var BitArray, pos: uint16) =
+template unsafeDelete*(self: var BitArray, pos: uint16) =
   ## Remove the value from `data` in position `pos`.
   ##
-  ## .. warning:: This is an unsafe procedure since `pos` is not updated.
+  ## .. warning:: This is unsafe since `pos` is not updated.
   self.data.delete pos
 
-# Getters/setters section
-
-proc `[]`*(self: BitArray, i: SomeInteger): uint8 =
-  ## Getter. Get the value of `data` in index `i`.
-  self.data[i]
-
-proc `[]`*[T,S](self: BitArray, i: HSlice[T,S]): seq[uint8] =
-  ## Getter. Get the values of `data` in the slice `i`.
-  self.data[i]
-
-proc `[]=`*(self: var BitArray, i: SomeInteger, val: uint8) =
-  ## Setter. Set the value of `data` in index `i` to `val`.
-  self.data[i] = val
-
-proc pos*(self: BitArray): uint16 =
-  ## Getter. Get the value of `self.pos`.
-  self.pos
-
-proc data*(self: BitArray): seq[uint8] =
-  ## Getter. Get the value of `self.data`.
-  self.data
-
-proc len*(self: BitArray): int =
-  ## Getter. Get the value of `self.data`.
+template len*(self: BitArray): int =
+  ## Get the len of `self.data`.
+  ## Used nstead of writing `data.data.len` in other modules.
   self.data.len
-
-# - Used only in tests:
-
-proc `data=`*(self: var BitArray, val: seq[uint8]) =
-  ## Setter. Set the value of `self.data` to `val`.
-  ##
-  ## .. note:: At the moment it's only used in tests.
-  self.data = val
