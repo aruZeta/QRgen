@@ -17,26 +17,14 @@ type
     ## A BitArray object used by `EncodedQRCode<EncodedQRCode.html>`_.
     ##
     ## `pos` is used to keep track of where new bits will be placed.
-    pos*: uint16
-    data*: seq[uint8]
+    pos: uint16
+    data: seq[uint8]
 
 proc newBitArray*(size: uint16): BitArray =
   ## Creates a new `BitArray` object whose `data` will have a cap of `size`
   ## and it's len will also be set to `size`.
   result = BitArray(pos: 0, data: newSeqOfCap[uint8](size))
   result.data.setLen(size)
-
-template `[]`*(self: BitArray, i: SomeInteger): uint8 =
-  ## A shorthand to writing `myBitArray.data[i]`
-  self.data[i]
-
-template `[]`*(self: BitArray, i: Slice[SomeInteger]): seq[uint8] =
-  ## A shorthand to writing `myBitArray.data[i1..i2]`
-  self.data[i]
-
-template `[]=`*(self: BitArray, i: SomeInteger, val: uint8) =
-  ## A shorthand to writing `myBitArray.data[i] = val`
-  self.data[i] = val
 
 proc nextByte*(self: var BitArray): uint8 =
   ## Moves `pos` to the next byte, unless it is pointing to the start of an
@@ -75,7 +63,7 @@ proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
     arrPos: uint16 = self.pos div 8
     bitsLeft: uint8 = 8 - cast[uint8](self.pos mod 8)
   if len <= bitsLeft:
-    self[arrPos] += castU8(
+    self.data[arrPos] += castU8(
       (val and (0xFF'u8 shr (8 - len))) shl (bitsLeft - len)
     )
   else:
@@ -83,10 +71,35 @@ proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
       bytes: uint8 = (len - bitsLeft) div 8
       remBits: uint8 = (len - bitsLeft) mod 8
     if remBits > 0:
-      self[arrPos + bytes + 1] = castU8(val shl (8 - remBits))
+      self.data[arrPos + bytes + 1] = castU8(val shl (8 - remBits))
     var val = val shr remBits
     for i in 0'u8..<bytes:
-      self[arrPos + bytes - i] = castU8(val)
+      self.data[arrPos + bytes - i] = castU8(val)
       val = val shr 8
-    self[arrPos] += castU8(val and (0xFF'u8 shr (8 - bitsLeft)))
+    self.data[arrPos] += castU8(val and (0xFF'u8 shr (8 - bitsLeft)))
   self.pos += len
+
+proc unsafeAdd*(self: var BitArray, val: uint8) =
+  self.data.add val
+
+proc unsafeDelete*(self: var BitArray, pos: uint16) =
+  self.data.delete pos
+
+# Getters/setters:
+
+proc `[]`*(self: BitArray, i: SomeInteger): uint8 =
+  self.data[i]
+
+proc `[]`*[T,S](self: BitArray, i: HSlice[T,S]): seq[uint8] =
+  self.data[i]
+
+proc `[]=`*(self: var BitArray, i: SomeInteger, val: uint8) =
+  self.data[i] = val
+
+proc pos*(self: BitArray): uint16 = self.pos
+proc data*(self: BitArray): seq[uint8] = self.data
+proc len*(self: BitArray): int = self.data.len
+
+# - Used only in testing:
+
+proc `data=`*(self: var BitArray, val: seq[uint8]) = self.data = val

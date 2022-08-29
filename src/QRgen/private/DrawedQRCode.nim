@@ -113,8 +113,8 @@ proc drawData*(self: var DrawedQRCode, data: BitArray) =
       pos.repeat -= 1
     else:
       elseBody
-  for module in 0..<data.data.len * 8:
-    if ((data.data[module div 8] shr (7 - (module mod 8))) and 0x01) == 0x01:
+  for module in 0..<data.len*8:
+    if ((data[module div 8] shr (7 - (module mod 8))) and 0x01) == 0x01:
       self.fillPoint pos.x, pos.y
     # Avoiding stuff, changing orientation in borders, etc block
     case pos.direction
@@ -440,7 +440,7 @@ proc draw*(qr: EncodedQRCode): DrawedQRCode =
   result.drawAlignmentPatterns
   result.drawTimingPatterns
   result.drawDarkModule
-  result.drawData qr.encodedData
+  result.drawData qr.data
   result.applyBestMaskPattern
   result.drawFormatInformation
   result.drawVersionInformation
@@ -451,4 +451,4 @@ proc drawOnly*(qr: EncodedQRCode): DrawedQRCode =
   result.drawAlignmentPatterns
   result.drawTimingPatterns
   result.drawDarkModule
-  result.drawData qr.encodedData
+  result.drawData qr.data

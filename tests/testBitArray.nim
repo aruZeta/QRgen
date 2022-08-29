@@ -4,16 +4,16 @@ import QRgen/private/BitArray
 benchmarkTest "Simple bit array":
   var b = newBitArray(1)
   b.add 12'u8, 8
-  check b.data[0] == 12
+  check b[0] == 12
 
 benchmarkTest "Complex bit array":
   var b = newBitArray(3)
   b.add 12'u8, 8
   b.add 24'u8, 8
   b.add 0b101'u8, 3
-  check b.data[0] == 12
-  check b.data[1] == 24
-  check b.data[2] == 160
+  check b[0] == 12
+  check b[1] == 24
+  check b[2] == 160
 
 benchmarkTest "Passing different uint types to bit array":
   var b = newBitArray(9)

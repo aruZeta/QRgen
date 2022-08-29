@@ -1,5 +1,5 @@
 import myTestSuite
-import QRgen/private/[DrawedQRCode, EncodedQRCode, QRCode, Drawing, qrTypes]
+import QRgen/private/[BitArray, DrawedQRCode, EncodedQRCode, QRCode, Drawing, qrTypes]
 
 benchmarkTest "drawFinderPatterns()":
   var qr1 = newDrawedQRCode 1
@@ -153,8 +153,8 @@ benchmarkTest "drawDarkModule()":
 
 benchmarkTest "drawOnly() filling all data modules":
   template fill(qr: EncodedQRCode) =
-    for i in 0..<qr.encodedData.data.len:
-      qr.encodedData.data[i] = 0xFF
+    for i in 0..<qr.data.len:
+      qr.data[i] = 0xFF
 
   var qr1 = newEncodedQRCode(1, qrECL)
   fill qr1
@@ -193,8 +193,8 @@ benchmarkTest "drawOnly() filling all data modules":
 
 benchmarkTest "applyMaskPattern() with all data modules filled":
   template fill(qr: EncodedQRCode) =
-    for i in 0..<qr.encodedData.data.len:
-      qr.encodedData.data[i] = 0xFF
+    for i in 0..<qr.data.len:
+      qr.data[i] = 0xFF
 
   template createQR(varName: untyped, version: QRVersion) {.dirty.} =
     var `encoded varName` = newEncodedQRCode(version, qrECL)
@@ -206,7 +206,7 @@ benchmarkTest "applyMaskPattern() with all data modules filled":
     for y in 8'u8..<varName.drawing.size-8:
       for x in 0'u8..1'u8:
         varName.drawing[x, y] = false
-    varName.drawData `encoded varName`.encodedData
+    varName.drawData `encoded varName`.data
     varName.applyMaskPattern mask
 
   let masks: array[8, proc] = [mask0, mask1, mask2, mask3, mask4, mask5, mask6, mask7]
