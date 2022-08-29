@@ -31,12 +31,12 @@ proc newQR*(data: string,
   ## Create a new DrawedQRCode with the specified `mode`, `version` and
   ## `ecLevel` (`qrECL` by default).
   ##
-  ## Note: The mode is not checked so make sure to use the correct one.
-  ## It's recommended to use another proc which sets the mode automatically
-  ## unless you know what you are doing.
+  ## .. note:: The mode is not checked so make sure to use the correct one.
+  ##    It's recommended to use another proc which sets the mode automatically
+  ##    unless you know what you are doing.
   ##
-  ## Note: The data size is checked to see if it fits in the specified version
-  ## and ecLevel.
+  ## .. note:: The data size is checked to see if it fits in the specified
+  ##    version and ecLevel.
   newQRCode(data, mode, version, ecLevel).encode.draw
 
 proc newQR*(data: string,
@@ -46,8 +46,8 @@ proc newQR*(data: string,
   ## Create a new DrawedQRCode with the specified `version` and `ecLevel`
   ## (`qrECL` by default).
   ##
-  ## Note: The data size is checked to see if it fits in the specified version
-  ## and ecLevel.
+  ## .. note:: The data size is checked to see if it fits in the specified
+  ##    version and ecLevel.
   newQRCode(data, version, ecLevel).encode.draw
 
 proc newQR*(data: string,
@@ -57,9 +57,9 @@ proc newQR*(data: string,
   ## Create a new DrawedQRCode with the specified `mode` and `ecLevel`
   ## (`qrECL` by default).
   ##
-  ## Note: The mode is not checked so make sure to use the correct one.
-  ## It's recommended to use another proc which sets the mode automatically
-  ## unless you know what you are doing.
+  ## .. note:: The mode is not checked so make sure to use the correct one.
+  ##    It's recommended to use another proc which sets the mode automatically
+  ##    unless you know what you are doing.
   newQRCode(data, mode, ecLevel).encode.draw
 
 proc newQR*(data: string,
@@ -72,6 +72,6 @@ proc newQR*(data: string,
 proc print*(self: DrawedQRCode, output: DrawingPrint) =
   ## Print a DrawedQRCode to the specified output format.
   ##
-  ## Check `DrawingPrint<Drawing.html#DrawingPrint>`_
+  ## Check `DrawingPrint<QRgen/private/Drawing.html#DrawingPrint>`_
   ## to see the ones available.
   self.drawing.print output
