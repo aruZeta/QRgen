@@ -312,8 +312,8 @@ proc evaluateCondition3*(self: DrawedQRCode): uint16 =
 
 proc evaluateCondition4*(self: DrawedQRCode): uint16 =
   var darkModules: uint32 = 0
-  for i in 0..<self.drawing.matrix.len:
-    var b: uint8 = self.drawing.matrix[i]
+  for i in 0..<self.drawing.len:
+    var b: uint8 = self.drawing[i]
     while b > 0:
       darkModules += 1
       b = b and (b - 1)

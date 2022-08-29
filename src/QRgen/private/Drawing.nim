@@ -17,8 +17,8 @@ type
     ##
     ## .. note:: A `Drawing` is always a square, hence it's `size` is both
     ##    it's width and it's height.
-    matrix*: seq[uint8]
-    size*: uint8
+    matrix: seq[uint8]
+    size: uint8
 
   DrawingPrint* = enum
     ## Used by `print<#print%2CDrawing%2CDrawingPrint>`_ to draw the QR code
@@ -119,3 +119,22 @@ proc print*(self: Drawing, output: DrawingPrint) =
   ## Print a `DrawedQRCode` with the format specified by `output`.
   case output
   of dpTerminal: printTerminal self
+
+# Getters/setters section
+
+proc `[]`*(self: Drawing, i: SomeInteger): uint8 =
+  self.matrix[i]
+
+proc size*(self: Drawing): uint8 =
+  self.size
+
+proc len*(self: Drawing): int =
+  self.matrix.len
+
+# - Used only in tests:
+
+proc matrix*(self: Drawing): seq[uint8] =
+  self.matrix
+
+proc `matrix=`*(self: var Drawing, val: seq[uint8]) =
+  self.matrix = val
