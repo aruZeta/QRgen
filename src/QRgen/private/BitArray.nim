@@ -2,15 +2,14 @@
 ##
 ## This module implements a simple `BitArray` object which consists of a
 ## regular `seq[uint8]` and a `pos`.
-## It only provides 2 procedures, one to add more bits to the BitArray,
+##
+## The `BitArray` object is encapsulated, hence, in order to access it's
+## attributes there are some procedures that can be used.
+##
+## There are 2 main procedures, one to add more bits to the BitArray,
 ## `add<#add%2CBitArray%2CSomeUnsignedInt%2Cuint8>`_,
 ## and another to skip to the next byte,
 ## `nextByte<#nextByte%2CBitArray>`_.
-##
-## For ease of use there are some templates to help write less code, like
-## `[]<#[].t%2CBitArray%2CSlice[SomeInteger]>`_,
-## so instead of writing `myBitArray.data[i]` you would write `myBitArray[i]`,
-## as if `BitArray` was a regular `seq[uint8]`.
 
 type
   BitArray* = object
@@ -80,26 +79,48 @@ proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
   self.pos += len
 
 proc unsafeAdd*(self: var BitArray, val: uint8) =
+  ## Add a `val` to the end of `data`.
+  ##
+  ## .. warning:: This is an unsafe procedure since, by default, `data`'s len
+  ##    is set to it's max capacity and `pos` is not updated.
   self.data.add val
 
 proc unsafeDelete*(self: var BitArray, pos: uint16) =
+  ## Remove the value from `data` in position `pos`.
+  ##
+  ## .. warning:: This is an unsafe procedure since `pos` is not updated.
   self.data.delete pos
 
-# Getters/setters:
+# Getters/setters section
 
 proc `[]`*(self: BitArray, i: SomeInteger): uint8 =
+  ## Getter. Get the value of `data` in index `i`.
   self.data[i]
 
 proc `[]`*[T,S](self: BitArray, i: HSlice[T,S]): seq[uint8] =
+  ## Getter. Get the values of `data` in the slice `i`.
   self.data[i]
 
 proc `[]=`*(self: var BitArray, i: SomeInteger, val: uint8) =
+  ## Setter. Set the value of `data` in index `i` to `val`.
   self.data[i] = val
 
-proc pos*(self: BitArray): uint16 = self.pos
-proc data*(self: BitArray): seq[uint8] = self.data
-proc len*(self: BitArray): int = self.data.len
+proc pos*(self: BitArray): uint16 =
+  ## Getter. Get the value of `self.pos`.
+  self.pos
+
+proc data*(self: BitArray): seq[uint8] =
+  ## Getter. Get the value of `self.data`.
+  self.data
+
+proc len*(self: BitArray): int =
+  ## Getter. Get the value of `self.data`.
+  self.data.len
 
 # - Used only in testing:
 
-proc `data=`*(self: var BitArray, val: seq[uint8]) = self.data = val
+proc `data=`*(self: var BitArray, val: seq[uint8]) =
+  ## Setter. Set the value of `self.data` to `val`.
+  ##
+  ## .. note:: At the moment it's only used in tests.
+  self.data = val
