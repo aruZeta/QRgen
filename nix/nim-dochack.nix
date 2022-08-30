@@ -1,4 +1,5 @@
-old: {
+final: prev: {
+  nim-unwrapped = prev.nim-unwrapped.overrideAttrs (old: {
     buildPhase = ''
       runHook preBuild
       local HOME=$TMPDIR
@@ -17,4 +18,5 @@ old: {
       runHook postInstall
       cp -r tools $out/nim
     ''; # added tools folder
+  });
 }

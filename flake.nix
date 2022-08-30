@@ -10,14 +10,14 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      nim-unwrapped-1-6-6 =
-        nixpkgs-nim-1-6-6.legacyPackages.${system}.nim-unwrapped.overrideAttrs
-          (import ./nix/nim-dochack.nix);
+      nim-1-6-6 = ( import nixpkgs-nim-1-6-6 {
+        inherit system;
+        overlays = [ (import ./nix/nim-dochack.nix) ];
+      }).nim;
     in {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
-          nim-unwrapped-1-6-6
-          nixpkgs-nim-1-6-6.legacyPackages.${system}.nim
+          nim-1-6-6
         ];
       };
     };
