@@ -1,0 +1,42 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1661700591,
+        "narHash": "sha256-NZa+z+TJC+Hk+87+LKkjFFmBn4GyMVEPcWFXFU+aTkU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "16236dd7e33ba4579ccd3ca8349396b2f9c960fe",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-22.05",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs-nim-1-6-6": {
+      "locked": {
+        "lastModified": 1652121247,
+        "narHash": "sha256-/vQexW0oCYQf/+ouWVcB3HQ511hXhYxMIERozZdbIM4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4fc665856d5a6be6f647fd9d63d9390f48763192",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "4fc665856d5a6be6f647fd9d63d9390f48763192",
+        "type": "indirect"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-nim-1-6-6": "nixpkgs-nim-1-6-6"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
