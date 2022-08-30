@@ -15,6 +15,7 @@
         overlays = [ (import ./nix/nim-dochack.nix) ];
       }).nim;
     in {
+      packages.${system}.default = nim-1-6-6;
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           nim-1-6-6
