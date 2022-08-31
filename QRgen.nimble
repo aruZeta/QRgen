@@ -12,7 +12,7 @@ requires "nim >= 1.6.6"
 
 # Tasks
 
-import strformat
+import std/[strformat, strutils]
 
 const repo = "https://github.com/aruZeta/QRgen"
 const branches = ["develop", "main"]
@@ -26,13 +26,12 @@ task gendocs, "Generate documentation in docs folder":
   let branch = getBranch()
   if branch notin branches:
     quit("Only the branches main and develop can be specified")
-  const
-    f1 = "--project"
-    f2 = &"--git.url:\"{repo}\""
-    f3 = "--docInternal"
-    f4 = "--outdir:docs"
-    f5 = "--path:src"
-  let
-    f6 = &"--git.commit:{branch}"
-    flags = &"{f1} {f2} {f3} {f4} {f5} {f6}"
+  let flags = [
+    "--project",
+    &"--git.url:\"{repo}\"",
+    "--docInternal",
+    "--outdir:docs",
+    "--path:src",
+    &"--git.commit:{branch}",
+  ].join " "
   exec &"nim doc {flags} {mainFile}"
