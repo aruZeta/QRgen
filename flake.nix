@@ -12,7 +12,16 @@
       pkgs = nixpkgs.legacyPackages.${system};
       nim-1-6-6 = ( import nixpkgs-nim-1-6-6 {
         inherit system;
-        overlays = [ (import ./nix/nim-dochack.nix) ];
+        overlays = [ ( final: prev: {
+          nim-unwrapped = prev.nim-unwrapped.overrideAttrs (old: {
+            buildPhase = old.buildPhase + ''
+              ./bin/nim js $kochArgs tools/dochack/dochack.nim
+            ''; # added dockhack.js
+            installPhase = old.installPhase + ''
+              cp -r tools $out/nim
+            ''; # added tools folder
+          });
+        })];
       }).nim;
     in {
       packages.${system}.default = nim-1-6-6;
