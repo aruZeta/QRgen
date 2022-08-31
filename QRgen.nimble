@@ -13,6 +13,7 @@ requires "nim >= 1.6.6"
 # Tasks
 
 import std/[strformat, strutils]
+from os import walkDir, extractFilename
 
 const repo = "https://github.com/aruZeta/QRgen"
 const branches = ["develop", "main"]
@@ -35,3 +36,20 @@ task gendocs, "Generate documentation in docs folder":
     &"--git.commit:{branch}",
   ].join " "
   exec &"nim doc {flags} {mainFile}"
+
+task test, "Run tests on /test":
+  let flags = [
+    "--colors:on",
+    "--verbosity:2",
+    "--hints:off",
+    "--hint:GCStats:on",
+    "--hint:LineTooLong:on",
+    "--hint:XDeclaredButNotUsed:on",
+    "-w:on",
+    "--styleCheck:error",
+    "--spellsuggest:auto",
+  ].join " "
+  for file in walkDir("tests/"):
+    let fileName = file.path.extractFilename
+    if fileName[0..3] == "test" and fileName[^4..^1] == ".nim":
+      exec &"nim c -r {flags} {file.path}"
