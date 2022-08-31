@@ -1,0 +1,19 @@
+Drawing	QRgen/private/Drawing.html#Drawing	Drawing: Drawing	
+dpTerminal	QRgen/private/Drawing.html#dpTerminal	DrawingPrint.dpTerminal	
+DrawingPrint	QRgen/private/Drawing.html#DrawingPrint	Drawing: DrawingPrint	
+newDrawing	QRgen/private/Drawing.html#newDrawing,uint8	Drawing: newDrawing(size: uint8): Drawing	
+`[]`	QRgen/private/Drawing.html#[],Drawing,uint8,uint8	Drawing: `[]`(self: Drawing; x, y: uint8): bool	
+`[]`	QRgen/private/Drawing.html#[],Drawing,Slice[uint8],uint8	Drawing: `[]`(self: Drawing; x: Slice[uint8]; y: uint8): uint16	
+`[]`	QRgen/private/Drawing.html#[],Drawing,uint8,Slice[uint8]	Drawing: `[]`(self: Drawing; x: uint8; y: Slice[uint8]): uint16	
+`[]=`	QRgen/private/Drawing.html#[]=,Drawing,uint8,uint8,bool	Drawing: `[]=`(self: var Drawing; x, y: uint8; val: bool)	
+fillPoint	QRgen/private/Drawing.html#fillPoint.t,Drawing,uint8,uint8	Drawing: fillPoint(self: var Drawing; x, y: uint8)	
+flipPoint	QRgen/private/Drawing.html#flipPoint.t,Drawing,uint8,uint8	Drawing: flipPoint(self: var Drawing; x, y: uint8)	
+fillRectangle	QRgen/private/Drawing.html#fillRectangle,Drawing,Slice[uint8],Slice[uint8]	Drawing: fillRectangle(self: var Drawing; xRange, yRange: Slice[uint8])	
+fillRectangle	QRgen/private/Drawing.html#fillRectangle.t,Drawing,Slice[uint8],uint8	Drawing: fillRectangle(self: var Drawing; xRange: Slice[uint8]; y: uint8)	
+fillRectangle	QRgen/private/Drawing.html#fillRectangle.t,Drawing,uint8,Slice[uint8]	Drawing: fillRectangle(self: var Drawing; x: uint8; yRange: Slice[uint8])	
+fillRectangle	QRgen/private/Drawing.html#fillRectangle.t,Drawing,Slice[uint8]	Drawing: fillRectangle(self: var Drawing; xyRange: Slice[uint8])	
+printTerminal	QRgen/private/Drawing.html#printTerminal.t,Drawing	Drawing: printTerminal(self: Drawing)	
+print	QRgen/private/Drawing.html#print,Drawing,DrawingPrint	Drawing: print(self: Drawing; output: DrawingPrint)	
+`[]`	QRgen/private/Drawing.html#[].t,Drawing,SomeInteger	Drawing: `[]`(self: Drawing; i: SomeInteger): uint8	
+len	QRgen/private/Drawing.html#len.t,Drawing	Drawing: len(self: Drawing): int	
+Drawing implementation	QRgen/private/Drawing.html#drawing-implementation	 Drawing implementation	

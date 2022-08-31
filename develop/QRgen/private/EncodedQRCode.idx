@@ -1,0 +1,27 @@
+EncodedQRCode	QRgen/private/EncodedQRCode.html#EncodedQRCode	EncodedQRCode: EncodedQRCode	
+`[]`	QRgen/private/EncodedQRCode.html#[].t,QRCapacity[T],EncodedQRCode	EncodedQRCode: `[]`[T](self: QRCapacity[T]; qr: EncodedQRCode): T	
+`^=`	QRgen/private/EncodedQRCode.html#^=.t,untyped,untyped	EncodedQRCode: `^=`(self: untyped; expr: untyped)	
+encodeModeIndicator	QRgen/private/EncodedQRCode.html#encodeModeIndicator,EncodedQRCode	EncodedQRCode: encodeModeIndicator(self: var EncodedQRCode)	
+encodeCharCountIndicator	QRgen/private/EncodedQRCode.html#encodeCharCountIndicator,EncodedQRCode,string	EncodedQRCode: encodeCharCountIndicator(self: var EncodedQRCode; data: string)	
+step	QRgen/private/EncodedQRCode.html#step.i,int,int,int	EncodedQRCode: step(start, stop, step: int): int	
+getVal16	QRgen/private/EncodedQRCode.html#getVal16.t,char	EncodedQRCode: getVal16(c: char): uint16	
+getVal8	QRgen/private/EncodedQRCode.html#getVal8.t,char	EncodedQRCode: getVal8(c: char): uint8	
+encodeNumericModeData	QRgen/private/EncodedQRCode.html#encodeNumericModeData.t,EncodedQRCode,string	EncodedQRCode: encodeNumericModeData(self: var EncodedQRCode; data: string)	
+encodeAlphanumericModeData	QRgen/private/EncodedQRCode.html#encodeAlphanumericModeData.t,EncodedQRCode,string	EncodedQRCode: encodeAlphanumericModeData(self: var EncodedQRCode; data: string)	
+encodeByteModeData	QRgen/private/EncodedQRCode.html#encodeByteModeData.t,EncodedQRCode,string	EncodedQRCode: encodeByteModeData(self: var EncodedQRCode; data: string)	
+encodeData	QRgen/private/EncodedQRCode.html#encodeData,EncodedQRCode,string	EncodedQRCode: encodeData(self: var EncodedQRCode; data: string)	
+finishEncoding	QRgen/private/EncodedQRCode.html#finishEncoding,EncodedQRCode	EncodedQRCode: finishEncoding(self: var EncodedQRCode)	
+gf256Mod285Multiply	QRgen/private/EncodedQRCode.html#gf256Mod285Multiply,uint8,uint8	EncodedQRCode: gf256Mod285Multiply(x, y: uint8): uint8	
+calcGeneratorPolynomial	QRgen/private/EncodedQRCode.html#calcGeneratorPolynomial,EncodedQRCode	EncodedQRCode: calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8]	
+calcBlockPositions	QRgen/private/EncodedQRCode.html#calcBlockPositions,EncodedQRCode	EncodedQRCode: calcBlockPositions(self: EncodedQRCode): seq[uint16]	
+encodeECC	QRgen/private/EncodedQRCode.html#encodeECC,EncodedQRCode	EncodedQRCode: encodeECC(self: var EncodedQRCode)	
+calcEcStart	QRgen/private/EncodedQRCode.html#calcEcStart,EncodedQRCode	EncodedQRCode: calcEcStart(self: EncodedQRCode): uint16	
+g1BlockPositions	QRgen/private/EncodedQRCode.html#g1BlockPositions.i,EncodedQRCode	EncodedQRCode: g1BlockPositions(self: EncodedQRCode): uint16	
+g2BlockPositions	QRgen/private/EncodedQRCode.html#g2BlockPositions.i,EncodedQRCode	EncodedQRCode: g2BlockPositions(self: EncodedQRCode): uint16	
+interleaveData	QRgen/private/EncodedQRCode.html#interleaveData,EncodedQRCode	EncodedQRCode: interleaveData(self: var EncodedQRCode)	
+calcEcBlockPositions	QRgen/private/EncodedQRCode.html#calcEcBlockPositions,EncodedQRCode	EncodedQRCode: calcEcBlockPositions(self: EncodedQRCode): seq[uint16]	
+interleaveECC	QRgen/private/EncodedQRCode.html#interleaveECC,EncodedQRCode	EncodedQRCode: interleaveECC(self: var EncodedQRCode)	
+newEncodedQRCode	QRgen/private/EncodedQRCode.html#newEncodedQRCode,QRVersion,QRECLevel,QRMode	EncodedQRCode: newEncodedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL;\n                 mode: QRMode = qrByteMode): EncodedQRCode	
+newEncodedQRCode	QRgen/private/EncodedQRCode.html#newEncodedQRCode,QRCode	EncodedQRCode: newEncodedQRCode(qr: QRCode): EncodedQRCode	
+encode	QRgen/private/EncodedQRCode.html#encode,QRCode	EncodedQRCode: encode(qr: QRCode): EncodedQRCode	
+encodeOnly	QRgen/private/EncodedQRCode.html#encodeOnly,QRCode	EncodedQRCode: encodeOnly(qr: QRCode): EncodedQRCode	

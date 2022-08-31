@@ -1,0 +1,40 @@
+DrawedQRCode	QRgen/private/DrawedQRCode.html#DrawedQRCode	DrawedQRCode: DrawedQRCode	
+drawFinderPatterns	QRgen/private/DrawedQRCode.html#drawFinderPatterns,DrawedQRCode	DrawedQRCode: drawFinderPatterns(self: var DrawedQRCode)	
+alignmentPatternCoords	QRgen/private/DrawedQRCode.html#alignmentPatternCoords.i,QRVersion	DrawedQRCode: alignmentPatternCoords(version: QRVersion): tuple[x, y: uint8]	
+drawAlignmentPatterns	QRgen/private/DrawedQRCode.html#drawAlignmentPatterns,DrawedQRCode	DrawedQRCode: drawAlignmentPatterns(self: var DrawedQRCode)	
+drawTimingPatterns	QRgen/private/DrawedQRCode.html#drawTimingPatterns,DrawedQRCode	DrawedQRCode: drawTimingPatterns(self: var DrawedQRCode)	
+drawDarkModule	QRgen/private/DrawedQRCode.html#drawDarkModule,DrawedQRCode	DrawedQRCode: drawDarkModule(self: var DrawedQRCode)	
+dLeft	QRgen/private/DrawedQRCode.html#dLeft	DirectionKind.dLeft	
+dUpRight	QRgen/private/DrawedQRCode.html#dUpRight	DirectionKind.dUpRight	
+dUp	QRgen/private/DrawedQRCode.html#dUp	DirectionKind.dUp	
+dDownRight	QRgen/private/DrawedQRCode.html#dDownRight	DirectionKind.dDownRight	
+dDown	QRgen/private/DrawedQRCode.html#dDown	DirectionKind.dDown	
+DirectionKind	QRgen/private/DrawedQRCode.html#DirectionKind	DrawedQRCode: DirectionKind	
+oUpwards	QRgen/private/DrawedQRCode.html#oUpwards	OrientationKind.oUpwards	
+oDownwards	QRgen/private/DrawedQRCode.html#oDownwards	OrientationKind.oDownwards	
+OrientationKind	QRgen/private/DrawedQRCode.html#OrientationKind	DrawedQRCode: OrientationKind	
+Position	QRgen/private/DrawedQRCode.html#Position	DrawedQRCode: Position	
+drawData	QRgen/private/DrawedQRCode.html#drawData,DrawedQRCode,BitArray	DrawedQRCode: drawData(self: var DrawedQRCode; data: BitArray)	
+MaskProc	QRgen/private/DrawedQRCode.html#MaskProc	DrawedQRCode: MaskProc	
+applyMaskPattern	QRgen/private/DrawedQRCode.html#applyMaskPattern,DrawedQRCode,MaskProc	DrawedQRCode: applyMaskPattern(self: var DrawedQRCode; maskProc: MaskProc)	
+mask0	QRgen/private/DrawedQRCode.html#mask0,uint8,uint8	DrawedQRCode: mask0(x, y: uint8): bool	
+mask1	QRgen/private/DrawedQRCode.html#mask1,uint8,uint8	DrawedQRCode: mask1(x, y: uint8): bool	
+mask2	QRgen/private/DrawedQRCode.html#mask2,uint8,uint8	DrawedQRCode: mask2(x, y: uint8): bool	
+mask3	QRgen/private/DrawedQRCode.html#mask3,uint8,uint8	DrawedQRCode: mask3(x, y: uint8): bool	
+mask4	QRgen/private/DrawedQRCode.html#mask4,uint8,uint8	DrawedQRCode: mask4(x, y: uint8): bool	
+mask5	QRgen/private/DrawedQRCode.html#mask5,uint8,uint8	DrawedQRCode: mask5(x, y: uint8): bool	
+mask6	QRgen/private/DrawedQRCode.html#mask6,uint8,uint8	DrawedQRCode: mask6(x, y: uint8): bool	
+mask7	QRgen/private/DrawedQRCode.html#mask7,uint8,uint8	DrawedQRCode: mask7(x, y: uint8): bool	
+evaluateCondition1	QRgen/private/DrawedQRCode.html#evaluateCondition1,DrawedQRCode	DrawedQRCode: evaluateCondition1(self: DrawedQRCode): uint16	
+evaluateCondition2	QRgen/private/DrawedQRCode.html#evaluateCondition2,DrawedQRCode	DrawedQRCode: evaluateCondition2(self: DrawedQRCode): uint16	
+evaluateCondition3	QRgen/private/DrawedQRCode.html#evaluateCondition3,DrawedQRCode	DrawedQRCode: evaluateCondition3(self: DrawedQRCode): uint16	
+evaluateCondition4	QRgen/private/DrawedQRCode.html#evaluateCondition4,DrawedQRCode	DrawedQRCode: evaluateCondition4(self: DrawedQRCode): uint16	
+calcPenalty	QRgen/private/DrawedQRCode.html#calcPenalty,DrawedQRCode	DrawedQRCode: calcPenalty(self: DrawedQRCode): uint16	
+applyBestMaskPattern	QRgen/private/DrawedQRCode.html#applyBestMaskPattern,DrawedQRCode	DrawedQRCode: applyBestMaskPattern(self: var DrawedQRCode)	
+calcLen	QRgen/private/DrawedQRCode.html#calcLen,T	DrawedQRCode: calcLen[T: uint16 | uint32](bits: T): uint8	
+drawFormatInformation	QRgen/private/DrawedQRCode.html#drawFormatInformation,DrawedQRCode	DrawedQRCode: drawFormatInformation(self: var DrawedQRCode)	
+drawVersionInformation	QRgen/private/DrawedQRCode.html#drawVersionInformation,DrawedQRCode	DrawedQRCode: drawVersionInformation(self: var DrawedQRCode)	
+newDrawedQRCode	QRgen/private/DrawedQRCode.html#newDrawedQRCode,QRVersion,QRECLevel	DrawedQRCode: newDrawedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode	
+newDrawedQRCode	QRgen/private/DrawedQRCode.html#newDrawedQRCode,EncodedQRCode	DrawedQRCode: newDrawedQRCode(qr: EncodedQRCode): DrawedQRCode	
+draw	QRgen/private/DrawedQRCode.html#draw,EncodedQRCode	DrawedQRCode: draw(qr: EncodedQRCode): DrawedQRCode	
+drawOnly	QRgen/private/DrawedQRCode.html#drawOnly,EncodedQRCode	DrawedQRCode: drawOnly(qr: EncodedQRCode): DrawedQRCode	
