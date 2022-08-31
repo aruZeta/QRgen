@@ -36,8 +36,8 @@ jobs:
           cd ..
       - name: Move docs to destination
         run: |
-          nix-shell -p rsync --run \
-            "rsync -a --force source/docs/ destination/${{ github.ref_name }}"
+          nix shell nixpkgs#rsync -c \
+            rsync -a --force source/docs/ destination/${{ github.ref_name }}
       - name: Push docs
         run: |
           cd destination
