@@ -3,6 +3,9 @@ name: Gen Docs
 on:
   push:
     branches: [ main, develop ]
+    paths:
+      - '**.nim*'
+      - '**.cfg'
 
 jobs:
   generate-docs:
