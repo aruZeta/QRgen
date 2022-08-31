@@ -305,7 +305,7 @@ benchmarkTest "evaluateConditionX()":
   check qr1.evaluateCondition3 == 80
   check qr1.evaluateCondition4 == 0
 
-benchMarkTest "applyBestMaskPattern()":
+benchmarkTest "applyBestMaskPattern()":
   var qr1 = newQRCode("Hello World").encode.drawOnly
   var copy = qr1
   qr1.applyBestMaskPattern
