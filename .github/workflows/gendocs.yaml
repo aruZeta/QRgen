@@ -6,6 +6,7 @@ on:
     paths:
       - '**.nim*'
       - '**.cfg'
+      - '.github/workflows/**'
 
 jobs:
   generate-docs:

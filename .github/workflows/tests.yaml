@@ -6,11 +6,13 @@ on:
     paths:
       - '**.nim*'
       - '**.cfg'
+      - '.github/workflows/**'
   pull_request:
     branches: [ develop, 'release/**' ]
     paths:
       - '**.nim*'
       - '**.cfg'
+      - '.github/workflows/**'
 
 jobs:
   run-tests:
