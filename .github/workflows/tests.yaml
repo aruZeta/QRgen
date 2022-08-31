@@ -2,13 +2,13 @@ name: Run Tests
 
 on:
   push:
-    branches: [ develop, 'release/**' ]
+    branches-ignore: [ main, docs ]
     paths:
       - '**.nim*'
       - '**.cfg'
       - '.github/workflows/**'
   pull_request:
-    branches: [ develop, 'release/**' ]
+    branches-ignore: [ main, docs ]
     paths:
       - '**.nim*'
       - '**.cfg'
