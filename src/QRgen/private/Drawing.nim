@@ -123,14 +123,13 @@ proc printSvg*(self: Drawing): string =
     # Set the background of the QR to light with a path
     "<path class=\"QRlight\" d=\"" &
     &"M-5,-5h{totalWidth}v{totalWidth}h-{totalWidth}Z" &
-    "\"></path>"
-  var pathDark = "<path class=\"QRdark\" d=\"" # QR dark modules
+    "\"></path>" &
+    # Path drawing the dark modules
+    "<path class=\"QRdark\" d=\""
   for y in 0'u8..<self.size:
     for x in 0'u8..<self.size:
-      if self[x, y]: pathDark.add &"M{x},{y}h1v1h-1Z"
-  pathDark.add "\"></path>"
-  result.add pathDark
-  result.add "</svg>"
+      if self[x, y]: result.add &"M{x},{y}h1v1h-1Z"
+  result.add "\"></path></svg>"
 
 template `[]`*(self: Drawing, i: SomeInteger): uint8 =
   ## Get the value of `self.matrix` in index `i`.
