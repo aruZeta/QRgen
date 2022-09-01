@@ -141,8 +141,8 @@ window.addEventListener('DOMContentLoaded', main);
 
   </ul>
   <ul class="simple nested-toc-section">printSvg
-      <li><a class="reference" href="#printSvg%2CDrawing"
-    title="printSvg(self: Drawing): string">printSvg(self: Drawing): string</a></li>
+      <li><a class="reference" href="#printSvg%2CDrawing%2Cstring%2Cstring"
+    title="printSvg(self: Drawing; light, dark: string): string">printSvg(self: Drawing; light, dark: string): string</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">printTerminal
@@ -309,11 +309,12 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-<div id="printSvg,Drawing">
-<dt><pre><span class="Keyword">proc</span> <a href="#printSvg%2CDrawing"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="Drawing.html#Drawing"><span class="Identifier">Drawing</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<div id="printSvg,Drawing,string,string">
+<dt><pre><span class="Keyword">proc</span> <a href="#printSvg%2CDrawing%2Cstring%2Cstring"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="Drawing.html#Drawing"><span class="Identifier">Drawing</span></a><span class="Other">;</span> <span class="Identifier">light</span><span class="Other">,</span> <span class="Identifier">dark</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to svg format (returned as a string).
+Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to svg format (returned as a string). <tt class="docutils literal"><span class="pre"><span class="Identifier">light</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">dark</span></span></tt> are hexadecimal color values which represent the background color and the dark module's color, respectively.
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L115"
 class="link-seesrc" target="_blank">Source</a>
@@ -344,9 +345,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get the value of <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">matrix</span></span></tt> in index <tt class="docutils literal"><span class="pre"><span class="Identifier">i</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L135"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L136"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L135" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L136" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -416,9 +417,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get the value of <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">matrix</span><span class="Operator">.</span><span class="Identifier">len</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L139"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L140"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L139" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L140" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -432,7 +433,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-01 13:05:28 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-01 14:48:24 UTC</small>
       </div>
     </div>
   </div>

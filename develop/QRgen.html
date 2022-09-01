@@ -125,8 +125,8 @@ window.addEventListener('DOMContentLoaded', main);
 
   </ul>
   <ul class="simple nested-toc-section">printSvg
-      <li><a class="reference" href="#printSvg%2CDrawedQRCode"
-    title="printSvg(self: DrawedQRCode): string">printSvg(self: DrawedQRCode): string</a></li>
+      <li><a class="reference" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring"
+    title="printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;): string">printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;): string</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">printTerminal
@@ -234,11 +234,16 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-<div id="printSvg,DrawedQRCode">
-<dt><pre><span class="Keyword">proc</span> <a href="#printSvg%2CDrawedQRCode"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="QRgen/private/DrawedQRCode.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<div id="printSvg,DrawedQRCode,string,string">
+<dt><pre><span class="Keyword">proc</span> <a href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="QRgen/private/DrawedQRCode.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">;</span> <span class="Identifier">light</span> <span class="Other">=</span> <span class="StringLit">&quot;#ffffff&quot;</span><span class="Other">;</span> <span class="Identifier">dark</span> <span class="Other">=</span> <span class="StringLit">&quot;#000000&quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to svg format (returned as a string).
+Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to svg format (returned as a string).<div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
+You can pass the hexadecimal color values <tt class="docutils literal"><span class="pre"><span class="Identifier">light</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">dark</span></span></tt>, which represent the background color and the dark module's color, respectively. By default <tt class="docutils literal"><span class="pre"><span class="Identifier">light</span></span></tt> is white (#ffffff) and <tt class="docutils literal"><span class="pre"><span class="Identifier">dark</span></span></tt> is black (#000000).</div>
+<div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
+The svg can be changed via css with the class <tt class="docutils literal"><span class="pre"><span class="Identifier">QRcode</span></span></tt>, while the colors can also be changed with the classes <tt class="docutils literal"><span class="pre"><span class="Identifier">QRlight</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">QRdark</span></span></tt>.</div>
+
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L75"
 class="link-seesrc" target="_blank">Source</a>
@@ -274,7 +279,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-01 13:05:31 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-01 14:48:26 UTC</small>
       </div>
     </div>
   </div>
