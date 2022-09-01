@@ -3,4 +3,8 @@ import QRgen
 
 benchmarkTest "Minimal test":
   let qr = newQR("Hello world!")
-  qr.print dpTerminal
+  qr.printTerminal
+
+benchmarkTest "Testing svg":
+  let qr = newQR("Hello world!")
+  echo qr.printSvg

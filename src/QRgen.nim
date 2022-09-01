@@ -20,7 +20,6 @@ import QRgen/private/[QRCode, EncodedQRCode, DrawedQRCode, Drawing, qrTypes]
 
 export QRCode.DataSizeDefect
 export DrawedQRCode.DrawedQRCode
-export Drawing.DrawingPrint
 export qrTypes
 
 proc newQR*(data: string,
@@ -69,9 +68,6 @@ proc newQR*(data: string,
   ## (`qrECL` by default).
   newQRCode(data, ecLevel).encode.draw
 
-proc print*(self: DrawedQRCode, output: DrawingPrint) =
-  ## Print a DrawedQRCode to the specified output format.
-  ##
-  ## Check `DrawingPrint<QRgen/private/Drawing.html#DrawingPrint>`_
-  ## to see the ones available.
-  self.drawing.print output
+proc printTerminal*(self: DrawedQRCode) =
+  ## Print a `DrawedQRCode` to the terminal using `stdout`.
+  self.drawing.printTerminal

@@ -20,11 +20,6 @@ type
     matrix*: seq[uint8]
     size*: uint8
 
-  DrawingPrint* = enum
-    ## Used by `print<#print%2CDrawing%2CDrawingPrint>`_ to draw the QR code
-    ## in the specified format.
-    dpTerminal
-
 proc newDrawing*(size: uint8): Drawing =
   ## Creates a new `Drawing` object with the size `size`, `matrix` will have
   ## a cap and len set to the number of bytes required to store all it's
@@ -102,23 +97,19 @@ template fillRectangle*(self: var Drawing, xyRange: Slice[uint8]) =
   ## both x and y are in `xyRange` to dark.
   self.fillRectangle xyRange, xyRange
 
-template printTerminal(self: Drawing) =
-  ## Print a `DrawedQRCode` in your terminal.
+proc printTerminal*(self: Drawing) =
+  ## Print a `DrawedQRCode` to the terminal using `stdout`.
   stdout.write "\n\n\n\n\n"
   for y in 0'u8..<self.size:
     stdout.write "          "
     for x in 0'u8..<self.size:
       stdout.write(
         if self[x, y]: "██"
-        else:          "  "
+        else: "  "
       )
     stdout.write "\n"
   stdout.write "\n\n\n\n\n"
 
-proc print*(self: Drawing, output: DrawingPrint) =
-  ## Print a `DrawedQRCode` with the format specified by `output`.
-  case output
-  of dpTerminal: printTerminal self
 
 template `[]`*(self: Drawing, i: SomeInteger): uint8 =
   ## Get the value of `self.matrix` in index `i`.
