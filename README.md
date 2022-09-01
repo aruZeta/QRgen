@@ -31,7 +31,7 @@ myQR.printTerminal
 And the QR code would be displayed in our terminal like:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/68018085/187936089-6017797a-89a1-47cb-9bdf-495f776ea908.png"
+<img src="./share/img/terminal-example.png"
 width="200px" height="200px" />
 </p>
 
@@ -39,7 +39,7 @@ We can also use `myQR.printSvg` and we would get a string with a svg tag which w
 render like this:
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/68018085/187934352-a42e4fae-3ed3-45a7-a061-f298a8d4925c.svg"
+<img src="./share/img/svg-example.svg"
 width="200px" height="200px" />
 </p>
 
