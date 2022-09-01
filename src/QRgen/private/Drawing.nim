@@ -112,8 +112,10 @@ proc printTerminal*(self: Drawing) =
     stdout.write "\n"
   stdout.write "\n\n\n\n\n"
 
-proc printSvg*(self: Drawing): string =
+proc printSvg*(self: Drawing, light, dark: string): string =
   ## Print a `DrawedQRCode` to svg format (returned as a string).
+  ## `light` and `dark` are hexadecimal color values which represent
+  ## the background color and the dark module's color, respectively.
   let totalWidth = self.size + 10
   result =
     # Svg tag
@@ -121,11 +123,11 @@ proc printSvg*(self: Drawing): string =
     " xmlns=\"http://www.w3.org/2000/svg\"" &
     &" viewBox=\"-5 -5 {totalWidth} {totalWidth}\">" &
     # Set the background of the QR to light with a path
-    "<path class=\"QRlight\" d=\"" &
+    &"<path class=\"QRlight\" fill=\"{light}\" d=\"" &
     &"M-5,-5h{totalWidth}v{totalWidth}h-{totalWidth}Z" &
     "\"></path>" &
     # Path drawing the dark modules
-    "<path class=\"QRdark\" d=\""
+    &"<path class=\"QRdark\" fill=\"{dark}\" d=\""
   for y in 0'u8..<self.size:
     for x in 0'u8..<self.size:
       if self[x, y]: result.add &"M{x},{y}h1v1h-1Z"

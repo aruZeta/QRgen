@@ -72,6 +72,14 @@ proc printTerminal*(self: DrawedQRCode) =
   ## Print a `DrawedQRCode` to the terminal using `stdout`.
   self.drawing.printTerminal
 
-proc printSvg*(self: DrawedQRCode): string =
+proc printSvg*(self: DrawedQRCode,
+               light = "#ffffff",
+               dark = "#000000"
+              ): string =
   ## Print a `DrawedQRCode` to svg format (returned as a string).
-  self.drawing.printSvg
+  ##
+  ## .. note:: You can pass the hexadecimal color values `light` and `dark`,
+  ##    which represent the background color and the dark module's color,
+  ##    respectively. By default `light` is white (#ffffff) and `dark`
+  ##    is black (#000000).
+  self.drawing.printSvg light, dark
