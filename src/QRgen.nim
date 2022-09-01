@@ -71,3 +71,7 @@ proc newQR*(data: string,
 proc printTerminal*(self: DrawedQRCode) =
   ## Print a `DrawedQRCode` to the terminal using `stdout`.
   self.drawing.printTerminal
+
+proc printSvg*(self: DrawedQRCode): string =
+  ## Print a `DrawedQRCode` to svg format (returned as a string).
+  self.drawing.printSvg

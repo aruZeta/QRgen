@@ -11,6 +11,8 @@
 ## code is actually doing, they are `fillPoint`, `flipPoint` and
 ## `fillRectangle`.
 
+import strformat
+
 type
   Drawing* = object
     ## A Drawing object used by `DrawedQRCode<DrawedQRCode.html>`_.
@@ -110,6 +112,25 @@ proc printTerminal*(self: Drawing) =
     stdout.write "\n"
   stdout.write "\n\n\n\n\n"
 
+proc printSvg*(self: Drawing): string =
+  ## Print a `DrawedQRCode` to svg format (returned as a string).
+  let totalWidth = self.size + 10
+  result =
+    # Svg tag
+    "<svg class=\"QRcode\" version=\"1.1\"" &
+    " xmlns=\"http://www.w3.org/2000/svg\"" &
+    &" viewBox=\"-5 -5 {totalWidth} {totalWidth}\">" &
+    # Set the background of the QR to light with a path
+    "<path class=\"QRlight\" d=\"" &
+    &"M-5,-5h{totalWidth}v{totalWidth}h-{totalWidth}Z" &
+    "\"></path>"
+  var pathDark = "<path class=\"QRdark\" d=\"" # QR dark modules
+  for y in 0'u8..<self.size:
+    for x in 0'u8..<self.size:
+      if self[x, y]: pathDark.add &"M{x},{y}h1v1h-1Z"
+  pathDark.add "\"></path>"
+  result.add pathDark
+  result.add "</svg>"
 
 template `[]`*(self: Drawing, i: SomeInteger): uint8 =
   ## Get the value of `self.matrix` in index `i`.
