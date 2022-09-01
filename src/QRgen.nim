@@ -82,4 +82,7 @@ proc printSvg*(self: DrawedQRCode,
   ##    which represent the background color and the dark module's color,
   ##    respectively. By default `light` is white (#ffffff) and `dark`
   ##    is black (#000000).
+  ##
+  ## .. note:: The svg can be changed via css with the class `QRcode`, while
+  ##    the colors can also be changed with the classes `QRlight` and `QRdark`.
   self.drawing.printSvg light, dark
