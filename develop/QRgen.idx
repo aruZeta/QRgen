@@ -2,6 +2,7 @@ newQR	QRgen.html#newQR,string,QRMode,QRVersion,QRECLevel	QRgen: newQR(data: stri
 newQR	QRgen.html#newQR,string,QRVersion,QRECLevel	QRgen: newQR(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode	
 newQR	QRgen.html#newQR,string,QRMode,QRECLevel	QRgen: newQR(data: string; mode: QRMode; ecLevel: QRECLevel = qrECL): DrawedQRCode	
 newQR	QRgen.html#newQR,string,QRECLevel	QRgen: newQR(data: string; ecLevel: QRECLevel = qrECL): DrawedQRCode	
-print	QRgen.html#print,DrawedQRCode,DrawingPrint	QRgen: print(self: DrawedQRCode; output: DrawingPrint)	
+printTerminal	QRgen.html#printTerminal,DrawedQRCode	QRgen: printTerminal(self: DrawedQRCode)	
+printSvg	QRgen.html#printSvg,DrawedQRCode	QRgen: printSvg(self: DrawedQRCode): string	
 The main QRgen API	QRgen.html#the-main-qrgen-api	 The main QRgen API	
 Usage example	QRgen.html#usage-example	 Usage example	

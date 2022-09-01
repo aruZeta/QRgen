@@ -124,9 +124,14 @@ window.addEventListener('DOMContentLoaded', main);
     title="newQR(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode">newQR(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">print
-      <li><a class="reference" href="#print%2CDrawedQRCode%2CDrawingPrint"
-    title="print(self: DrawedQRCode; output: DrawingPrint)">print(self: DrawedQRCode; output: DrawingPrint)</a></li>
+  <ul class="simple nested-toc-section">printSvg
+      <li><a class="reference" href="#printSvg%2CDrawedQRCode"
+    title="printSvg(self: DrawedQRCode): string">printSvg(self: DrawedQRCode): string</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">printTerminal
+      <li><a class="reference" href="#printTerminal%2CDrawedQRCode"
+    title="printTerminal(self: DrawedQRCode)">printTerminal(self: DrawedQRCode)</a></li>
 
   </ul>
 
@@ -159,7 +164,7 @@ class="link-seesrc" target="_blank">Source</a>
 <p><strong class="examples_text">Example:</strong></p>
 <pre class="listing"><span class="Keyword">import</span> <span class="Identifier">QRgen</span>
 <span class="Keyword">let</span> <span class="Identifier">urlQR</span> <span class="Operator">=</span> <span class="Identifier">newQR</span><span class="Punctuation">(</span><span class="StringLit">&quot;https://my-url.domain&quot;</span><span class="Punctuation">)</span>
-<span class="Identifier">urlQR</span><span class="Operator">.</span><span class="Identifier">print</span> <span class="Identifier">dpTerminal</span></pre></p>
+<span class="Identifier">urlQR</span><span class="Operator">.</span><span class="Identifier">printTerminal</span></pre></p>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
@@ -175,9 +180,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Create a new DrawedQRCode with the specified <tt class="docutils literal"><span class="pre"><span class="Identifier">ecLevel</span></span></tt> (<tt class="docutils literal"><span class="pre"><span class="Identifier">qrECL</span></span></tt> by default).
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L65"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L64"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L65" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L64" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -190,9 +195,9 @@ Create a new DrawedQRCode with the specified <tt class="docutils literal"><span 
 The mode is not checked so make sure to use the correct one. It's recommended to use another proc which sets the mode automatically unless you know what you are doing.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L53"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L52"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L53" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L52" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -208,9 +213,9 @@ The mode is not checked so make sure to use the correct one. It's recommended to
 The data size is checked to see if it fits in the specified version and ecLevel.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L26"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L25"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L26" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L25" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -223,24 +228,34 @@ Create a new DrawedQRCode with the specified <tt class="docutils literal"><span 
 The data size is checked to see if it fits in the specified version and ecLevel.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L42"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L41"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L42" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="print,DrawedQRCode,DrawingPrint">
-<dt><pre><span class="Keyword">proc</span> <a href="#print%2CDrawedQRCode%2CDrawingPrint"><span class="Identifier">print</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="QRgen/private/DrawedQRCode.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">;</span> <span class="Identifier">output</span><span class="Other">:</span> <a href="QRgen/private/Drawing.html#DrawingPrint"><span class="Identifier">DrawingPrint</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
+<div id="printSvg,DrawedQRCode">
+<dt><pre><span class="Keyword">proc</span> <a href="#printSvg%2CDrawedQRCode"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="QRgen/private/DrawedQRCode.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to svg format (returned as a string).
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L75"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L75" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="printTerminal,DrawedQRCode">
+<dt><pre><span class="Keyword">proc</span> <a href="#printTerminal%2CDrawedQRCode"><span class="Identifier">printTerminal</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="QRgen/private/DrawedQRCode.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">WriteIOEffect</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-<p>Print a DrawedQRCode to the specified output format.</p>
-<p>Check <a class="reference external" href="QRgen/private/Drawing.html#DrawingPrint">DrawingPrint</a> to see the ones available.</p>
-
+Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to the terminal using <tt class="docutils literal"><span class="pre"><span class="Identifier">stdout</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L72"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen.nim#L71"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L72" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L71" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -249,7 +264,7 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="19">
 <h1><a class="toc-backref" href="#19">Exports</a></h1>
 <dl class="item">
-<a href="QRgen/private/QRCode.html#DataSizeDefect"><span class="Identifier">DataSizeDefect</span></a>, <a href="QRgen/private/DrawedQRCode.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a>, <a href="QRgen/private/Drawing.html#DrawingPrint"><span class="Identifier">DrawingPrint</span></a>, <a href="QRgen/private/qrTypes.html#QRVersion"><span class="Identifier">QRVersion</span></a>, <a href="QRgen/private/qrTypes.html#QRMode"><span class="Identifier">QRMode</span></a>, <a href="QRgen/private/qrTypes.html#QRECLevel"><span class="Identifier">QRECLevel</span></a>
+<a href="QRgen/private/QRCode.html#DataSizeDefect"><span class="Identifier">DataSizeDefect</span></a>, <a href="QRgen/private/DrawedQRCode.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a>, <a href="QRgen/private/qrTypes.html#QRVersion"><span class="Identifier">QRVersion</span></a>, <a href="QRgen/private/qrTypes.html#QRMode"><span class="Identifier">QRMode</span></a>, <a href="QRgen/private/qrTypes.html#QRECLevel"><span class="Identifier">QRECLevel</span></a>
 </dl></div>
 
   </div>
@@ -259,7 +274,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-08-31 21:30:22 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-01 13:05:31 UTC</small>
       </div>
     </div>
   </div>
