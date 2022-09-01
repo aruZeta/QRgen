@@ -1,3 +1,8 @@
+<p align="center">
+<img src="./share/img/logo.svg"
+width="300px" height="300px" />
+</p>
+
 # QRgen - A QR generation library
 
 QRgen is a QR generation library fully written in Nim without any external
