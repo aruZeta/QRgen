@@ -14,7 +14,7 @@
 
 runnableExamples:
   let urlQR = newQR("https://my-url.domain")
-  urlQR.print dpTerminal
+  urlQR.printTerminal
 
 import QRgen/private/[QRCode, EncodedQRCode, DrawedQRCode, Drawing, qrTypes]
 
