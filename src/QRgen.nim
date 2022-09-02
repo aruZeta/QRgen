@@ -86,3 +86,14 @@ proc printSvg*(self: DrawedQRCode,
   ## .. note:: The svg can be changed via css with the class `QRcode`, while
   ##    the colors can also be changed with the classes `QRlight` and `QRdark`.
   self.drawing.printSvg light, dark
+
+proc printRoundedSvg*(self: DrawedQRCode,
+                      light = "#ffffff",
+                      dark = "#000000",
+                      radius: range[0f..3.5f] = 3f
+                     ): string =
+  ## Same as `DrawedQRCode<#printSvg%2CDrawing%2Cstring%2Cstring>`_
+  ## but with rounded alignment patterns determined by `radius` which
+  ## can be from `0` (a square) up to `3.5`, which would make it a perfect
+  ## circle.
+  self.drawing.printRoundedSvg light, dark, radius

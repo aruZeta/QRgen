@@ -8,3 +8,7 @@ benchmarkTest "Minimal test":
 benchmarkTest "Testing svg":
   let qr = newQR("Hello world!")
   echo qr.printSvg
+
+benchmarkTest "Testing rounded svg":
+  let qr = newQR("Hello world!")
+  echo qr.printRoundedSvg(radius = 2)
