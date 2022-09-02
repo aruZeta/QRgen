@@ -1,4 +1,4 @@
-import Drawing, EncodedQRCode, BitArray, qrTypes, qrCapacities
+import Drawing, EncodedQRCode/main, BitArray, qrTypes, qrCapacities
 import std/strformat
 
 type

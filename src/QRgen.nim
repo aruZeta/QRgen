@@ -16,7 +16,7 @@ runnableExamples:
   let urlQR = newQR("https://my-url.domain")
   urlQR.printTerminal
 
-import QRgen/private/[QRCode, EncodedQRCode, DrawedQRCode, qrTypes]
+import QRgen/private/[QRCode, EncodedQRCode/main, DrawedQRCode, qrTypes]
 
 export QRCode.DataSizeDefect
 export DrawedQRCode.DrawedQRCode,
