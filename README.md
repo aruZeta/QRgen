@@ -23,7 +23,9 @@ dependencies.
 - Supports all QR versions: from `1` to `40`.
 - Supports all EC (Error Correction) levels: `L`, `M`, `Q` and `H`.
 - Supports `numeric mode`, `alphanumeric mode` and `byte mode`.
-- Supports printing a QR code on your terminal and SVG format.
+- Supports printing a QR code on your terminal via standard output.
+- Supports printing a QR code to SVG, with custom colors and rounded
+alignment patterns.
 
 ## Usage
 
@@ -40,15 +42,21 @@ And the QR code would be displayed in our terminal like:
 width="200px" height="200px" />
 </p>
 
-We can also use `myQR.printSvg` and we would get a string with a svg tag which would
-render like this:
+We can also use `myQR.printSvg` and we would get a string with a SVG tag which
+would render like this:
 
 <p align="center">
 <img src="./share/img/svg-example.svg"
 width="200px" height="200px" />
 </p>
 
-(Note: the colors of the svg can be changed using the QRlight and QRdark classes) 
+When printing to SVG we can also set different colors and even round the
+alignment patterns of the QR code:
+
+<p align="center">
+<img src="./share/img/svg-colors-rounded-example.svg"
+width="200px" height="200px" />
+</p>
 
 Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
