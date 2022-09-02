@@ -1,8 +1,6 @@
 import
-  # Local modules
-  ./EncodedQRCode,
-  # Outter modules
-  ../BitArray, ../qrTypes
+  "."/[EncodedQRCode],
+  ".."/[BitArray, qrTypes]
 
 proc encodeModeIndicator*(self: var EncodedQRCode) =
   self.data.add cast[uint8](self.mode), 4

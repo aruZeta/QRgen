@@ -1,5 +1,6 @@
-import Drawing, EncodedQRCode/main, BitArray, qrTypes, qrCapacities
-import std/strformat
+import
+  "."/[BitArray, Drawing, EncodedQRCode/main, qrCapacities, qrTypes],
+  std/[strformat]
 
 type
   DrawedQRCode* = object

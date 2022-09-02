@@ -16,14 +16,16 @@ runnableExamples:
   let urlQR = newQR("https://my-url.domain")
   urlQR.printTerminal
 
-import QRgen/private/[QRCode, EncodedQRCode/main, DrawedQRCode, qrTypes]
+import
+  QRgen/private/[DrawedQRCode, EncodedQRCode/main, QRCode, qrTypes]
 
-export QRCode.DataSizeDefect
-export DrawedQRCode.DrawedQRCode,
-       DrawedQRCode.printTerminal,
-       DrawedQRCode.printSvg,
-       DrawedQRCode.printRoundedSvg
-export qrTypes
+export
+  DrawedQRCode.DrawedQRCode,
+  DrawedQRCode.printRoundedSvg,
+  DrawedQRCode.printSvg,
+  DrawedQRCode.printTerminal,
+  QRCode.DataSizeDefect,
+  qrTypes
 
 proc newQR*(data: string,
             mode: QRMode,

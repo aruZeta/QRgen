@@ -1,8 +1,6 @@
 import
-  # Local modules
-  ./EncodedQRCode,
-  # Outter modules
-  ../qrCapacities
+  "."/[EncodedQRCode],
+  ".."/[qrCapacities]
 
 template `[]`*[T](self: QRCapacity[T], qr: EncodedQRCode): T =
   self[qr.ecLevel][qr.version]

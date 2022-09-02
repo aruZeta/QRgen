@@ -1,7 +1,6 @@
-import ./EncodedQRCode,
-       ./utils
-import ../BitArray,
-       ../qrCapacities
+import
+  "."/[EncodedQRCode, utils],
+  ".."/[BitArray, qrCapacities]
 
 iterator g1BlockPositions(self: EncodedQRCode): uint16 {.inline.} =
   var pos: uint16 = 0

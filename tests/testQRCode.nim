@@ -1,5 +1,6 @@
-import myTestSuite
-import QRgen/private/[QRCode, qrTypes]
+import
+  "."/[myTestSuite],
+  QRgen/private/[QRCode, qrTypes]
 
 benchmarkTest "newQRCode()":
   let qr1 = newQRCode("0123456789")

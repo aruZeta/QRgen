@@ -1,5 +1,6 @@
-import myTestSuite
-import QRgen
+import
+  "."/[myTestSuite],
+  QRgen
 
 benchmarkTest "Minimal test":
   let qr = newQR("Hello world!")

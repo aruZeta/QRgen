@@ -1,5 +1,6 @@
-import QRgen/private/[qrCapacities, qrTypes]
-import std/unittest
+import
+  QRgen/private/[qrCapacities, qrTypes],
+  std/[unittest]
 
 test "G1 codewords < G2 codewords":
   for l in QRECLevel:

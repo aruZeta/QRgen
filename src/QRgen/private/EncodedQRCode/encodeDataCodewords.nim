@@ -1,9 +1,6 @@
 import
-  # Local modules
-  ./EncodedQRCode, ./utils,
-  # Outter modules
-  ../BitArray, ../qrCapacities, ../qrCharacters, ../qrTypes,
-  # STD modules
+  "."/[EncodedQRCode, utils],
+  ".."/[BitArray, qrCapacities, qrCharacters, qrTypes],
   std/[encodings]
 
 template getVal16(c: char): uint16 = cast[uint16](getAlphanumericValue c)

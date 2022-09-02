@@ -1,5 +1,6 @@
-import myTestSuite
-import QRgen/private/Drawing
+import
+  "."/[myTestSuite],
+  QRgen/private/[Drawing]
 
 benchmarkTest "Simple square":
   var drawing: Drawing = newDrawing(10)

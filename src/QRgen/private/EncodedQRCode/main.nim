@@ -1,12 +1,10 @@
 import
-  # Local modules
-  ./EncodedQRCode, ./encodeIndicators,
-  ./encodeDataCodewords, ./encodeECCodewords,
-  ./interleaveDataCodewords, ./interleaveECCodewords,
-  # Outter modules
-  ../QRCode
+  "."/[EncodedQRCode, encodeDataCodewords, encodeECCodewords,
+       encodeIndicators, interleaveDataCodewords, interleaveECCodewords],
+  ".."/[QRCode]
 
-export EncodedQRCode
+export
+  EncodedQRCode
 
 proc encode*(qr: QRCode): EncodedQRCode =
   result = newEncodedQRCode qr

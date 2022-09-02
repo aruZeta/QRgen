@@ -1,8 +1,6 @@
 import
-  # Local modules
-  ./EncodedQRCode, ./utils,
-  # Outter modules
-  ../BitArray, ../qrCapacities
+  "."/[EncodedQRCode, utils],
+  ".."/[BitArray, qrCapacities]
 
 proc gf256Mod285Multiply(x, y: uint8): uint8 =
   result = 0

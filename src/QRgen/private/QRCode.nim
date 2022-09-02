@@ -1,4 +1,5 @@
-import qrTypes, qrCharacters, qrCapacities
+import
+  "."/[qrCapacities, qrCharacters, qrTypes]
 
 type
   QRCode* = object

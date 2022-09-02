@@ -4,7 +4,8 @@
 ## characters, sizes, number of ECCs, alignment pattern locations, etc, as arrays
 ## with values already calculated (known at compiletime).
 
-import qrTypes
+import
+  "."/[qrTypes]
 
 type
   QRCapacity*[T: uint8 | uint16] = array[QRECLevel, array[QRVersion, T]]

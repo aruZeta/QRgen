@@ -1,6 +1,5 @@
 import
-  # Outter modules
-  ../BitArray, ../QRCode, ../qrCapacities, ../qrTypes
+  ".."/[BitArray, QRCode, qrCapacities, qrTypes]
 
 type
   EncodedQRCode* = object

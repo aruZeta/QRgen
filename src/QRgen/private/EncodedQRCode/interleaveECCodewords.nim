@@ -1,8 +1,6 @@
 import
-  # Local modules
-  ./EncodedQRCode, ./utils,
-  # Outter modules
-  ../BitArray, ../qrCapacities
+  "."/[EncodedQRCode, utils],
+  ".."/[BitArray, qrCapacities]
 
 proc calcEcBlockPositions(self: EncodedQRCode): seq[uint16] =
   result = newSeqOfCap[uint16](group1Blocks[self] + group2Blocks[self])

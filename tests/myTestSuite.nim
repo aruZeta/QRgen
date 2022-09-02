@@ -1,5 +1,8 @@
-import std/unittest
-export unittest
+import
+  std/[unittest]
+
+export
+  unittest
 
 when defined(benchmark):
   import benchy

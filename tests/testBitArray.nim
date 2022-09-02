@@ -1,5 +1,6 @@
-import myTestSuite
-import QRgen/private/BitArray
+import
+  "."/[myTestSuite],
+  QRgen/private/[BitArray]
 
 benchmarkTest "Simple bit array":
   var b = newBitArray(1)
