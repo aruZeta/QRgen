@@ -11,8 +11,6 @@
 ## code is actually doing, they are `fillPoint`, `flipPoint` and
 ## `fillRectangle`.
 
-import strformat
-
 type
   Drawing* = object
     ## A Drawing object used by `DrawedQRCode<DrawedQRCode.html>`_.
@@ -98,85 +96,6 @@ template fillRectangle*(self: var Drawing, xyRange: Slice[uint8]) =
   ## A helper template to set all the modules where
   ## both x and y are in `xyRange` to dark.
   self.fillRectangle xyRange, xyRange
-
-proc printTerminal*(self: Drawing) =
-  ## Print a `DrawedQRCode` to the terminal using `stdout`.
-  stdout.write "\n\n\n\n\n"
-  for y in 0'u8..<self.size:
-    stdout.write "          "
-    for x in 0'u8..<self.size:
-      stdout.write(
-        if self[x, y]: "██"
-        else: "  "
-      )
-    stdout.write "\n"
-  stdout.write "\n\n\n\n\n"
-
-proc printSvg*(self: Drawing, light, dark: string): string =
-  ## Print a `DrawedQRCode` to svg format (returned as a string).
-  ## `light` and `dark` are hexadecimal color values which represent
-  ## the background color and the dark module's color, respectively.
-  let totalWidth = self.size + 10
-  result =
-    # Svg tag
-    "<svg class=\"QRcode\" version=\"1.1\"" &
-    " xmlns=\"http://www.w3.org/2000/svg\"" &
-    &" viewBox=\"-5 -5 {totalWidth} {totalWidth}\">" &
-    # Set the background of the QR to light with a path
-    &"<path class=\"QRlight\" fill=\"{light}\" d=\"" &
-    &"M-5,-5h{totalWidth}v{totalWidth}h-{totalWidth}Z" &
-    "\"></path>" &
-    # Path drawing the dark modules
-    &"<path class=\"QRdark\" fill=\"{dark}\" d=\""
-  for y in 0'u8..<self.size:
-    for x in 0'u8..<self.size:
-      if self[x, y]: result.add &"M{x},{y}h1v1h-1Z"
-  result.add "\"></path></svg>"
-
-proc printRoundedSvg*(self: Drawing,
-                      light, dark: string,
-                      radius: range[0f..3.5f]): string =
-  ## Print a `DrawedQRCode` to svg format (returned as a string).
-  ## `light` and `dark` are hexadecimal color values which represent
-  ## the background color and the dark module's color, respectively.
-  ##
-  ## The svg will have rounded alignment patterns determined by `radius` which
-  ## can be from `0` (a square) up to `3.5`, which would make it a perfect
-  ## circle.
-  let totalWidth = self.size + 10
-  result =
-    # Svg tag
-    "<svg class=\"QRcode\" version=\"1.1\"" &
-    " xmlns=\"http://www.w3.org/2000/svg\"" &
-    &" viewBox=\"-5 -5 {totalWidth} {totalWidth}\">" &
-    # Set the background of the QR to light with a path
-    &"<path class=\"QRlight\" fill=\"{light}\" d=\"" &
-    &"M-5,-5h{totalWidth}v{totalWidth}h-{totalWidth}Z" &
-    "\"></path>" &
-    # Path drawing the dark modules
-    &"<path class=\"QRdark\" fill=\"{dark}\" d=\""
-  template drawRegion(ax, bx, ay, by: uint8) {.dirty.} =
-    for y in ay..<by:
-      for x in ax..<bx:
-        if self[x, y]: result.add &"M{x},{y}h1v1h-1Z"
-  drawRegion 0'u8, self.size, 7'u8, self.size-7
-  drawRegion 7'u8, self.size-7, 0'u8, 7'u8
-  drawRegion 7'u8, self.size, self.size-7, self.size
-  result.add "\"></path>"
-  proc roundedRect(x, y, w, h: uint8, r: float, m, c: string): string =
-    &"<rect class=\"QR{m} QRrounded\" fill=\"{c}\" x=\"{x}\" y=\"{y}\" width=\"{w}\" height=\"{h}\" rx=\"{r}\"></rect>"
-  template checkRadius(lvl: range[1'i8..2'i8]): float =
-    if radius == 0: 0f
-    elif radius-lvl <= 0: 1f / (lvl * 2)
-    else: radius-lvl
-  template roundedAlignmentPattern(x, y: uint8): string =
-    roundedRect(x, y, 7'u8, 7'u8, radius, "dark", dark) &
-    roundedRect(x+1, y+1, 5'u8, 5'u8, checkRadius 1, "light", light) &
-    roundedRect(x+2, y+2, 3'u8, 3'u8, checkRadius 2, "dark", dark)
-  result.add roundedAlignmentPattern(0'u8, 0'u8)
-  result.add roundedAlignmentPattern(self.size-7, 0'u8)
-  result.add roundedAlignmentPattern(0'u8, self.size-7)
-  result.add "</svg>"
 
 template `[]`*(self: Drawing, i: SomeInteger): uint8 =
   ## Get the value of `self.matrix` in index `i`.

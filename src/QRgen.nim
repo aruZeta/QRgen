@@ -16,10 +16,13 @@ runnableExamples:
   let urlQR = newQR("https://my-url.domain")
   urlQR.printTerminal
 
-import QRgen/private/[QRCode, EncodedQRCode, DrawedQRCode, Drawing, qrTypes]
+import QRgen/private/[QRCode, EncodedQRCode, DrawedQRCode, qrTypes]
 
 export QRCode.DataSizeDefect
-export DrawedQRCode.DrawedQRCode
+export DrawedQRCode.DrawedQRCode,
+       DrawedQRCode.printTerminal,
+       DrawedQRCode.printSvg,
+       DrawedQRCode.printRoundedSvg
 export qrTypes
 
 proc newQR*(data: string,
@@ -67,33 +70,3 @@ proc newQR*(data: string,
   ## Create a new DrawedQRCode with the specified `ecLevel`
   ## (`qrECL` by default).
   newQRCode(data, ecLevel).encode.draw
-
-proc printTerminal*(self: DrawedQRCode) =
-  ## Print a `DrawedQRCode` to the terminal using `stdout`.
-  self.drawing.printTerminal
-
-proc printSvg*(self: DrawedQRCode,
-               light = "#ffffff",
-               dark = "#000000"
-              ): string =
-  ## Print a `DrawedQRCode` to svg format (returned as a string).
-  ##
-  ## .. note:: You can pass the hexadecimal color values `light` and `dark`,
-  ##    which represent the background color and the dark module's color,
-  ##    respectively. By default `light` is white (#ffffff) and `dark`
-  ##    is black (#000000).
-  ##
-  ## .. note:: The svg can be changed via css with the class `QRcode`, while
-  ##    the colors can also be changed with the classes `QRlight` and `QRdark`.
-  self.drawing.printSvg light, dark
-
-proc printRoundedSvg*(self: DrawedQRCode,
-                      light = "#ffffff",
-                      dark = "#000000",
-                      radius: range[0f..3.5f] = 3f
-                     ): string =
-  ## Same as `DrawedQRCode<#printSvg%2CDrawing%2Cstring%2Cstring>`_
-  ## but with rounded alignment patterns determined by `radius` which
-  ## can be from `0` (a square) up to `3.5`, which would make it a perfect
-  ## circle.
-  self.drawing.printRoundedSvg light, dark, radius
