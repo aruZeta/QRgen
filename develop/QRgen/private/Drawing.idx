@@ -12,6 +12,7 @@ fillRectangle	QRgen/private/Drawing.html#fillRectangle.t,Drawing,uint8,Slice[uin
 fillRectangle	QRgen/private/Drawing.html#fillRectangle.t,Drawing,Slice[uint8]	Drawing: fillRectangle(self: var Drawing; xyRange: Slice[uint8])	
 printTerminal	QRgen/private/Drawing.html#printTerminal,Drawing	Drawing: printTerminal(self: Drawing)	
 printSvg	QRgen/private/Drawing.html#printSvg,Drawing,string,string	Drawing: printSvg(self: Drawing; light, dark: string): string	
+printRoundedSvg	QRgen/private/Drawing.html#printRoundedSvg,Drawing,string,string,range[]	Drawing: printRoundedSvg(self: Drawing; light, dark: string;\n                radius: range[0.0&apos;f32 .. 3.5&apos;f32]): string	
 `[]`	QRgen/private/Drawing.html#[].t,Drawing,SomeInteger	Drawing: `[]`(self: Drawing; i: SomeInteger): uint8	
 len	QRgen/private/Drawing.html#len.t,Drawing	Drawing: len(self: Drawing): int	
 Drawing implementation	QRgen/private/Drawing.html#drawing-implementation	 Drawing implementation	
