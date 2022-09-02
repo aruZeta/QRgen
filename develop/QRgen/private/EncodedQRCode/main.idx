@@ -1,0 +1,2 @@
+encode	QRgen/private/EncodedQRCode/main.html#encode,QRCode	main: encode(qr: QRCode): EncodedQRCode	
+encodeOnly	QRgen/private/EncodedQRCode/main.html#encodeOnly,QRCode	main: encodeOnly(qr: QRCode): EncodedQRCode	

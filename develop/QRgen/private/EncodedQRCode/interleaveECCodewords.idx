@@ -1,0 +1,2 @@
+calcEcBlockPositions	QRgen/private/EncodedQRCode/interleaveECCodewords.html#calcEcBlockPositions,EncodedQRCode	interleaveECCodewords: calcEcBlockPositions(self: EncodedQRCode): seq[uint16]	
+interleaveECCodewords	QRgen/private/EncodedQRCode/interleaveECCodewords.html#interleaveECCodewords,EncodedQRCode	interleaveECCodewords: interleaveECCodewords(self: var EncodedQRCode)	

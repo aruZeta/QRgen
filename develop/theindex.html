@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Modules: <a href="QRgen.html">QRgen</a>, <a href="QRgen/private/BitArray.html">QRgen/private/BitArray</a>, <a href="QRgen/private/DrawedQRCode.html">QRgen/private/DrawedQRCode</a>, <a href="QRgen/private/Drawing.html">QRgen/private/Drawing</a>, <a href="QRgen/private/EncodedQRCode.html">QRgen/private/EncodedQRCode</a>, <a href="QRgen/private/QRCode.html">QRgen/private/QRCode</a>, <a href="QRgen/private/qrCapacities.html">QRgen/private/qrCapacities</a>, <a href="QRgen/private/qrCharacters.html">QRgen/private/qrCharacters</a>, <a href="QRgen/private/qrTypes.html">QRgen/private/qrTypes</a>.<br/><p /><h2>API symbols</h2>
+    Modules: <a href="QRgen.html">QRgen</a>, <a href="QRgen/private/BitArray.html">QRgen/private/BitArray</a>, <a href="QRgen/private/DrawedQRCode.html">QRgen/private/DrawedQRCode</a>, <a href="QRgen/private/Drawing.html">QRgen/private/Drawing</a>, <a href="QRgen/private/EncodedQRCode/EncodedQRCode.html">QRgen/private/EncodedQRCode/EncodedQRCode</a>, <a href="QRgen/private/EncodedQRCode/encodeDataCodewords.html">QRgen/private/EncodedQRCode/encodeDataCodewords</a>, <a href="QRgen/private/EncodedQRCode/encodeECCodewords.html">QRgen/private/EncodedQRCode/encodeECCodewords</a>, <a href="QRgen/private/EncodedQRCode/encodeIndicators.html">QRgen/private/EncodedQRCode/encodeIndicators</a>, <a href="QRgen/private/EncodedQRCode/interleaveDataCodewords.html">QRgen/private/EncodedQRCode/interleaveDataCodewords</a>, <a href="QRgen/private/EncodedQRCode/interleaveECCodewords.html">QRgen/private/EncodedQRCode/interleaveECCodewords</a>, <a href="QRgen/private/EncodedQRCode/main.html">QRgen/private/EncodedQRCode/main</a>, <a href="QRgen/private/EncodedQRCode/utils.html">QRgen/private/EncodedQRCode/utils</a>, <a href="QRgen/private/QRCode.html">QRgen/private/QRCode</a>, <a href="QRgen/private/qrCapacities.html">QRgen/private/qrCapacities</a>, <a href="QRgen/private/qrCharacters.html">QRgen/private/qrCharacters</a>, <a href="QRgen/private/qrTypes.html">QRgen/private/qrTypes</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%5B%5D%3D%60" href="#%60%5B%5D%3D%60"><span>`[]=`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="BitArray: `[]=`(self: var BitArray; i: SomeInteger; val: uint8)" href="QRgen/private/BitArray.html#%5B%5D%3D.t%2CBitArray%2CSomeInteger%2Cuint8">BitArray: `[]=`(self: var BitArray; i: SomeInteger; val: uint8)</a></li>
@@ -91,13 +91,13 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="Drawing: `[]`(self: Drawing; i: SomeInteger): uint8" href="QRgen/private/Drawing.html#%5B%5D.t%2CDrawing%2CSomeInteger">Drawing: `[]`(self: Drawing; i: SomeInteger): uint8</a></li>
           <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: `[]`[T](self: QRCapacity[T]; qr: EncodedQRCode): T" href="QRgen/private/EncodedQRCode.html#%5B%5D.t%2CQRCapacity%5BT%5D%2CEncodedQRCode">EncodedQRCode: `[]`[T](self: QRCapacity[T]; qr: EncodedQRCode): T</a></li>
+          data-doc-search-tag="utils: `[]`[T](self: QRCapacity[T]; qr: EncodedQRCode): T" href="QRgen/private/EncodedQRCode/utils.html#%5B%5D.t%2CQRCapacity%5BT%5D%2CEncodedQRCode">utils: `[]`[T](self: QRCapacity[T]; qr: EncodedQRCode): T</a></li>
           <li><a class="reference external"
           data-doc-search-tag="QRCode: `[]`[T](self: QRCapacity[T]; qr: QRCode): T" href="QRgen/private/QRCode.html#%5B%5D.t%2CQRCapacity%5BT%5D%2CQRCode">QRCode: `[]`[T](self: QRCapacity[T]; qr: QRCode): T</a></li>
           </ul></dd>
 <dt><a name="%60%5E%3D%60" href="#%60%5E%3D%60"><span>`^=`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: `^=`(self: untyped; expr: untyped)" href="QRgen/private/EncodedQRCode.html#%5E%3D.t%2Cuntyped%2Cuntyped">EncodedQRCode: `^=`(self: untyped; expr: untyped)</a></li>
+          data-doc-search-tag="utils: `^=`(self: untyped; expr: untyped)" href="QRgen/private/EncodedQRCode/utils.html#%5E%3D.t%2Cuntyped%2Cuntyped">utils: `^=`(self: untyped; expr: untyped)</a></li>
           </ul></dd>
 <dt><a name="add" href="#add"><span>add:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -145,19 +145,19 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="calcBlockPositions" href="#calcBlockPositions"><span>calcBlockPositions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: calcBlockPositions(self: EncodedQRCode): seq[uint16]" href="QRgen/private/EncodedQRCode.html#calcBlockPositions%2CEncodedQRCode">EncodedQRCode: calcBlockPositions(self: EncodedQRCode): seq[uint16]</a></li>
+          data-doc-search-tag="encodeECCodewords: calcBlockPositions(self: EncodedQRCode): seq[uint16]" href="QRgen/private/EncodedQRCode/encodeECCodewords.html#calcBlockPositions%2CEncodedQRCode">encodeECCodewords: calcBlockPositions(self: EncodedQRCode): seq[uint16]</a></li>
           </ul></dd>
 <dt><a name="calcEcBlockPositions" href="#calcEcBlockPositions"><span>calcEcBlockPositions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: calcEcBlockPositions(self: EncodedQRCode): seq[uint16]" href="QRgen/private/EncodedQRCode.html#calcEcBlockPositions%2CEncodedQRCode">EncodedQRCode: calcEcBlockPositions(self: EncodedQRCode): seq[uint16]</a></li>
+          data-doc-search-tag="interleaveECCodewords: calcEcBlockPositions(self: EncodedQRCode): seq[uint16]" href="QRgen/private/EncodedQRCode/interleaveECCodewords.html#calcEcBlockPositions%2CEncodedQRCode">interleaveECCodewords: calcEcBlockPositions(self: EncodedQRCode): seq[uint16]</a></li>
           </ul></dd>
 <dt><a name="calcEcStart" href="#calcEcStart"><span>calcEcStart:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: calcEcStart(self: EncodedQRCode): uint16" href="QRgen/private/EncodedQRCode.html#calcEcStart%2CEncodedQRCode">EncodedQRCode: calcEcStart(self: EncodedQRCode): uint16</a></li>
+          data-doc-search-tag="utils: calcEcStart(self: EncodedQRCode): uint16" href="QRgen/private/EncodedQRCode/utils.html#calcEcStart%2CEncodedQRCode">utils: calcEcStart(self: EncodedQRCode): uint16</a></li>
           </ul></dd>
 <dt><a name="calcGeneratorPolynomial" href="#calcGeneratorPolynomial"><span>calcGeneratorPolynomial:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8]" href="QRgen/private/EncodedQRCode.html#calcGeneratorPolynomial%2CEncodedQRCode">EncodedQRCode: calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8]</a></li>
+          data-doc-search-tag="encodeECCodewords: calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8]" href="QRgen/private/EncodedQRCode/encodeECCodewords.html#calcGeneratorPolynomial%2CEncodedQRCode">encodeECCodewords: calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8]</a></li>
           </ul></dd>
 <dt><a name="calcLen" href="#calcLen"><span>calcLen:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -245,43 +245,43 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="encode" href="#encode"><span>encode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encode(qr: QRCode): EncodedQRCode" href="QRgen/private/EncodedQRCode.html#encode%2CQRCode">EncodedQRCode: encode(qr: QRCode): EncodedQRCode</a></li>
+          data-doc-search-tag="main: encode(qr: QRCode): EncodedQRCode" href="QRgen/private/EncodedQRCode/main.html#encode%2CQRCode">main: encode(qr: QRCode): EncodedQRCode</a></li>
           </ul></dd>
 <dt><a name="encodeAlphanumericModeData" href="#encodeAlphanumericModeData"><span>encodeAlphanumericModeData:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeAlphanumericModeData(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode.html#encodeAlphanumericModeData.t%2CEncodedQRCode%2Cstring">EncodedQRCode: encodeAlphanumericModeData(self: var EncodedQRCode; data: string)</a></li>
+          data-doc-search-tag="encodeDataCodewords: encodeAlphanumericModeData(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeAlphanumericModeData.t%2CEncodedQRCode%2Cstring">encodeDataCodewords: encodeAlphanumericModeData(self: var EncodedQRCode; data: string)</a></li>
           </ul></dd>
 <dt><a name="encodeByteModeData" href="#encodeByteModeData"><span>encodeByteModeData:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeByteModeData(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode.html#encodeByteModeData.t%2CEncodedQRCode%2Cstring">EncodedQRCode: encodeByteModeData(self: var EncodedQRCode; data: string)</a></li>
+          data-doc-search-tag="encodeDataCodewords: encodeByteModeData(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeByteModeData.t%2CEncodedQRCode%2Cstring">encodeDataCodewords: encodeByteModeData(self: var EncodedQRCode; data: string)</a></li>
           </ul></dd>
 <dt><a name="encodeCharCountIndicator" href="#encodeCharCountIndicator"><span>encodeCharCountIndicator:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeCharCountIndicator(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode.html#encodeCharCountIndicator%2CEncodedQRCode%2Cstring">EncodedQRCode: encodeCharCountIndicator(self: var EncodedQRCode; data: string)</a></li>
+          data-doc-search-tag="encodeIndicators: encodeCharCountIndicator(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode/encodeIndicators.html#encodeCharCountIndicator%2CEncodedQRCode%2Cstring">encodeIndicators: encodeCharCountIndicator(self: var EncodedQRCode; data: string)</a></li>
           </ul></dd>
-<dt><a name="encodeData" href="#encodeData"><span>encodeData:</span></a></dt><dd><ul class="simple">
+<dt><a name="encodeDataCodewords" href="#encodeDataCodewords"><span>encodeDataCodewords:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeData(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode.html#encodeData%2CEncodedQRCode%2Cstring">EncodedQRCode: encodeData(self: var EncodedQRCode; data: string)</a></li>
+          data-doc-search-tag="encodeDataCodewords: encodeDataCodewords(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeDataCodewords%2CEncodedQRCode%2Cstring">encodeDataCodewords: encodeDataCodewords(self: var EncodedQRCode; data: string)</a></li>
           </ul></dd>
 <dt><a name="EncodedQRCode" href="#EncodedQRCode"><span>EncodedQRCode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: EncodedQRCode" href="QRgen/private/EncodedQRCode.html#EncodedQRCode">EncodedQRCode: EncodedQRCode</a></li>
+          data-doc-search-tag="EncodedQRCode: EncodedQRCode" href="QRgen/private/EncodedQRCode/EncodedQRCode.html#EncodedQRCode">EncodedQRCode: EncodedQRCode</a></li>
           </ul></dd>
-<dt><a name="encodeECC" href="#encodeECC"><span>encodeECC:</span></a></dt><dd><ul class="simple">
+<dt><a name="encodeECCodewords" href="#encodeECCodewords"><span>encodeECCodewords:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeECC(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode.html#encodeECC%2CEncodedQRCode">EncodedQRCode: encodeECC(self: var EncodedQRCode)</a></li>
+          data-doc-search-tag="encodeECCodewords: encodeECCodewords(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode/encodeECCodewords.html#encodeECCodewords%2CEncodedQRCode">encodeECCodewords: encodeECCodewords(self: var EncodedQRCode)</a></li>
           </ul></dd>
 <dt><a name="encodeModeIndicator" href="#encodeModeIndicator"><span>encodeModeIndicator:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeModeIndicator(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode.html#encodeModeIndicator%2CEncodedQRCode">EncodedQRCode: encodeModeIndicator(self: var EncodedQRCode)</a></li>
+          data-doc-search-tag="encodeIndicators: encodeModeIndicator(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode/encodeIndicators.html#encodeModeIndicator%2CEncodedQRCode">encodeIndicators: encodeModeIndicator(self: var EncodedQRCode)</a></li>
           </ul></dd>
 <dt><a name="encodeNumericModeData" href="#encodeNumericModeData"><span>encodeNumericModeData:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeNumericModeData(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode.html#encodeNumericModeData.t%2CEncodedQRCode%2Cstring">EncodedQRCode: encodeNumericModeData(self: var EncodedQRCode; data: string)</a></li>
+          data-doc-search-tag="encodeDataCodewords: encodeNumericModeData(self: var EncodedQRCode; data: string)" href="QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeNumericModeData.t%2CEncodedQRCode%2Cstring">encodeDataCodewords: encodeNumericModeData(self: var EncodedQRCode; data: string)</a></li>
           </ul></dd>
 <dt><a name="encodeOnly" href="#encodeOnly"><span>encodeOnly:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: encodeOnly(qr: QRCode): EncodedQRCode" href="QRgen/private/EncodedQRCode.html#encodeOnly%2CQRCode">EncodedQRCode: encodeOnly(qr: QRCode): EncodedQRCode</a></li>
+          data-doc-search-tag="main: encodeOnly(qr: QRCode): EncodedQRCode" href="QRgen/private/EncodedQRCode/main.html#encodeOnly%2CQRCode">main: encodeOnly(qr: QRCode): EncodedQRCode</a></li>
           </ul></dd>
 <dt><a name="evaluateCondition1" href="#evaluateCondition1"><span>evaluateCondition1:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -313,9 +313,9 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="Drawing: fillRectangle(self: var Drawing; x: uint8; yRange: Slice[uint8])" href="QRgen/private/Drawing.html#fillRectangle.t%2CDrawing%2Cuint8%2CSlice%5Buint8%5D">Drawing: fillRectangle(self: var Drawing; x: uint8; yRange: Slice[uint8])</a></li>
           </ul></dd>
-<dt><a name="finishEncoding" href="#finishEncoding"><span>finishEncoding:</span></a></dt><dd><ul class="simple">
+<dt><a name="finishDataEncoding" href="#finishDataEncoding"><span>finishDataEncoding:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: finishEncoding(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode.html#finishEncoding%2CEncodedQRCode">EncodedQRCode: finishEncoding(self: var EncodedQRCode)</a></li>
+          data-doc-search-tag="encodeDataCodewords: finishDataEncoding(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode/encodeDataCodewords.html#finishDataEncoding%2CEncodedQRCode">encodeDataCodewords: finishDataEncoding(self: var EncodedQRCode)</a></li>
           </ul></dd>
 <dt><a name="flipPoint" href="#flipPoint"><span>flipPoint:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -323,11 +323,11 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="g1BlockPositions" href="#g1BlockPositions"><span>g1BlockPositions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: g1BlockPositions(self: EncodedQRCode): uint16" href="QRgen/private/EncodedQRCode.html#g1BlockPositions.i%2CEncodedQRCode">EncodedQRCode: g1BlockPositions(self: EncodedQRCode): uint16</a></li>
+          data-doc-search-tag="interleaveDataCodewords: g1BlockPositions(self: EncodedQRCode): uint16" href="QRgen/private/EncodedQRCode/interleaveDataCodewords.html#g1BlockPositions.i%2CEncodedQRCode">interleaveDataCodewords: g1BlockPositions(self: EncodedQRCode): uint16</a></li>
           </ul></dd>
 <dt><a name="g2BlockPositions" href="#g2BlockPositions"><span>g2BlockPositions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: g2BlockPositions(self: EncodedQRCode): uint16" href="QRgen/private/EncodedQRCode.html#g2BlockPositions.i%2CEncodedQRCode">EncodedQRCode: g2BlockPositions(self: EncodedQRCode): uint16</a></li>
+          data-doc-search-tag="interleaveDataCodewords: g2BlockPositions(self: EncodedQRCode): uint16" href="QRgen/private/EncodedQRCode/interleaveDataCodewords.html#g2BlockPositions.i%2CEncodedQRCode">interleaveDataCodewords: g2BlockPositions(self: EncodedQRCode): uint16</a></li>
           </ul></dd>
 <dt><a name="getAlphanumericValue" href="#getAlphanumericValue"><span>getAlphanumericValue:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -343,15 +343,15 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="getVal16" href="#getVal16"><span>getVal16:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: getVal16(c: char): uint16" href="QRgen/private/EncodedQRCode.html#getVal16.t%2Cchar">EncodedQRCode: getVal16(c: char): uint16</a></li>
+          data-doc-search-tag="encodeDataCodewords: getVal16(c: char): uint16" href="QRgen/private/EncodedQRCode/encodeDataCodewords.html#getVal16.t%2Cchar">encodeDataCodewords: getVal16(c: char): uint16</a></li>
           </ul></dd>
 <dt><a name="getVal8" href="#getVal8"><span>getVal8:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: getVal8(c: char): uint8" href="QRgen/private/EncodedQRCode.html#getVal8.t%2Cchar">EncodedQRCode: getVal8(c: char): uint8</a></li>
+          data-doc-search-tag="encodeDataCodewords: getVal8(c: char): uint8" href="QRgen/private/EncodedQRCode/encodeDataCodewords.html#getVal8.t%2Cchar">encodeDataCodewords: getVal8(c: char): uint8</a></li>
           </ul></dd>
 <dt><a name="gf256Mod285Multiply" href="#gf256Mod285Multiply"><span>gf256Mod285Multiply:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: gf256Mod285Multiply(x, y: uint8): uint8" href="QRgen/private/EncodedQRCode.html#gf256Mod285Multiply%2Cuint8%2Cuint8">EncodedQRCode: gf256Mod285Multiply(x, y: uint8): uint8</a></li>
+          data-doc-search-tag="encodeECCodewords: gf256Mod285Multiply(x, y: uint8): uint8" href="QRgen/private/EncodedQRCode/encodeECCodewords.html#gf256Mod285Multiply%2Cuint8%2Cuint8">encodeECCodewords: gf256Mod285Multiply(x, y: uint8): uint8</a></li>
           </ul></dd>
 <dt><a name="group1BlockDataCodewords" href="#group1BlockDataCodewords"><span>group1BlockDataCodewords:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -369,13 +369,13 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="qrCapacities: group2Blocks" href="QRgen/private/qrCapacities.html#group2Blocks">qrCapacities: group2Blocks</a></li>
           </ul></dd>
-<dt><a name="interleaveData" href="#interleaveData"><span>interleaveData:</span></a></dt><dd><ul class="simple">
+<dt><a name="interleaveDataCodewords" href="#interleaveDataCodewords"><span>interleaveDataCodewords:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: interleaveData(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode.html#interleaveData%2CEncodedQRCode">EncodedQRCode: interleaveData(self: var EncodedQRCode)</a></li>
+          data-doc-search-tag="interleaveDataCodewords: interleaveDataCodewords(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode/interleaveDataCodewords.html#interleaveDataCodewords%2CEncodedQRCode">interleaveDataCodewords: interleaveDataCodewords(self: var EncodedQRCode)</a></li>
           </ul></dd>
-<dt><a name="interleaveECC" href="#interleaveECC"><span>interleaveECC:</span></a></dt><dd><ul class="simple">
+<dt><a name="interleaveECCodewords" href="#interleaveECCodewords"><span>interleaveECCodewords:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: interleaveECC(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode.html#interleaveECC%2CEncodedQRCode">EncodedQRCode: interleaveECC(self: var EncodedQRCode)</a></li>
+          data-doc-search-tag="interleaveECCodewords: interleaveECCodewords(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode/interleaveECCodewords.html#interleaveECCodewords%2CEncodedQRCode">interleaveECCodewords: interleaveECCodewords(self: var EncodedQRCode)</a></li>
           </ul></dd>
 <dt><a name="len" href="#len"><span>len:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -435,10 +435,10 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="newEncodedQRCode" href="#newEncodedQRCode"><span>newEncodedQRCode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: newEncodedQRCode(qr: QRCode): EncodedQRCode" href="QRgen/private/EncodedQRCode.html#newEncodedQRCode%2CQRCode">EncodedQRCode: newEncodedQRCode(qr: QRCode): EncodedQRCode</a></li>
+          data-doc-search-tag="EncodedQRCode: newEncodedQRCode(qr: QRCode): EncodedQRCode" href="QRgen/private/EncodedQRCode/EncodedQRCode.html#newEncodedQRCode%2CQRCode">EncodedQRCode: newEncodedQRCode(qr: QRCode): EncodedQRCode</a></li>
           <li><a class="reference external"
           data-doc-search-tag="EncodedQRCode: newEncodedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL;
-                 mode: QRMode = qrByteMode): EncodedQRCode" href="QRgen/private/EncodedQRCode.html#newEncodedQRCode%2CQRVersion%2CQRECLevel%2CQRMode">EncodedQRCode: newEncodedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL;
+                 mode: QRMode = qrByteMode): EncodedQRCode" href="QRgen/private/EncodedQRCode/EncodedQRCode.html#newEncodedQRCode%2CQRVersion%2CQRECLevel%2CQRMode">EncodedQRCode: newEncodedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL;
                  mode: QRMode = qrByteMode): EncodedQRCode</a></li>
           </ul></dd>
 <dt><a name="newQR" href="#newQR"><span>newQR:</span></a></dt><dd><ul class="simple">
@@ -543,7 +543,7 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="step" href="#step"><span>step:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="EncodedQRCode: step(start, stop, step: int): int" href="QRgen/private/EncodedQRCode.html#step.i%2Cint%2Cint%2Cint">EncodedQRCode: step(start, stop, step: int): int</a></li>
+          data-doc-search-tag="utils: step(start, stop, step: int): int" href="QRgen/private/EncodedQRCode/utils.html#step.i%2Cint%2Cint%2Cint">utils: step(start, stop, step: int): int</a></li>
           </ul></dd>
 <dt><a name="totalDataCodewords" href="#totalDataCodewords"><span>totalDataCodewords:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -562,7 +562,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-02 12:43:08 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-02 17:17:22 UTC</small>
       </div>
     </div>
   </div>
