@@ -34,6 +34,9 @@ applyBestMaskPattern	QRgen/private/DrawedQRCode.html#applyBestMaskPattern,Drawed
 calcLen	QRgen/private/DrawedQRCode.html#calcLen,T	DrawedQRCode: calcLen[T: uint16 | uint32](bits: T): uint8	
 drawFormatInformation	QRgen/private/DrawedQRCode.html#drawFormatInformation,DrawedQRCode	DrawedQRCode: drawFormatInformation(self: var DrawedQRCode)	
 drawVersionInformation	QRgen/private/DrawedQRCode.html#drawVersionInformation,DrawedQRCode	DrawedQRCode: drawVersionInformation(self: var DrawedQRCode)	
+printTerminal	QRgen/private/DrawedQRCode.html#printTerminal,DrawedQRCode	DrawedQRCode: printTerminal(self: DrawedQRCode)	
+printSvg	QRgen/private/DrawedQRCode.html#printSvg,DrawedQRCode,string,string	DrawedQRCode: printSvg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;; dark: string = &quot;#000000&quot;): string	
+printRoundedSvg	QRgen/private/DrawedQRCode.html#printRoundedSvg,DrawedQRCode,string,string,range[]	DrawedQRCode: printRoundedSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;\n                radius: range[0.0&apos;f32 .. 3.5&apos;f32] = 3.0&apos;f32): string	
 newDrawedQRCode	QRgen/private/DrawedQRCode.html#newDrawedQRCode,QRVersion,QRECLevel	DrawedQRCode: newDrawedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode	
 newDrawedQRCode	QRgen/private/DrawedQRCode.html#newDrawedQRCode,EncodedQRCode	DrawedQRCode: newDrawedQRCode(qr: EncodedQRCode): DrawedQRCode	
 draw	QRgen/private/DrawedQRCode.html#draw,EncodedQRCode	DrawedQRCode: draw(qr: EncodedQRCode): DrawedQRCode	

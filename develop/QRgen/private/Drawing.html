@@ -140,23 +140,6 @@ window.addEventListener('DOMContentLoaded', main);
     title="newDrawing(size: uint8): Drawing">newDrawing(size: uint8): Drawing</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">printRoundedSvg
-      <li><a class="reference" href="#printRoundedSvg%2CDrawing%2Cstring%2Cstring%2Crange%5B%5D"
-    title="printRoundedSvg(self: Drawing; light, dark: string;
-                radius: range[0.0'f32 .. 3.5'f32]): string">printRoundedSvg(self: Drawing; light, dark: string;
-                radius: range[0.0'f32 .. 3.5'f32]): string</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">printSvg
-      <li><a class="reference" href="#printSvg%2CDrawing%2Cstring%2Cstring"
-    title="printSvg(self: Drawing; light, dark: string): string">printSvg(self: Drawing; light, dark: string): string</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">printTerminal
-      <li><a class="reference" href="#printTerminal%2CDrawing"
-    title="printTerminal(self: Drawing)">printTerminal(self: Drawing)</a></li>
-
-  </ul>
 
   </ul>
 </li>
@@ -226,9 +209,9 @@ A Drawing object used by <a class="reference external" href="DrawedQRCode.html">
 A <tt class="docutils literal"><span class="pre"><span class="Identifier">Drawing</span></span></tt> is always a square, hence it's <tt class="docutils literal"><span class="pre"><span class="Identifier">size</span></span></tt> is both it's width and it's height.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L17"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L15"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L17" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L15" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -243,9 +226,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Sets the module at position <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span><span class="Punctuation">,</span><span class="Identifier">y</span></span></tt> to dark if <tt class="docutils literal"><span class="pre"><span class="Identifier">val</span></span></tt> is true and to light if it's false.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L59"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L57"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L59" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L57" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -255,9 +238,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Returns true if the module at position <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span><span class="Punctuation">,</span><span class="Identifier">y</span></span></tt> is dark, else (if it was light) returns false.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L33"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L31"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L33" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L31" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -270,9 +253,9 @@ Returns a <tt class="docutils literal"><span class="pre"><span class="Identifier
 If the length of <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span></span></tt> is greater than 16, only the last 16 bits will be returned.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L39"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L37"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L37" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -285,9 +268,9 @@ Returns a <tt class="docutils literal"><span class="pre"><span class="Identifier
 If the length of <tt class="docutils literal"><span class="pre"><span class="Identifier">y</span></span></tt> is greater than 16, only the last 16 bits will be returned.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L49"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L47"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L49" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L47" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -298,9 +281,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 A helper template to set all the modules where <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span></span></tt> is in <tt class="docutils literal"><span class="pre"><span class="Identifier">xRange</span></span></tt> and y is <tt class="docutils literal"><span class="pre"><span class="Identifier">yRange</span></span></tt> to dark.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L80"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L78"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L80" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L78" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -310,50 +293,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Creates a new <tt class="docutils literal"><span class="pre"><span class="Identifier">Drawing</span></span></tt> object with the size <tt class="docutils literal"><span class="pre"><span class="Identifier">size</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">matrix</span></span></tt> will have a cap and len set to the number of bytes required to store all it's modules.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L25"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L23"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L25" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="printRoundedSvg,Drawing,string,string,range[]">
-<dt><pre><span class="Keyword">proc</span> <a href="#printRoundedSvg%2CDrawing%2Cstring%2Cstring%2Crange%5B%5D"><span class="Identifier">printRoundedSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="Drawing.html#Drawing"><span class="Identifier">Drawing</span></a><span class="Other">;</span> <span class="Identifier">light</span><span class="Other">,</span> <span class="Identifier">dark</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span>
-                     <span class="Identifier">radius</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">3.5'f32</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-<p>Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to svg format (returned as a string). <tt class="docutils literal"><span class="pre"><span class="Identifier">light</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">dark</span></span></tt> are hexadecimal color values which represent the background color and the dark module's color, respectively.</p>
-<p>The svg will have rounded alignment patterns determined by <tt class="docutils literal"><span class="pre"><span class="Identifier">radius</span></span></tt> which can be from <tt class="docutils literal"><span class="pre"><span class="DecNumber">0</span></span></tt> (a square) up to <tt class="docutils literal"><span class="pre"><span class="FloatNumber">3.5</span></span></tt>, which would make it a perfect circle.</p>
-
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L136"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L136" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="printSvg,Drawing,string,string">
-<dt><pre><span class="Keyword">proc</span> <a href="#printSvg%2CDrawing%2Cstring%2Cstring"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="Drawing.html#Drawing"><span class="Identifier">Drawing</span></a><span class="Other">;</span> <span class="Identifier">light</span><span class="Other">,</span> <span class="Identifier">dark</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to svg format (returned as a string). <tt class="docutils literal"><span class="pre"><span class="Identifier">light</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">dark</span></span></tt> are hexadecimal color values which represent the background color and the dark module's color, respectively.
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L115"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L115" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="printTerminal,Drawing">
-<dt><pre><span class="Keyword">proc</span> <a href="#printTerminal%2CDrawing"><span class="Identifier">printTerminal</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="Drawing.html#Drawing"><span class="Identifier">Drawing</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">WriteIOEffect</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to the terminal using <tt class="docutils literal"><span class="pre"><span class="Identifier">stdout</span></span></tt>.
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L102"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L102" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L23" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -368,9 +310,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get the value of <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">matrix</span></span></tt> in index <tt class="docutils literal"><span class="pre"><span class="Identifier">i</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L181"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L100"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L181" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L100" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -380,9 +322,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 A helper template to set the module at position <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span><span class="Punctuation">,</span><span class="Identifier">y</span></span></tt> to dark.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L71"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L69"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L71" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L69" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -392,9 +334,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 A helper template to set all the modules where <tt class="docutils literal"><span class="pre"><span class="Identifier">y</span></span></tt> is in <tt class="docutils literal"><span class="pre"><span class="Identifier">yRange</span></span></tt> and x is <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span></span></tt> to dark.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L92"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L90"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L92" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L90" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -404,9 +346,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 A helper template to set all the modules where <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span></span></tt> is in <tt class="docutils literal"><span class="pre"><span class="Identifier">xRange</span></span></tt> and y is <tt class="docutils literal"><span class="pre"><span class="Identifier">y</span></span></tt> to dark.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L87"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L85"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L87" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L85" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -416,9 +358,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 A helper template to set all the modules where both x and y are in <tt class="docutils literal"><span class="pre"><span class="Identifier">xyRange</span></span></tt> to dark.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L97"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L95"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L97" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L95" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -428,9 +370,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 A helper template to flip the state of the module at position <tt class="docutils literal"><span class="pre"><span class="Identifier">x</span><span class="Punctuation">,</span><span class="Identifier">y</span></span></tt>. If it is ligth set it to dark, if it is dark set it to light.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L75"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L73"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L75" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -440,9 +382,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get the value of <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">matrix</span><span class="Operator">.</span><span class="Identifier">len</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L185"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/Drawing.nim#L104"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L185" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/Drawing.nim#L104" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -456,7 +398,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-02 11:00:23 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-02 12:41:16 UTC</small>
       </div>
     </div>
   </div>
