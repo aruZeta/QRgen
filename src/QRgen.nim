@@ -17,13 +17,15 @@ runnableExamples:
   urlQR.printTerminal
 
 import
-  QRgen/private/[DrawedQRCode, EncodedQRCode/main, QRCode, qrTypes]
+  QRgen/private/[DrawedQRCode/DrawedQRCode,
+                 DrawedQRCode/print,
+                 EncodedQRCode/EncodedQRCode,
+                 QRCode,
+                 qrTypes]
 
 export
   DrawedQRCode.DrawedQRCode,
-  DrawedQRCode.printRoundedSvg,
-  DrawedQRCode.printSvg,
-  DrawedQRCode.printTerminal,
+  print,
   QRCode.DataSizeDefect,
   qrTypes
 

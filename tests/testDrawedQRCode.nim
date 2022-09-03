@@ -1,7 +1,15 @@
 import
   "."/[myTestSuite],
-  QRgen/private/[BitArray, DrawedQRCode, Drawing,
-                 EncodedQRCode/main, QRCode, qrTypes]
+  QRgen/private/[BitArray,
+                 DrawedQRCode/applyMaskPattern,
+                 DrawedQRCode/calcPenalty,
+                 DrawedQRCode/drawData,
+                 DrawedQRCode/DrawedQRCode,
+                 DrawedQRCode/drawFunctionPatterns,
+                 Drawing,
+                 EncodedQRCode/EncodedQRCode,
+                 QRCode,
+                 qrTypes]
 
 benchmarkTest "drawFinderPatterns()":
   var qr1 = newDrawedQRCode 1

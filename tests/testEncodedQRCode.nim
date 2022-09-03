@@ -3,7 +3,7 @@ import
   QRgen/private/[BitArray,
                  EncodedQRCode/encodeIndicators,
                  EncodedQRCode/interleaveDataCodewords,
-                 EncodedQRCode/main,
+                 EncodedQRCode/EncodedQRCode,
                  QRCode,
                  qrTypes]
 
