@@ -1,0 +1,5 @@
+evaluateCondition1	QRgen/private/DrawedQRCode/calcPenalty.html#evaluateCondition1,DrawedQRCode	calcPenalty: evaluateCondition1(self: DrawedQRCode): uint16	
+evaluateCondition2	QRgen/private/DrawedQRCode/calcPenalty.html#evaluateCondition2,DrawedQRCode	calcPenalty: evaluateCondition2(self: DrawedQRCode): uint16	
+evaluateCondition3	QRgen/private/DrawedQRCode/calcPenalty.html#evaluateCondition3,DrawedQRCode	calcPenalty: evaluateCondition3(self: DrawedQRCode): uint16	
+evaluateCondition4	QRgen/private/DrawedQRCode/calcPenalty.html#evaluateCondition4,DrawedQRCode	calcPenalty: evaluateCondition4(self: DrawedQRCode): uint16	
+calcPenalty	QRgen/private/DrawedQRCode/calcPenalty.html#calcPenalty,DrawedQRCode	calcPenalty: calcPenalty(self: DrawedQRCode): uint16	

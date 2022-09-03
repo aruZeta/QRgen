@@ -1,0 +1,3 @@
+DrawedQRCode	QRgen/private/DrawedQRCode/type.html#DrawedQRCode	type: DrawedQRCode	
+newDrawedQRCode	QRgen/private/DrawedQRCode/type.html#newDrawedQRCode,QRVersion,QRECLevel	type: newDrawedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode	
+newDrawedQRCode	QRgen/private/DrawedQRCode/type.html#newDrawedQRCode,EncodedQRCode	type: newDrawedQRCode(qr: EncodedQRCode): DrawedQRCode	

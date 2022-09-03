@@ -1,3 +1,2 @@
-EncodedQRCode	QRgen/private/EncodedQRCode/EncodedQRCode.html#EncodedQRCode	EncodedQRCode: EncodedQRCode	
-newEncodedQRCode	QRgen/private/EncodedQRCode/EncodedQRCode.html#newEncodedQRCode,QRVersion,QRECLevel,QRMode	EncodedQRCode: newEncodedQRCode(version: QRVersion; ecLevel: QRECLevel = qrECL;\n                 mode: QRMode = qrByteMode): EncodedQRCode	
-newEncodedQRCode	QRgen/private/EncodedQRCode/EncodedQRCode.html#newEncodedQRCode,QRCode	EncodedQRCode: newEncodedQRCode(qr: QRCode): EncodedQRCode	
+encode	QRgen/private/EncodedQRCode/EncodedQRCode.html#encode,QRCode	EncodedQRCode: encode(qr: QRCode): EncodedQRCode	
+encodeOnly	QRgen/private/EncodedQRCode/EncodedQRCode.html#encodeOnly,QRCode	EncodedQRCode: encodeOnly(qr: QRCode): EncodedQRCode	

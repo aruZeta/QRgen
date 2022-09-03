@@ -1,0 +1,11 @@
+MaskProc	QRgen/private/DrawedQRCode/applyMaskPattern.html#MaskProc	applyMaskPattern: MaskProc	
+mask0	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask0,uint8,uint8	applyMaskPattern: mask0(x, y: uint8): bool	
+mask1	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask1,uint8,uint8	applyMaskPattern: mask1(x, y: uint8): bool	
+mask2	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask2,uint8,uint8	applyMaskPattern: mask2(x, y: uint8): bool	
+mask3	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask3,uint8,uint8	applyMaskPattern: mask3(x, y: uint8): bool	
+mask4	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask4,uint8,uint8	applyMaskPattern: mask4(x, y: uint8): bool	
+mask5	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask5,uint8,uint8	applyMaskPattern: mask5(x, y: uint8): bool	
+mask6	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask6,uint8,uint8	applyMaskPattern: mask6(x, y: uint8): bool	
+mask7	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask7,uint8,uint8	applyMaskPattern: mask7(x, y: uint8): bool	
+applyMaskPattern	QRgen/private/DrawedQRCode/applyMaskPattern.html#applyMaskPattern,DrawedQRCode,MaskProc	applyMaskPattern: applyMaskPattern(self: var DrawedQRCode; maskProc: MaskProc)	
+applyBestMaskPattern	QRgen/private/DrawedQRCode/applyMaskPattern.html#applyBestMaskPattern,DrawedQRCode	applyMaskPattern: applyBestMaskPattern(self: var DrawedQRCode)	
