@@ -1,5 +1,5 @@
 import
-  "."/[EncodedQRCode],
+  "."/[type],
   ".."/[qrCapacities]
 
 template `[]`*[T](self: QRCapacity[T], qr: EncodedQRCode): T =

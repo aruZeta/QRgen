@@ -1,5 +1,5 @@
 import
-  "."/[EncodedQRCode, utils],
+  "."/[type, utils],
   ".."/[BitArray, qrCapacities]
 
 proc calcEcBlockPositions(self: EncodedQRCode): seq[uint16] =

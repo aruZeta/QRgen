@@ -1,5 +1,5 @@
 import
-  "."/[EncodedQRCode, utils],
+  "."/[type, utils],
   ".."/[BitArray, qrCapacities]
 
 iterator g1BlockPositions(self: EncodedQRCode): uint16 {.inline.} =

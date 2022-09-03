@@ -1,5 +1,5 @@
 import
-  "."/[EncodedQRCode],
+  "."/[type],
   ".."/[BitArray, qrTypes]
 
 proc encodeModeIndicator*(self: var EncodedQRCode) =

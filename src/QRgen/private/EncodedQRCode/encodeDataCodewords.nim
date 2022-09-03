@@ -1,5 +1,5 @@
 import
-  "."/[EncodedQRCode, utils],
+  "."/[type, utils],
   ".."/[BitArray, qrCapacities, qrCharacters, qrTypes],
   std/[encodings]
 

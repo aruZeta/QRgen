@@ -1,5 +1,5 @@
 import
-  "."/[EncodedQRCode, utils],
+  "."/[type, utils],
   ".."/[BitArray, qrCapacities]
 
 proc gf256Mod285Multiply(x, y: uint8): uint8 =
