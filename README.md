@@ -58,6 +58,11 @@ alignment patterns of the QR code:
 width="200px" height="200px" />
 </p>
 
+Since the generated SVGs have some classes which can be used with css,
+we can do stuff like this:
+
+https://user-images.githubusercontent.com/68018085/188283528-45b2daf7-ff61-4930-a757-fd6d0846939c.mp4
+
 Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
 
