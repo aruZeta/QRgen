@@ -39,7 +39,6 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
     <tr>
       <th align="center">Terminal</th>
       <th align="center">SVG</th>
-      <th align="center">SVG with colors</th>
     </tr>
   </thead>
   <tbody>
@@ -52,25 +51,34 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
         <pre>myQR.printSvg</pre>
         <img src="./share/img/svg-example.svg" width="200px" height="200px" />
       </td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th align="center">SVG with colors</th>
+      <th align="center">SVG with circles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <td align="center">
         <pre>myQR.printRoundedSvg("#1d2021","#98971a")</pre>
         <img src="./share/img/svg-colors-example.svg" width="200px" height="200px" />
+      </td>
+      <td align="center">
+        <pre>myQR.printRoundedSvg("#1d2021","#98971a",2)</pre>
+        <img src="./share/img/svg-rounded-example.svg" width="200px" height="200px"/>
       </td>
     </tr>
   </tbody>
   <thead>
     <tr>
-      <th align="center">SVG with circles</th>
       <th align="center">Svg with too much circles</th>
       <th align="center"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td align="center">
-        <pre>myQR.printRoundedSvg("#1d2021","#98971a",2)</pre>
-        <img src="./share/img/svg-rounded-example.svg" width="200px" height="200px"/>
-      </td>
       <td align="center">
         <pre>myQR.printVeryRoundedSvg("#1d2021","#98971a",3.5,0.4)</pre>
         <img src="./share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
