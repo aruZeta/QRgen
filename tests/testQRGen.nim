@@ -13,3 +13,7 @@ benchmarkTest "Testing svg":
 benchmarkTest "Testing rounded svg":
   let qr = newQR("https://github.com/aruZeta/QRgen")
   echo qr.printRoundedSvg(radius = 2)
+
+benchmarkTest "Testing very rounded svg":
+  let qr = newQR("https://github.com/aruZeta/QRgen")
+  echo qr.printVeryRoundedSvg("#1d2021", "#98971a", 3.5, 0.4)
