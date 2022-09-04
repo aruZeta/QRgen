@@ -32,34 +32,38 @@ alignment patterns.
 ```nim
 import QRgen
 let myQR = newQR("https://github.com/aruZeta/QRgen")
-myQR.printTerminal
 ```
 
-And the QR code would be displayed in our terminal like:
+<table>
+  <thead>
+    <tr>
+      <th align="center">Terminal</th>
+      <th align="center">Svg</th>
+      <th align="center">Svg + colors & rounded alignment patterns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <pre>myQR.printTerminal</pre>
+        <img src="./share/img/terminal-example.png" width="200px" height="200px"/>
+      </td>
+      <td align="center">
+        <pre>myQR.printSvg</pre>
+        <img src="./share/img/svg-example.svg" width="200px" height="200px" />
+      </td>
+      <td align="center">
+        <pre>myQR.printRoundedSvg("#1d2021","#98971a",2)</pre>
+        <img src="./share/img/svg-colors-rounded-example.svg" width="200px" height="200px" />
+      </td>
+    </tr>
+  </thead>
+</table>
 
-<p align="center">
-<img src="./share/img/terminal-example.png"
-width="200px" height="200px" />
-</p>
+Note: in SVGs, colors are optional and default to white background and black
+modules.
 
-We can also use `myQR.printSvg` and we would get a string with a SVG tag which
-would render like this:
-
-<p align="center">
-<img src="./share/img/svg-example.svg"
-width="200px" height="200px" />
-</p>
-
-When printing to SVG we can also set different colors and even round the
-alignment patterns of the QR code:
-
-<p align="center">
-<img src="./share/img/svg-colors-rounded-example.svg"
-width="200px" height="200px" />
-</p>
-
-Since the generated SVGs have some classes which can be used with css,
-we can do stuff like this:
+Since the generated SVGs have css classes, we can do stuff like this:
 
 https://user-images.githubusercontent.com/68018085/188283528-45b2daf7-ff61-4930-a757-fd6d0846939c.mp4
 
