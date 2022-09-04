@@ -2,10 +2,12 @@ import
   ".."/[Drawing, EncodedQRCode/EncodedQRCode, qrTypes]
 
 type
+  Mask* = range[0'u8..7'u8]
+
   DrawedQRCode* = object
     version*: QRVersion
     ecLevel*: QRECLevel
-    mask*: range[0'u8..7'u8]
+    mask*: Mask
     drawing*: Drawing
 
 proc newDrawedQRCode*(version: QRVersion,

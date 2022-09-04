@@ -211,7 +211,7 @@ benchmarkTest "applyMaskPattern() with all data modules filled":
     fill `encoded varName`
     var varName = `encoded varName`.newDrawedQRCode
 
-  template applyMask(varName: untyped, version: QRVersion, mask: proc) =
+  template applyMask(varName: untyped, version: QRVersion, mask: Mask) =
     # Clear the remBits which data can't reach
     for y in 8'u8..<varName.drawing.size-8:
       for x in 0'u8..1'u8:
@@ -219,15 +219,13 @@ benchmarkTest "applyMaskPattern() with all data modules filled":
     varName.drawData `encoded varName`.data
     varName.applyMaskPattern mask
 
-  let masks: array[8, proc] = [mask0, mask1, mask2, mask3, mask4, mask5, mask6, mask7]
-
   template checkEachMask(varName: untyped,
                          version: QRVersion,
                          valArr: array[8, seq[uint8]]) =
     createQR(varName, version)
-    for i in 0..<masks.len:
-      applyMask(varName, version, masks[i])
-      check varName.drawing.matrix == valArr[i]
+    for i in Mask.low..Mask.high:
+      applyMask(varName, version, i)
+      check varName.drawing.matrix == valArr[cast[uint8](i)]
 
   checkEachMask(qr1, 1, [
     @[0'u8,80,0,1,64,0,20,0,0,80,0,5,0,0,20,0,0,0,0,5,0,0,80,5,69,85,85,85,85,81,85,85,85,85,0,21,84,1,85,64,5,85,0,85,80,1,85,64,21,84,0,85,80,5,85,0],
@@ -319,7 +317,7 @@ benchmarkTest "applyBestMaskPattern()":
   var qr1 = newQRCode("Hello World").encode.drawOnly
   var copy = qr1
   qr1.applyBestMaskPattern
-  copy.applyMaskPattern mask2
+  copy.applyMaskPattern 2
 
   check qr1.drawing == copy.drawing
 
