@@ -99,7 +99,8 @@ proc printVeryRoundedSvg*(self: DrawedQRCode,
   ## Same as `DrawedQRCode<#printSvg%2CDrawing%2Cstring%2Cstring>`_
   ## but with rounded alignment patterns determined by `radius` which
   ## can be from `0` (a square) up to `3.5`, which would make it a perfect
-  ## circle.
+  ## circle and with rounded modules determined by `radiusModules` which can be
+  ## from `0` (a square) up to `0.4`, which would make it a perfect circle.
   let totalWidth = self.drawing.size + 10
   result =
     # Svg tag

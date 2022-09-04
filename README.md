@@ -62,7 +62,7 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
   <tbody>
     <tr>
       <td align="center">
-        <pre>myQR.printRoundedSvg("#1d2021","#98971a")</pre>
+        <pre>myQR.printSvg("#1d2021","#98971a")</pre>
         <img src="./share/img/svg-colors-example.svg" width="200px" height="200px" />
       </td>
       <td align="center">
