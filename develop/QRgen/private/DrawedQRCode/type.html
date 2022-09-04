@@ -115,8 +115,10 @@ window.addEventListener('DOMContentLoaded', main);
     title="DrawedQRCode = object
   version*: QRVersion
   ecLevel*: QRECLevel
-  mask*: range[0'u8 .. 7'u8]
+  mask*: Mask
   drawing*: Drawing">DrawedQRCode</a></li>
+  <li><a class="reference" href="#Mask"
+    title="Mask = range[0'u8 .. 7'u8]">Mask</a></li>
 
   </ul>
 </li>
@@ -158,9 +160,21 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><a href="type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a> <span class="Other">=</span> <span class="Keyword">object</span>
   <span class="Identifier">version</span><span class="Operator">*</span><span class="Other">:</span> <a href="../qrTypes.html#QRVersion"><span class="Identifier">QRVersion</span></a>
   <span class="Identifier">ecLevel</span><span class="Operator">*</span><span class="Other">:</span> <a href="../qrTypes.html#QRECLevel"><span class="Identifier">QRECLevel</span></a>
-  <span class="Identifier">mask</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="DecNumber">0'u8</span> <span class="Operator">..</span> <span class="DecNumber">7'u8</span><span class="Other">]</span>
+  <span class="Identifier">mask</span><span class="Operator">*</span><span class="Other">:</span> <a href="type.html#Mask"><span class="Identifier">Mask</span></a>
   <span class="Identifier">drawing</span><span class="Operator">*</span><span class="Other">:</span> <a href="../Drawing.html#Drawing"><span class="Identifier">Drawing</span></a>
 </pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/type.nim#L7"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/type.nim#L7" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="Mask">
+<dt><pre><a href="type.html#Mask"><span class="Identifier">Mask</span></a> <span class="Other">=</span> <span class="Identifier">range</span><span class="Other">[</span><span class="DecNumber">0'u8</span> <span class="Operator">..</span> <span class="DecNumber">7'u8</span><span class="Other">]</span></pre></dt>
 <dd>
 
 
@@ -182,9 +196,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/type.nim#L18"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/type.nim#L20"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/type.nim#L18" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/type.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -195,9 +209,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/type.nim#L11"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/type.nim#L13"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/type.nim#L11" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/type.nim#L13" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -211,7 +225,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-03 17:40:03 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-04 10:18:53 UTC</small>
       </div>
     </div>
   </div>

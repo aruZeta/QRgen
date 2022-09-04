@@ -129,7 +129,7 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="applyMaskPattern" href="#applyMaskPattern"><span>applyMaskPattern:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: applyMaskPattern(self: var DrawedQRCode; maskProc: MaskProc)" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#applyMaskPattern%2CDrawedQRCode%2CMaskProc">applyMaskPattern: applyMaskPattern(self: var DrawedQRCode; maskProc: MaskProc)</a></li>
+          data-doc-search-tag="applyMaskPattern: applyMaskPattern(self: var DrawedQRCode; mask: Mask)" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#applyMaskPattern%2CDrawedQRCode%2CMask">applyMaskPattern: applyMaskPattern(self: var DrawedQRCode; mask: Mask)</a></li>
           </ul></dd>
 <dt><a name="BitArray" href="#BitArray"><span>BitArray:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -142,6 +142,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="byteModeCapacities" href="#byteModeCapacities"><span>byteModeCapacities:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="qrCapacities: byteModeCapacities" href="QRgen/private/qrCapacities.html#byteModeCapacities">qrCapacities: byteModeCapacities</a></li>
+          </ul></dd>
+<dt><a name="calcAlignmentPatternBounds" href="#calcAlignmentPatternBounds"><span>calcAlignmentPatternBounds:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="applyMaskPattern: calcAlignmentPatternBounds(self: DrawedQRCode): set[uint8]" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#calcAlignmentPatternBounds%2CDrawedQRCode">applyMaskPattern: calcAlignmentPatternBounds(self: DrawedQRCode): set[uint8]</a></li>
           </ul></dd>
 <dt><a name="calcBlockPositions" href="#calcBlockPositions"><span>calcBlockPositions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -377,43 +381,51 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="interleaveECCodewords: interleaveECCodewords(self: var EncodedQRCode)" href="QRgen/private/EncodedQRCode/interleaveECCodewords.html#interleaveECCodewords%2CEncodedQRCode">interleaveECCodewords: interleaveECCodewords(self: var EncodedQRCode)</a></li>
           </ul></dd>
+<dt><a name="isReservedArea" href="#isReservedArea"><span>isReservedArea:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="applyMaskPattern: isReservedArea(x, y: uint8; bounds: set[uint8]): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#isReservedArea.t%2Cuint8%2Cuint8%2Cset%5Buint8%5D">applyMaskPattern: isReservedArea(x, y: uint8; bounds: set[uint8]): bool</a></li>
+          </ul></dd>
 <dt><a name="len" href="#len"><span>len:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="BitArray: len(self: BitArray): int" href="QRgen/private/BitArray.html#len.t%2CBitArray">BitArray: len(self: BitArray): int</a></li>
           <li><a class="reference external"
           data-doc-search-tag="Drawing: len(self: Drawing): int" href="QRgen/private/Drawing.html#len.t%2CDrawing">Drawing: len(self: Drawing): int</a></li>
           </ul></dd>
+<dt><a name="Mask" href="#Mask"><span>Mask:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="type: Mask" href="QRgen/private/DrawedQRCode/type.html#Mask">type: Mask</a></li>
+          </ul></dd>
 <dt><a name="mask0" href="#mask0"><span>mask0:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask0(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask0%2Cuint8%2Cuint8">applyMaskPattern: mask0(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask0(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask0.t%2Cuint8%2Cuint8">applyMaskPattern: mask0(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="mask1" href="#mask1"><span>mask1:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask1(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask1%2Cuint8%2Cuint8">applyMaskPattern: mask1(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask1(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask1.t%2Cuint8%2Cuint8">applyMaskPattern: mask1(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="mask2" href="#mask2"><span>mask2:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask2(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask2%2Cuint8%2Cuint8">applyMaskPattern: mask2(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask2(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask2.t%2Cuint8%2Cuint8">applyMaskPattern: mask2(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="mask3" href="#mask3"><span>mask3:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask3(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask3%2Cuint8%2Cuint8">applyMaskPattern: mask3(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask3(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask3.t%2Cuint8%2Cuint8">applyMaskPattern: mask3(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="mask4" href="#mask4"><span>mask4:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask4(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask4%2Cuint8%2Cuint8">applyMaskPattern: mask4(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask4(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask4.t%2Cuint8%2Cuint8">applyMaskPattern: mask4(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="mask5" href="#mask5"><span>mask5:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask5(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask5%2Cuint8%2Cuint8">applyMaskPattern: mask5(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask5(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask5.t%2Cuint8%2Cuint8">applyMaskPattern: mask5(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="mask6" href="#mask6"><span>mask6:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask6(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask6%2Cuint8%2Cuint8">applyMaskPattern: mask6(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask6(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask6.t%2Cuint8%2Cuint8">applyMaskPattern: mask6(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="mask7" href="#mask7"><span>mask7:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="applyMaskPattern: mask7(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask7%2Cuint8%2Cuint8">applyMaskPattern: mask7(x, y: uint8): bool</a></li>
+          data-doc-search-tag="applyMaskPattern: mask7(x, y: uint8): bool" href="QRgen/private/DrawedQRCode/applyMaskPattern.html#mask7.t%2Cuint8%2Cuint8">applyMaskPattern: mask7(x, y: uint8): bool</a></li>
           </ul></dd>
 <dt><a name="MaskProc" href="#MaskProc"><span>MaskProc:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -562,7 +574,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-03 17:40:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-04 10:18:55 UTC</small>
       </div>
     </div>
   </div>
