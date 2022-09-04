@@ -9,3 +9,4 @@ newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRMode,QRVersion,QRECLevel	
 newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRVersion,QRECLevel	QRCode: newQRCode(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): QRCode	
 newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRMode,QRECLevel	QRCode: newQRCode(data: string; mode: QRMode; ecLevel: QRECLevel = qrECL): QRCode	
 newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRECLevel	QRCode: newQRCode(data: string; ecLevel: QRECLevel = qrECL): QRCode	
+QRCode implementation	QRgen/private/QRCode.html#qrcode-implementation	 QRCode implementation	
