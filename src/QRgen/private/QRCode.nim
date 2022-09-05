@@ -1,4 +1,5 @@
 ## # QRCode implementation
+##
 ## This module implements an object to hold the initial data of a `QRCode`,
 ## being the string wanted to be used to create a QRCode with. This string is
 ## also used to know which size the QR code will need to be to hold that data
