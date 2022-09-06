@@ -3,9 +3,14 @@ import
   ".."/[BitArray, qrTypes]
 
 proc encodeModeIndicator*(self: var EncodedQRCode) =
+  ## Encodes the mode indicator according to the specified
+  ## `mode<../qrTypes.html#QRMode>`_
   self.data.add cast[uint8](self.mode), 4
 
 proc encodeCharCountIndicator*(self: var EncodedQRCode, data: string) =
+  ## Encodes the character count indicator, which is the length of `data`.
+  ## Depending on the mode and version, the indicator will be more or less
+  ## bits long.
   template modeCases(numericVal, alphanumericVal, byteVal: uint8): uint8 =
     case self.mode
     of qrNumericMode: numericVal

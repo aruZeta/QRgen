@@ -3,10 +3,16 @@ import
   ".."/[BitArray, qrCapacities, qrCharacters, qrTypes],
   std/[encodings]
 
-template getVal16(c: char): uint16 = cast[uint16](getAlphanumericValue c)
-template getVal8(c: char): uint8 = getAlphanumericValue c
+template getVal8(c: char): uint8 =
+  ## Helper template to get the alphanumeric value of `c` as a uint8.
+  getAlphanumericValue c
+
+template getVal16(c: char): uint16 =
+  ## Helper template to get the alphanumeric value of `c` as a uint16.
+  cast[uint16](getVal8 c)
 
 template encodeNumericModeData(self: var EncodedQRCode, data: string) =
+  ## Encodes `data` via the numeric mode encoding algorithm.
   for i in step(0, data.len, 3):
     self.data.add(
       getVal16(data[i]) * 100 + getVal16(data[i+1]) * 10 + getVal8(data[i+2]),
@@ -21,22 +27,31 @@ template encodeNumericModeData(self: var EncodedQRCode, data: string) =
   else: discard
 
 template encodeAlphanumericModeData(self: var EncodedQRCode, data: string) =
+  ## Encodes `data` via the alphanumeric mode encoding algorithm.
   for i in step(0, data.len, 2):
     self.data.add getVal16(data[i]) * 45 + getVal8(data[i+1]), 11
   if (data.len mod 2) == 1:
     self.data.add getVal8(data[^1]), 6
 
 template encodeByteModeData(self: var EncodedQRCode, data: string) =
+  ## Encodes `data` via the byte mode encoding algorithm.
   for c in convert(data, "ISO 8859-1", "UTF-8"):
     self.data.add cast[uint8](c), 8
 
 proc encodeDataCodewords*(self: var EncodedQRCode, data: string) =
+  ## Depending on `self.mode`, the data will be encoded using 
+  ## `numeric mode<#encodeNumericModeData.t%2CEncodedQRCode%2Cstring>`_ or
+  ## `alphanumeric mode<#encodeAlphanumericModeData.t%2CEncodedQRCode%2Cstring>`_
+  ## or `byte mode<#encodeByteModeData.t%2CEncodedQRCode%2Cstring>`_ encoding
+  ## algorithms.
   case self.mode
   of qrNumericMode:      encodeNumericModeData self, data
   of qrAlphanumericMode: encodeAlphanumericModeData self, data
   of qrByteMode:         encodeByteModeData self, data
 
 proc finishDataEncoding*(self: var EncodedQRCode) =
+  ## Adds the terminator bits and missing bits, and if there are more bytes
+  ## unfilled, fills them with `0b11101100` and `0b00010001`.
   var missingBits: uint16 =
     (totalDataCodewords[self] * 8) - self.data.pos
   let terminatorBits: uint8 =
