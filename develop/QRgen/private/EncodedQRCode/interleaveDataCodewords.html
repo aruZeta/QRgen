@@ -160,11 +160,15 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">proc</span> <a href="#interleaveDataCodewords%2CEncodedQRCode"><span class="Identifier">interleaveDataCodewords</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#EncodedQRCode"><span class="Identifier">EncodedQRCode</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
+Interleaves the data codewords of <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span></span></tt>.<pre class="listing"># Block 1  | Block 2
+# 12 21 23 | 09 78 65
+# After interleave:
+# 12 09 21 78 23 65</pre><p>As you can see the order is, 1st data codeword from B1, then 1st from B2, 2nd from B1, 2nd from B2, etc.</p>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L22"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L24"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L22" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L24" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -178,7 +182,7 @@ class="link-seesrc" target="_blank">Source</a>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-
+Iterates over every starting position of the blocks in group 1.
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L5"
 class="link-seesrc" target="_blank">Source</a>
@@ -191,11 +195,11 @@ class="link-seesrc" target="_blank">Source</a>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-
+Iterates over every starting position of the blocks in group 2.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L13"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L14"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L13" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/interleaveDataCodewords.nim#L14" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -209,7 +213,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-05 21:49:56 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-06 09:02:38 UTC</small>
       </div>
     </div>
   </div>

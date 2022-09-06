@@ -181,11 +181,11 @@ class="link-seesrc" target="_blank">Source</a>
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">EncodingError</span><span class="Other">,</span> <span class="Identifier">OSError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-
+Depending on <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">mode</span></span></tt>, the data will be encoded using <a class="reference external" href="#encodeNumericModeData.t%2CEncodedQRCode%2Cstring">numeric mode</a> or <a class="reference external" href="#encodeAlphanumericModeData.t%2CEncodedQRCode%2Cstring">alphanumeric mode</a> or <a class="reference external" href="#encodeByteModeData.t%2CEncodedQRCode%2Cstring">byte mode</a> encoding algorithms.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L33"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L41"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L33" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -193,11 +193,11 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">proc</span> <a href="#finishDataEncoding%2CEncodedQRCode"><span class="Identifier">finishDataEncoding</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#EncodedQRCode"><span class="Identifier">EncodedQRCode</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-
+Adds the terminator bits and missing bits, and if there are more bytes unfilled, fills them with <tt class="docutils literal"><span class="pre"><span class="BinNumber">0b11101100</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="BinNumber">0b00010001</span></span></tt>.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L39"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L52"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L52" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -210,19 +210,7 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">template</span> <a href="#encodeAlphanumericModeData.t%2CEncodedQRCode%2Cstring"><span class="Identifier">encodeAlphanumericModeData</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#EncodedQRCode"><span class="Identifier">EncodedQRCode</span></a><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
 <dd>
 
-
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L23"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L23" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="encodeByteModeData.t,EncodedQRCode,string">
-<dt><pre><span class="Keyword">template</span> <a href="#encodeByteModeData.t%2CEncodedQRCode%2Cstring"><span class="Identifier">encodeByteModeData</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#EncodedQRCode"><span class="Identifier">EncodedQRCode</span></a><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
-<dd>
-
-
+Encodes <tt class="docutils literal"><span class="pre"><span class="Identifier">data</span></span></tt> via the alphanumeric mode encoding algorithm.
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L29"
 class="link-seesrc" target="_blank">Source</a>
@@ -230,15 +218,27 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
+<div id="encodeByteModeData.t,EncodedQRCode,string">
+<dt><pre><span class="Keyword">template</span> <a href="#encodeByteModeData.t%2CEncodedQRCode%2Cstring"><span class="Identifier">encodeByteModeData</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#EncodedQRCode"><span class="Identifier">EncodedQRCode</span></a><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
+<dd>
+
+Encodes <tt class="docutils literal"><span class="pre"><span class="Identifier">data</span></span></tt> via the byte mode encoding algorithm.
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L36"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L36" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 <div id="encodeNumericModeData.t,EncodedQRCode,string">
 <dt><pre><span class="Keyword">template</span> <a href="#encodeNumericModeData.t%2CEncodedQRCode%2Cstring"><span class="Identifier">encodeNumericModeData</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#EncodedQRCode"><span class="Identifier">EncodedQRCode</span></a><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span></pre></dt>
 <dd>
 
-
+Encodes <tt class="docutils literal"><span class="pre"><span class="Identifier">data</span></span></tt> via the numeric mode encoding algorithm.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L9"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L14"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L9" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L14" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -246,11 +246,11 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">template</span> <a href="#getVal8.t%2Cchar"><span class="Identifier">getVal8</span></a><span class="Other">(</span><span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">char</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">uint8</span></pre></dt>
 <dd>
 
-
+Helper template to get the alphanumeric value of <tt class="docutils literal"><span class="pre"><span class="Identifier">c</span></span></tt> as a uint8.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L7"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L6"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L7" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L6" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -258,11 +258,11 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">template</span> <a href="#getVal16.t%2Cchar"><span class="Identifier">getVal16</span></a><span class="Other">(</span><span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">char</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">uint16</span></pre></dt>
 <dd>
 
-
+Helper template to get the alphanumeric value of <tt class="docutils literal"><span class="pre"><span class="Identifier">c</span></span></tt> as a uint16.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L6"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L10"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L6" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/EncodedQRCode/encodeDataCodewords.nim#L10" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -276,7 +276,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-05 21:49:56 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-06 09:02:38 UTC</small>
       </div>
     </div>
   </div>
