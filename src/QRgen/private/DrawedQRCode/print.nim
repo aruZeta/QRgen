@@ -46,8 +46,8 @@ proc printSvg*(self: DrawedQRCode,
   ##
   ## .. note:: You can pass the hexadecimal color values `light` and `dark`,
   ##    which represent the background color and the dark module's color,
-  ##    respectively. By default `light` is white (#ffffff) and `dark`
-  ##    is black (#000000).
+  ##    respectively. By default `light` is white (`#ffffff`) and `dark`
+  ##    is black (`#000000`).
   ##
   ## .. note:: The svg can be changed via css with the class `QRcode`, while
   ##    the colors can also be changed with the classes `QRlight` and `QRdark`.
@@ -66,7 +66,7 @@ proc printSvg*(self: DrawedQRCode,
                dark = "#000000",
                alRad: range[0f32..3.5f32]
               ): string =
-  ## Same as `DrawedQRCode<#printSvg%2CDrawing%2Cstring%2Cstring>`_
+  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring>`_
   ## but with rounded alignment patterns determined by `alRad` which
   ## can be from `0` (a square) up to `3.5`, which would make it a perfect
   ## circle.
@@ -104,10 +104,8 @@ proc printSvg*(self: DrawedQRCode,
                alRad: range[0f32..3.5f32],
                moRad: range[0f32..0.4f32]
               ): string =
-  ## Same as `DrawedQRCode<#printSvg%2CDrawing%2Cstring%2Cstring>`_
-  ## but with rounded alignment patterns determined by `radius` which
-  ## can be from `0` (a square) up to `3.5`, which would make it a perfect
-  ## circle and with rounded modules determined by `radiusModules` which can be
+  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]>`_
+  ## but with with rounded modules determined by `moRad` which can be
   ## from `0` (a square) up to `0.4`, which would make it a perfect circle.
   template tSize: uint8 = self.drawing.size + 10
   result = fmt(svgHeader)

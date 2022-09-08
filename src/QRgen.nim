@@ -7,6 +7,10 @@
 ## store the result of both procedures or to pass them arguments.
 ## You can find those in the `export section<#19>`_.
 ##
+## Check
+## `the print module<QRgen/private/DrawedQRCode/print.html#12>`_
+## to learn about all print options.
+##
 ## # Usage example
 ##
 ## Here is a basic example to generate a QR code of an URL and show it
