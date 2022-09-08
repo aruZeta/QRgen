@@ -12,7 +12,7 @@ dependencies.
 [![Gen Docs](https://github.com/aruZeta/QRgen/actions/workflows/gendocs.yaml/badge.svg)](https://github.com/aruZeta/QRgen/actions/workflows/gendocs.yaml)
 ## Prerequisites
 
-`nim --version` > `x.x.x`
+`nim --version` >= `1.6.0`
 
 ## Installation
 
