@@ -66,7 +66,7 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
         <img src="./share/img/svg-colors-example.svg" width="200px" height="200px" />
       </td>
       <td align="center">
-        <pre>myQR.printRoundedSvg("#1d2021","#98971a",2)</pre>
+        <pre>myQR.printSvg("#1d2021","#98971a",2)</pre>
         <img src="./share/img/svg-rounded-example.svg" width="200px" height="200px"/>
       </td>
     </tr>
@@ -80,7 +80,7 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
   <tbody>
     <tr>
       <td align="center">
-        <pre>myQR.printVeryRoundedSvg("#1d2021","#98971a",3.5,0.4)</pre>
+        <pre>myQR.printSvg("#1d2021","#98971a",3.5,0.4)</pre>
         <img src="./share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
       </td>
       <td align="center">

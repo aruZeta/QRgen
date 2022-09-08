@@ -16,8 +16,8 @@ benchmarkTest "Testing svg with colors":
 
 benchmarkTest "Testing rounded svg":
   let qr = newQR("https://github.com/aruZeta/QRgen")
-  echo qr.printRoundedSvg("#1d2021", "#98971a", 2)
+  echo qr.printSvg("#1d2021", "#98971a", alRad = 2)
 
 benchmarkTest "Testing very rounded svg":
   let qr = newQR("https://github.com/aruZeta/QRgen")
-  echo qr.printVeryRoundedSvg("#1d2021", "#98971a", 3.5, 0.4)
+  echo qr.printSvg("#1d2021", "#98971a", alRad = 3.5, moRad = 0.4)
