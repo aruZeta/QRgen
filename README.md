@@ -24,8 +24,8 @@ dependencies other than `std/strformat` and `std/encodings`.
 - Supports all EC (Error Correction) levels: `L`, `M`, `Q` and `H`.
 - Supports `numeric mode`, `alphanumeric mode` and `byte mode`.
 - Supports printing a QR code on your terminal via standard output.
-- Supports printing a QR code to SVG, with custom colors and rounded
-alignment patterns.
+- Supports printing a QR code to SVG, with custom colors, rounded
+alignment patterns and rounded data modules.
 
 ## Usage
 
