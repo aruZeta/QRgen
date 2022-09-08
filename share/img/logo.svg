@@ -3,66 +3,3682 @@
    class="QRcode"
    version="1.1"
    viewBox="-5 -5 43 43"
-   id="svg918"
+   id="svg6492"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs922" />
+     id="defs6496" />
   <path
      class="QRlight"
      fill="#1d2021"
      d="M-5,-5h43v43h-43Z"
-     id="path914" />
-  <path
-     class="QRdark"
-     fill="#98971a"
-     d="M0,0h1v1h-1ZM1,0h1v1h-1ZM2,0h1v1h-1ZM3,0h1v1h-1ZM4,0h1v1h-1ZM5,0h1v1h-1ZM6,0h1v1h-1ZM9,0h1v1h-1ZM10,0h1v1h-1ZM14,0h1v1h-1ZM15,0h1v1h-1ZM16,0h1v1h-1ZM17,0h1v1h-1ZM18,0h1v1h-1ZM21,0h1v1h-1ZM23,0h1v1h-1ZM24,0h1v1h-1ZM26,0h1v1h-1ZM27,0h1v1h-1ZM28,0h1v1h-1ZM29,0h1v1h-1ZM30,0h1v1h-1ZM31,0h1v1h-1ZM32,0h1v1h-1ZM0,1h1v1h-1ZM6,1h1v1h-1ZM8,1h1v1h-1ZM9,1h1v1h-1ZM12,1h1v1h-1ZM13,1h1v1h-1ZM14,1h1v1h-1ZM15,1h1v1h-1ZM16,1h1v1h-1ZM17,1h1v1h-1ZM20,1h1v1h-1ZM21,1h1v1h-1ZM22,1h1v1h-1ZM24,1h1v1h-1ZM26,1h1v1h-1ZM32,1h1v1h-1ZM0,2h1v1h-1ZM2,2h1v1h-1ZM3,2h1v1h-1ZM4,2h1v1h-1ZM6,2h1v1h-1ZM9,2h1v1h-1ZM11,2h1v1h-1ZM14,2h1v1h-1ZM17,2h1v1h-1ZM21,2h1v1h-1ZM22,2h1v1h-1ZM26,2h1v1h-1ZM28,2h1v1h-1ZM29,2h1v1h-1ZM30,2h1v1h-1ZM32,2h1v1h-1ZM0,3h1v1h-1ZM2,3h1v1h-1ZM3,3h1v1h-1ZM4,3h1v1h-1ZM6,3h1v1h-1ZM9,3h1v1h-1ZM10,3h1v1h-1ZM11,3h1v1h-1ZM14,3h1v1h-1ZM15,3h1v1h-1ZM18,3h1v1h-1ZM19,3h1v1h-1ZM26,3h1v1h-1ZM28,3h1v1h-1ZM29,3h1v1h-1ZM30,3h1v1h-1ZM32,3h1v1h-1ZM0,4h1v1h-1ZM2,4h1v1h-1ZM3,4h1v1h-1ZM4,4h1v1h-1ZM6,4h1v1h-1ZM10,4h1v1h-1ZM15,4h1v1h-1ZM17,4h1v1h-1ZM18,4h1v1h-1ZM19,4h1v1h-1ZM20,4h1v1h-1ZM24,4h1v1h-1ZM26,4h1v1h-1ZM28,4h1v1h-1ZM29,4h1v1h-1ZM30,4h1v1h-1ZM32,4h1v1h-1ZM0,5h1v1h-1ZM6,5h1v1h-1ZM8,5h1v1h-1ZM9,5h1v1h-1ZM12,5h1v1h-1ZM13,5h1v1h-1ZM17,5h1v1h-1ZM20,5h1v1h-1ZM22,5h1v1h-1ZM24,5h1v1h-1ZM26,5h1v1h-1ZM32,5h1v1h-1ZM0,6h1v1h-1ZM1,6h1v1h-1ZM2,6h1v1h-1ZM3,6h1v1h-1ZM4,6h1v1h-1ZM5,6h1v1h-1ZM6,6h1v1h-1ZM8,6h1v1h-1ZM10,6h1v1h-1ZM12,6h1v1h-1ZM14,6h1v1h-1ZM16,6h1v1h-1ZM18,6h1v1h-1ZM20,6h1v1h-1ZM22,6h1v1h-1ZM24,6h1v1h-1ZM26,6h1v1h-1ZM27,6h1v1h-1ZM28,6h1v1h-1ZM29,6h1v1h-1ZM30,6h1v1h-1ZM31,6h1v1h-1ZM32,6h1v1h-1ZM8,7h1v1h-1ZM10,7h1v1h-1ZM11,7h1v1h-1ZM12,7h1v1h-1ZM16,7h1v1h-1ZM19,7h1v1h-1ZM20,7h1v1h-1ZM21,7h1v1h-1ZM24,7h1v1h-1ZM4,8h1v1h-1ZM5,8h1v1h-1ZM6,8h1v1h-1ZM7,8h1v1h-1ZM11,8h1v1h-1ZM13,8h1v1h-1ZM14,8h1v1h-1ZM16,8h1v1h-1ZM17,8h1v1h-1ZM18,8h1v1h-1ZM19,8h1v1h-1ZM21,8h1v1h-1ZM22,8h1v1h-1ZM23,8h1v1h-1ZM24,8h1v1h-1ZM26,8h1v1h-1ZM27,8h1v1h-1ZM31,8h1v1h-1ZM1,9h1v1h-1ZM2,9h1v1h-1ZM3,9h1v1h-1ZM4,9h1v1h-1ZM10,9h1v1h-1ZM11,9h1v1h-1ZM20,9h1v1h-1ZM21,9h1v1h-1ZM22,9h1v1h-1ZM23,9h1v1h-1ZM27,9h1v1h-1ZM29,9h1v1h-1ZM31,9h1v1h-1ZM0,10h1v1h-1ZM1,10h1v1h-1ZM3,10h1v1h-1ZM4,10h1v1h-1ZM6,10h1v1h-1ZM7,10h1v1h-1ZM8,10h1v1h-1ZM9,10h1v1h-1ZM11,10h1v1h-1ZM12,10h1v1h-1ZM14,10h1v1h-1ZM16,10h1v1h-1ZM19,10h1v1h-1ZM23,10h1v1h-1ZM26,10h1v1h-1ZM27,10h1v1h-1ZM28,10h1v1h-1ZM31,10h1v1h-1ZM1,11h1v1h-1ZM2,11h1v1h-1ZM3,11h1v1h-1ZM9,11h1v1h-1ZM10,11h1v1h-1ZM11,11h1v1h-1ZM14,11h1v1h-1ZM15,11h1v1h-1ZM17,11h1v1h-1ZM18,11h1v1h-1ZM19,11h1v1h-1ZM20,11h1v1h-1ZM22,11h1v1h-1ZM28,11h1v1h-1ZM29,11h1v1h-1ZM31,11h1v1h-1ZM32,11h1v1h-1ZM0,12h1v1h-1ZM2,12h1v1h-1ZM5,12h1v1h-1ZM6,12h1v1h-1ZM7,12h1v1h-1ZM10,12h1v1h-1ZM13,12h1v1h-1ZM16,12h1v1h-1ZM22,12h1v1h-1ZM23,12h1v1h-1ZM24,12h1v1h-1ZM26,12h1v1h-1ZM28,12h1v1h-1ZM32,12h1v1h-1ZM1,13h1v1h-1ZM7,13h1v1h-1ZM9,13h1v1h-1ZM11,13h1v1h-1ZM13,13h1v1h-1ZM15,13h1v1h-1ZM16,13h1v1h-1ZM17,13h1v1h-1ZM19,13h1v1h-1ZM21,13h1v1h-1ZM23,13h1v1h-1ZM24,13h1v1h-1ZM27,13h1v1h-1ZM29,13h1v1h-1ZM31,13h1v1h-1ZM3,14h1v1h-1ZM4,14h1v1h-1ZM5,14h1v1h-1ZM6,14h1v1h-1ZM10,14h1v1h-1ZM12,14h1v1h-1ZM14,14h1v1h-1ZM17,14h1v1h-1ZM18,14h1v1h-1ZM19,14h1v1h-1ZM23,14h1v1h-1ZM27,14h1v1h-1ZM30,14h1v1h-1ZM31,14h1v1h-1ZM1,15h1v1h-1ZM2,15h1v1h-1ZM3,15h1v1h-1ZM7,15h1v1h-1ZM8,15h1v1h-1ZM12,15h1v1h-1ZM13,15h1v1h-1ZM14,15h1v1h-1ZM15,15h1v1h-1ZM16,15h1v1h-1ZM17,15h1v1h-1ZM19,15h1v1h-1ZM20,15h1v1h-1ZM21,15h1v1h-1ZM26,15h1v1h-1ZM27,15h1v1h-1ZM28,15h1v1h-1ZM2,16h1v1h-1ZM6,16h1v1h-1ZM7,16h1v1h-1ZM9,16h1v1h-1ZM13,16h1v1h-1ZM21,16h1v1h-1ZM26,16h1v1h-1ZM27,16h1v1h-1ZM28,16h1v1h-1ZM29,16h1v1h-1ZM30,16h1v1h-1ZM31,16h1v1h-1ZM32,16h1v1h-1ZM0,17h1v1h-1ZM7,17h1v1h-1ZM8,17h1v1h-1ZM10,17h1v1h-1ZM11,17h1v1h-1ZM14,17h1v1h-1ZM17,17h1v1h-1ZM19,17h1v1h-1ZM20,17h1v1h-1ZM23,17h1v1h-1ZM24,17h1v1h-1ZM27,17h1v1h-1ZM31,17h1v1h-1ZM1,18h1v1h-1ZM2,18h1v1h-1ZM3,18h1v1h-1ZM6,18h1v1h-1ZM8,18h1v1h-1ZM9,18h1v1h-1ZM11,18h1v1h-1ZM17,18h1v1h-1ZM22,18h1v1h-1ZM23,18h1v1h-1ZM24,18h1v1h-1ZM25,18h1v1h-1ZM28,18h1v1h-1ZM29,18h1v1h-1ZM2,19h1v1h-1ZM3,19h1v1h-1ZM5,19h1v1h-1ZM7,19h1v1h-1ZM8,19h1v1h-1ZM9,19h1v1h-1ZM10,19h1v1h-1ZM11,19h1v1h-1ZM16,19h1v1h-1ZM18,19h1v1h-1ZM19,19h1v1h-1ZM21,19h1v1h-1ZM25,19h1v1h-1ZM26,19h1v1h-1ZM27,19h1v1h-1ZM28,19h1v1h-1ZM31,19h1v1h-1ZM3,20h1v1h-1ZM4,20h1v1h-1ZM6,20h1v1h-1ZM7,20h1v1h-1ZM8,20h1v1h-1ZM9,20h1v1h-1ZM14,20h1v1h-1ZM15,20h1v1h-1ZM16,20h1v1h-1ZM17,20h1v1h-1ZM18,20h1v1h-1ZM19,20h1v1h-1ZM20,20h1v1h-1ZM21,20h1v1h-1ZM22,20h1v1h-1ZM24,20h1v1h-1ZM26,20h1v1h-1ZM28,20h1v1h-1ZM29,20h1v1h-1ZM31,20h1v1h-1ZM32,20h1v1h-1ZM0,21h1v1h-1ZM3,21h1v1h-1ZM4,21h1v1h-1ZM7,21h1v1h-1ZM11,21h1v1h-1ZM13,21h1v1h-1ZM16,21h1v1h-1ZM17,21h1v1h-1ZM19,21h1v1h-1ZM20,21h1v1h-1ZM23,21h1v1h-1ZM25,21h1v1h-1ZM27,21h1v1h-1ZM31,21h1v1h-1ZM2,22h1v1h-1ZM6,22h1v1h-1ZM10,22h1v1h-1ZM11,22h1v1h-1ZM12,22h1v1h-1ZM13,22h1v1h-1ZM14,22h1v1h-1ZM17,22h1v1h-1ZM19,22h1v1h-1ZM20,22h1v1h-1ZM21,22h1v1h-1ZM23,22h1v1h-1ZM24,22h1v1h-1ZM27,22h1v1h-1ZM28,22h1v1h-1ZM31,22h1v1h-1ZM2,23h1v1h-1ZM3,23h1v1h-1ZM4,23h1v1h-1ZM8,23h1v1h-1ZM11,23h1v1h-1ZM12,23h1v1h-1ZM13,23h1v1h-1ZM14,23h1v1h-1ZM16,23h1v1h-1ZM21,23h1v1h-1ZM22,23h1v1h-1ZM23,23h1v1h-1ZM24,23h1v1h-1ZM28,23h1v1h-1ZM31,23h1v1h-1ZM32,23h1v1h-1ZM0,24h1v1h-1ZM1,24h1v1h-1ZM2,24h1v1h-1ZM5,24h1v1h-1ZM6,24h1v1h-1ZM8,24h1v1h-1ZM9,24h1v1h-1ZM12,24h1v1h-1ZM13,24h1v1h-1ZM14,24h1v1h-1ZM18,24h1v1h-1ZM19,24h1v1h-1ZM20,24h1v1h-1ZM21,24h1v1h-1ZM22,24h1v1h-1ZM24,24h1v1h-1ZM25,24h1v1h-1ZM26,24h1v1h-1ZM27,24h1v1h-1ZM28,24h1v1h-1ZM29,24h1v1h-1ZM8,25h1v1h-1ZM10,25h1v1h-1ZM12,25h1v1h-1ZM13,25h1v1h-1ZM14,25h1v1h-1ZM16,25h1v1h-1ZM17,25h1v1h-1ZM19,25h1v1h-1ZM23,25h1v1h-1ZM24,25h1v1h-1ZM28,25h1v1h-1ZM29,25h1v1h-1ZM31,25h1v1h-1ZM0,26h1v1h-1ZM1,26h1v1h-1ZM2,26h1v1h-1ZM3,26h1v1h-1ZM4,26h1v1h-1ZM5,26h1v1h-1ZM6,26h1v1h-1ZM8,26h1v1h-1ZM9,26h1v1h-1ZM10,26h1v1h-1ZM11,26h1v1h-1ZM12,26h1v1h-1ZM13,26h1v1h-1ZM14,26h1v1h-1ZM15,26h1v1h-1ZM19,26h1v1h-1ZM21,26h1v1h-1ZM22,26h1v1h-1ZM23,26h1v1h-1ZM24,26h1v1h-1ZM26,26h1v1h-1ZM28,26h1v1h-1ZM30,26h1v1h-1ZM31,26h1v1h-1ZM0,27h1v1h-1ZM6,27h1v1h-1ZM8,27h1v1h-1ZM10,27h1v1h-1ZM12,27h1v1h-1ZM13,27h1v1h-1ZM15,27h1v1h-1ZM18,27h1v1h-1ZM21,27h1v1h-1ZM24,27h1v1h-1ZM28,27h1v1h-1ZM31,27h1v1h-1ZM32,27h1v1h-1ZM0,28h1v1h-1ZM2,28h1v1h-1ZM3,28h1v1h-1ZM4,28h1v1h-1ZM6,28h1v1h-1ZM8,28h1v1h-1ZM9,28h1v1h-1ZM10,28h1v1h-1ZM13,28h1v1h-1ZM14,28h1v1h-1ZM16,28h1v1h-1ZM19,28h1v1h-1ZM20,28h1v1h-1ZM24,28h1v1h-1ZM25,28h1v1h-1ZM26,28h1v1h-1ZM27,28h1v1h-1ZM28,28h1v1h-1ZM0,29h1v1h-1ZM2,29h1v1h-1ZM3,29h1v1h-1ZM4,29h1v1h-1ZM6,29h1v1h-1ZM9,29h1v1h-1ZM10,29h1v1h-1ZM11,29h1v1h-1ZM12,29h1v1h-1ZM13,29h1v1h-1ZM14,29h1v1h-1ZM16,29h1v1h-1ZM17,29h1v1h-1ZM20,29h1v1h-1ZM22,29h1v1h-1ZM23,29h1v1h-1ZM24,29h1v1h-1ZM26,29h1v1h-1ZM27,29h1v1h-1ZM28,29h1v1h-1ZM30,29h1v1h-1ZM31,29h1v1h-1ZM0,30h1v1h-1ZM2,30h1v1h-1ZM3,30h1v1h-1ZM4,30h1v1h-1ZM6,30h1v1h-1ZM9,30h1v1h-1ZM11,30h1v1h-1ZM12,30h1v1h-1ZM13,30h1v1h-1ZM14,30h1v1h-1ZM15,30h1v1h-1ZM17,30h1v1h-1ZM18,30h1v1h-1ZM20,30h1v1h-1ZM21,30h1v1h-1ZM25,30h1v1h-1ZM26,30h1v1h-1ZM28,30h1v1h-1ZM0,31h1v1h-1ZM6,31h1v1h-1ZM10,31h1v1h-1ZM11,31h1v1h-1ZM12,31h1v1h-1ZM15,31h1v1h-1ZM16,31h1v1h-1ZM18,31h1v1h-1ZM19,31h1v1h-1ZM20,31h1v1h-1ZM21,31h1v1h-1ZM23,31h1v1h-1ZM24,31h1v1h-1ZM25,31h1v1h-1ZM27,31h1v1h-1ZM28,31h1v1h-1ZM0,32h1v1h-1ZM1,32h1v1h-1ZM2,32h1v1h-1ZM3,32h1v1h-1ZM4,32h1v1h-1ZM5,32h1v1h-1ZM6,32h1v1h-1ZM10,32h1v1h-1ZM11,32h1v1h-1ZM14,32h1v1h-1ZM16,32h1v1h-1ZM17,32h1v1h-1ZM19,32h1v1h-1ZM20,32h1v1h-1ZM23,32h1v1h-1ZM24,32h1v1h-1ZM26,32h1v1h-1ZM27,32h1v1h-1ZM29,32h1v1h-1ZM30,32h1v1h-1ZM32,32h1v1h-1Z"
-     id="path916"
-     style="fill:#fabd2f;fill-opacity:1" />
+     id="path5570" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5572" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5574" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5576" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5578" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5580" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5582" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5584" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5586" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="7.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5588" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="4.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5590" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="5.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5592" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5594" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5596" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5598" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5600" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5602" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5604" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5606" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5608" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5610" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5612" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5614" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5616" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5618" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5620" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5622" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="8.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5624" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="1.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5626" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5628" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5630" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="4.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5632" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5634" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5636" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5638" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5640" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5642" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5644" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5646" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5648" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="9.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5650" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="0.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5652" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="1.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5654" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5656" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="4.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5658" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5660" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5662" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5664" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5666" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5668" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5670" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5672" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5674" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5676" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5678" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5680" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5682" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5684" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="10.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5686" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="1.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5688" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5690" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5692" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5694" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5696" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5712" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5714" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5716" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5718" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="32.1"
+     y="11.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5720" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="0.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5722" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5724" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="5.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5726" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5728" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5730" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5732" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5738" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5740" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5742" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5744" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5746" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="32.1"
+     y="12.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5748" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="1.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5750" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5752" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5754" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5770" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5772" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5774" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5776" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="13.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5778" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5780" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="4.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5782" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="5.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5784" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5786" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5788" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5800" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5802" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="30.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5804" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="14.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5806" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="1.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5808" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5810" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5812" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5814" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5816" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5836" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5838" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="15.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5840" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5842" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5844" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5846" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5848" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5854" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5856" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5858" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5860" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="30.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5862" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5864" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="32.1"
+     y="16.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5866" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="0.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5868" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5870" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5872" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5874" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5886" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5888" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5890" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="17.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5892" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="1.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5894" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5896" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5898" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5900" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5902" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5904" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5910" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5912" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5914" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="25.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5916" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5918" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="18.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5920" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5922" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5924" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="5.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5926" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5928" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5930" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5932" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5934" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="25.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5946" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5948" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5950" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5952" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="19.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5954" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5956" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="4.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5958" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5960" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5962" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5964" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5966" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5984" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5986" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5988" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5990" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5992" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5994" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="32.1"
+     y="20.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5996" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="0.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect5998" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6000" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="4.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6002" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="7.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6004" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6018" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="25.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6020" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6022" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="21.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6024" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6026" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6028" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6030" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6032" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6034" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6036" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6038" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6040" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6042" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6044" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6046" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6048" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6050" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6052" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6054" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="22.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6056" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6058" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="3.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6060" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="4.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6062" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6064" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6066" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6068" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6070" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6072" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6074" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6076" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6078" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6080" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6082" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6084" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6086" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="32.1"
+     y="23.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6088" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="0.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6090" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="1.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6092" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="2.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6094" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="5.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6096" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="6.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6098" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6100" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6102" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6104" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6106" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6108" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6110" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6112" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6114" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6116" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6118" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6120" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="25.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6122" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6124" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6126" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6128" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="24.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6130" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6132" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6134" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6136" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6138" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6140" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6142" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6144" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6146" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6148" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6150" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6152" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6154" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="25.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6156" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6158" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6160" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6162" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6164" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6166" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6168" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6170" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6172" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6174" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="0.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6176" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6178" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6180" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6182" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6184" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6186" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6188" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6190" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6192" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6194" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6196" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6198" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="1.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6200" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="2.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6202" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="2.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6204" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="2.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6206" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="2.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6208" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="2.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6210" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="2.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6212" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="3.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6214" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="3.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6216" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="3.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6218" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="3.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6220" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="3.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6222" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="3.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6224" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="3.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6226" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="4.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6228" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="4.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6230" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="4.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6232" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="4.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6234" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="4.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6236" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="4.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6238" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="4.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6240" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6242" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6244" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6246" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6248" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6250" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6252" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6254" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="5.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6256" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6258" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6260" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6262" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6264" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6266" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6268" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6270" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6272" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="6.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6274" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6276" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6278" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6280" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6282" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6284" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6286" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6288" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6290" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6292" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6294" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6296" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6298" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6300" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6302" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6304" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="30.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6306" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="26.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6308" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6310" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6312" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6314" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6316" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6318" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6320" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6322" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6324" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6326" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6328" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="32.1"
+     y="27.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6330" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="8.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6332" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6334" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6336" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6338" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6340" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6342" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6344" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6346" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6348" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="25.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6350" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6352" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6354" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="28.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6356" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6358" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6360" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6362" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6364" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6366" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6368" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6370" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6372" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6374" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="22.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6376" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6378" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6380" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6382" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6384" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6386" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="30.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6388" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="31.1"
+     y="29.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6390" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="9.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6392" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6394" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6396" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="13.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6398" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6400" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6402" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6404" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6406" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6408" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6410" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="25.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6412" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6414" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="30.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6416" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6418" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6420" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="12.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6422" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="15.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6424" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6426" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="18.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6428" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6430" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6432" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="21.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6434" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6436" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6438" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="25.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6440" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6442" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="28.1"
+     y="31.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6444" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="10.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6446" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="11.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6448" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="14.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6450" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="16.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6452" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="17.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6454" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="19.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6456" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="20.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6458" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="23.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6460" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="24.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6462" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="26.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6464" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="27.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6466" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="29.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6468" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="30.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6470" />
+  <rect
+     class="QRdark QRrounded QRmodule"
+     fill="#fabd2f"
+     x="32.1"
+     y="32.1"
+     width="0.8"
+     height="0.8"
+     rx="0.4"
+     id="rect6472" />
+  <rect
+     class="QRdark QRrounded QRalignment"
+     fill="#fabd2f"
+     x="0"
+     y="0"
+     width="7"
+     height="7"
+     rx="3.50"
+     id="rect6474" />
+  <rect
+     class="QRlight QRrounded QRalignment"
+     fill="#1d2021"
+     x="1"
+     y="1"
+     width="5"
+     height="5"
+     rx="2.50"
+     id="rect6476" />
+  <rect
+     class="QRdark QRrounded QRalignment"
+     fill="#fabd2f"
+     x="2"
+     y="2"
+     width="3"
+     height="3"
+     rx="1.50"
+     id="rect6478" />
+  <rect
+     class="QRdark QRrounded QRalignment"
+     fill="#fabd2f"
+     x="26"
+     y="0"
+     width="7"
+     height="7"
+     rx="3.50"
+     id="rect6480" />
+  <rect
+     class="QRlight QRrounded QRalignment"
+     fill="#1d2021"
+     x="27"
+     y="1"
+     width="5"
+     height="5"
+     rx="2.50"
+     id="rect6482" />
+  <rect
+     class="QRdark QRrounded QRalignment"
+     fill="#fabd2f"
+     x="28"
+     y="2"
+     width="3"
+     height="3"
+     rx="1.50"
+     id="rect6484" />
+  <rect
+     class="QRdark QRrounded QRalignment"
+     fill="#fabd2f"
+     x="0"
+     y="26"
+     width="7"
+     height="7"
+     rx="3.50"
+     id="rect6486" />
+  <rect
+     class="QRlight QRrounded QRalignment"
+     fill="#1d2021"
+     x="1"
+     y="27"
+     width="5"
+     height="5"
+     rx="2.50"
+     id="rect6488" />
+  <rect
+     class="QRdark QRrounded QRalignment"
+     fill="#fabd2f"
+     x="2"
+     y="28"
+     width="3"
+     height="3"
+     rx="1.50"
+     id="rect6490" />
   <g
-     id="layer1"
-     transform="translate(-166.16447,-423.68742)">
-    <rect
-       style="fill:#1d2021;fill-opacity:1;stroke:#98971a;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill"
-       id="rect1316"
-       width="9.0660276"
-       height="9.0660458"
-       x="178.13145"
-       y="435.65439"
-       ry="0" />
-    <path
-       style="fill:#d79921;fill-opacity:1;stroke:none;stroke-width:0.0910309"
-       d="m 182.66872,435.95381 c 0,0 -0.31044,0.24533 -0.62692,0.489 -0.32556,-0.0103 -0.96411,0.0625 -1.31011,0.18838 -0.31872,-0.20192 -0.59878,-0.42486 -0.59878,-0.42486 0,0 -0.23932,0.41171 -0.38982,0.65333 -0.2232,0.1187 -0.44729,0.25222 -0.64702,0.42887 -0.2323,-0.0922 -0.50159,-0.20471 -0.51037,-0.20842 0.30763,0.6205 0.51444,1.24183 1.07701,1.61528 0.89565,-1.41453 5.05766,-1.28416 5.97183,-0.008 0.59079,-0.30815 0.82056,-0.97113 1.0529,-1.58322 -0.0255,0.008 -0.34161,0.11423 -0.54654,0.1924 -0.12236,-0.13322 -0.41076,-0.33803 -0.57468,-0.43689 -0.15548,-0.28472 -0.38178,-0.66937 -0.38178,-0.66937 0,0 -0.26803,0.19935 -0.57869,0.41685 -0.41971,-0.0775 -0.92735,-0.17161 -1.35432,-0.1483 -0.29064,-0.2389 -0.58271,-0.50503 -0.58271,-0.50503 z"
-       id="path3054" />
-    <path
-       style="fill:#fabd2f;fill-opacity:1;stroke:none;stroke-width:0.0910309"
-       d="m 178.90377,438.39878 c 0,0 0.43603,1.05576 0.73886,1.78938 1.28319,1.69292 4.55995,1.81062 5.98845,0.0328 0.33803,-0.76182 0.79409,-1.83244 0.79409,-1.83244 -0.36648,0.54292 -0.96291,0.9177 -1.33024,1.11958 -0.26101,0.14299 -0.86328,0.22942 -0.86328,0.22942 l -1.58117,-0.81937 -1.59025,0.80298 c 0,0 -0.59426,-0.0955 -0.86329,-0.22123 -0.54297,-0.28985 -0.90816,-0.63229 -1.29317,-1.1011 z"
-       id="path3051" />
-  </g>
-  <g
-     aria-label="QRgen"
-     id="text41857"
-     style="font-style:italic;font-weight:900;font-stretch:expanded;font-size:40px;line-height:1.25;font-family:Iosevka;-inkscape-font-specification:'Iosevka, Heavy Italic Expanded';fill:#d79921;fill-opacity:1"
-     transform="translate(-0.00990297,-0.00992747)">
-    <path
-       d="m 13.477649,20.56333 q -0.06133,0 -0.122667,-0.01067 -0.05867,-0.008 -0.114667,-0.032 -0.05333,-0.024 -0.096,-0.064 -0.04267,-0.03733 -0.06667,-0.09333 -0.024,-0.05333 -0.02667,-0.114666 -0.0027,-0.06133 0.008,-0.122667 -0.06933,-0.016 -0.130666,-0.04533 -0.06133,-0.032 -0.109334,-0.07733 -0.04533,-0.048 -0.07733,-0.106667 -0.02933,-0.06133 -0.04533,-0.130667 -0.01333,-0.06933 -0.01067,-0.138666 0.0027,-0.072 0.01333,-0.144001 l 0.136,-0.813334 q 0.01333,-0.07467 0.04,-0.146667 0.02667,-0.07467 0.07467,-0.138667 0.048,-0.06667 0.114667,-0.114667 0.06667,-0.048 0.138667,-0.07733 0.07467,-0.02933 0.149333,-0.04267 0.07467,-0.016 0.152,-0.016 0.088,0 0.170667,0.02133 0.08267,0.01867 0.154667,0.05867 0.072,0.04 0.122667,0.104001 0.05333,0.064 0.08,0.144 0.02667,0.08 0.02667,0.168 0,0.08533 -0.01333,0.173333 l -0.136,0.813335 q -0.008,0.05867 -0.02667,0.117333 -0.01867,0.056 -0.048,0.109334 -0.02933,0.05067 -0.072,0.09867 -0.04267,0.04533 -0.09333,0.08267 -0.048,0.03467 -0.104,0.06133 -0.056,0.024 -0.114667,0.03733 -0.0027,0.01867 -0.0053,0.03467 -0.0027,0.01867 -0.0027,0.03467 0.0027,0.01867 0.01067,0.03467 0.008,0.016 0.024,0.016 h 0.165333 v 0.320001 z m -0.226667,-0.738668 q 0.05067,0 0.101333,-0.016 0.05067,-0.01867 0.088,-0.056 0.03733,-0.04 0.056,-0.088 0.02133,-0.05067 0.02933,-0.09867 l 0.136,-0.813334 q 0.008,-0.05333 0.008,-0.104 0,-0.05067 -0.02133,-0.096 -0.01867,-0.04533 -0.064,-0.06667 -0.04267,-0.024 -0.096,-0.024 -0.05067,0 -0.09867,0.01867 -0.048,0.01867 -0.08533,0.05867 -0.03733,0.03733 -0.05867,0.08533 -0.01867,0.048 -0.02667,0.096 l -0.136,0.813334 q -0.0053,0.03467 -0.008,0.06933 0,0.03467 0.0027,0.06667 0.0053,0.032 0.016,0.064 0.01333,0.02933 0.03467,0.05067 0.024,0.02133 0.056,0.032 0.032,0.008 0.06667,0.008 z"
-       style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
-       id="path61858" />
-    <path
-       d="m 14.216317,20.123329 0.322667,-1.960002 h 0.605335 q 0.064,0 0.125333,0.01067 0.06133,0.008 0.117334,0.032 0.05867,0.024 0.104,0.06133 0.04533,0.03733 0.07733,0.088 0.03467,0.05067 0.05333,0.109333 0.02133,0.056 0.02667,0.120001 0.008,0.06133 0.0053,0.125333 -0.0027,0.064 -0.01333,0.128 -0.016,0.08533 -0.04533,0.173334 -0.02933,0.08533 -0.08533,0.16 -0.05333,0.072 -0.133333,0.125333 -0.07733,0.05333 -0.165334,0.08 l 0.269334,0.746667 h -0.413334 l -0.261334,-0.722667 h -0.07733 l -0.12,0.722667 z m 0.562668,-1.042668 h 0.24 q 0.05067,0 0.096,-0.02933 0.04533,-0.02933 0.07467,-0.072 0.02933,-0.04533 0.04267,-0.09333 0.016,-0.048 0.024,-0.09867 0.0053,-0.02933 0.008,-0.06133 0.0027,-0.032 0,-0.064 0,-0.032 -0.0053,-0.06133 -0.0053,-0.032 -0.01867,-0.05867 -0.01333,-0.02667 -0.04,-0.04267 -0.024,-0.016 -0.056,-0.016 h -0.264001 z"
-       style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
-       id="path61860" />
-    <path
-       d="m 16.344321,20.717997 q -0.072,0 -0.146667,-0.01067 -0.072,-0.008 -0.138667,-0.032 -0.064,-0.02133 -0.12,-0.064 -0.056,-0.04 -0.09333,-0.09867 -0.03733,-0.056 -0.05333,-0.128 -0.01333,-0.072 -0.0027,-0.144 h 0.389334 q -0.0053,0.03467 0.0053,0.06667 0.01067,0.032 0.03467,0.05333 0.024,0.02133 0.056,0.02933 0.03467,0.008 0.06933,0.008 0.048,0 0.096,-0.016 0.048,-0.016 0.08267,-0.05333 0.03733,-0.03733 0.056,-0.08267 0.02133,-0.04533 0.02933,-0.09333 l 0.03467,-0.216001 q 0,0 0,0 0,0 0,0 -0.03467,0.05067 -0.08267,0.09067 -0.04533,0.04 -0.09867,0.06667 -0.05333,0.02667 -0.112,0.03733 -0.056,0.01333 -0.114667,0.01333 -0.072,0 -0.141334,-0.024 -0.06667,-0.024 -0.112,-0.07467 -0.04533,-0.05333 -0.06933,-0.12 -0.02133,-0.06667 -0.02933,-0.136001 -0.008,-0.072 -0.0027,-0.146666 0.0053,-0.07467 0.01867,-0.146667 l 0.04267,-0.266667 q 0.01067,-0.06667 0.02933,-0.130667 0.02133,-0.064 0.056,-0.122667 0.03733,-0.06133 0.08533,-0.112 0.05067,-0.05067 0.112,-0.08533 0.06133,-0.03467 0.128,-0.048 0.06667,-0.016 0.130667,-0.016 0.05867,0 0.114667,0.016 0.056,0.01333 0.096,0.05067 0.04267,0.03467 0.06933,0.08533 0.02667,0.048 0.04,0.101333 l 0.04,-0.232 h 0.392001 l -0.242667,1.466668 q -0.01333,0.07467 -0.04,0.144 -0.02667,0.072 -0.07467,0.133334 -0.04533,0.064 -0.109333,0.109333 -0.06133,0.048 -0.133334,0.07733 -0.06933,0.02933 -0.144,0.04 -0.072,0.01067 -0.146667,0.01067 z m 0.106667,-0.893335 q 0.04267,0 0.08533,-0.01067 0.04267,-0.01333 0.07733,-0.04 0.03467,-0.02933 0.05333,-0.06933 0.02133,-0.04 0.02933,-0.08267 l 0.04267,-0.266667 q 0.008,-0.03467 0.01067,-0.06933 0.0027,-0.03733 0,-0.072 -0.0027,-0.03467 -0.01067,-0.06667 -0.008,-0.032 -0.02667,-0.05867 -0.01867,-0.02933 -0.05067,-0.04 -0.032,-0.01333 -0.06667,-0.01333 -0.05067,0 -0.09867,0.01867 -0.048,0.016 -0.08533,0.05067 -0.03733,0.03467 -0.05867,0.08267 -0.01867,0.04533 -0.02667,0.09333 l -0.04533,0.266667 q -0.0053,0.03467 -0.008,0.06933 0,0.032 0.0053,0.064 0.0053,0.02933 0.01867,0.05867 0.01333,0.02933 0.03467,0.05067 0.024,0.01867 0.05333,0.02667 0.032,0.008 0.06667,0.008 z"
-       style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
-       id="path61862" />
-    <path
-       d="m 18.098991,20.144663 q -0.06933,0 -0.136,-0.008 -0.06667,-0.0053 -0.130667,-0.024 -0.06133,-0.01867 -0.117333,-0.05067 -0.056,-0.032 -0.101334,-0.07733 -0.04267,-0.04533 -0.072,-0.101333 -0.02933,-0.056 -0.04533,-0.12 -0.01333,-0.064 -0.01333,-0.130667 0.0027,-0.06933 0.016,-0.136 l 0.04267,-0.266667 q 0.01333,-0.07467 0.04,-0.146667 0.02933,-0.07467 0.07733,-0.136 0.05067,-0.064 0.114667,-0.109334 0.06667,-0.048 0.141334,-0.07467 0.07467,-0.02933 0.149333,-0.03733 0.07467,-0.01067 0.149334,-0.01067 0.07467,0 0.149333,0.01067 0.07733,0.01067 0.144001,0.03733 0.06667,0.024 0.122666,0.06667 0.05867,0.04267 0.096,0.104 0.03733,0.06133 0.05067,0.136 0.01333,0.07467 0,0.149334 -0.008,0.06133 -0.04,0.122667 -0.032,0.05867 -0.08,0.106667 -0.048,0.048 -0.109333,0.08 -0.05867,0.02933 -0.122667,0.048 -0.06133,0.016 -0.125334,0.02133 -0.064,0.0053 -0.125333,0.0053 -0.02933,0 -0.06133,0 -0.02933,0 -0.05867,-0.0027 h -0.0027 q -0.05067,0 -0.104,-0.0027 -0.05067,-0.0027 -0.101334,-0.008 -0.0027,0.05333 0.01067,0.106667 0.01333,0.05067 0.048,0.088 0.03733,0.03467 0.088,0.05067 0.05067,0.01333 0.106667,0.01333 0.04,0 0.08,-0.0053 0.04267,-0.008 0.08,-0.02667 0.04,-0.01867 0.072,-0.048 0.03467,-0.02933 0.05867,-0.06667 l 0.322667,0.133334 q -0.05067,0.07467 -0.122667,0.138667 -0.06933,0.06133 -0.152,0.101333 -0.08,0.04 -0.168,0.05333 -0.08533,0.016 -0.170667,0.016 z m 0.101334,-0.829335 q 0.03467,0 0.06933,-0.0053 0.03467,-0.008 0.06667,-0.024 0.032,-0.01867 0.056,-0.048 0.024,-0.02933 0.032,-0.064 0.0053,-0.04 -0.01333,-0.07467 -0.016,-0.03467 -0.05067,-0.05333 -0.032,-0.02133 -0.072,-0.02667 -0.03733,-0.008 -0.07733,-0.008 -0.03467,0 -0.072,0.0053 -0.03733,0.0053 -0.072,0.02133 -0.03467,0.016 -0.06667,0.04267 -0.02933,0.024 -0.05067,0.056 -0.02133,0.032 -0.03467,0.06933 -0.01067,0.03467 -0.01867,0.072 l -0.0027,0.016 q 0.04,0.0053 0.07733,0.008 0.03733,0 0.07467,0.0027 0.04,0.0027 0.07733,0.008 0.04,0.0027 0.07733,0.0027 z"
-       style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
-       id="path61864" />
-    <path
-       d="m 19.016327,20.123329 0.229333,-1.386668 h 0.392001 l -0.02667,0.152 q 0.02667,-0.04 0.06133,-0.07467 0.03467,-0.03467 0.07733,-0.05867 0.04267,-0.024 0.088,-0.032 0.048,-0.008 0.09067,-0.008 0.07733,0 0.149333,0.024 0.072,0.02133 0.125334,0.06933 0.056,0.04533 0.088,0.112 0.032,0.06667 0.04533,0.138667 0.01333,0.072 0.01067,0.149333 -0.0027,0.07733 -0.016,0.154667 l -0.125333,0.760001 h -0.392001 q 0.032,-0.202667 0.06667,-0.405334 0.03467,-0.202667 0.06667,-0.405334 0.0053,-0.032 0.008,-0.064 0.0027,-0.032 -0.0027,-0.06133 -0.0027,-0.032 -0.01333,-0.06133 -0.01067,-0.02933 -0.032,-0.05067 -0.01867,-0.02133 -0.048,-0.02933 -0.02933,-0.01067 -0.06133,-0.01067 -0.04267,0 -0.08533,0.01333 -0.04267,0.01067 -0.07733,0.04 -0.03467,0.02667 -0.056,0.06667 -0.01867,0.04 -0.024,0.08267 l -0.146667,0.885334 z"
-       style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
-       id="path61866" />
+     id="g4009"
+     transform="matrix(1.2133207,0,0,1.2133183,-3.5197891,-3.5197407)">
+    <g
+       id="layer1"
+       transform="translate(-166.16447,-423.68742)">
+      <rect
+         style="fill:#1d2021;fill-opacity:1;stroke:#98971a;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill"
+         id="rect1316"
+         width="9.0660276"
+         height="9.0660458"
+         x="178.13145"
+         y="435.65439"
+         ry="0" />
+      <path
+         style="fill:#d79921;fill-opacity:1;stroke:none;stroke-width:0.0910309"
+         d="m 182.66872,435.95381 c 0,0 -0.31044,0.24533 -0.62692,0.489 -0.32556,-0.0103 -0.96411,0.0625 -1.31011,0.18838 -0.31872,-0.20192 -0.59878,-0.42486 -0.59878,-0.42486 0,0 -0.23932,0.41171 -0.38982,0.65333 -0.2232,0.1187 -0.44729,0.25222 -0.64702,0.42887 -0.2323,-0.0922 -0.50159,-0.20471 -0.51037,-0.20842 0.30763,0.6205 0.51444,1.24183 1.07701,1.61528 0.89565,-1.41453 5.05766,-1.28416 5.97183,-0.008 0.59079,-0.30815 0.82056,-0.97113 1.0529,-1.58322 -0.0255,0.008 -0.34161,0.11423 -0.54654,0.1924 -0.12236,-0.13322 -0.41076,-0.33803 -0.57468,-0.43689 -0.15548,-0.28472 -0.38178,-0.66937 -0.38178,-0.66937 0,0 -0.26803,0.19935 -0.57869,0.41685 -0.41971,-0.0775 -0.92735,-0.17161 -1.35432,-0.1483 -0.29064,-0.2389 -0.58271,-0.50503 -0.58271,-0.50503 z"
+         id="path3054" />
+      <path
+         style="fill:#fabd2f;fill-opacity:1;stroke:none;stroke-width:0.0910309"
+         d="m 178.90377,438.39878 c 0,0 0.43603,1.05576 0.73886,1.78938 1.28319,1.69292 4.55995,1.81062 5.98845,0.0328 0.33803,-0.76182 0.79409,-1.83244 0.79409,-1.83244 -0.36648,0.54292 -0.96291,0.9177 -1.33024,1.11958 -0.26101,0.14299 -0.86328,0.22942 -0.86328,0.22942 l -1.58117,-0.81937 -1.59025,0.80298 c 0,0 -0.59426,-0.0955 -0.86329,-0.22123 -0.54297,-0.28985 -0.90816,-0.63229 -1.29317,-1.1011 z"
+         id="path3051" />
+    </g>
+    <g
+       aria-label="QRgen"
+       id="text41857"
+       style="font-style:italic;font-weight:900;font-stretch:expanded;font-size:40px;line-height:1.25;font-family:Iosevka;-inkscape-font-specification:'Iosevka, Heavy Italic Expanded';fill:#d79921;fill-opacity:1"
+       transform="translate(-0.00990297,-0.00992747)">
+      <path
+         d="m 13.477649,20.56333 q -0.06133,0 -0.122667,-0.01067 -0.05867,-0.008 -0.114667,-0.032 -0.05333,-0.024 -0.096,-0.064 -0.04267,-0.03733 -0.06667,-0.09333 -0.024,-0.05333 -0.02667,-0.114666 -0.0027,-0.06133 0.008,-0.122667 -0.06933,-0.016 -0.130666,-0.04533 -0.06133,-0.032 -0.109334,-0.07733 -0.04533,-0.048 -0.07733,-0.106667 -0.02933,-0.06133 -0.04533,-0.130667 -0.01333,-0.06933 -0.01067,-0.138666 0.0027,-0.072 0.01333,-0.144001 l 0.136,-0.813334 q 0.01333,-0.07467 0.04,-0.146667 0.02667,-0.07467 0.07467,-0.138667 0.048,-0.06667 0.114667,-0.114667 0.06667,-0.048 0.138667,-0.07733 0.07467,-0.02933 0.149333,-0.04267 0.07467,-0.016 0.152,-0.016 0.088,0 0.170667,0.02133 0.08267,0.01867 0.154667,0.05867 0.072,0.04 0.122667,0.104001 0.05333,0.064 0.08,0.144 0.02667,0.08 0.02667,0.168 0,0.08533 -0.01333,0.173333 l -0.136,0.813335 q -0.008,0.05867 -0.02667,0.117333 -0.01867,0.056 -0.048,0.109334 -0.02933,0.05067 -0.072,0.09867 -0.04267,0.04533 -0.09333,0.08267 -0.048,0.03467 -0.104,0.06133 -0.056,0.024 -0.114667,0.03733 -0.0027,0.01867 -0.0053,0.03467 -0.0027,0.01867 -0.0027,0.03467 0.0027,0.01867 0.01067,0.03467 0.008,0.016 0.024,0.016 h 0.165333 v 0.320001 z m -0.226667,-0.738668 q 0.05067,0 0.101333,-0.016 0.05067,-0.01867 0.088,-0.056 0.03733,-0.04 0.056,-0.088 0.02133,-0.05067 0.02933,-0.09867 l 0.136,-0.813334 q 0.008,-0.05333 0.008,-0.104 0,-0.05067 -0.02133,-0.096 -0.01867,-0.04533 -0.064,-0.06667 -0.04267,-0.024 -0.096,-0.024 -0.05067,0 -0.09867,0.01867 -0.048,0.01867 -0.08533,0.05867 -0.03733,0.03733 -0.05867,0.08533 -0.01867,0.048 -0.02667,0.096 l -0.136,0.813334 q -0.0053,0.03467 -0.008,0.06933 0,0.03467 0.0027,0.06667 0.0053,0.032 0.016,0.064 0.01333,0.02933 0.03467,0.05067 0.024,0.02133 0.056,0.032 0.032,0.008 0.06667,0.008 z"
+         style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
+         id="path61858" />
+      <path
+         d="m 14.216317,20.123329 0.322667,-1.960002 h 0.605335 q 0.064,0 0.125333,0.01067 0.06133,0.008 0.117334,0.032 0.05867,0.024 0.104,0.06133 0.04533,0.03733 0.07733,0.088 0.03467,0.05067 0.05333,0.109333 0.02133,0.056 0.02667,0.120001 0.008,0.06133 0.0053,0.125333 -0.0027,0.064 -0.01333,0.128 -0.016,0.08533 -0.04533,0.173334 -0.02933,0.08533 -0.08533,0.16 -0.05333,0.072 -0.133333,0.125333 -0.07733,0.05333 -0.165334,0.08 l 0.269334,0.746667 h -0.413334 l -0.261334,-0.722667 h -0.07733 l -0.12,0.722667 z m 0.562668,-1.042668 h 0.24 q 0.05067,0 0.096,-0.02933 0.04533,-0.02933 0.07467,-0.072 0.02933,-0.04533 0.04267,-0.09333 0.016,-0.048 0.024,-0.09867 0.0053,-0.02933 0.008,-0.06133 0.0027,-0.032 0,-0.064 0,-0.032 -0.0053,-0.06133 -0.0053,-0.032 -0.01867,-0.05867 -0.01333,-0.02667 -0.04,-0.04267 -0.024,-0.016 -0.056,-0.016 h -0.264001 z"
+         style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
+         id="path61860" />
+      <path
+         d="m 16.344321,20.717997 q -0.072,0 -0.146667,-0.01067 -0.072,-0.008 -0.138667,-0.032 -0.064,-0.02133 -0.12,-0.064 -0.056,-0.04 -0.09333,-0.09867 -0.03733,-0.056 -0.05333,-0.128 -0.01333,-0.072 -0.0027,-0.144 h 0.389334 q -0.0053,0.03467 0.0053,0.06667 0.01067,0.032 0.03467,0.05333 0.024,0.02133 0.056,0.02933 0.03467,0.008 0.06933,0.008 0.048,0 0.096,-0.016 0.048,-0.016 0.08267,-0.05333 0.03733,-0.03733 0.056,-0.08267 0.02133,-0.04533 0.02933,-0.09333 l 0.03467,-0.216001 q 0,0 0,0 0,0 0,0 -0.03467,0.05067 -0.08267,0.09067 -0.04533,0.04 -0.09867,0.06667 -0.05333,0.02667 -0.112,0.03733 -0.056,0.01333 -0.114667,0.01333 -0.072,0 -0.141334,-0.024 -0.06667,-0.024 -0.112,-0.07467 -0.04533,-0.05333 -0.06933,-0.12 -0.02133,-0.06667 -0.02933,-0.136001 -0.008,-0.072 -0.0027,-0.146666 0.0053,-0.07467 0.01867,-0.146667 l 0.04267,-0.266667 q 0.01067,-0.06667 0.02933,-0.130667 0.02133,-0.064 0.056,-0.122667 0.03733,-0.06133 0.08533,-0.112 0.05067,-0.05067 0.112,-0.08533 0.06133,-0.03467 0.128,-0.048 0.06667,-0.016 0.130667,-0.016 0.05867,0 0.114667,0.016 0.056,0.01333 0.096,0.05067 0.04267,0.03467 0.06933,0.08533 0.02667,0.048 0.04,0.101333 l 0.04,-0.232 h 0.392001 l -0.242667,1.466668 q -0.01333,0.07467 -0.04,0.144 -0.02667,0.072 -0.07467,0.133334 -0.04533,0.064 -0.109333,0.109333 -0.06133,0.048 -0.133334,0.07733 -0.06933,0.02933 -0.144,0.04 -0.072,0.01067 -0.146667,0.01067 z m 0.106667,-0.893335 q 0.04267,0 0.08533,-0.01067 0.04267,-0.01333 0.07733,-0.04 0.03467,-0.02933 0.05333,-0.06933 0.02133,-0.04 0.02933,-0.08267 l 0.04267,-0.266667 q 0.008,-0.03467 0.01067,-0.06933 0.0027,-0.03733 0,-0.072 -0.0027,-0.03467 -0.01067,-0.06667 -0.008,-0.032 -0.02667,-0.05867 -0.01867,-0.02933 -0.05067,-0.04 -0.032,-0.01333 -0.06667,-0.01333 -0.05067,0 -0.09867,0.01867 -0.048,0.016 -0.08533,0.05067 -0.03733,0.03467 -0.05867,0.08267 -0.01867,0.04533 -0.02667,0.09333 l -0.04533,0.266667 q -0.0053,0.03467 -0.008,0.06933 0,0.032 0.0053,0.064 0.0053,0.02933 0.01867,0.05867 0.01333,0.02933 0.03467,0.05067 0.024,0.01867 0.05333,0.02667 0.032,0.008 0.06667,0.008 z"
+         style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
+         id="path61862" />
+      <path
+         d="m 18.098991,20.144663 q -0.06933,0 -0.136,-0.008 -0.06667,-0.0053 -0.130667,-0.024 -0.06133,-0.01867 -0.117333,-0.05067 -0.056,-0.032 -0.101334,-0.07733 -0.04267,-0.04533 -0.072,-0.101333 -0.02933,-0.056 -0.04533,-0.12 -0.01333,-0.064 -0.01333,-0.130667 0.0027,-0.06933 0.016,-0.136 l 0.04267,-0.266667 q 0.01333,-0.07467 0.04,-0.146667 0.02933,-0.07467 0.07733,-0.136 0.05067,-0.064 0.114667,-0.109334 0.06667,-0.048 0.141334,-0.07467 0.07467,-0.02933 0.149333,-0.03733 0.07467,-0.01067 0.149334,-0.01067 0.07467,0 0.149333,0.01067 0.07733,0.01067 0.144001,0.03733 0.06667,0.024 0.122666,0.06667 0.05867,0.04267 0.096,0.104 0.03733,0.06133 0.05067,0.136 0.01333,0.07467 0,0.149334 -0.008,0.06133 -0.04,0.122667 -0.032,0.05867 -0.08,0.106667 -0.048,0.048 -0.109333,0.08 -0.05867,0.02933 -0.122667,0.048 -0.06133,0.016 -0.125334,0.02133 -0.064,0.0053 -0.125333,0.0053 -0.02933,0 -0.06133,0 -0.02933,0 -0.05867,-0.0027 h -0.0027 q -0.05067,0 -0.104,-0.0027 -0.05067,-0.0027 -0.101334,-0.008 -0.0027,0.05333 0.01067,0.106667 0.01333,0.05067 0.048,0.088 0.03733,0.03467 0.088,0.05067 0.05067,0.01333 0.106667,0.01333 0.04,0 0.08,-0.0053 0.04267,-0.008 0.08,-0.02667 0.04,-0.01867 0.072,-0.048 0.03467,-0.02933 0.05867,-0.06667 l 0.322667,0.133334 q -0.05067,0.07467 -0.122667,0.138667 -0.06933,0.06133 -0.152,0.101333 -0.08,0.04 -0.168,0.05333 -0.08533,0.016 -0.170667,0.016 z m 0.101334,-0.829335 q 0.03467,0 0.06933,-0.0053 0.03467,-0.008 0.06667,-0.024 0.032,-0.01867 0.056,-0.048 0.024,-0.02933 0.032,-0.064 0.0053,-0.04 -0.01333,-0.07467 -0.016,-0.03467 -0.05067,-0.05333 -0.032,-0.02133 -0.072,-0.02667 -0.03733,-0.008 -0.07733,-0.008 -0.03467,0 -0.072,0.0053 -0.03733,0.0053 -0.072,0.02133 -0.03467,0.016 -0.06667,0.04267 -0.02933,0.024 -0.05067,0.056 -0.02133,0.032 -0.03467,0.06933 -0.01067,0.03467 -0.01867,0.072 l -0.0027,0.016 q 0.04,0.0053 0.07733,0.008 0.03733,0 0.07467,0.0027 0.04,0.0027 0.07733,0.008 0.04,0.0027 0.07733,0.0027 z"
+         style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
+         id="path61864" />
+      <path
+         d="m 19.016327,20.123329 0.229333,-1.386668 h 0.392001 l -0.02667,0.152 q 0.02667,-0.04 0.06133,-0.07467 0.03467,-0.03467 0.07733,-0.05867 0.04267,-0.024 0.088,-0.032 0.048,-0.008 0.09067,-0.008 0.07733,0 0.149333,0.024 0.072,0.02133 0.125334,0.06933 0.056,0.04533 0.088,0.112 0.032,0.06667 0.04533,0.138667 0.01333,0.072 0.01067,0.149333 -0.0027,0.07733 -0.016,0.154667 l -0.125333,0.760001 h -0.392001 q 0.032,-0.202667 0.06667,-0.405334 0.03467,-0.202667 0.06667,-0.405334 0.0053,-0.032 0.008,-0.064 0.0027,-0.032 -0.0027,-0.06133 -0.0027,-0.032 -0.01333,-0.06133 -0.01067,-0.02933 -0.032,-0.05067 -0.01867,-0.02133 -0.048,-0.02933 -0.02933,-0.01067 -0.06133,-0.01067 -0.04267,0 -0.08533,0.01333 -0.04267,0.01067 -0.07733,0.04 -0.03467,0.02667 -0.056,0.06667 -0.01867,0.04 -0.024,0.08267 l -0.146667,0.885334 z"
+         style="font-size:2.66667px;fill:#d79921;fill-opacity:1"
+         id="path61866" />
+    </g>
   </g>
 </svg>
