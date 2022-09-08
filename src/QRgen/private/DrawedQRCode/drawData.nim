@@ -4,12 +4,17 @@ import
 
 type
   DirectionKind = enum
+    ## Next direction to store a data bit at
     dLeft, dUpRight, dUp, dDownRight, dDown
 
   OrientationKind = enum
+    ## Is data going upwards or downwards?
     oUpwards, oDownwards
 
   Position = object
+    ## Holds the position of where to store the actual data bit at, where
+    ## the next one will be, in which direction it should be and how many
+    ## times to repeat the same direction.
     x: uint8
     y: uint8
     direction: DirectionKind
@@ -17,6 +22,10 @@ type
     repeat: uint8
 
 proc drawData*(self: var DrawedQRCode, data: BitArray) =
+  ## Draws all data modules of the drawing.
+  ##
+  ## .. note:: Take a look at the
+  ##    `placement algorithm<https://www.thonky.com/qr-code-tutorial/module-placement-matrix#step-6-place-the-data-bits>`_.
   template size: uint8 = self.drawing.size
   var pos = Position(x: size-1,
                      y: size-1,

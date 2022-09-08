@@ -3,6 +3,8 @@ import
   ".."/[Drawing]
 
 proc evaluateCondition1*(self: DrawedQRCode): uint16 =
+  ## Evaluates the penalty of the applied mask using the
+  ## `condition1 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-1>`_.
   result = 0
   var
     stateCol: bool
@@ -31,6 +33,8 @@ proc evaluateCondition1*(self: DrawedQRCode): uint16 =
     mayAddPenalty stateCol, countCol
 
 proc evaluateCondition2*(self: DrawedQRCode): uint16 =
+  ## Evaluates the penalty of the applied mask using the
+  ## `condition2 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-2>`_.
   result = 0
   for i in 0'u8..<self.drawing.size-1:
     for j in 0'u8..<self.drawing.size-1:
@@ -41,6 +45,8 @@ proc evaluateCondition2*(self: DrawedQRCode): uint16 =
         result += 3
 
 proc evaluateCondition3*(self: DrawedQRCode): uint16 =
+  ## Evaluates the penalty of the applied mask using the
+  ## `condition3 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-3>`_.
   result = 0
   for i in 0'u8..<self.drawing.size:
     for j in 0'u8..<self.drawing.size-10:
@@ -49,7 +55,9 @@ proc evaluateCondition3*(self: DrawedQRCode): uint16 =
       if self.drawing[i, j..j+10] in {0b10111010000'u16, 0b00001011101}:
         result += 40
 
-proc evaluateCondition4*(self: DrawedQRCode): uint16 =
+proc evaluateCondition4*(self: DrawedQRCode): uint16 = ##
+  ## Evaluates the penalty of the applied mask using the
+  ## `condition4 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-4>`_.
   var darkModules: uint32 = 0
   for i in 0..<self.drawing.len:
     var b: uint8 = self.drawing[i]
@@ -70,7 +78,9 @@ proc evaluateCondition4*(self: DrawedQRCode): uint16 =
   of 00..04, 95..99: 90
   else: 0 # Should not be reached
 
-proc calcPenalty*(self: DrawedQRCode): uint16 =
+template calcPenalty*(self: DrawedQRCode): uint16 =
+  ## Helper template to sum the result of the 4 condition
+  ## algorithms.
   self.evaluateCondition1 +
   self.evaluateCondition2 +
   self.evaluateCondition3 +

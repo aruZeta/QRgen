@@ -3,6 +3,9 @@ import
   ".."/[Drawing, qrTypes]
 
 proc calcLen[T: uint16 | uint32](bits: T): uint8 =
+  ## Returns the length of the bit string `bits`. 
+  ##
+  ## `0000000001101010` would have length `7`.
   const maxLen: uint8 = sizeof(T) * 8
   const initialMask: T =
     when T is uint16: 0b1000_0000_0000_0000'u16
@@ -15,6 +18,7 @@ proc calcLen[T: uint16 | uint32](bits: T): uint8 =
     result.dec
 
 proc drawFormatInformation*(self: var DrawedQRCode) =
+  ## Draws the format information of the drawing.
   var bits: uint16 = ((
     case self.ecLevel
     of qrECL: 0b01'u16
@@ -54,6 +58,8 @@ proc drawFormatInformation*(self: var DrawedQRCode) =
       self.drawing.fillPoint self.drawing.size-15+i, 8'u8
 
 proc drawVersionInformation*(self: var DrawedQRCode) =
+  ## Draws the version information of drawings with a `version` equal to or
+  ## greater than 7.
   if self.version < 7:
     return
   var bits: uint32 = cast[uint32](self.version)

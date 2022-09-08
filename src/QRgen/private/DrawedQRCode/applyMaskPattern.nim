@@ -2,8 +2,6 @@ import
   "."/[calcPenalty, type],
   ".."/[Drawing, qrCapacities]
 
-type MaskProc = proc(x,y: uint8): bool
-
 template mask0*(x, y: uint8): bool =
   # No need to make y a uint16 since using mod 2:
   # 255 mod 2 = 1, 256 -> 0 mod 2 = 0, correct
@@ -36,12 +34,14 @@ template mask7*(x, y: uint8): bool =
    ((cast[uint16](y) * x) mod 3)) mod 2 == 0
 
 proc calcAlignmentPatternBounds(self: DrawedQRCode): set[uint8] =
+  ## Returns a set with all alignment pattern bounds (both x and y).
   if alignmentPatternLocations[self.version].len > 1:
     result.incl {4'u8..8'u8}
   for pos in alignmentPatternLocations[self.version]:
     result.incl {pos-2..pos+2}
 
 template isReservedArea(x, y: uint8, bounds: set[uint8]): bool =
+  ## Determines if position `x,y` is a reserved area or not.
   (x in 0'u8..8'u8 and y in {0'u8..8'u8, size-8..size-1}) or
   (x in size-8..size-1 and y in 0'u8..8'u8) or
   (x in 9'u8..size-9 and y == 6) or
@@ -56,6 +56,7 @@ template isReservedArea(x, y: uint8, bounds: set[uint8]): bool =
    y in bounds)
 
 proc applyMaskPattern*(self: var DrawedQRCode, mask: Mask) =
+  ## Applies the specified `mask` to the drawing.
   template size: uint8 = self.drawing.size
   let alignmentPatternBounds = self.calcAlignmentPatternBounds
   template drawMask(canApplyMask: untyped) {.dirty.} =
@@ -74,6 +75,8 @@ proc applyMaskPattern*(self: var DrawedQRCode, mask: Mask) =
   of 7: drawMask mask7(x,y)
 
 proc applyBestMaskPattern*(self: var DrawedQRCode) =
+  ## Tries all mask patterns, calculates the penalties of each and applies the
+  ## one with less penalty to the drawing.
   var
     bestPenalty: uint16 = uint16.high
     bestMask: Mask

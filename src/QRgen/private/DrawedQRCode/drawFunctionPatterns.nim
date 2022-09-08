@@ -3,6 +3,8 @@ import
   ".."/[Drawing, qrCapacities, qrTypes]
 
 proc drawFinderPatterns*(self: var DrawedQRCode) =
+  ## Draws the finder patterns in the upper left, upper right and lower left
+  ## corners of the drawing.
   template drawFinderPattern(x, y: uint8) =
     self.drawing.fillRectangle x..x+6,   y
     self.drawing.fillRectangle x..x+6,   y+6
@@ -14,6 +16,9 @@ proc drawFinderPatterns*(self: var DrawedQRCode) =
   drawFinderPattern 0'u8, self.drawing.size - 7'u8
 
 iterator alignmentPatternCoords(version: QRVersion): tuple[x, y: uint8] =
+  ## Iterates over the positions of all alignment patterns.
+  ##
+  ## .. note:: The coordinate returned is the center of the alignment pattern.
   let locations = alignmentPatternLocations[version]
   for i, pos in locations:
     if i < locations.len-1:
@@ -25,6 +30,7 @@ iterator alignmentPatternCoords(version: QRVersion): tuple[x, y: uint8] =
         yield (x: pos2, y: pos)
 
 proc drawAlignmentPatterns*(self: var DrawedQRCode) =
+  ## Draws all the alignment patterns of the drawing.
   if self.version == 1:
     return
   for x, y in alignmentPatternCoords(self.version):
@@ -35,6 +41,7 @@ proc drawAlignmentPatterns*(self: var DrawedQRCode) =
     self.drawing.fillRectangle x+2,      y-1..y+1
 
 proc drawTimingPatterns*(self: var DrawedQRCode) =
+  ## Draws all dark modules corresponding to the timing pattern of the drawing.
   iterator step(start, stop, step: uint8): uint8 =
     var x = start
     while x <= stop:
@@ -46,4 +53,5 @@ proc drawTimingPatterns*(self: var DrawedQRCode) =
     self.drawing.fillPoint 6'u8, pos
 
 proc drawDarkModule*(self: var DrawedQRCode) =
+  ## Draws the dark module of the drawing.
   self.drawing.fillPoint 8'u8, self.drawing.size-8
