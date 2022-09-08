@@ -35,10 +35,11 @@ template mask7*(x, y: uint8): bool =
 
 proc calcAlignmentPatternBounds(self: DrawedQRCode): set[uint8] =
   ## Returns a set with all alignment pattern bounds (both x and y).
-  if alignmentPatternLocations[self.version].len > 1:
-    result.incl {4'u8..8'u8}
-  for pos in alignmentPatternLocations[self.version]:
-    result.incl {pos-2..pos+2}
+  {.cast(gcsafe)}:
+    if alignmentPatternLocations[self.version].len > 1:
+      result.incl {4'u8..8'u8}
+    for pos in alignmentPatternLocations[self.version]:
+      result.incl {pos-2..pos+2}
 
 template isReservedArea(x, y: uint8, bounds: set[uint8]): bool =
   ## Determines if position `x,y` is a reserved area or not.

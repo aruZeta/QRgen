@@ -19,15 +19,16 @@ iterator alignmentPatternCoords(version: QRVersion): tuple[x, y: uint8] =
   ## Iterates over the positions of all alignment patterns.
   ##
   ## .. note:: The coordinate returned is the center of the alignment pattern.
-  let locations = alignmentPatternLocations[version]
-  for i, pos in locations:
-    if i < locations.len-1:
-      yield (x: 6'u8, y: pos)
-      yield (x: pos, y: 6'u8)
-    for pos2 in locations[i..^1]:
-      yield (x: pos, y: pos2)
-      if pos != pos2:
-        yield (x: pos2, y: pos)
+  {.cast(gcsafe).}:
+    let locations = alignmentPatternLocations[version]
+    for i, pos in locations:
+     if i < locations.len-1:
+       yield (x: 6'u8, y: pos)
+       yield (x: pos, y: 6'u8)
+     for pos2 in locations[i..^1]:
+       yield (x: pos, y: pos2)
+       if pos != pos2:
+         yield (x: pos2, y: pos)
 
 proc drawAlignmentPatterns*(self: var DrawedQRCode) =
   ## Draws all the alignment patterns of the drawing.

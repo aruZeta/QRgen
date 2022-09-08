@@ -32,18 +32,19 @@ proc drawData*(self: var DrawedQRCode, data: BitArray) =
                      direction: dLeft,
                      orientation: oUpwards,
                      repeat: 0)
-  var
-    alignmentPatternBoundsX: set[uint8]
-    alignmentPatternUpperBoundsY: set[uint8]
-    alignmentPatternLowerBoundsY: set[uint8]
-  if alignmentPatternLocations[self.version].len > 1:
-    alignmentPatternBoundsX.incl {4'u8..8'u8}
-    alignmentPatternUpperBoundsY.incl {4'u8}
-    alignmentPatternLowerBoundsY.incl {8'u8}
-  for pos in alignmentPatternLocations[self.version]:
-    alignmentPatternBoundsX.incl {pos-2..pos+2}
-    alignmentPatternUpperBoundsY.incl {pos-2}
-    alignmentPatternLowerBoundsY.incl {pos+2}
+  {.cast(gcsafe).}:
+    var
+      alignmentPatternBoundsX: set[uint8]
+      alignmentPatternUpperBoundsY: set[uint8]
+      alignmentPatternLowerBoundsY: set[uint8]
+    if alignmentPatternLocations[self.version].len > 1:
+      alignmentPatternBoundsX.incl {4'u8..8'u8}
+      alignmentPatternUpperBoundsY.incl {4'u8}
+      alignmentPatternLowerBoundsY.incl {8'u8}
+    for pos in alignmentPatternLocations[self.version]:
+      alignmentPatternBoundsX.incl {pos-2..pos+2}
+      alignmentPatternUpperBoundsY.incl {pos-2}
+      alignmentPatternLowerBoundsY.incl {pos+2}
   template changeOrientation(o: OrientationKind) =
     pos.direction = dLeft
     pos.repeat = 1
