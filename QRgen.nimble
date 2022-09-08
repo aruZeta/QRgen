@@ -48,6 +48,7 @@ task test, "Run tests on /test":
     "-w:on",
     "--styleCheck:error",
     "--spellsuggest:auto",
+    "-f"
   ].join " "
   for file in walkDir("tests/"):
     let fileName = file.path.extractFilename
