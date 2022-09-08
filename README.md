@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./share/img/logo.svg"
+<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/logo.svg"
 width="300px" height="300px" />
 </p>
 
@@ -45,11 +45,11 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
     <tr>
       <td align="center">
         <pre>myQR.printTerminal</pre>
-        <img src="./share/img/terminal-example.png" width="200px" height="200px"/>
+        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/terminal-example.png" width="200px" height="200px"/>
       </td>
       <td align="center">
         <pre>myQR.printSvg</pre>
-        <img src="./share/img/svg-example.svg" width="200px" height="200px" />
+        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-example.svg" width="200px" height="200px" />
       </td>
     </tr>
   </tbody>
@@ -63,11 +63,11 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
     <tr>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a")</pre>
-        <img src="./share/img/svg-colors-example.svg" width="200px" height="200px" />
+        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-colors-example.svg" width="200px" height="200px" />
       </td>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a",2)</pre>
-        <img src="./share/img/svg-rounded-example.svg" width="200px" height="200px"/>
+        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
       </td>
     </tr>
   </tbody>
@@ -81,7 +81,7 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
     <tr>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a",3.5,0.4)</pre>
-        <img src="./share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
+        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
       </td>
       <td align="center">
       </td>
