@@ -1,0 +1,8 @@
+numericValues	QRgen/private/qrCharacters.html#numericValues	qrCharacters: numericValues	
+alphaValues	QRgen/private/qrCharacters.html#alphaValues	qrCharacters: alphaValues	
+specialValues	QRgen/private/qrCharacters.html#specialValues	qrCharacters: specialValues	
+alphaNumericValues	QRgen/private/qrCharacters.html#alphaNumericValues	qrCharacters: alphaNumericValues	
+pairs	QRgen/private/qrCharacters.html#pairs.i,set[T]	qrCharacters: pairs[T](a: set[T]): tuple[key: uint8, val: T]	
+getSpecialValue	QRgen/private/qrCharacters.html#getSpecialValue,char	qrCharacters: getSpecialValue(c: char): uint8	
+getAlphanumericValue	QRgen/private/qrCharacters.html#getAlphanumericValue,char	qrCharacters: getAlphanumericValue(c: char): uint8	
+QR Characters	QRgen/private/qrCharacters.html#qr-characters	 QR Characters	

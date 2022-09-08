@@ -1,0 +1,3 @@
+g1BlockPositions	QRgen/private/EncodedQRCode/interleaveDataCodewords.html#g1BlockPositions.i,EncodedQRCode	interleaveDataCodewords: g1BlockPositions(self: EncodedQRCode): uint16	
+g2BlockPositions	QRgen/private/EncodedQRCode/interleaveDataCodewords.html#g2BlockPositions.i,EncodedQRCode	interleaveDataCodewords: g2BlockPositions(self: EncodedQRCode): uint16	
+interleaveDataCodewords	QRgen/private/EncodedQRCode/interleaveDataCodewords.html#interleaveDataCodewords,EncodedQRCode	interleaveDataCodewords: interleaveDataCodewords(self: var EncodedQRCode)	

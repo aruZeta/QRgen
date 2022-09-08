@@ -1,0 +1,5 @@
+drawFinderPatterns	QRgen/private/DrawedQRCode/drawFunctionPatterns.html#drawFinderPatterns,DrawedQRCode	drawFunctionPatterns: drawFinderPatterns(self: var DrawedQRCode)	
+alignmentPatternCoords	QRgen/private/DrawedQRCode/drawFunctionPatterns.html#alignmentPatternCoords.i,QRVersion	drawFunctionPatterns: alignmentPatternCoords(version: QRVersion): tuple[x, y: uint8]	
+drawAlignmentPatterns	QRgen/private/DrawedQRCode/drawFunctionPatterns.html#drawAlignmentPatterns,DrawedQRCode	drawFunctionPatterns: drawAlignmentPatterns(self: var DrawedQRCode)	
+drawTimingPatterns	QRgen/private/DrawedQRCode/drawFunctionPatterns.html#drawTimingPatterns,DrawedQRCode	drawFunctionPatterns: drawTimingPatterns(self: var DrawedQRCode)	
+drawDarkModule	QRgen/private/DrawedQRCode/drawFunctionPatterns.html#drawDarkModule,DrawedQRCode	drawFunctionPatterns: drawDarkModule(self: var DrawedQRCode)	

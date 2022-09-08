@@ -1,0 +1,7 @@
+getVal8	QRgen/private/EncodedQRCode/encodeDataCodewords.html#getVal8.t,char	encodeDataCodewords: getVal8(c: char): uint8	
+getVal16	QRgen/private/EncodedQRCode/encodeDataCodewords.html#getVal16.t,char	encodeDataCodewords: getVal16(c: char): uint16	
+encodeNumericModeData	QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeNumericModeData.t,EncodedQRCode,string	encodeDataCodewords: encodeNumericModeData(self: var EncodedQRCode; data: string)	
+encodeAlphanumericModeData	QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeAlphanumericModeData.t,EncodedQRCode,string	encodeDataCodewords: encodeAlphanumericModeData(self: var EncodedQRCode; data: string)	
+encodeByteModeData	QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeByteModeData.t,EncodedQRCode,string	encodeDataCodewords: encodeByteModeData(self: var EncodedQRCode; data: string)	
+encodeDataCodewords	QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeDataCodewords,EncodedQRCode,string	encodeDataCodewords: encodeDataCodewords(self: var EncodedQRCode; data: string)	
+finishDataEncoding	QRgen/private/EncodedQRCode/encodeDataCodewords.html#finishDataEncoding,EncodedQRCode	encodeDataCodewords: finishDataEncoding(self: var EncodedQRCode)	
