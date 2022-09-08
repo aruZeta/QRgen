@@ -164,7 +164,7 @@ class="link-seesrc" target="_blank">Source</a>
   <span class="Identifier">dLeft</span><span class="Other">,</span> <span class="Identifier">dUpRight</span><span class="Other">,</span> <span class="Identifier">dUp</span><span class="Other">,</span> <span class="Identifier">dDownRight</span><span class="Other">,</span> <span class="Identifier">dDown</span></pre></dt>
 <dd>
 
-
+Next direction to store a data bit at
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawData.nim#L6"
 class="link-seesrc" target="_blank">Source</a>
@@ -177,11 +177,11 @@ class="link-seesrc" target="_blank">Source</a>
   <span class="Identifier">oUpwards</span><span class="Other">,</span> <span class="Identifier">oDownwards</span></pre></dt>
 <dd>
 
-
+Is data going upwards or downwards?
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawData.nim#L9"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawData.nim#L10"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawData.nim#L9" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawData.nim#L10" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -195,11 +195,11 @@ class="link-seesrc" target="_blank">Source</a>
 </pre></dt>
 <dd>
 
-
+Holds the position of where to store the actual data bit at, where the next one will be, in which direction it should be and how many times to repeat the same direction.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawData.nim#L12"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawData.nim#L14"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawData.nim#L12" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawData.nim#L14" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -212,11 +212,13 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">proc</span> <a href="#drawData%2CDrawedQRCode%2CBitArray"><span class="Identifier">drawData</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">;</span> <span class="Identifier">data</span><span class="Other">:</span> <a href="../BitArray.html#BitArray"><span class="Identifier">BitArray</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
+Draws all data modules of the drawing.<div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
+Take a look at the <a class="reference external" href="https://www.thonky.com/qr-code-tutorial/module-placement-matrix#step-6-place-the-data-bits">placement algorithm</a>.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawData.nim#L19"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawData.nim#L24"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawData.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawData.nim#L24" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -230,7 +232,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-06 09:02:38 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-08 06:10:55 UTC</small>
       </div>
     </div>
   </div>

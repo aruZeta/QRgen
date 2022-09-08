@@ -154,6 +154,8 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">proc</span> <a href="#calcLen%2CT"><span class="Identifier">calcLen</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Identifier">uint16</span> <span class="Operator">|</span> <span class="Identifier">uint32</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">bits</span><span class="Other">:</span> <span class="Identifier">T</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">uint8</span></pre></dt>
 <dd>
 
+<p>Returns the length of the bit string <tt class="docutils literal"><span class="pre"><span class="Identifier">bits</span></span></tt>.</p>
+<p><tt class="docutils literal"><span class="pre"><span class="DecNumber">0000000001101010</span></span></tt> would have length <tt class="docutils literal"><span class="pre"><span class="DecNumber">7</span></span></tt>.</p>
 
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawInformation.nim#L5"
@@ -166,11 +168,11 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">proc</span> <a href="#drawFormatInformation%2CDrawedQRCode"><span class="Identifier">drawFormatInformation</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-
+Draws the format information of the drawing.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawInformation.nim#L17"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawInformation.nim#L20"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawInformation.nim#L17" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawInformation.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -178,11 +180,11 @@ class="link-seesrc" target="_blank">Source</a>
 <dt><pre><span class="Keyword">proc</span> <a href="#drawVersionInformation%2CDrawedQRCode"><span class="Identifier">drawVersionInformation</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-
+Draws the version information of drawings with a <tt class="docutils literal"><span class="pre"><span class="Identifier">version</span></span></tt> equal to or greater than 7.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawInformation.nim#L56"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/drawInformation.nim#L60"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawInformation.nim#L56" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/drawInformation.nim#L60" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -196,7 +198,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-06 09:02:38 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-08 06:10:55 UTC</small>
       </div>
     </div>
   </div>

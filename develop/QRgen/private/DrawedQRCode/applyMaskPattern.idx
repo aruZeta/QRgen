@@ -1,4 +1,3 @@
-MaskProc	QRgen/private/DrawedQRCode/applyMaskPattern.html#MaskProc	applyMaskPattern: MaskProc	
 mask0	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask0.t,uint8,uint8	applyMaskPattern: mask0(x, y: uint8): bool	
 mask1	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask1.t,uint8,uint8	applyMaskPattern: mask1(x, y: uint8): bool	
 mask2	QRgen/private/DrawedQRCode/applyMaskPattern.html#mask2.t,uint8,uint8	applyMaskPattern: mask2(x, y: uint8): bool	
