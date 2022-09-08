@@ -96,7 +96,7 @@ Since the generated SVGs have css classes, we can do stuff like this:
 
 https://user-images.githubusercontent.com/68018085/188283528-45b2daf7-ff61-4930-a757-fd6d0846939c.mp4
 
-Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
+Also, check the [docs](https://aruzeta.github.io/QRgen/main/QRgen.html) to
 know more about the main API.
 
 # License
