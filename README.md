@@ -16,7 +16,7 @@ dependencies other than `std/strformat` and `std/encodings`.
 
 ## Installation
 
-`nimble install QRgen`
+`nimble install qrgen`
 
 ## Features
 
