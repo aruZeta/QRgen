@@ -3,18 +3,27 @@ import
   ".."/[Drawing],
   std/[strformat]
 
+when defined(js):
+  import
+    std/[jsconsole]
+
 proc printTerminal*(self: DrawedQRCode) =
   ## Print a `DrawedQRCode` to the terminal using `stdout`.
-  stdout.write "\n\n\n\n\n"
+  template log(s: string) =
+    when defined(js):
+      console.log s
+    else:
+      stdout.write s
+  log "\n\n\n\n\n"
   for y in 0'u8..<self.drawing.size:
-    stdout.write "          "
+    log "          "
     for x in 0'u8..<self.drawing.size:
-      stdout.write(
+      log(
         if self.drawing[x, y]: "██"
         else: "  "
       )
-    stdout.write "\n"
-  stdout.write "\n\n\n\n\n"
+    log "\n"
+  log "\n\n\n\n\n"
 
 const svgHeader: string =
   # SVG tag start
