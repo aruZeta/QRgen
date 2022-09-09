@@ -7,11 +7,13 @@
 ## which you can find in the `import section<#6>`_.
 
 import
-  "."/[applyMaskPattern,
-       drawData,
-       drawFunctionPatterns,
-       drawInformation,
-       type],
+  "."/[
+    applyMaskPattern,
+    drawData,
+    drawFunctionPatterns,
+    drawInformation,
+    type
+  ],
   ".."/[EncodedQRCode/EncodedQRCode]
 
 export

@@ -5,7 +5,9 @@
 ## with values already calculated (known at compiletime).
 
 import
-  "."/[qrTypes]
+  "."/[
+    qrTypes
+  ]
 
 type
   QRCapacity*[T: uint8 | uint16] = array[QRECLevel, array[QRVersion, T]]

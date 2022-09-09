@@ -7,8 +7,13 @@
 ## which you can find in the `import section<#6>`_.
 
 import
-  "."/[encodeDataCodewords, encodeECCodewords, encodeIndicators,
-       interleaveDataCodewords, interleaveECCodewords, type
+  "."/[
+    encodeDataCodewords,
+    encodeECCodewords,
+    encodeIndicators,
+    interleaveDataCodewords,
+    interleaveECCodewords,
+    type
   ],
   ".."/[QRCode]
 

@@ -10,10 +10,11 @@ type
     ecLevel*: QRECLevel
     data*: BitArray
 
-proc newEncodedQRCode*(version: QRVersion,
-                       ecLevel: QRECLevel = qrECL,
-                       mode: QRMode = qrByteMode
-                      ): EncodedQRCode =
+proc newEncodedQRCode*(
+  version: QRVersion,
+  ecLevel: QRECLevel = qrECL,
+  mode: QRMode = qrByteMode
+): EncodedQRCode =
   ## Creates a new `EncodedQRCode` object with the specified `mode`, `version`
   ## and `ecLevel`.
   template get[T](self: QRCapacity[T]): T = self[ecLevel][version]
