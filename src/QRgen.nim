@@ -21,11 +21,13 @@ runnableExamples:
   urlQR.printTerminal
 
 import
-  QRgen/private/[DrawedQRCode/DrawedQRCode,
-                 DrawedQRCode/print,
-                 EncodedQRCode/EncodedQRCode,
-                 QRCode,
-                 qrTypes]
+  QRgen/private/[
+    DrawedQRCode/DrawedQRCode,
+    DrawedQRCode/print,
+    EncodedQRCode/EncodedQRCode,
+    QRCode,
+    qrTypes
+  ]
 
 export
   DrawedQRCode.DrawedQRCode,
@@ -33,11 +35,12 @@ export
   QRCode.DataSizeDefect,
   qrTypes
 
-proc newQR*(data: string,
-            mode: QRMode,
-            version: QRVersion,
-            ecLevel: QRECLevel = qrECL
-           ): DrawedQRCode =
+proc newQR*(
+  data: string,
+  mode: QRMode,
+  version: QRVersion,
+  ecLevel: QRECLevel = qrECL
+): DrawedQRCode =
   ## Create a new DrawedQRCode with the specified `mode`, `version` and
   ## `ecLevel` (`qrECL` by default).
   ##
@@ -49,10 +52,11 @@ proc newQR*(data: string,
   ##    version and ecLevel.
   newQRCode(data, mode, version, ecLevel).encode.draw
 
-proc newQR*(data: string,
-            version: QRVersion,
-            ecLevel: QRECLevel = qrECL
-           ): DrawedQRCode =
+proc newQR*(
+  data: string,
+  version: QRVersion,
+  ecLevel: QRECLevel = qrECL
+): DrawedQRCode =
   ## Create a new DrawedQRCode with the specified `version` and `ecLevel`
   ## (`qrECL` by default).
   ##
@@ -60,10 +64,11 @@ proc newQR*(data: string,
   ##    version and ecLevel.
   newQRCode(data, version, ecLevel).encode.draw
 
-proc newQR*(data: string,
-            mode: QRMode,
-            ecLevel: QRECLevel = qrECL
-           ): DrawedQRCode =
+proc newQR*(
+  data: string,
+  mode: QRMode,
+  ecLevel: QRECLevel = qrECL
+): DrawedQRCode =
   ## Create a new DrawedQRCode with the specified `mode` and `ecLevel`
   ## (`qrECL` by default).
   ##
@@ -72,9 +77,10 @@ proc newQR*(data: string,
   ##    unless you know what you are doing.
   newQRCode(data, mode, ecLevel).encode.draw
 
-proc newQR*(data: string,
-            ecLevel: QRECLevel = qrECL
-           ): DrawedQRCode =
+proc newQR*(
+  data: string,
+  ecLevel: QRECLevel = qrECL
+): DrawedQRCode =
   ## Create a new DrawedQRCode with the specified `ecLevel`
   ## (`qrECL` by default).
   newQRCode(data, ecLevel).encode.draw

@@ -11,7 +11,11 @@
 ## fit.
 
 import
-  "."/[qrCapacities, qrCharacters, qrTypes]
+  "."/[
+    qrCapacities,
+    qrCharacters,
+    qrTypes
+  ]
 
 type
   QRCode* = object
@@ -90,11 +94,12 @@ template checkSize(self: QRCode) =
       "The data can't fit in the specified QR code version"
     )
 
-proc newQRCode*(data: string,
-                mode: QRMode,
-                version: QRVersion,
-                ecLevel: QRECLevel = qrECL
-               ): QRCode =
+proc newQRCode*(
+  data: string,
+  mode: QRMode,
+  version: QRVersion,
+  ecLevel: QRECLevel = qrECL
+): QRCode =
   ## Creates a new `QRCode` object with the specified `data`, `mode`, `version`
   ## and `ecLevel`.
   ##
@@ -104,10 +109,11 @@ proc newQRCode*(data: string,
   result = QRCode(mode: mode, version: version, ecLevel: ecLevel, data: data)
   result.checkSize
 
-proc newQRCode*(data: string,
-                version: QRVersion,
-                ecLevel: QRECLevel = qrECL
-               ): QRCode =
+proc newQRCode*(
+  data: string,
+  version: QRVersion,
+  ecLevel: QRECLevel = qrECL
+): QRCode =
   ## Creates a new `QRCode` object with the specified `data`, `version`
   ## and `ecLevel`.
   ##
@@ -121,10 +127,11 @@ proc newQRCode*(data: string,
   result.setMostEfficientMode
   result.checkSize
 
-proc newQRCode*(data: string,
-                mode: QRMode,
-                ecLevel: QRECLevel = qrECL
-               ): QRCode =
+proc newQRCode*(
+  data: string,
+  mode: QRMode,
+  ecLevel: QRECLevel = qrECL
+): QRCode =
   ## Creates a new `QRCode` object with the specified `data`, `version`
   ## and `ecLevel`.
   ##
@@ -135,9 +142,10 @@ proc newQRCode*(data: string,
   result = QRCode(mode: mode, version: 1, ecLevel: ecLevel, data: data)
   result.setSmallestVersion
 
-proc newQRCode*(data: string,
-                ecLevel: QRECLevel = qrECL
-               ): QRCode =
+proc newQRCode*(
+  data: string,
+  ecLevel: QRECLevel = qrECL
+): QRCode =
   ## Creates a new `QRCode` object with the specified `data` and `ecLevel`.
   ##
   ## .. note:: `ecLevel` will be `qrECL` by default.

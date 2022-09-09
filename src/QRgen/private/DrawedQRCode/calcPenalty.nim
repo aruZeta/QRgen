@@ -64,8 +64,9 @@ proc evaluateCondition4*(self: DrawedQRCode): uint16 = ##
     while b > 0:
       darkModules += 1
       b = b and (b - 1)
-  case ((darkModules * 100) div (cast[uint16](self.drawing.size) *
-                                 self.drawing.size))
+  case
+    ((darkModules * 100) div
+    (cast[uint16](self.drawing.size) * self.drawing.size))
   of 45..54: 0
   of 40..44, 55..59: 10
   of 35..39, 60..64: 20

@@ -3,18 +3,27 @@ import
   ".."/[Drawing],
   std/[strformat]
 
+when defined(js):
+  import
+    std/[jsconsole]
+
 proc printTerminal*(self: DrawedQRCode) =
   ## Print a `DrawedQRCode` to the terminal using `stdout`.
-  stdout.write "\n\n\n\n\n"
+  template log(s: string) =
+    when defined(js):
+      console.log s
+    else:
+      stdout.write s
+  log "\n\n\n\n\n"
   for y in 0'u8..<self.drawing.size:
-    stdout.write "          "
+    log "          "
     for x in 0'u8..<self.drawing.size:
-      stdout.write(
+      log(
         if self.drawing[x, y]: "██"
         else: "  "
       )
-    stdout.write "\n"
-  stdout.write "\n\n\n\n\n"
+    log "\n"
+  log "\n\n\n\n\n"
 
 const svgHeader: string =
   # SVG tag start
@@ -38,10 +47,11 @@ const alignmentPatternRect: string =
   """ fill="{c}" x="{x}" y="{y}" width="{w}" height="{h}"""" &
   """ rx="{r:<.3}"></rect>"""
 
-proc printSvg*(self: DrawedQRCode,
-               light: string = "#ffffff",
-               dark: string = "#000000"
-              ): string =
+proc printSvg*(
+  self: DrawedQRCode,
+  light: string = "#ffffff",
+  dark: string = "#000000"
+): string =
   ## Print a `DrawedQRCode` to svg format (returned as a string).
   ##
   ## .. note:: You can pass the hexadecimal color values `light` and `dark`,
@@ -61,11 +71,12 @@ proc printSvg*(self: DrawedQRCode,
   # Close the dark modules path and svg tag
   result.add "\"></path></svg>"
 
-proc printSvg*(self: DrawedQRCode,
-               light = "#ffffff",
-               dark = "#000000",
-               alRad: range[0f32..3.5f32]
-              ): string =
+proc printSvg*(
+  self: DrawedQRCode,
+  light = "#ffffff",
+  dark = "#000000",
+  alRad: range[0f32..3.5f32]
+): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring>`_
   ## but with rounded alignment patterns determined by `alRad` which
   ## can be from `0` (a square) up to `3.5`, which would make it a perfect
@@ -98,12 +109,13 @@ proc printSvg*(self: DrawedQRCode,
   result.add roundedAlignmentPattern(0'u8, self.drawing.size-7)
   result.add "</svg>"
 
-proc printSvg*(self: DrawedQRCode,
-               light = "#ffffff",
-               dark = "#000000",
-               alRad: range[0f32..3.5f32],
-               moRad: range[0f32..0.4f32]
-              ): string =
+proc printSvg*(
+  self: DrawedQRCode,
+  light = "#ffffff",
+  dark = "#000000",
+  alRad: range[0f32..3.5f32],
+  moRad: range[0f32..0.4f32]
+): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]>`_
   ## but with with rounded modules determined by `moRad` which can be
   ## from `0` (a square) up to `0.4`, which would make it a perfect circle.

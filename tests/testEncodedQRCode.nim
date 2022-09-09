@@ -1,11 +1,13 @@
 import
   "."/[myTestSuite],
-  QRgen/private/[BitArray,
-                 EncodedQRCode/encodeIndicators,
-                 EncodedQRCode/interleaveDataCodewords,
-                 EncodedQRCode/EncodedQRCode,
-                 QRCode,
-                 qrTypes]
+  QRgen/private/[
+    BitArray,
+    EncodedQRCode/encodeIndicators,
+    EncodedQRCode/interleaveDataCodewords,
+    EncodedQRCode/EncodedQRCode,
+    QRCode,
+    qrTypes
+  ]
 
 benchmarkTest "encodeCharCountIndicator()":
   var text1 = "0123"
