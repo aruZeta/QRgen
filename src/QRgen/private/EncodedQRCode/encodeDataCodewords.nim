@@ -1,7 +1,6 @@
 import
   "."/[type, utils],
-  ".."/[BitArray, qrCapacities, qrCharacters, qrTypes],
-  std/[encodings]
+  ".."/[BitArray, qrCapacities, qrCharacters, qrTypes]
 
 template getVal8(c: char): uint8 =
   ## Helper template to get the alphanumeric value of `c` as a uint8.
@@ -35,7 +34,7 @@ template encodeAlphanumericModeData(self: var EncodedQRCode, data: string) =
 
 template encodeByteModeData(self: var EncodedQRCode, data: string) =
   ## Encodes `data` via the byte mode encoding algorithm.
-  for c in convert(data, "ISO 8859-1", "UTF-8"):
+  for c in data:
     self.data.add cast[uint8](c), 8
 
 proc encodeDataCodewords*(self: var EncodedQRCode, data: string) =
