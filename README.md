@@ -5,8 +5,8 @@ width="300px" height="300px" />
 
 # QRgen - A QR generation library
 
-QRgen is a QR generation library fully written in Nim without any external
-dependencies other than `std/strformat` and `std/encodings`.
+QRgen is a QR generation library fully written in Nim that only uses a small
+amount of pure-nim stdlib modules.
 
 [![Run Tests](https://github.com/aruZeta/QRgen/actions/workflows/tests.yaml/badge.svg)](https://github.com/aruZeta/QRgen/actions/workflows/tests.yaml)
 [![Gen Docs](https://github.com/aruZeta/QRgen/actions/workflows/gendocs.yaml/badge.svg)](https://github.com/aruZeta/QRgen/actions/workflows/gendocs.yaml)
