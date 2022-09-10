@@ -31,19 +31,19 @@ const svgHeader: string =
   """ xmlns="http://www.w3.org/2000/svg"""" &
   """ viewBox="-5 -5 {tSize} {tSize}">""" &
   # Background of the SVG
-  """<path class="QRlight" fill="{light}"""" &
+  """<path class="qrLight" fill="{light}"""" &
   """ d="M-5,-5h{tSize}v{tSize}h-{tSize}Z"></path>"""
 
 const modulePath: string =
   """M{x},{y}h1v1h-1Z"""
 
 const moduleRect: string =
-  """<rect class="QRdark QRrounded QRmodule"""" &
+  """<rect class="qrDark qrRounded qrModule"""" &
   """ fill="{dark}" x="{float(x)+0.1}" y="{float(y)+0.1}"""" &
   """ width="0.8" height="0.8" rx="{moRad:<.3}"></rect>"""
 
 const alignmentPatternRect: string =
-  """<rect class="QR{m} QRrounded QRalignment"""" &
+  """<rect class="qr{m} qrRounded qrAlignment"""" &
   """ fill="{c}" x="{x}" y="{y}" width="{w}" height="{h}"""" &
   """ rx="{r:<.3}"></rect>"""
 
@@ -51,7 +51,7 @@ proc printSvg*(
   self: DrawedQRCode,
   light: string = "#ffffff",
   dark: string = "#000000",
-  class: string = "qrcode",
+  class: string = "qrCode",
   id: string = ""
 ): string =
   ## Print a `DrawedQRCode` to svg format (returned as a string).
@@ -61,15 +61,14 @@ proc printSvg*(
   ##    respectively. By default `light` is white (`#ffffff`) and `dark`
   ##    is black (`#000000`).
   ##
-  ## .. note:: The svg can be changed via css with the class `QRcode`, while
-  ##    the colors can also be changed with the classes `QRlight` and `QRdark`.
-  ##
   ## .. note:: By default the `<svg>` tag class will be `qrcode`, this can be
   ##    changed by setting the `class` parameter, and the `id` can also be set.
+  ##    This makes it possible to change properties of the SVG via css.
+  ##    The colors can also be changed with the classes `qrLight` and `qrDark`.
   template tSize: uint8 = self.drawing.size + 10
   result = fmt(svgHeader)
   # Path drawing the dark modules
-  result.add fmt"""<path class="QRdark" fill="{dark}" d=""""
+  result.add fmt"""<path class="qrDark" fill="{dark}" d=""""
   for y in 0'u8..<self.drawing.size:
     for x in 0'u8..<self.drawing.size:
       if self.drawing[x, y]: result.add fmt(modulePath)
@@ -81,7 +80,7 @@ proc printSvg*(
   light = "#ffffff",
   dark = "#000000",
   alRad: range[0f32..3.5f32],
-  class: string = "qrcode",
+  class: string = "qrCode",
   id: string = ""
 ): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring>`_
@@ -91,7 +90,7 @@ proc printSvg*(
   template tSize: uint8 = self.drawing.size + 10
   result = fmt(svgHeader)
   # Path drawing the dark modules
-  result.add fmt"""<path class="QRdark" fill="{dark}" d=""""
+  result.add fmt"""<path class="qrDark" fill="{dark}" d=""""
   template drawRegion(ax, bx, ay, by: uint8) {.dirty.} =
     for y in ay..<by:
       for x in ax..<bx:
@@ -122,7 +121,7 @@ proc printSvg*(
   dark = "#000000",
   alRad: range[0f32..3.5f32],
   moRad: range[0f32..0.4f32],
-  class: string = "qrcode",
+  class: string = "qrCode",
   id: string = ""
 ): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]>`_
