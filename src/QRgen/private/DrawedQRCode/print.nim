@@ -27,7 +27,7 @@ proc printTerminal*(self: DrawedQRCode) =
 
 const svgHeader: string =
   # SVG tag start
-  """<svg class="QRcode" version="1.1"""" &
+  """<svg class="{class}" id="{id}" version="1.1"""" &
   """ xmlns="http://www.w3.org/2000/svg"""" &
   """ viewBox="-5 -5 {tSize} {tSize}">""" &
   # Background of the SVG
@@ -50,7 +50,9 @@ const alignmentPatternRect: string =
 proc printSvg*(
   self: DrawedQRCode,
   light: string = "#ffffff",
-  dark: string = "#000000"
+  dark: string = "#000000",
+  class: string = "qrcode",
+  id: string = ""
 ): string =
   ## Print a `DrawedQRCode` to svg format (returned as a string).
   ##
@@ -61,6 +63,9 @@ proc printSvg*(
   ##
   ## .. note:: The svg can be changed via css with the class `QRcode`, while
   ##    the colors can also be changed with the classes `QRlight` and `QRdark`.
+  ##
+  ## .. note:: By default the `<svg>` tag class will be `qrcode`, this can be
+  ##    changed by setting the `class` parameter, and the `id` can also be set.
   template tSize: uint8 = self.drawing.size + 10
   result = fmt(svgHeader)
   # Path drawing the dark modules
@@ -75,7 +80,9 @@ proc printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
   dark = "#000000",
-  alRad: range[0f32..3.5f32]
+  alRad: range[0f32..3.5f32],
+  class: string = "qrcode",
+  id: string = ""
 ): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring>`_
   ## but with rounded alignment patterns determined by `alRad` which
@@ -114,7 +121,9 @@ proc printSvg*(
   light = "#ffffff",
   dark = "#000000",
   alRad: range[0f32..3.5f32],
-  moRad: range[0f32..0.4f32]
+  moRad: range[0f32..0.4f32],
+  class: string = "qrcode",
+  id: string = ""
 ): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]>`_
   ## but with with rounded modules determined by `moRad` which can be

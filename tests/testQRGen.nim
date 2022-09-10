@@ -18,6 +18,13 @@ benchmarkTest "Testing svg":
     qr.printSvg
   )
 
+benchmarkTest "Testing custom class and id svg":
+  let qr = newQR("https://github.com/aruZeta/QRgen")
+  writeFile(
+    "build" / "testingCustomClassIdSvg.svg",
+    qr.printSvg(class = "myCustomQR", id = "qr1")
+  )
+
 benchmarkTest "Testing svg with colors":
   let qr = newQR("https://github.com/aruZeta/QRgen")
   writeFile(
