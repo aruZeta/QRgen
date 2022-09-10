@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/logo.svg"
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/logo.svg"
 width="300px" height="300px" />
 </p>
 
@@ -45,11 +45,11 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
     <tr>
       <td align="center">
         <pre>myQR.printTerminal</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/terminal-example.png" width="200px" height="200px"/>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/terminal-example.png" width="200px" height="200px"/>
       </td>
       <td align="center">
         <pre>myQR.printSvg</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-example.svg" width="200px" height="200px" />
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-example.svg" width="200px" height="200px" />
       </td>
     </tr>
   </tbody>
@@ -63,11 +63,11 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
     <tr>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a")</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-colors-example.svg" width="200px" height="200px" />
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-colors-example.svg" width="200px" height="200px" />
       </td>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a",2)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
       </td>
     </tr>
   </tbody>
@@ -81,7 +81,7 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
     <tr>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a",3.5,0.4)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
       </td>
       <td align="center">
       </td>
@@ -96,7 +96,7 @@ Since the generated SVGs have css classes, we can do stuff like this:
 
 https://user-images.githubusercontent.com/68018085/188283528-45b2daf7-ff61-4930-a757-fd6d0846939c.mp4
 
-Also, check the [docs](https://aruzeta.github.io/QRgen/main/QRgen.html) to
+Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
 
 # License
