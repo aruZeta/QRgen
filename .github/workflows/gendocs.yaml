@@ -1,12 +1,8 @@
 name: Gen Docs
 
 on:
-  workflow_run:
-    workflows: [ "Run Tests" ]
-    types: [ completed ]
-    branches: [ develop ]
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
     paths:
       - '**.nim*'
       - '**.cfg'
@@ -14,14 +10,6 @@ on:
 
 jobs:
   generate-docs:
-    if: |
-      ( ${{ github.event.workflow_run.conclusion == 'success' }} &&
-        ${{ github.event_name == 'push' }} ) ||
-      ( ${{ github.ref_name == 'main' }} )
-    # Run when the test workflow happened on a push to develop
-    # and it did success ( generate develop docs )
-    # ---------- OR ----------
-    # When there was a push to main ( generate main docs )
     runs-on: ubuntu-latest
     steps:
       - name: Fetch repo's pushed branch
