@@ -40,7 +40,7 @@ const modulePath: string =
 const moduleRect: string =
   """<rect class="QRdark QRrounded QRmodule"""" &
   """ fill="{dark}" x="{float(x)+0.1}" y="{float(y)+0.1}"""" &
-  """ width="0.8" height="0.8" rx="{moRad:<.3}"></rect>"""
+  """ width="0.8" height="0.8" rx="{moRadPx:<.3}"></rect>"""
 
 const alignmentPatternRect: string =
   """<rect class="QR{m} QRrounded QRalignment"""" &
@@ -75,13 +75,14 @@ proc printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
   dark = "#000000",
-  alRad: range[0f32..3.5f32]
+  alRad: range[0f32..100f32]
 ): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring>`_
   ## but with rounded alignment patterns determined by `alRad` which
-  ## can be from `0` (a square) up to `3.5`, which would make it a perfect
-  ## circle.
+  ## is a percentage (from `0.0` to `100.0`), being `0.0` a square and `100.0`
+  ## a perfect circle.
   template tSize: uint8 = self.drawing.size + 10
+  let alRadPx: float32 = 3.5 * alRad / 100
   result = fmt(svgHeader)
   # Path drawing the dark modules
   result.add fmt"""<path class="QRdark" fill="{dark}" d=""""
@@ -94,14 +95,14 @@ proc printSvg*(
   drawRegion 7'u8, self.drawing.size-7, 0'u8, 7'u8
   drawRegion 7'u8, self.drawing.size, self.drawing.size-7, self.drawing.size
   result.add "\"></path>"
-  proc roundedRect(x, y, w, h: uint8, r: float, m, c: string): string =
+  proc roundedRect(x, y, w, h: uint8, r: float32, m, c: string): string =
     fmt(alignmentPatternRect)
-  template checkRadius(lvl: range[1'i8..2'i8]): float =
-    if alRad == 0: 0f
-    elif alRad-lvl <= 0: 1f / (lvl * 2)
-    else: alRad-lvl
+  template checkRadius(lvl: range[1'i8..2'i8]): float32 =
+    if alRadPx == 0f: 0f
+    elif alRadPx - lvl <= 0: 1f / (lvl * 2)
+    else: alRadPx - lvl
   template roundedAlignmentPattern(x, y: uint8): string =
-    roundedRect(x, y, 7'u8, 7'u8, alRad, "dark", dark) &
+    roundedRect(x, y, 7'u8, 7'u8, alRadPx, "dark", dark) &
     roundedRect(x+1, y+1, 5'u8, 5'u8, checkRadius 1, "light", light) &
     roundedRect(x+2, y+2, 3'u8, 3'u8, checkRadius 2, "dark", dark)
   result.add roundedAlignmentPattern(0'u8, 0'u8)
@@ -113,13 +114,16 @@ proc printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
   dark = "#000000",
-  alRad: range[0f32..3.5f32],
-  moRad: range[0f32..0.4f32]
+  alRad: range[0f32..100f32],
+  moRad: range[0f32..100f32]
 ): string =
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]>`_
-  ## but with with rounded modules determined by `moRad` which can be
-  ## from `0` (a square) up to `0.4`, which would make it a perfect circle.
+  ## but with rounded modules determined by `moRad` which is a percentage
+  ## (from `0.0` to `100.0`), being `0.0` a square and `100.0` a perfect circle.
   template tSize: uint8 = self.drawing.size + 10
+  let
+    alRadPx: float32 = 3.5 * alRad / 100
+    moRadPx: float32 = 0.4 * moRad / 100
   result = fmt(svgHeader)
   # Path drawing the dark modules
   template drawRegion(ax, bx, ay, by: uint8) {.dirty.} =
@@ -130,14 +134,14 @@ proc printSvg*(
   drawRegion 0'u8, self.drawing.size, 7'u8, self.drawing.size-7
   drawRegion 7'u8, self.drawing.size-7, 0'u8, 7'u8
   drawRegion 7'u8, self.drawing.size, self.drawing.size-7, self.drawing.size
-  proc roundedRect(x, y, w, h: uint8, r: float, m, c: string): string =
+  proc roundedRect(x, y, w, h: uint8, r: float32, m, c: string): string =
     fmt(alignmentPatternRect)
-  template checkRadius(lvl: range[1'i8..2'i8]): float =
-    if alRad == 0: 0f
-    elif alRad-lvl <= 0: 1f / (lvl * 2)
-    else: alRad-lvl
+  template checkRadius(lvl: range[1'i8..2'i8]): float32 =
+    if alRadPx == 0f: 0f
+    elif alRadPx - lvl <= 0: 1f / (lvl * 2)
+    else: alRadPx - lvl
   template roundedAlignmentPattern(x, y: uint8): string =
-    roundedRect(x, y, 7'u8, 7'u8, alRad, "dark", dark) &
+    roundedRect(x, y, 7'u8, 7'u8, alRadPx, "dark", dark) &
     roundedRect(x+1, y+1, 5'u8, 5'u8, checkRadius 1, "light", light) &
     roundedRect(x+2, y+2, 3'u8, 3'u8, checkRadius 2, "dark", dark)
   result.add roundedAlignmentPattern(0'u8, 0'u8)
