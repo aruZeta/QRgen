@@ -120,7 +120,7 @@ window.addEventListener('DOMContentLoaded', main);
   <li><a class="reference" href="#modulePathStart"
     title="modulePathStart: string = &quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;">modulePathStart</a></li>
   <li><a class="reference" href="#moduleRect"
-    title="moduleRect: string = &quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{float(x)+0.1}\&quot; y=\&quot;{float(y)+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRad:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;">moduleRect</a></li>
+    title="moduleRect: string = &quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{float(x)+0.1}\&quot; y=\&quot;{float(y)+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRadPx:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;">moduleRect</a></li>
   <li><a class="reference" href="#svgEnd"
     title="svgEnd: string = &quot;&lt;/svg&gt;&quot;">svgEnd</a></li>
   <li><a class="reference" href="#svgHeader"
@@ -134,15 +134,15 @@ window.addEventListener('DOMContentLoaded', main);
       <ul class="simple nested-toc-section">printSvg
       <li><a class="reference" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange%5B%5D%2Cstring%2Cstring"
     title="printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0'f32 .. 3.5'f32]; class: string = &quot;qrCode&quot;;
+         alRad: range[0.0'f32 .. 100.0'f32]; class: string = &quot;qrCode&quot;;
          id: string = &quot;&quot;): string">printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0'f32 .. 3.5'f32]; class: string = &quot;qrCode&quot;;
+         alRad: range[0.0'f32 .. 100.0'f32]; class: string = &quot;qrCode&quot;;
          id: string = &quot;&quot;): string</a></li>
   <li><a class="reference" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange%5B%5D%2Crange%5B%5D%2Cstring%2Cstring"
     title="printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0'f32 .. 3.5'f32]; moRad: range[0.0'f32 .. 0.4'f32];
+         alRad: range[0.0'f32 .. 100.0'f32]; moRad: range[0.0'f32 .. 100.0'f32];
          class: string = &quot;qrCode&quot;; id: string = &quot;&quot;): string">printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0'f32 .. 3.5'f32]; moRad: range[0.0'f32 .. 0.4'f32];
+         alRad: range[0.0'f32 .. 100.0'f32]; moRad: range[0.0'f32 .. 100.0'f32];
          class: string = &quot;qrCode&quot;; id: string = &quot;&quot;): string</a></li>
   <li><a class="reference" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Cstring%2Cstring"
     title="printSvg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
@@ -269,7 +269,7 @@ class="link-seesrc" target="_blank">Source</a>
 </dd>
 </div>
 <div id="moduleRect">
-<dt><pre><span class="Identifier">moduleRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{float(x)+0.1}\&quot; y=\&quot;{float(y)+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRad:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
+<dt><pre><span class="Identifier">moduleRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{float(x)+0.1}\&quot; y=\&quot;{float(y)+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRadPx:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
 <dd>
 
 
@@ -311,11 +311,11 @@ class="link-seesrc" target="_blank">Source</a>
 <dl class="item">
 <div id="printSvg,DrawedQRCode,string,string,range[],string,string">
 <dt><pre><span class="Keyword">func</span> <a href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange%5B%5D%2Cstring%2Cstring"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">;</span> <span class="Identifier">light</span> <span class="Other">=</span> <span class="StringLit">&quot;#ffffff&quot;</span><span class="Other">;</span> <span class="Identifier">dark</span> <span class="Other">=</span> <span class="StringLit">&quot;#000000&quot;</span><span class="Other">;</span>
-              <span class="Identifier">alRad</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">3.5'f32</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">class</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;qrCode&quot;</span><span class="Other">;</span>
+              <span class="Identifier">alRad</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">100.0'f32</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">class</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;qrCode&quot;</span><span class="Other">;</span>
               <span class="Identifier">id</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Same as <a class="reference external" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring">print</a> but with rounded alignment patterns determined by <tt class="docutils literal"><span class="pre"><span class="Identifier">alRad</span></span></tt> which can be from <tt class="docutils literal"><span class="pre"><span class="DecNumber">0</span></span></tt> (a square) up to <tt class="docutils literal"><span class="pre"><span class="FloatNumber">3.5</span></span></tt>, which would make it a perfect circle.
+Same as <a class="reference external" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring">print</a> but with rounded alignment patterns determined by <tt class="docutils literal"><span class="pre"><span class="Identifier">alRad</span></span></tt> which is a percentage (from <tt class="docutils literal"><span class="pre"><span class="FloatNumber">0.0</span></span></tt> to <tt class="docutils literal"><span class="pre"><span class="FloatNumber">100.0</span></span></tt>), being <tt class="docutils literal"><span class="pre"><span class="FloatNumber">0.0</span></span></tt> a square and <tt class="docutils literal"><span class="pre"><span class="FloatNumber">100.0</span></span></tt> a perfect circle.
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L113"
 class="link-seesrc" target="_blank">Source</a>
@@ -325,16 +325,16 @@ class="link-seesrc" target="_blank">Source</a>
 </div>
 <div id="printSvg,DrawedQRCode,string,string,range[],range[],string,string">
 <dt><pre><span class="Keyword">func</span> <a href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange%5B%5D%2Crange%5B%5D%2Cstring%2Cstring"><span class="Identifier">printSvg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">;</span> <span class="Identifier">light</span> <span class="Other">=</span> <span class="StringLit">&quot;#ffffff&quot;</span><span class="Other">;</span> <span class="Identifier">dark</span> <span class="Other">=</span> <span class="StringLit">&quot;#000000&quot;</span><span class="Other">;</span>
-              <span class="Identifier">alRad</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">3.5'f32</span><span class="Other">]</span><span class="Other">;</span>
-              <span class="Identifier">moRad</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">0.4'f32</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">class</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;qrCode&quot;</span><span class="Other">;</span>
+              <span class="Identifier">alRad</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">100.0'f32</span><span class="Other">]</span><span class="Other">;</span>
+              <span class="Identifier">moRad</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">100.0'f32</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">class</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;qrCode&quot;</span><span class="Other">;</span>
               <span class="Identifier">id</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Same as <a class="reference external" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]">print</a> but with with rounded modules determined by <tt class="docutils literal"><span class="pre"><span class="Identifier">moRad</span></span></tt> which can be from <tt class="docutils literal"><span class="pre"><span class="DecNumber">0</span></span></tt> (a square) up to <tt class="docutils literal"><span class="pre"><span class="FloatNumber">0.4</span></span></tt>, which would make it a perfect circle.
+Same as <a class="reference external" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]">print</a> but with rounded modules determined by <tt class="docutils literal"><span class="pre"><span class="Identifier">moRad</span></span></tt> which is a percentage (from <tt class="docutils literal"><span class="pre"><span class="FloatNumber">0.0</span></span></tt> to <tt class="docutils literal"><span class="pre"><span class="FloatNumber">100.0</span></span></tt>), being <tt class="docutils literal"><span class="pre"><span class="FloatNumber">0.0</span></span></tt> a square and <tt class="docutils literal"><span class="pre"><span class="FloatNumber">100.0</span></span></tt> a perfect circle.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L132"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L133"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L132" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L133" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -469,7 +469,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-11 10:42:01 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-11 13:12:09 UTC</small>
       </div>
     </div>
   </div>
