@@ -20,7 +20,7 @@ proc newEncodedQRCode*(
   template get[T](self: QRCapacity[T]): T = self[ecLevel][version]
   template dataSize: uint16 = totalDataCodewords.get
   template eccSize: uint16 =
-    cast[uint16](group1Blocks.get + group2Blocks.get) * blockECCodewords.get
+    (group1Blocks.get + group2Blocks.get).uint16 * blockECCodewords.get
   EncodedQRCode(mode: mode,
                 version: version,
                 ecLevel: ecLevel,
@@ -30,7 +30,7 @@ proc newEncodedQRCode*(qr: QRCode): EncodedQRCode =
   ## Creates a new `EncodedQRCode` from an exisiting `QRCode` object.
   template dataSize: uint16 = totalDataCodewords[qr]
   template eccSize: uint16 =
-    cast[uint16](group1Blocks[qr] + group2Blocks[qr]) * blockECCodewords[qr]
+    (group1Blocks[qr] + group2Blocks[qr]).uint16 * blockECCodewords[qr]
   EncodedQRCode(mode: qr.mode,
                 version: qr.version,
                 ecLevel: qr.ecLevel,

@@ -23,14 +23,14 @@ iterator pairs[T](a: set[T]): tuple[key: uint8, val: T] =
     yield (key: x, val: c)
     inc x
 
-proc getSpecialValue(c: char): uint8 =
+func getSpecialValue(c: char): uint8 =
   ## Returns the value of the special character `c` according to the
   ## alphanumeric table.
   for i, val in specialValues:
     if val == c:
       return i + 36'u8
 
-proc getAlphanumericValue*(c: char): uint8 =
+func getAlphanumericValue*(c: char): uint8 =
   ## Returns the value of the alphanumeric character `c` according to the
   ## alphanumeric table, else returns `0xFF` (`uint8.high`).
   const

@@ -13,8 +13,7 @@ iterator g1BlockPositions(self: EncodedQRCode): uint16 {.inline.} =
 
 iterator g2BlockPositions(self: EncodedQRCode): uint16 {.inline.} =
   ## Iterates over every starting position of the blocks in group 2.
-  var pos: uint16 =
-    cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self]
+  var pos: uint16 = group1Blocks[self].uint16 * group1BlockDataCodewords[self]
   var b: uint8 = 0
   while b < group2Blocks[self]:
     yield pos

@@ -54,3 +54,19 @@ task test, "Run tests on /test":
     let fileName = file.path.extractFilename
     if fileName[0..3] == "test" and fileName[^4..^1] == ".nim":
       exec &"nim c -r {flags} {file.path}"
+
+task benchmark, "Run tests on /test":
+  let flags = [
+    "--colors:on",
+    "--verbosity:0",
+    "--hints:off",
+    "-w:off",
+    "-f",
+    "-d:benchmark",
+    "--mm:orc",
+    "-d:lto"
+  ].join " "
+  for file in walkDir("tests/"):
+    let fileName = file.path.extractFilename
+    if fileName[0..3] == "test" and fileName[^4..^1] == ".nim":
+      exec &"nim c -r {flags} {file.path}"

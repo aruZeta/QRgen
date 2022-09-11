@@ -8,7 +8,7 @@ template getVal8(c: char): uint8 =
 
 template getVal16(c: char): uint16 =
   ## Helper template to get the alphanumeric value of `c` as a uint16.
-  cast[uint16](getVal8 c)
+  (getVal8 c).uint16
 
 template encodeNumericModeData(self: var EncodedQRCode, data: string) =
   ## Encodes `data` via the numeric mode encoding algorithm.
@@ -37,7 +37,7 @@ template encodeByteModeData(self: var EncodedQRCode, data: string) =
   for c in data:
     self.data.add cast[uint8](c), 8
 
-proc encodeDataCodewords*(self: var EncodedQRCode, data: string) =
+func encodeDataCodewords*(self: var EncodedQRCode, data: string) =
   ## Depending on `self.mode`, the data will be encoded using 
   ## `numeric mode<#encodeNumericModeData.t%2CEncodedQRCode%2Cstring>`_ or
   ## `alphanumeric mode<#encodeAlphanumericModeData.t%2CEncodedQRCode%2Cstring>`_

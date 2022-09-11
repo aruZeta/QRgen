@@ -46,7 +46,7 @@ template getCapacities(mode: QRMode): QRCapacity[uint16] =
   of qrAlphanumericMode: alphanumericModeCapacities
   of qrByteMode: byteModeCapacities
 
-proc setMostEfficientMode(self: var QRCode) =
+func setMostEfficientMode(self: var QRCode) =
   ## Set's `self.mode` to the most efficient mode by checking all of it's
   ## characters.
   ##

@@ -24,5 +24,5 @@ iterator step*(start, stop, step: int): int =
 
 proc calcEcStart*(self: EncodedQRCode): uint16 =
   ## Returns the position of the first block of ECC in `self`. 
-  (cast[uint16](group1Blocks[self]) * group1BlockDataCodewords[self]) +
-  (cast[uint16](group2Blocks[self]) * group2BlockDataCodewords[self])
+  group1Blocks[self].uint16 * group1BlockDataCodewords[self] +
+  group2Blocks[self].uint16 * group2BlockDataCodewords[self]

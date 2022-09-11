@@ -2,7 +2,7 @@ import
   "."/[type, utils],
   ".."/[BitArray, qrCapacities]
 
-proc gf256Mod285Multiply(x, y: uint8): uint8 =
+func gf256Mod285Multiply(x, y: uint8): uint8 =
   ## Returns the multiplication of `x` and `y` using Galois Field 256 and
   ## modulo 285.
   result = 0
@@ -48,7 +48,7 @@ proc encodeECCodewords*(self: var EncodedQRCode) =
   for i in 0'u8..<cast[uint8](positions.len)-1:
     for j in positions[i]..<positions[i+1]:
       let actualEcPos: uint16 =
-        positions[^1] + (cast[uint16](blockECCodewords[self]) * i)
+        positions[^1] + (blockECCodewords[self].uint16 * i)
       let factor = self.data[j] xor self.data[actualEcPos]
       self.data.unsafeDelete actualEcPos
       self.data.unsafeAdd 0
