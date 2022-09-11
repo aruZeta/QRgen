@@ -86,74 +86,33 @@ template drawRoundedAlignmentPatterns {.dirty.} =
   result.add drawRoundedAlignmentPattern(size-7, 0'u8)
   result.add drawRoundedAlignmentPattern(0'u8, size-7)
 
-func printSvg*(
-  self: DrawedQRCode,
-  light: string = "#ffffff",
-  dark: string = "#000000",
-  class: string = "qrCode",
-  id: string = ""
-): string =
-  ## Print a `DrawedQRCode` to svg format (returned as a string).
-  ##
-  ## .. note:: You can pass the hexadecimal color values `light` and `dark`,
-  ##    which represent the background color and the dark module's color,
-  ##    respectively. By default `light` is white (`#ffffff`) and `dark`
-  ##    is black (`#000000`).
-  ##
-  ## .. note:: By default the `<svg>` tag class will be `qrCode`, this can be
-  ##    changed by setting the `class` parameter; the `id` can also be set.
-  ##    This makes it possible to change properties of the SVG via css.
-  ##    The colors can also be changed with the classes `qrLight` and `qrDark`.
-  result = fmt(svgHeader)
-  result.add fmt(modulePathStart)
-  drawRegion 0'u8, size, 0'u8, size, modulePath
-  result.add fmt(modulePathEnd)
-  result.add svgEnd
+type
+  Percentage = range[0f32..100f32]
+
+converter toBool(self: Percentage): bool =
+  self > Percentage.low
 
 func printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
   dark = "#000000",
-  alRad: range[0f32..100f32],
+  alRad: Percentage = 0,
+  moRad: Percentage = 0,
   class: string = "qrCode",
   id: string = ""
 ): string =
-  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Cstring%2Cstring>`_
-  ## but with rounded alignment patterns determined by `alRad` which
-  ## is a percentage (from `0.0` to `100.0`), being `0.0` a square and `100.0`
-  ## a perfect circle.
-  ##
-  ## .. note:: The alignment pattern will be drawn using a `<rect>` with
-  ##    classes `qrRounded` and `qrAlignment`. The rect will also have
-  ##    `qrLight` or `qrDark` depending on it's background color.
   result = fmt(svgHeader)
-  let alRadPx: float32 = 3.5 * alRad / 100
-  result.add fmt(modulePathStart)
-  drawRegionWithoutAlPatterns modulePath
-  result.add fmt(modulePathEnd)
-  drawRoundedAlignmentPatterns
-  result.add svgEnd
-
-func printSvg*(
-  self: DrawedQRCode,
-  light = "#ffffff",
-  dark = "#000000",
-  alRad: range[0f32..100f32],
-  moRad: range[0f32..100f32],
-  class: string = "qrCode",
-  id: string = ""
-): string =
-  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]%2Cstring%2Cstring>`_
-  ## but with rounded modules determined by `moRad` which is a percentage
-  ## (from `0.0` to `100.0`), being `0.0` a square and `100.0` a perfect circle.
-  ##
-  ## .. note:: The modules will be drawn using a `<rect>` with
-  ##    classes `qrRounded` and `qrModule`. The rect will also have
-  ##    `qrLight` or `qrDark` depending on it's background color.
-  result = fmt(svgHeader)
-  let
-    alRadPx: float32 = 3.5 * alRad / 100
-    moRadPx: float32 = 0.4 * moRad / 100
-  drawRegionWithoutAlPatterns moduleRect
-  drawRoundedAlignmentPatterns
+  if moRad:
+    let moRadPx: float32 = 0.4 * moRad / 100
+    drawRegionWithoutAlPatterns moduleRect
+  else:
+    result.add fmt(modulePathStart)
+    if alRad:
+      drawRegionWithoutAlPatterns modulePath
+    else:
+      drawRegion 0'u8, size, 0'u8, size, modulePath
+    result.add fmt(modulePathEnd)
+  if alRad:
+    let alRadPx: float32 = 3.5 * alRad / 100
+    drawRoundedAlignmentPatterns
   result.add svgEnd
