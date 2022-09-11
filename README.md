@@ -10,6 +10,7 @@ amount of pure-nim stdlib modules.
 
 [![Run Tests](https://github.com/aruZeta/QRgen/actions/workflows/tests.yaml/badge.svg)](https://github.com/aruZeta/QRgen/actions/workflows/tests.yaml)
 [![Gen Docs](https://github.com/aruZeta/QRgen/actions/workflows/gendocs.yaml/badge.svg)](https://github.com/aruZeta/QRgen/actions/workflows/gendocs.yaml)
+[![Run Benchmarks](https://github.com/aruZeta/QRgen/actions/workflows/benchmarks.yaml/badge.svg)](https://github.com/aruZeta/QRgen/actions/workflows/benchmarks.yaml)
 ## Prerequisites
 
 `nim --version` >= `1.6.0`
