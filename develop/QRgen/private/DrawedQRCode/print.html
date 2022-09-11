@@ -115,10 +115,16 @@ window.addEventListener('DOMContentLoaded', main);
     title="alignmentPatternRect: string = &quot;&lt;rect class=\&quot;qr{m} qrRounded qrAlignment\&quot; fill=\&quot;{c}\&quot; x=\&quot;{x}\&quot; y=\&quot;{y}\&quot; width=\&quot;{w}\&quot; height=\&quot;{h}\&quot; rx=\&quot;{r:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;">alignmentPatternRect</a></li>
   <li><a class="reference" href="#modulePath"
     title="modulePath: string = &quot;&quot;&quot;M{x},{y}h1v1h-1Z&quot;&quot;&quot;">modulePath</a></li>
+  <li><a class="reference" href="#modulePathEnd"
+    title="modulePathEnd: string = &quot;\&quot;&gt;&lt;/path&gt;&quot;">modulePathEnd</a></li>
+  <li><a class="reference" href="#modulePathStart"
+    title="modulePathStart: string = &quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;">modulePathStart</a></li>
   <li><a class="reference" href="#moduleRect"
     title="moduleRect: string = &quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{float(x)+0.1}\&quot; y=\&quot;{float(y)+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRad:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;">moduleRect</a></li>
+  <li><a class="reference" href="#svgEnd"
+    title="svgEnd: string = &quot;&lt;/svg&gt;&quot;">svgEnd</a></li>
   <li><a class="reference" href="#svgHeader"
-    title="svgHeader: string = &quot;&lt;svg class=\&quot;{class}\&quot; id=\&quot;{id}\&quot; version=\&quot;1.1\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot; viewBox=\&quot;-5 -5 {tSize} {tSize}\&quot;&gt;&lt;path class=\&quot;qrLight\&quot; fill=\&quot;{light}\&quot; d=\&quot;M-5,-5h{tSize}v{tSize}h-{tSize}Z\&quot;&gt;&lt;/path&gt;&quot;">svgHeader</a></li>
+    title="svgHeader: string = &quot;&lt;svg class=\&quot;{class}\&quot; id=\&quot;{id}\&quot; version=\&quot;1.1\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot; viewBox=\&quot;-5 -5 {size+10} {size+10}\&quot;&gt;&lt;path class=\&quot;qrLight\&quot; fill=\&quot;{light}\&quot; d=\&quot;M-5,-5h{size+10}v{size+10}h-{size+10}Z\&quot;&gt;&lt;/path&gt;&quot;">svgHeader</a></li>
 
   </ul>
 </li>
@@ -147,6 +153,47 @@ window.addEventListener('DOMContentLoaded', main);
   <ul class="simple nested-toc-section">printTerminal
       <li><a class="reference" href="#printTerminal%2CDrawedQRCode"
     title="printTerminal(self: DrawedQRCode)">printTerminal(self: DrawedQRCode)</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">roundedRect
+      <li><a class="reference" href="#roundedRect%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cfloat%2Cstring%2Cstring"
+    title="roundedRect(x, y, w, h: uint8; r: float; m, c: string): string">roundedRect(x, y, w, h: uint8; r: float; m, c: string): string</a></li>
+
+  </ul>
+
+  </ul>
+</li>
+<li>
+  <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
+  <ul class="simple simple-toc-section">
+      <ul class="simple nested-toc-section">checkRadius
+      <li><a class="reference" href="#checkRadius.t%2Crange%5B%5D"
+    title="checkRadius(lvl: range[1'i8 .. 2'i8]): float32">checkRadius(lvl: range[1'i8 .. 2'i8]): float32</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">drawRegion
+      <li><a class="reference" href="#drawRegion.t%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cstring"
+    title="drawRegion(ax, bx, ay, by: uint8; s: string)">drawRegion(ax, bx, ay, by: uint8; s: string)</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">drawRegionWithoutAlPatterns
+      <li><a class="reference" href="#drawRegionWithoutAlPatterns.t%2Cstring"
+    title="drawRegionWithoutAlPatterns(s: string)">drawRegionWithoutAlPatterns(s: string)</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">drawRoundedAlignmentPattern
+      <li><a class="reference" href="#drawRoundedAlignmentPattern.t%2Cuint8%2Cuint8"
+    title="drawRoundedAlignmentPattern(x, y: uint8): string">drawRoundedAlignmentPattern(x, y: uint8): string</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">drawRoundedAlignmentPatterns
+      <li><a class="reference" href="#drawRoundedAlignmentPatterns.t"
+    title="drawRoundedAlignmentPatterns()">drawRoundedAlignmentPatterns()</a></li>
+
+  </ul>
+  <ul class="simple nested-toc-section">size
+      <li><a class="reference" href="#size.t"
+    title="size(): uint8">size(): uint8</a></li>
 
   </ul>
 
@@ -179,9 +226,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L45"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L55"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L45" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L55" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -191,9 +238,33 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L37"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L41"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L37" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="modulePathEnd">
+<dt><pre><span class="Identifier">modulePathEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;\&quot;&gt;&lt;/path&gt;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L47"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L47" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="modulePathStart">
+<dt><pre><span class="Identifier">modulePathStart</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L44"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L44" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -203,21 +274,33 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L40"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L50"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L40" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L50" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="svgHeader">
-<dt><pre><span class="Identifier">svgHeader</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;svg class=\&quot;{class}\&quot; id=\&quot;{id}\&quot; version=\&quot;1.1\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot; viewBox=\&quot;-5 -5 {tSize} {tSize}\&quot;&gt;&lt;path class=\&quot;qrLight\&quot; fill=\&quot;{light}\&quot; d=\&quot;M-5,-5h{tSize}v{tSize}h-{tSize}Z\&quot;&gt;&lt;/path&gt;&quot;</span></pre></dt>
+<div id="svgEnd">
+<dt><pre><span class="Identifier">svgEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;/svg&gt;&quot;</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L28"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L39"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L28" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="svgHeader">
+<dt><pre><span class="Identifier">svgHeader</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;svg class=\&quot;{class}\&quot; id=\&quot;{id}\&quot; version=\&quot;1.1\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot; viewBox=\&quot;-5 -5 {size+10} {size+10}\&quot;&gt;&lt;path class=\&quot;qrLight\&quot; fill=\&quot;{light}\&quot; d=\&quot;M-5,-5h{size+10}v{size+10}h-{size+10}Z\&quot;&gt;&lt;/path&gt;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L30"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L30" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -234,9 +317,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Same as <a class="reference external" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring">print</a> but with rounded alignment patterns determined by <tt class="docutils literal"><span class="pre"><span class="Identifier">alRad</span></span></tt> which can be from <tt class="docutils literal"><span class="pre"><span class="DecNumber">0</span></span></tt> (a square) up to <tt class="docutils literal"><span class="pre"><span class="FloatNumber">3.5</span></span></tt>, which would make it a perfect circle.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L78"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L113"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L78" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L113" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -249,9 +332,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Same as <a class="reference external" href="#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]">print</a> but with with rounded modules determined by <tt class="docutils literal"><span class="pre"><span class="Identifier">moRad</span></span></tt> which can be from <tt class="docutils literal"><span class="pre"><span class="DecNumber">0</span></span></tt> (a square) up to <tt class="docutils literal"><span class="pre"><span class="FloatNumber">0.4</span></span></tt>, which would make it a perfect circle.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L118"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L132"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L118" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L132" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -267,9 +350,9 @@ You can pass the hexadecimal color values <tt class="docutils literal"><span cla
 By default the <tt class="docutils literal"><span class="pre"><span class="Operator">&lt;</span><span class="Identifier">svg</span><span class="Operator">&gt;</span></span></tt> tag class will be <tt class="docutils literal"><span class="pre"><span class="Identifier">qrcode</span></span></tt>, this can be changed by setting the <tt class="docutils literal"><span class="pre"><span class="Identifier">class</span></span></tt> parameter, and the <tt class="docutils literal"><span class="pre"><span class="Identifier">id</span></span></tt> can also be set. This makes it possible to change properties of the SVG via css. The colors can also be changed with the classes <tt class="docutils literal"><span class="pre"><span class="Identifier">qrLight</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">qrDark</span></span></tt>.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L50"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L89"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L50" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L89" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -279,6 +362,96 @@ class="link-seesrc" target="_blank">Source</a>
 <dd>
 
 Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> to the terminal using <tt class="docutils literal"><span class="pre"><span class="Identifier">stdout</span></span></tt>.
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L12"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L12" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="roundedRect,uint8,uint8,uint8,uint8,float,string,string">
+<dt><pre><span class="Keyword">proc</span> <a href="#roundedRect%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cfloat%2Cstring%2Cstring"><span class="Identifier">roundedRect</span></a><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">,</span> <span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">;</span> <span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L71"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L71" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+
+</dl></div>
+<div class="section" id="18">
+<h1><a class="toc-backref" href="#18">Templates</a></h1>
+<dl class="item">
+<div id="checkRadius.t,range[]">
+<dt><pre><span class="Keyword">template</span> <a href="#checkRadius.t%2Crange%5B%5D"><span class="Identifier">checkRadius</span></a><span class="Other">(</span><span class="Identifier">lvl</span><span class="Other">:</span> <span class="Identifier">range</span><span class="Other">[</span><span class="DecNumber">1'i8</span> <span class="Operator">..</span> <span class="DecNumber">2'i8</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float32</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L74"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L74" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="drawRegion.t,uint8,uint8,uint8,uint8,string">
+<dt><pre><span class="Keyword">template</span> <a href="#drawRegion.t%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cstring"><span class="Identifier">drawRegion</span></a><span class="Other">(</span><span class="Identifier">ax</span><span class="Other">,</span> <span class="Identifier">bx</span><span class="Other">,</span> <span class="Identifier">ay</span><span class="Other">,</span> <span class="Identifier">by</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">;</span> <span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span> {.<span class="Identifier">dirty</span>.}</pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L60"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L60" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="drawRegionWithoutAlPatterns.t,string">
+<dt><pre><span class="Keyword">template</span> <a href="#drawRegionWithoutAlPatterns.t%2Cstring"><span class="Identifier">drawRegionWithoutAlPatterns</span></a><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span> {.<span class="Identifier">dirty</span>.}</pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L66"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L66" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="drawRoundedAlignmentPattern.t,uint8,uint8">
+<dt><pre><span class="Keyword">template</span> <a href="#drawRoundedAlignmentPattern.t%2Cuint8%2Cuint8"><span class="Identifier">drawRoundedAlignmentPattern</span></a><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L79"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L79" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="drawRoundedAlignmentPatterns.t">
+<dt><pre><span class="Keyword">template</span> <a href="#drawRoundedAlignmentPatterns.t"><span class="Identifier">drawRoundedAlignmentPatterns</span></a><span class="Other">(</span><span class="Other">)</span> {.<span class="Identifier">dirty</span>.}</pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L84"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L84" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="size.t">
+<dt><pre><span class="Keyword">template</span> <a href="#size.t"><span class="Identifier">size</span></a><span class="Other">(</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">uint8</span></pre></dt>
+<dd>
+
+
 &nbsp;&nbsp;<a
 href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L10"
 class="link-seesrc" target="_blank">Source</a>
@@ -296,7 +469,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-10 16:21:32 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-11 09:06:37 UTC</small>
       </div>
     </div>
   </div>

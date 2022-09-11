@@ -1,8 +1,18 @@
+size	QRgen/private/DrawedQRCode/print.html#size.t	print: size(): uint8	
 printTerminal	QRgen/private/DrawedQRCode/print.html#printTerminal,DrawedQRCode	print: printTerminal(self: DrawedQRCode)	
 svgHeader	QRgen/private/DrawedQRCode/print.html#svgHeader	print: svgHeader	
+svgEnd	QRgen/private/DrawedQRCode/print.html#svgEnd	print: svgEnd	
 modulePath	QRgen/private/DrawedQRCode/print.html#modulePath	print: modulePath	
+modulePathStart	QRgen/private/DrawedQRCode/print.html#modulePathStart	print: modulePathStart	
+modulePathEnd	QRgen/private/DrawedQRCode/print.html#modulePathEnd	print: modulePathEnd	
 moduleRect	QRgen/private/DrawedQRCode/print.html#moduleRect	print: moduleRect	
 alignmentPatternRect	QRgen/private/DrawedQRCode/print.html#alignmentPatternRect	print: alignmentPatternRect	
+drawRegion	QRgen/private/DrawedQRCode/print.html#drawRegion.t,uint8,uint8,uint8,uint8,string	print: drawRegion(ax, bx, ay, by: uint8; s: string)	
+drawRegionWithoutAlPatterns	QRgen/private/DrawedQRCode/print.html#drawRegionWithoutAlPatterns.t,string	print: drawRegionWithoutAlPatterns(s: string)	
+roundedRect	QRgen/private/DrawedQRCode/print.html#roundedRect,uint8,uint8,uint8,uint8,float,string,string	print: roundedRect(x, y, w, h: uint8; r: float; m, c: string): string	
+checkRadius	QRgen/private/DrawedQRCode/print.html#checkRadius.t,range[]	print: checkRadius(lvl: range[1&apos;i8 .. 2&apos;i8]): float32	
+drawRoundedAlignmentPattern	QRgen/private/DrawedQRCode/print.html#drawRoundedAlignmentPattern.t,uint8,uint8	print: drawRoundedAlignmentPattern(x, y: uint8): string	
+drawRoundedAlignmentPatterns	QRgen/private/DrawedQRCode/print.html#drawRoundedAlignmentPatterns.t	print: drawRoundedAlignmentPatterns()	
 printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,string,string	print: printSvg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;\n         dark: string = &quot;#000000&quot;; class: string = &quot;qrCode&quot;; id: string = &quot;&quot;): string	
 printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,range[],string,string	print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;\n         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]; class: string = &quot;qrCode&quot;;\n         id: string = &quot;&quot;): string	
 printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,range[],range[],string,string	print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;\n         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]; moRad: range[0.0&apos;f32 .. 0.4&apos;f32];\n         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;): string	
