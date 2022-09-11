@@ -3,13 +3,17 @@ import
   QRgen,
   std/[os]
 
+template mayPrintTerminal(self: DrawedQRCode) =
+  when not defined(benchmark):
+    self.printTerminal
+
 benchmarkTest "Minimal test":
   let qr = newQR("https://github.com/aruZeta/QRgen")
-  qr.printTerminal
+  qr.mayPrintTerminal
 
 benchmarkTest "Emojis in byte mode (utf-8)":
   let qr = newQR("https://github.com/aruZeta/QRgen 😀")
-  qr.printTerminal
+  qr.mayPrintTerminal
 
 benchmarkTest "Testing svg":
   let qr = newQR("https://github.com/aruZeta/QRgen")
