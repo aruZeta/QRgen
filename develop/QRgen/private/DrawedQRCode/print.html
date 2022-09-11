@@ -120,7 +120,7 @@ window.addEventListener('DOMContentLoaded', main);
   <li><a class="reference" href="#modulePathStart"
     title="modulePathStart: string = &quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;">modulePathStart</a></li>
   <li><a class="reference" href="#moduleRect"
-    title="moduleRect: string = &quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{float(x)+0.1}\&quot; y=\&quot;{float(y)+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRadPx:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;">moduleRect</a></li>
+    title="moduleRect: string = &quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{x.float32+0.1}\&quot; y=\&quot;{y.float32+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRadPx:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;">moduleRect</a></li>
   <li><a class="reference" href="#svgEnd"
     title="svgEnd: string = &quot;&lt;/svg&gt;&quot;">svgEnd</a></li>
   <li><a class="reference" href="#svgHeader"
@@ -156,8 +156,8 @@ window.addEventListener('DOMContentLoaded', main);
 
   </ul>
   <ul class="simple nested-toc-section">roundedRect
-      <li><a class="reference" href="#roundedRect%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cfloat%2Cstring%2Cstring"
-    title="roundedRect(x, y, w, h: uint8; r: float; m, c: string): string">roundedRect(x, y, w, h: uint8; r: float; m, c: string): string</a></li>
+      <li><a class="reference" href="#roundedRect%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cfloat32%2Cstring%2Cstring"
+    title="roundedRect(x, y, w, h: uint8; r: float32; m, c: string): string">roundedRect(x, y, w, h: uint8; r: float32; m, c: string): string</a></li>
 
   </ul>
 
@@ -269,7 +269,7 @@ class="link-seesrc" target="_blank">Source</a>
 </dd>
 </div>
 <div id="moduleRect">
-<dt><pre><span class="Identifier">moduleRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{float(x)+0.1}\&quot; y=\&quot;{float(y)+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRadPx:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
+<dt><pre><span class="Identifier">moduleRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{x.float32+0.1}\&quot; y=\&quot;{y.float32+0.1}\&quot; width=\&quot;0.8\&quot; height=\&quot;0.8\&quot; rx=\&quot;{moRadPx:&lt;.3}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
 <dd>
 
 
@@ -373,8 +373,8 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-<div id="roundedRect,uint8,uint8,uint8,uint8,float,string,string">
-<dt><pre><span class="Keyword">func</span> <a href="#roundedRect%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cfloat%2Cstring%2Cstring"><span class="Identifier">roundedRect</span></a><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">,</span> <span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">;</span> <span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.
+<div id="roundedRect,uint8,uint8,uint8,uint8,float32,string,string">
+<dt><pre><span class="Keyword">func</span> <a href="#roundedRect%2Cuint8%2Cuint8%2Cuint8%2Cuint8%2Cfloat32%2Cstring%2Cstring"><span class="Identifier">roundedRect</span></a><span class="Other">(</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">,</span> <span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">;</span> <span class="Identifier">r</span><span class="Other">:</span> <span class="Identifier">float32</span><span class="Other">;</span> <span class="Identifier">m</span><span class="Other">,</span> <span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> {.
     <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
@@ -473,7 +473,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-11 13:22:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-11 13:34:31 UTC</small>
       </div>
     </div>
   </div>

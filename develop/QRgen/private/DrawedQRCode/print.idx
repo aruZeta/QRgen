@@ -9,7 +9,7 @@ moduleRect	QRgen/private/DrawedQRCode/print.html#moduleRect	print: moduleRect
 alignmentPatternRect	QRgen/private/DrawedQRCode/print.html#alignmentPatternRect	print: alignmentPatternRect	
 drawRegion	QRgen/private/DrawedQRCode/print.html#drawRegion.t,uint8,uint8,uint8,uint8,string	print: drawRegion(ax, bx, ay, by: uint8; s: string)	
 drawRegionWithoutAlPatterns	QRgen/private/DrawedQRCode/print.html#drawRegionWithoutAlPatterns.t,string	print: drawRegionWithoutAlPatterns(s: string)	
-roundedRect	QRgen/private/DrawedQRCode/print.html#roundedRect,uint8,uint8,uint8,uint8,float,string,string	print: roundedRect(x, y, w, h: uint8; r: float; m, c: string): string	
+roundedRect	QRgen/private/DrawedQRCode/print.html#roundedRect,uint8,uint8,uint8,uint8,float32,string,string	print: roundedRect(x, y, w, h: uint8; r: float32; m, c: string): string	
 checkRadius	QRgen/private/DrawedQRCode/print.html#checkRadius.t,range[]	print: checkRadius(lvl: range[1&apos;i8 .. 2&apos;i8]): float32	
 drawRoundedAlignmentPattern	QRgen/private/DrawedQRCode/print.html#drawRoundedAlignmentPattern.t,uint8,uint8	print: drawRoundedAlignmentPattern(x, y: uint8): string	
 drawRoundedAlignmentPatterns	QRgen/private/DrawedQRCode/print.html#drawRoundedAlignmentPatterns.t	print: drawRoundedAlignmentPatterns()	
