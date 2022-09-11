@@ -100,8 +100,8 @@ func printSvg*(
   ##    respectively. By default `light` is white (`#ffffff`) and `dark`
   ##    is black (`#000000`).
   ##
-  ## .. note:: By default the `<svg>` tag class will be `qrcode`, this can be
-  ##    changed by setting the `class` parameter, and the `id` can also be set.
+  ## .. note:: By default the `<svg>` tag class will be `qrCode`, this can be
+  ##    changed by setting the `class` parameter; the `id` can also be set.
   ##    This makes it possible to change properties of the SVG via css.
   ##    The colors can also be changed with the classes `qrLight` and `qrDark`.
   result = fmt(svgHeader)
@@ -122,6 +122,10 @@ func printSvg*(
   ## but with rounded alignment patterns determined by `alRad` which
   ## is a percentage (from `0.0` to `100.0`), being `0.0` a square and `100.0`
   ## a perfect circle.
+  ##
+  ## .. note:: The alignment pattern will be drawn using a `<rect>` with
+  ##    classes `qrRounded` and `qrAlignment`. The rect will also have
+  ##    `qrLight` or `qrDark` depending on it's background color.
   result = fmt(svgHeader)
   let alRadPx: float32 = 3.5 * alRad / 100
   result.add fmt(modulePathStart)
@@ -142,6 +146,10 @@ func printSvg*(
   ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]>`_
   ## but with rounded modules determined by `moRad` which is a percentage
   ## (from `0.0` to `100.0`), being `0.0` a square and `100.0` a perfect circle.
+  ##
+  ## .. note:: The modules will be drawn using a `<rect>` with
+  ##    classes `qrRounded` and `qrModule`. The rect will also have
+  ##    `qrLight` or `qrDark` depending on it's background color.
   result = fmt(svgHeader)
   let
     alRadPx: float32 = 3.5 * alRad / 100
