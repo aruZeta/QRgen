@@ -118,7 +118,7 @@ func printSvg*(
   class: string = "qrCode",
   id: string = ""
 ): string =
-  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring>`_
+  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Cstring%2Cstring>`_
   ## but with rounded alignment patterns determined by `alRad` which
   ## is a percentage (from `0.0` to `100.0`), being `0.0` a square and `100.0`
   ## a perfect circle.
@@ -143,7 +143,7 @@ func printSvg*(
   class: string = "qrCode",
   id: string = ""
 ): string =
-  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]>`_
+  ## Same as `print<#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange[]%2Cstring%2Cstring>`_
   ## but with rounded modules determined by `moRad` which is a percentage
   ## (from `0.0` to `100.0`), being `0.0` a square and `100.0` a perfect circle.
   ##
