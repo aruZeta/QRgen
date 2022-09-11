@@ -24,14 +24,14 @@ func newDrawing*(size: uint8): Drawing =
   ## Creates a new `Drawing` object with the size `size`, `matrix` will have
   ## a cap and len set to the number of bytes required to store all it's
   ## modules.
-  let matrixSize: uint16 = (cast[uint16](size) * size) div 8 + 1
+  let matrixSize: uint16 = (size.uint16 * size) div 8 + 1
   result = Drawing(matrix: newSeqOfCap[uint8](matrixSize), size: size)
   result.matrix.setLen(matrixSize)
 
 func `[]`*(self: Drawing, x, y: uint8): bool =
   ## Returns true if the module at position `x,y` is dark, else
   ## (if it was light) returns false.
-  let bitPos: uint16 = cast[uint16](y) * self.size + x
+  let bitPos: uint16 = y.uint16 * self.size + x
   ((self.matrix[bitPos div 8] shr (7 - (bitPos mod 8))) and 0x01) == 0x01
 
 func `[]`*(self: Drawing, x: Slice[uint8], y: uint8): uint16 =
@@ -39,7 +39,7 @@ func `[]`*(self: Drawing, x: Slice[uint8], y: uint8): uint16 =
   ##
   ## .. warning:: If the length of `x` is greater than 16, only the last
   ##    16 bits will be returned.
-  let bitPosY: uint16 = cast[uint16](y) * self.size
+  let bitPosY: uint16 = y.uint16 * self.size
   for b in (bitPosY + x.a)..(bitPosY + x.b):
     result = result shl 1 +
              ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
@@ -50,14 +50,14 @@ func `[]`*(self: Drawing, x: uint8, y: Slice[uint8]): uint16 =
   ## .. warning:: If the length of `y` is greater than 16, only the last
   ##    16 bits will be returned.
   for y in y:
-    let b: uint16 =  cast[uint16](self.size) * y + x
+    let b: uint16 =  self.size.uint16 * y + x
     result = result shl 1 +
              ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
 
 func `[]=`*(self: var Drawing, x, y: uint8, val: bool) =
   ## Sets the module at position `x,y` to dark if `val` is true and to light
   ## if it's false.
-  let bitPos: uint16 = cast[uint16](y) * self.size + x
+  let bitPos: uint16 = y.uint16 * self.size + x
   template arrPos: uint16 = bitPos div 8
   template bytePos: uint16 = bitPos mod 8
   self.matrix[arrPos] =

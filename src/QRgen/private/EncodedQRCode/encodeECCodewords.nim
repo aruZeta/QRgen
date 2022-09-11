@@ -48,7 +48,7 @@ proc encodeECCodewords*(self: var EncodedQRCode) =
   for i in 0'u8..<cast[uint8](positions.len)-1:
     for j in positions[i]..<positions[i+1]:
       let actualEcPos: uint16 =
-        positions[^1] + (cast[uint16](blockECCodewords[self]) * i)
+        positions[^1] + (blockECCodewords[self].uint16 * i)
       let factor = self.data[j] xor self.data[actualEcPos]
       self.data.unsafeDelete actualEcPos
       self.data.unsafeAdd 0
