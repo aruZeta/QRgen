@@ -20,3 +20,8 @@ template benchmark*(name: string, body: untyped) =
   when defined(benchmark):
     timeIt name:
       body
+
+template test*(name: string, body: untyped) =
+  when not defined(benchmark):
+    test name:
+      body
