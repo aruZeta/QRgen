@@ -20,7 +20,7 @@ type
     matrix*: seq[uint8]
     size*: uint8
 
-proc newDrawing*(size: uint8): Drawing =
+func newDrawing*(size: uint8): Drawing =
   ## Creates a new `Drawing` object with the size `size`, `matrix` will have
   ## a cap and len set to the number of bytes required to store all it's
   ## modules.
@@ -28,13 +28,13 @@ proc newDrawing*(size: uint8): Drawing =
   result = Drawing(matrix: newSeqOfCap[uint8](matrixSize), size: size)
   result.matrix.setLen(matrixSize)
 
-proc `[]`*(self: Drawing, x, y: uint8): bool =
+func `[]`*(self: Drawing, x, y: uint8): bool =
   ## Returns true if the module at position `x,y` is dark, else
   ## (if it was light) returns false.
   let bitPos: uint16 = cast[uint16](y) * self.size + x
   ((self.matrix[bitPos div 8] shr (7 - (bitPos mod 8))) and 0x01) == 0x01
 
-proc `[]`*(self: Drawing, x: Slice[uint8], y: uint8): uint16 =
+func `[]`*(self: Drawing, x: Slice[uint8], y: uint8): uint16 =
   ## Returns a `uint16` with the bits in the range `x` with y `y`.
   ##
   ## .. warning:: If the length of `x` is greater than 16, only the last
@@ -44,7 +44,7 @@ proc `[]`*(self: Drawing, x: Slice[uint8], y: uint8): uint16 =
     result = result shl 1 +
              ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
 
-proc `[]`*(self: Drawing, x: uint8, y: Slice[uint8]): uint16 =
+func `[]`*(self: Drawing, x: uint8, y: Slice[uint8]): uint16 =
   ## Returns a `uint16` with the bits in the range `y` with x `x`.
   ##
   ## .. warning:: If the length of `y` is greater than 16, only the last
@@ -54,7 +54,7 @@ proc `[]`*(self: Drawing, x: uint8, y: Slice[uint8]): uint16 =
     result = result shl 1 +
              ((self.matrix[b div 8] shr (7 - (b mod 8))) and 0x01)
 
-proc `[]=`*(self: var Drawing, x, y: uint8, val: bool) =
+func `[]=`*(self: var Drawing, x, y: uint8, val: bool) =
   ## Sets the module at position `x,y` to dark if `val` is true and to light
   ## if it's false.
   let bitPos: uint16 = cast[uint16](y) * self.size + x
@@ -75,7 +75,7 @@ template flipPoint*(self: var Drawing, x, y: uint8) =
   ## If it is ligth set it to dark, if it is dark set it to light.
   self[x, y] = not self[x, y]
 
-proc fillRectangle*(self: var Drawing, xRange, yRange: Slice[uint8]) =
+func fillRectangle*(self: var Drawing, xRange, yRange: Slice[uint8]) =
   ## A helper template to set all the modules where
   ## `x` is in `xRange` and y is `yRange` to dark.
   for y in yRange:

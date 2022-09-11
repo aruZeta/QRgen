@@ -13,7 +13,7 @@ type
     mask*: Mask
     drawing*: Drawing
 
-proc newDrawedQRCode*(
+func newDrawedQRCode*(
   version: QRVersion,
   ecLevel: QRECLevel = qrECL
 ): DrawedQRCode =
@@ -23,7 +23,7 @@ proc newDrawedQRCode*(
                ecLevel: ecLevel,
                drawing: newDrawing((version - 1) * 4 + 21))
 
-proc newDrawedQRCode*(qr: EncodedQRCode): DrawedQRCode =
+func newDrawedQRCode*(qr: EncodedQRCode): DrawedQRCode =
   ## Creates a new `DrawedQRCode` from an exisiting `EncodedQRCode` object.
   DrawedQRCode(version: qr.version,
                ecLevel: qr.ecLevel,

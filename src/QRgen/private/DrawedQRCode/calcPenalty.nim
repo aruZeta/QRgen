@@ -2,7 +2,7 @@ import
   "."/[type],
   ".."/[Drawing]
 
-proc evaluateCondition1*(self: DrawedQRCode): uint16 =
+func evaluateCondition1*(self: DrawedQRCode): uint16 =
   ## Evaluates the penalty of the applied mask using the
   ## `condition1 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-1>`_.
   result = 0
@@ -32,7 +32,7 @@ proc evaluateCondition1*(self: DrawedQRCode): uint16 =
     mayAddPenalty stateRow, countRow
     mayAddPenalty stateCol, countCol
 
-proc evaluateCondition2*(self: DrawedQRCode): uint16 =
+func evaluateCondition2*(self: DrawedQRCode): uint16 =
   ## Evaluates the penalty of the applied mask using the
   ## `condition2 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-2>`_.
   result = 0
@@ -44,7 +44,7 @@ proc evaluateCondition2*(self: DrawedQRCode): uint16 =
               (actual xor self.drawing[j+1, i+1])):
         result += 3
 
-proc evaluateCondition3*(self: DrawedQRCode): uint16 =
+func evaluateCondition3*(self: DrawedQRCode): uint16 =
   ## Evaluates the penalty of the applied mask using the
   ## `condition3 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-3>`_.
   result = 0
@@ -55,7 +55,7 @@ proc evaluateCondition3*(self: DrawedQRCode): uint16 =
       if self.drawing[i, j..j+10] in {0b10111010000'u16, 0b00001011101}:
         result += 40
 
-proc evaluateCondition4*(self: DrawedQRCode): uint16 = ##
+func evaluateCondition4*(self: DrawedQRCode): uint16 = ##
   ## Evaluates the penalty of the applied mask using the
   ## `condition4 algorithm<https://www.thonky.com/qr-code-tutorial/data-masking#evaluation-condition-4>`_.
   var darkModules: uint32 = 0

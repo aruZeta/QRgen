@@ -37,7 +37,7 @@ template encodeByteModeData(self: var EncodedQRCode, data: string) =
   for c in data:
     self.data.add cast[uint8](c), 8
 
-proc encodeDataCodewords*(self: var EncodedQRCode, data: string) =
+func encodeDataCodewords*(self: var EncodedQRCode, data: string) =
   ## Depending on `self.mode`, the data will be encoded using 
   ## `numeric mode<#encodeNumericModeData.t%2CEncodedQRCode%2Cstring>`_ or
   ## `alphanumeric mode<#encodeAlphanumericModeData.t%2CEncodedQRCode%2Cstring>`_

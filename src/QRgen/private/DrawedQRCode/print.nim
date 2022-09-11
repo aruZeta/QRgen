@@ -68,7 +68,7 @@ template drawRegionWithoutAlPatterns(s: string) {.dirty.} =
   drawRegion 7'u8, size-7, 0'u8, 7'u8, s
   drawRegion 7'u8, size, size-7, size, s
 
-proc roundedRect(x, y, w, h: uint8, r: float, m, c: string): string =
+func roundedRect(x, y, w, h: uint8, r: float, m, c: string): string =
   fmt(alignmentPatternRect)
 
 template checkRadius(lvl: range[1'i8..2'i8]): float32 =
@@ -86,7 +86,7 @@ template drawRoundedAlignmentPatterns {.dirty.} =
   result.add drawRoundedAlignmentPattern(size-7, 0'u8)
   result.add drawRoundedAlignmentPattern(0'u8, size-7)
 
-proc printSvg*(
+func printSvg*(
   self: DrawedQRCode,
   light: string = "#ffffff",
   dark: string = "#000000",
@@ -110,7 +110,7 @@ proc printSvg*(
   result.add fmt(modulePathEnd)
   result.add svgEnd
 
-proc printSvg*(
+func printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
   dark = "#000000",
@@ -129,7 +129,7 @@ proc printSvg*(
   drawRoundedAlignmentPatterns
   result.add svgEnd
 
-proc printSvg*(
+func printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
   dark = "#000000",

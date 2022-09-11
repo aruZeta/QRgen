@@ -21,7 +21,7 @@ type
     pos*: uint16
     data*: seq[uint8]
 
-proc newBitArray*(size: uint16): BitArray =
+func newBitArray*(size: uint16): BitArray =
   ## Creates a new `BitArray` object whose `data` will have a cap of `size`
   ## and it's len will also be set to `size`.
   result = BitArray(pos: 0, data: newSeqOfCap[uint8](size))
@@ -39,7 +39,7 @@ template `[]=`*(self: var BitArray, i: SomeInteger, val: uint8) =
   ## Set the value of `data` in index `i` to `val`.
   self.data[i] = val
 
-proc nextByte*(self: var BitArray): uint8 =
+func nextByte*(self: var BitArray): uint8 =
   ## Moves `pos` to the next byte, unless it is pointing to the start of an
   ## empty byte.
   ##
@@ -61,7 +61,7 @@ proc nextByte*(self: var BitArray): uint8 =
     else: 0'u8
   self.pos += result
 
-proc add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
+func add*(self: var BitArray, val: SomeUnsignedInt, len: uint8) =
   ## Add `len` amount of bits from `val` starting from the rightmost bit.
   runnableExamples:
     var myBitArray = newBitArray(1)

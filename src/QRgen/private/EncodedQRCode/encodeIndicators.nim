@@ -2,12 +2,12 @@ import
   "."/[type],
   ".."/[BitArray, qrTypes]
 
-proc encodeModeIndicator*(self: var EncodedQRCode) =
+func encodeModeIndicator*(self: var EncodedQRCode) =
   ## Encodes the mode indicator according to the specified
   ## `mode<../qrTypes.html#QRMode>`_
   self.data.add cast[uint8](self.mode), 4
 
-proc encodeCharCountIndicator*(self: var EncodedQRCode, data: string) =
+func encodeCharCountIndicator*(self: var EncodedQRCode, data: string) =
   ## Encodes the character count indicator, which is the length of `data`.
   ## Depending on the mode and version, the indicator will be more or less
   ## bits long.

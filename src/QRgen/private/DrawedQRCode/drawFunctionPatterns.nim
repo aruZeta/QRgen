@@ -2,7 +2,7 @@ import
   "."/[type],
   ".."/[Drawing, qrCapacities, qrTypes]
 
-proc drawFinderPatterns*(self: var DrawedQRCode) =
+func drawFinderPatterns*(self: var DrawedQRCode) =
   ## Draws the finder patterns in the upper left, upper right and lower left
   ## corners of the drawing.
   template drawFinderPattern(x, y: uint8) =
@@ -41,7 +41,7 @@ proc drawAlignmentPatterns*(self: var DrawedQRCode) =
     self.drawing.fillRectangle x-2,      y-1..y+1
     self.drawing.fillRectangle x+2,      y-1..y+1
 
-proc drawTimingPatterns*(self: var DrawedQRCode) =
+func drawTimingPatterns*(self: var DrawedQRCode) =
   ## Draws all dark modules corresponding to the timing pattern of the drawing.
   iterator step(start, stop, step: uint8): uint8 =
     var x = start
@@ -53,6 +53,6 @@ proc drawTimingPatterns*(self: var DrawedQRCode) =
     self.drawing.fillPoint pos, 6'u8
     self.drawing.fillPoint 6'u8, pos
 
-proc drawDarkModule*(self: var DrawedQRCode) =
+func drawDarkModule*(self: var DrawedQRCode) =
   ## Draws the dark module of the drawing.
   self.drawing.fillPoint 8'u8, self.drawing.size-8

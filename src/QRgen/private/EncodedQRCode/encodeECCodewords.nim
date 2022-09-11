@@ -2,7 +2,7 @@ import
   "."/[type, utils],
   ".."/[BitArray, qrCapacities]
 
-proc gf256Mod285Multiply(x, y: uint8): uint8 =
+func gf256Mod285Multiply(x, y: uint8): uint8 =
   ## Returns the multiplication of `x` and `y` using Galois Field 256 and
   ## modulo 285.
   result = 0
