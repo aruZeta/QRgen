@@ -49,7 +49,7 @@ const modulePathEnd: string =
 
 const moduleRect: string =
   """<rect class="qrDark qrRounded qrModule"""" &
-  """ fill="{dark}" x="{float(x)+0.1}" y="{float(y)+0.1}"""" &
+  """ fill="{dark}" x="{x.float32+0.1}" y="{y.float32+0.1}"""" &
   """ width="0.8" height="0.8" rx="{moRadPx:<.3}"></rect>"""
 
 const alignmentPatternRect: string =
@@ -68,7 +68,7 @@ template drawRegionWithoutAlPatterns(s: string) {.dirty.} =
   drawRegion 7'u8, size-7, 0'u8, 7'u8, s
   drawRegion 7'u8, size, size-7, size, s
 
-func roundedRect(x, y, w, h: uint8, r: float, m, c: string): string =
+func roundedRect(x, y, w, h: uint8, r: float32, m, c: string): string =
   fmt(alignmentPatternRect)
 
 template checkRadius(lvl: range[1'i8..2'i8]): float32 =
