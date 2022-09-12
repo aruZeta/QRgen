@@ -1,0 +1,3 @@
+draw	QRgen/private/DrawedQRCode/DrawedQRCode.html#draw,EncodedQRCode	DrawedQRCode: draw(qr: EncodedQRCode): DrawedQRCode	
+drawOnly	QRgen/private/DrawedQRCode/DrawedQRCode.html#drawOnly,EncodedQRCode	DrawedQRCode: drawOnly(qr: EncodedQRCode): DrawedQRCode	
+DrawedQRCode implementation	QRgen/private/DrawedQRCode/DrawedQRCode.html#drawedqrcode-implementation	 DrawedQRCode implementation	

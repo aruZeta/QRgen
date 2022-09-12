@@ -1,0 +1,2 @@
+encodeModeIndicator	QRgen/private/EncodedQRCode/encodeIndicators.html#encodeModeIndicator,EncodedQRCode	encodeIndicators: encodeModeIndicator(self: var EncodedQRCode)	
+encodeCharCountIndicator	QRgen/private/EncodedQRCode/encodeIndicators.html#encodeCharCountIndicator,EncodedQRCode,string	encodeIndicators: encodeCharCountIndicator(self: var EncodedQRCode; data: string)	
