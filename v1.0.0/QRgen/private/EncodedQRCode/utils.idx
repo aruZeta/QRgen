@@ -1,0 +1,4 @@
+`[]`	QRgen/private/EncodedQRCode/utils.html#[].t,QRCapacity[T],EncodedQRCode	utils: `[]`[T](self: QRCapacity[T]; qr: EncodedQRCode): T	
+`^=`	QRgen/private/EncodedQRCode/utils.html#^=.t,untyped,untyped	utils: `^=`(self: untyped; expr: untyped)	
+step	QRgen/private/EncodedQRCode/utils.html#step.i,int,int,int	utils: step(start, stop, step: int): int	
+calcEcStart	QRgen/private/EncodedQRCode/utils.html#calcEcStart,EncodedQRCode	utils: calcEcStart(self: EncodedQRCode): uint16	
