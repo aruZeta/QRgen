@@ -46,115 +46,43 @@ template getCapacities(mode: QRMode): QRCapacity[uint16] =
   of qrAlphanumericMode: alphanumericModeCapacities
   of qrByteMode: byteModeCapacities
 
-func setMostEfficientMode(self: var QRCode) =
-  ## Set's `self.mode` to the most efficient mode by checking all of it's
-  ## characters.
-  ##
-  ## If all it's characters are numbers (`0..9`), then the mode will be
-  ## `qrNumericMode`.
-  ##
-  ## If all its characters are in the
-  ## `alphaNumericValues set<qrCharacters.html#alphaNumericValues>`_, then
-  ## the mode will be `qrAlphanumericMode`.
-  ##
-  ## Else the mode will be `qrByteMode`.
-  self.mode = qrNumericMode
-  for c in self.data:
+func getMostEfficientMode*(data: string): QRMode =
+  result = qrNumericMode
+  for c in data:
     if c notin alphaNumericValues:
-      self.mode = qrByteMode
+      result = qrByteMode
       return
-    elif self.mode != qrAlphanumericMode and c notin numericValues:
-      self.mode = qrAlphanumericMode
+    elif result != qrAlphanumericMode and c notin numericValues:
+      result = qrAlphanumericMode
 
-proc setSmallestVersion(self: var QRCode) =
-  ## Set's `self.version` to the smallest version where `self.data` can fit.
-  ##
-  ## .. note:: If `self.data` can't fit in any of the versions with specified
-  ##    `mode`, `version` and `ecLevel`, a `DataSizeDefect` will be raised.
-  for i, version in getCapacities(self.mode)[self.ecLevel]:
-    if cast[uint16](self.data.len) < version:
-      self.version = i
-      return
+proc getSmallestVersion*(
+  data: string,
+  mode: QRMode,
+  ecLevel: QRECLevel
+): QRVersion =
+  result = 1
+  for version in getCapacities(mode)[ecLevel]:
+    if cast[uint16](data.len) < version:
+      return result
+    result.inc
   raise newException(
     DataSizeDefect,
     "The data can't fit in any QR code version with the specified ecLevel"
   )
 
-template checkSize(self: QRCode) =
-  ## Helper template to check if `self.data` fits in the specified `version`.
-  ##
-  ## .. note:: If `self.data` can't fit in any of the versions with specified
-  ##    `mode`, `version` and `ecLevel`, a `DataSizeDefect` will be raised.
-  ##
-  ## .. note:: When `setSmallestVersion<#setSmallestVersion%2CQRCode>`_ is
-  ##    used, there is no to use this.
-  if cast[uint16](self.data.len) > getCapacities(self.mode)[self]:
-    raise newException(
-      DataSizeDefect,
-      "The data can't fit in the specified QR code version"
-    )
-
 proc newQRCode*(
   data: string,
-  mode: QRMode,
-  version: QRVersion,
-  ecLevel: QRECLevel = qrECL
+  ecLevel: QRECLevel = qrECL,
+  mode: QRMode = data.getMostEfficientMode,
+  version: QRVersion = data.getSmallestVersion(mode, ecLevel),
 ): QRCode =
   ## Creates a new `QRCode` object with the specified `data`, `mode`, `version`
   ## and `ecLevel`.
   ##
-  ## .. note:: `ecLevel` will be `qrECL` by default.
-  ##
-  ## .. note:: `checkSize<#checkSize.t%2CQRCode>`_ will be used.
+  ## .. note:: Only the size will be checked.
   result = QRCode(mode: mode, version: version, ecLevel: ecLevel, data: data)
-  result.checkSize
-
-proc newQRCode*(
-  data: string,
-  version: QRVersion,
-  ecLevel: QRECLevel = qrECL
-): QRCode =
-  ## Creates a new `QRCode` object with the specified `data`, `version`
-  ## and `ecLevel`.
-  ##
-  ## .. note:: `ecLevel` will be `qrECL` by default.
-  ##
-  ## .. note:: `setMostEfficientMode<#setMostEfficientMode%2CQRCode>`_ will
-  ##    be used.
-  ##
-  ## .. note:: `checkSize<#checkSize.t%2CQRCode>`_ will be used.
-  result = QRCode(version: version, ecLevel: ecLevel, data: data)
-  result.setMostEfficientMode
-  result.checkSize
-
-proc newQRCode*(
-  data: string,
-  mode: QRMode,
-  ecLevel: QRECLevel = qrECL
-): QRCode =
-  ## Creates a new `QRCode` object with the specified `data`, `version`
-  ## and `ecLevel`.
-  ##
-  ## .. note:: `ecLevel` will be `qrECL` by default.
-  ##
-  ## .. note:: `setSmallestVersion<#setSmallestVersion%2CQRCode>`_ will
-  ##    be used.
-  result = QRCode(mode: mode, version: 1, ecLevel: ecLevel, data: data)
-  result.setSmallestVersion
-
-proc newQRCode*(
-  data: string,
-  ecLevel: QRECLevel = qrECL
-): QRCode =
-  ## Creates a new `QRCode` object with the specified `data` and `ecLevel`.
-  ##
-  ## .. note:: `ecLevel` will be `qrECL` by default.
-  ##
-  ## .. note:: `setMostEfficientMode<#setMostEfficientMode%2CQRCode>`_ will
-  ##    be used.
-  ##
-  ## .. note:: `setSmallestVersion<#setSmallestVersion%2CQRCode>`_ will
-  ##    be used.
-  result = QRCode(version: 1, ecLevel: ecLevel, data: data)
-  result.setMostEfficientMode
-  result.setSmallestVersion
+  if cast[uint16](result.data.len) > getCapacities(result.mode)[result]:
+    raise newException(
+      DataSizeDefect,
+      "The data can't fit in the specified QR code version"
+    )
