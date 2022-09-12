@@ -1,8 +1,4 @@
 printTerminal	QRgen/private/DrawedQRCode/print.html#printTerminal,DrawedQRCode	print: printTerminal(self: DrawedQRCode)	
-svgHeader	QRgen/private/DrawedQRCode/print.html#svgHeader	print: svgHeader	
-modulePath	QRgen/private/DrawedQRCode/print.html#modulePath	print: modulePath	
-moduleRect	QRgen/private/DrawedQRCode/print.html#moduleRect	print: moduleRect	
-alignmentPatternRect	QRgen/private/DrawedQRCode/print.html#alignmentPatternRect	print: alignmentPatternRect	
 printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string	print: printSvg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;; dark: string = &quot;#000000&quot;): string	
 printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,range[]	print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;\n         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]): string	
 printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,range[],range[]	print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;\n         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]; moRad: range[0.0&apos;f32 .. 0.4&apos;f32]): string	

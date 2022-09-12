@@ -139,16 +139,6 @@ window.addEventListener('DOMContentLoaded', main);
     title="newQRCode(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): QRCode">newQRCode(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): QRCode</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">setMostEfficientMode
-      <li><a class="reference" href="#setMostEfficientMode%2CQRCode"
-    title="setMostEfficientMode(self: var QRCode)">setMostEfficientMode(self: var QRCode)</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">setSmallestVersion
-      <li><a class="reference" href="#setSmallestVersion%2CQRCode"
-    title="setSmallestVersion(self: var QRCode)">setSmallestVersion(self: var QRCode)</a></li>
-
-  </ul>
 
   </ul>
 </li>
@@ -158,16 +148,6 @@ window.addEventListener('DOMContentLoaded', main);
       <ul class="simple nested-toc-section">[]
       <li><a class="reference" href="#%5B%5D.t%2CQRCapacity%5BT%5D%2CQRCode"
     title="`[]`[T](self: QRCapacity[T]; qr: QRCode): T">`[]`[T](self: QRCapacity[T]; qr: QRCode): T</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">checkSize
-      <li><a class="reference" href="#checkSize.t%2CQRCode"
-    title="checkSize(self: QRCode)">checkSize(self: QRCode)</a></li>
-
-  </ul>
-  <ul class="simple nested-toc-section">getCapacities
-      <li><a class="reference" href="#getCapacities.t%2CQRMode"
-    title="getCapacities(mode: QRMode): QRCapacity[uint16]">getCapacities(mode: QRMode): QRCapacity[uint16]</a></li>
 
   </ul>
 
@@ -304,36 +284,6 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-<div id="setMostEfficientMode,QRCode">
-<dt><pre><span class="Keyword">proc</span> <a href="#setMostEfficientMode%2CQRCode"><span class="Identifier">setMostEfficientMode</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="QRCode.html#QRCode"><span class="Identifier">QRCode</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-<p>Set's <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">mode</span></span></tt> to the most efficient mode by checking all of it's characters.</p>
-<p>If all it's characters are numbers (<tt class="docutils literal"><span class="pre"><span class="FloatNumber">0.</span><span class="Operator">.</span><span class="DecNumber">9</span></span></tt>), then the mode will be <tt class="docutils literal"><span class="pre"><span class="Identifier">qrNumericMode</span></span></tt>.</p>
-<p>If all its characters are in the <a class="reference external" href="qrCharacters.html#alphaNumericValues">alphaNumericValues set</a>, then the mode will be <tt class="docutils literal"><span class="pre"><span class="Identifier">qrAlphanumericMode</span></span></tt>.</p>
-<p>Else the mode will be <tt class="docutils literal"><span class="pre"><span class="Identifier">qrByteMode</span></span></tt>.</p>
-
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/main/src/QRgen/private/QRCode.nim#L49"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/QRCode.nim#L49" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="setSmallestVersion,QRCode">
-<dt><pre><span class="Keyword">proc</span> <a href="#setSmallestVersion%2CQRCode"><span class="Identifier">setSmallestVersion</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="QRCode.html#QRCode"><span class="Identifier">QRCode</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-<dd>
-
-Set's <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">version</span></span></tt> to the smallest version where <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">data</span></span></tt> can fit.<div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
-If <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">data</span></span></tt> can't fit in any of the versions with specified <tt class="docutils literal"><span class="pre"><span class="Identifier">mode</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">version</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">ecLevel</span></span></tt>, a <tt class="docutils literal"><span class="pre"><span class="Identifier">DataSizeDefect</span></span></tt> will be raised.</div>
-
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/main/src/QRgen/private/QRCode.nim#L69"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/QRCode.nim#L69" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
 
 </dl></div>
 <div class="section" id="18">
@@ -351,34 +301,6 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-<div id="checkSize.t,QRCode">
-<dt><pre><span class="Keyword">template</span> <a href="#checkSize.t%2CQRCode"><span class="Identifier">checkSize</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="QRCode.html#QRCode"><span class="Identifier">QRCode</span></a><span class="Other">)</span></pre></dt>
-<dd>
-
-Helper template to check if <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">data</span></span></tt> fits in the specified <tt class="docutils literal"><span class="pre"><span class="Identifier">version</span></span></tt>.<div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
-If <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">data</span></span></tt> can't fit in any of the versions with specified <tt class="docutils literal"><span class="pre"><span class="Identifier">mode</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">version</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">ecLevel</span></span></tt>, a <tt class="docutils literal"><span class="pre"><span class="Identifier">DataSizeDefect</span></span></tt> will be raised.</div>
-<div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
-When <a class="reference external" href="#setSmallestVersion%2CQRCode">setSmallestVersion</a> is used, there is no to use this.</div>
-
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/main/src/QRgen/private/QRCode.nim#L83"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/QRCode.nim#L83" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
-<div id="getCapacities.t,QRMode">
-<dt><pre><span class="Keyword">template</span> <a href="#getCapacities.t%2CQRMode"><span class="Identifier">getCapacities</span></a><span class="Other">(</span><span class="Identifier">mode</span><span class="Other">:</span> <a href="qrTypes.html#QRMode"><span class="Identifier">QRMode</span></a><span class="Other">)</span><span class="Other">:</span> <a href="qrCapacities.html#QRCapacity"><span class="Identifier">QRCapacity</span></a><span class="Other">[</span><span class="Identifier">uint16</span><span class="Other">]</span></pre></dt>
-<dd>
-
-A helper template to get <tt class="docutils literal"><span class="pre"><span class="Identifier">mode</span></span></tt>'s capacities.
-&nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/main/src/QRgen/private/QRCode.nim#L42"
-class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/QRCode.nim#L42" class="link-seesrc" target="_blank" >Edit</a>
-
-</dd>
-</div>
 
 </dl></div>
 
@@ -389,7 +311,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-10 15:57:44 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-12 06:38:36 UTC</small>
       </div>
     </div>
   </div>

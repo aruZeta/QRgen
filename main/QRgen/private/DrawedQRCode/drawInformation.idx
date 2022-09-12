@@ -1,3 +1,2 @@
-calcLen	QRgen/private/DrawedQRCode/drawInformation.html#calcLen,T	drawInformation: calcLen[T: uint16 | uint32](bits: T): uint8	
 drawFormatInformation	QRgen/private/DrawedQRCode/drawInformation.html#drawFormatInformation,DrawedQRCode	drawInformation: drawFormatInformation(self: var DrawedQRCode)	
 drawVersionInformation	QRgen/private/DrawedQRCode/drawInformation.html#drawVersionInformation,DrawedQRCode	drawInformation: drawVersionInformation(self: var DrawedQRCode)	

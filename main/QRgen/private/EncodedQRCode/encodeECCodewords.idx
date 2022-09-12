@@ -1,4 +1,1 @@
-gf256Mod285Multiply	QRgen/private/EncodedQRCode/encodeECCodewords.html#gf256Mod285Multiply,uint8,uint8	encodeECCodewords: gf256Mod285Multiply(x, y: uint8): uint8	
-calcGeneratorPolynomial	QRgen/private/EncodedQRCode/encodeECCodewords.html#calcGeneratorPolynomial,EncodedQRCode	encodeECCodewords: calcGeneratorPolynomial(self: EncodedQRCode): seq[uint8]	
-calcBlockPositions	QRgen/private/EncodedQRCode/encodeECCodewords.html#calcBlockPositions,EncodedQRCode	encodeECCodewords: calcBlockPositions(self: EncodedQRCode): seq[uint16]	
 encodeECCodewords	QRgen/private/EncodedQRCode/encodeECCodewords.html#encodeECCodewords,EncodedQRCode	encodeECCodewords: encodeECCodewords(self: var EncodedQRCode)	
