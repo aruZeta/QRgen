@@ -20,20 +20,21 @@ const branches = ["develop", "main"]
 const mainFile = "src/QRgen.nim"
 
 task gendocs, "Generate documentation in docs folder":
-  proc getBranch: string =
+  proc getName: string =
     for param in commandLineParams:
       if param[0] != '-': return param
-    quit("You have to pass the branch to build docs from")
-  let branch = getBranch()
-  if branch notin branches:
-    quit("Only the branches main and develop can be specified")
+    quit("You have to pass a name as the directory to store the generated docs")
+  let dir = getName()
+  if not(dir in branches or dir[0] == 'v'):
+    quit("The name can only be a branch name or tag name")
   let flags = [
     "--project",
     &"--git.url:\"{repo}\"",
-    "--docInternal",
+    (if dir == "develop": "--docInternal"
+     else: ""),
     "--outdir:docs",
     "--path:src",
-    &"--git.commit:{branch}",
+    &"--git.commit:{dir}",
   ].join " "
   exec &"nim doc {flags} {mainFile}"
 

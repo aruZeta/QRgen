@@ -3,6 +3,7 @@ name: Gen Docs
 on:
   push:
     branches: [ main, develop ]
+    tags: v*
     paths:
       - '**.nim*'
       - '**.cfg'
