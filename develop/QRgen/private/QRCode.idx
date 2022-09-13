@@ -2,11 +2,7 @@ QRCode	QRgen/private/QRCode.html#QRCode	QRCode: QRCode
 DataSizeDefect	QRgen/private/QRCode.html#DataSizeDefect	QRCode: DataSizeDefect	
 `[]`	QRgen/private/QRCode.html#[].t,QRCapacity[T],QRCode	QRCode: `[]`[T](self: QRCapacity[T]; qr: QRCode): T	
 getCapacities	QRgen/private/QRCode.html#getCapacities.t,QRMode	QRCode: getCapacities(mode: QRMode): QRCapacity[uint16]	
-setMostEfficientMode	QRgen/private/QRCode.html#setMostEfficientMode,QRCode	QRCode: setMostEfficientMode(self: var QRCode)	
-setSmallestVersion	QRgen/private/QRCode.html#setSmallestVersion,QRCode	QRCode: setSmallestVersion(self: var QRCode)	
-checkSize	QRgen/private/QRCode.html#checkSize.t,QRCode	QRCode: checkSize(self: QRCode)	
-newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRMode,QRVersion,QRECLevel	QRCode: newQRCode(data: string; mode: QRMode; version: QRVersion;\n          ecLevel: QRECLevel = qrECL): QRCode	
-newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRVersion,QRECLevel	QRCode: newQRCode(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): QRCode	
-newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRMode,QRECLevel	QRCode: newQRCode(data: string; mode: QRMode; ecLevel: QRECLevel = qrECL): QRCode	
-newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRECLevel	QRCode: newQRCode(data: string; ecLevel: QRECLevel = qrECL): QRCode	
+getMostEfficientMode	QRgen/private/QRCode.html#getMostEfficientMode,string	QRCode: getMostEfficientMode(data: string): QRMode	
+getSmallestVersion	QRgen/private/QRCode.html#getSmallestVersion,string,QRMode,QRECLevel	QRCode: getSmallestVersion(data: string; mode: QRMode; ecLevel: QRECLevel): QRVersion	
+newQRCode	QRgen/private/QRCode.html#newQRCode,string,QRECLevel,QRMode,QRVersion	QRCode: newQRCode(data: string; ecLevel: QRECLevel = qrECL;\n          mode: QRMode = data.getMostEfficientMode;\n          version: QRVersion = data.getSmallestVersion(mode, ecLevel)): QRCode	
 QRCode implementation	QRgen/private/QRCode.html#qrcode-implementation	 QRCode implementation	
