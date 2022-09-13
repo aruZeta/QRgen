@@ -57,37 +57,8 @@ const moduleRect: string =
 
 const alignmentPatternRect: string =
   """<rect class="qr{m} qrRounded qrAlignment"""" &
-  """ fill="{c}" x="{x}" y="{y}" width="{w}" height="{h}"""" &
+  """ fill="{c}" x="{x}" y="{y}" width="{size}" height="{size}"""" &
   """ rx="{r:<.3}"></rect>"""
-
-template drawRegion(ax, bx, ay, by: uint8, s: string) {.dirty.} =
-  for y in ay..<by:
-    for x in ax..<bx:
-      if self.drawing[x, y]:
-        result.add fmt(s)
-
-template drawRegionWithoutAlPatterns(s: string) {.dirty.} =
-  drawRegion 0'u8, size, 7'u8, size-7, s
-  drawRegion 7'u8, size-7, 0'u8, 7'u8, s
-  drawRegion 7'u8, size, size-7, size, s
-
-func roundedRect(x, y, w, h: uint8, r: float32, m, c: string): string =
-  fmt(alignmentPatternRect)
-
-template checkRadius(lvl: range[1'i8..2'i8]): float32 =
-  if alRadPx == 0: 0f
-  elif alRadPx-lvl <= 0: 1f / (lvl * 2)
-  else: alRadPx-lvl
-
-template drawRoundedAlignmentPattern(x, y: uint8): string =
-  roundedRect(x, y, 7'u8, 7'u8, alRadPx, "dark", dark) &
-  roundedRect(x+1, y+1, 5'u8, 5'u8, checkRadius 1, "light", light) &
-  roundedRect(x+2, y+2, 3'u8, 3'u8, checkRadius 2, "dark", dark)
-
-template drawRoundedAlignmentPatterns {.dirty.} =
-  result.add drawRoundedAlignmentPattern(0'u8, 0'u8)
-  result.add drawRoundedAlignmentPattern(size-7, 0'u8)
-  result.add drawRoundedAlignmentPattern(0'u8, size-7)
 
 type
   Percentage = range[0f32..100f32]
@@ -108,17 +79,38 @@ func printSvg*(
   forceUseRect: bool = false
 ): string =
   result = fmt(svgHeader)
+  template drawRegion(ax, bx, ay, by: uint8, s: static string) {.dirty.} =
+    for y in ay..<by:
+      for x in ax..<bx:
+        if self.drawing[x, y]:
+          result.add fmt(s)
+  template drawQRModulesOnly(s: static string) {.dirty.} =
+    drawRegion 0'u8, size, 7'u8, size-7, s
+    drawRegion 7'u8, size-7, 0'u8, 7'u8, s
+    drawRegion 7'u8, size, size-7, size, s
   if moRad or forceUseRect:
     let moRadPx: float32 = (0.5 - moSep) * moRad / 100
-    drawRegionWithoutAlPatterns moduleRect
+    drawQRModulesOnly moduleRect
   else:
     result.add fmt(modulePathStart)
     if alRad:
-      drawRegionWithoutAlPatterns modulePath
+      drawQRModulesOnly modulePath
     else:
       drawRegion 0'u8, size, 0'u8, size, modulePath
     result.add fmt(modulePathEnd)
   if alRad or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
-    drawRoundedAlignmentPatterns
+    template innerRadius(lvl: range[1'i8..2'i8]): float32 =
+      if alRadPx == 0: 0f
+      elif alRadPx-lvl <= 0: 1f / (lvl * 2)
+      else: alRadPx-lvl
+    func drawRoundedRect(x, y, size: uint8, r: float32, m, c: string): string =
+      fmt(alignmentPatternRect)
+    template drawRoundedAlPattern(x, y: uint8): string =
+      drawRoundedRect(x, y, 7'u8, alRadPx, "dark", dark) &
+      drawRoundedRect(x+1, y+1, 5'u8, innerRadius 1, "light", light) &
+      drawRoundedRect(x+2, y+2, 3'u8, innerRadius 2, "dark", dark)
+    result.add drawRoundedAlPattern(0'u8, 0'u8)
+    result.add drawRoundedAlPattern(size-7, 0'u8)
+    result.add drawRoundedAlPattern(0'u8, size-7)
   result.add svgEnd
