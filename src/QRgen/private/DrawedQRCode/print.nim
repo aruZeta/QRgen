@@ -99,20 +99,21 @@ func printSvg*(
   alRad: Percentage = 0,
   moRad: Percentage = 0,
   class: string = "qrCode",
-  id: string = ""
+  id: string = "",
+  forceUseRect: bool = false
 ): string =
   result = fmt(svgHeader)
-  if moRad:
+  if moRad or forceUseRect:
     let moRadPx: float32 = 0.4 * moRad / 100
     drawRegionWithoutAlPatterns moduleRect
   else:
     result.add fmt(modulePathStart)
-    if alRad:
+    if alRad or forceUseRect:
       drawRegionWithoutAlPatterns modulePath
     else:
       drawRegion 0'u8, size, 0'u8, size, modulePath
     result.add fmt(modulePathEnd)
-  if alRad:
+  if alRad or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
     drawRoundedAlignmentPatterns
   result.add svgEnd
