@@ -49,3 +49,43 @@ benchmarkTest "Testing very rounded svg":
     "build" / "testingVeryRoundedSvg.svg",
     qr.printSvg("#1d2021", "#98971a", alRad = 100, moRad = 100)
   )
+
+benchmarkTest "Testing separation":
+  let qr = newQR("https://github.com/aruZeta/QRgen")
+  writeFile(
+    "build" / "testingSeparation.svg",
+    qr.printSvg(
+      "#1d2021", "#98971a",
+      alRad = 100,
+      moRad = 0,
+      forceUseRect = true,
+      moSep = 0.05
+    )
+  )
+  writeFile(
+    "build" / "testingSeparation2.svg",
+    qr.printSvg(
+      "#1d2021", "#98971a",
+      alRad = 100,
+      moRad = 50,
+      moSep = 0.05
+    )
+  )
+  writeFile(
+    "build" / "testingSeparation3.svg",
+    qr.printSvg(
+      "#1d2021", "#98971a",
+      alRad = 100,
+      moRad = 100,
+      moSep = 0.05
+    )
+  )
+  writeFile(
+    "build" / "testingSeparation4.svg",
+    qr.printSvg(
+      "#1d2021", "#98971a",
+      alRad = 100,
+      moRad = 100,
+      moSep = 0.4
+    )
+  )

@@ -49,8 +49,11 @@ const modulePathEnd: string =
 
 const moduleRect: string =
   """<rect class="qrDark qrRounded qrModule"""" &
-  """ fill="{dark}" x="{x.float32+0.1}" y="{y.float32+0.1}"""" &
-  """ width="0.8" height="0.8" rx="{moRadPx:<.3}"></rect>"""
+  """ fill="{dark}" x="{x.float32+moSep}" y="{y.float32+moSep}"""" &
+  """ width="{1-moSep*2:<.3}"""" &
+  """ height="{1-moSep*2:<.3}"""" &
+  """ rx="{moRadPx:<.3}"""" &
+  """></rect>"""
 
 const alignmentPatternRect: string =
   """<rect class="qr{m} qrRounded qrAlignment"""" &
@@ -88,6 +91,7 @@ template drawRoundedAlignmentPatterns {.dirty.} =
 
 type
   Percentage = range[0f32..100f32]
+  Separation = range[0f32..0.4f32]
 
 converter toBool(self: Percentage): bool =
   self > Percentage.low
@@ -98,13 +102,14 @@ func printSvg*(
   dark = "#000000",
   alRad: Percentage = 0,
   moRad: Percentage = 0,
+  moSep: Separation = 0.1,
   class: string = "qrCode",
   id: string = "",
   forceUseRect: bool = false
 ): string =
   result = fmt(svgHeader)
   if moRad or forceUseRect:
-    let moRadPx: float32 = 0.4 * moRad / 100
+    let moRadPx: float32 = (0.5 - moSep) * moRad / 100
     drawRegionWithoutAlPatterns moduleRect
   else:
     result.add fmt(modulePathStart)
