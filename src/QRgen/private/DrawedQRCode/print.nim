@@ -49,7 +49,7 @@ const modulePathEnd: string =
 
 const moduleRect: string =
   """<rect class="qrDark qrRounded qrModule"""" &
-  """ fill="{dark}" x="{x.float32+moSep}" y="{y.float32+moSep}"""" &
+  """ fill="{dark}" x="{x.float32+moSep:<.3}" y="{y.float32+moSep:<.3}"""" &
   """ width="{1-moSep*2:<.3}"""" &
   """ height="{1-moSep*2:<.3}"""" &
   """ rx="{moRadPx:<.3}"""" &
