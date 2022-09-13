@@ -108,7 +108,7 @@ func printSvg*(
     drawRegionWithoutAlPatterns moduleRect
   else:
     result.add fmt(modulePathStart)
-    if alRad or forceUseRect:
+    if alRad:
       drawRegionWithoutAlPatterns modulePath
     else:
       drawRegion 0'u8, size, 0'u8, size, modulePath
