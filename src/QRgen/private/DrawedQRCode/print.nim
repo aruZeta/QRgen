@@ -89,46 +89,36 @@ template drawRoundedAlignmentPatterns {.dirty.} =
   result.add drawRoundedAlignmentPattern(size-7, 0'u8)
   result.add drawRoundedAlignmentPattern(0'u8, size-7)
 
-proc checkParamInRange(
-  name: static string,
-  val: float32,
-  r1: static float32,
-  r2: static float32
-) {.inline.} =
-  const err =
-    name & "must be a value between " & $r1 & " and " & $r2
-  if val notin r1..r2: raise newException(RangeDefect, err)
+type
+  Percentage = range[0f32..100f32]
+  Separation = range[0f32..0.4f32]
 
-func getMoSep(moRad: float32, forceUseRect: bool): float32 =
-  if moRad > 0 or forceUseRect: 0.1
-  else: 0
+converter toBool(self: Percentage): bool =
+  self > Percentage.low
 
-proc printSvg*(
+func printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
   dark = "#000000",
-  alRad: float32 = 0,
-  moRad: float32 = 0,
-  forceUseRect: bool = false,
-  moSep: float32 = getMoSep(moRad, forceUseRect),
+  alRad: Percentage = 0,
+  moRad: Percentage = 0,
+  moSep: Separation = 0.1,
   class: string = "qrCode",
   id: string = "",
+  forceUseRect: bool = false
 ): string =
-  checkParamInRange "alRad", alRad, 0f32, 100f32
-  checkParamInRange "moRad", moRad, 0f32, 100f32
-  checkParamInRange "moSep", moSep, 0f32, 0.4f32
   result = fmt(svgHeader)
-  if moRad > 0 or forceUseRect:
+  if moRad or forceUseRect:
     let moRadPx: float32 = (0.5 - moSep) * moRad / 100
     drawRegionWithoutAlPatterns moduleRect
   else:
     result.add fmt(modulePathStart)
-    if alRad > 0:
+    if alRad:
       drawRegionWithoutAlPatterns modulePath
     else:
       drawRegion 0'u8, size, 0'u8, size, modulePath
     result.add fmt(modulePathEnd)
-  if alRad > 0 or forceUseRect:
+  if alRad or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
     drawRoundedAlignmentPatterns
   result.add svgEnd
