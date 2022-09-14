@@ -48,12 +48,18 @@ const modulePathEnd: string =
   "\"></path>"
 
 const moduleRect: string =
-  """<rect class="qrDark qrRounded qrModule"""" &
-  """ fill="{dark}" x="{x.float32+moSep:<3}" y="{y.float32+moSep}"""" &
+  """<rect""" &
+  """ x="{x.float32+moSep:<3}" y="{y.float32+moSep}"""" &
   """ width="{1-moSep*2}"""" &
   """ height="{1-moSep*2}"""" &
   """ rx="{moRadPx}"""" &
   """></rect>"""
+
+const rectGroupStart: string =
+  """<g fill="{dark}" class="qrDark qrRounded qrModules">"""
+
+const rectGroupEnd: string =
+  """</g>"""
 
 const alignmentPatternRect: string =
   """<rect class="qr{m} qrRounded qrAlignment"""" &
@@ -90,7 +96,9 @@ func printSvg*(
     drawRegion 7'u8, size, size-7, size, s
   if moRad or forceUseRect:
     let moRadPx: float32 = (0.5 - moSep) * moRad / 100
+    result.add fmt(rectGroupStart)
     drawQRModulesOnly moduleRect
+    result.add rectGroupEnd
   else:
     result.add fmt(modulePathStart)
     if alRad:
