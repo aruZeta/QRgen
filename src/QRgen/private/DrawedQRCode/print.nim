@@ -36,7 +36,8 @@ const svgHeader: string =
   """<path class="qrLight" fill="{light}"""" &
   """ d="M-5,-5h{size+10}v{size+10}h-{size+10}Z"></path>"""
 
-const svgEnd: string = "</svg>"
+const svgEnd: string =
+  """</svg>"""
 
 const moPath: string =
   """M{x},{y}h1v1h-1Z"""
@@ -61,10 +62,28 @@ const moRectGroupStart: string =
 const moRectGroupEnd: string =
   """</g>"""
 
-const alignmentPatternRect: string =
-  """<rect class="qr{m} qrRounded qrAlignment"""" &
-  """ fill="{c}" x="{x}" y="{y}" width="{size}" height="{size}"""" &
+const alRect: string =
+  """<rect""" &
+  """ x="{x}" y="{y}" width="{size}" height="{size}"""" &
   """ rx="{r}"></rect>"""
+
+const alRectGroupStart: string =
+  """<g class="qrRounded qrAlPatterns">"""
+
+const alRectGroupEnd: string =
+  """</g>"""
+
+const alRectDarkGroupStart: string =
+  """<g class="qrDark" fill="{dark}">"""
+
+const alRectDarkGroupEnd: string =
+  """</g>"""
+
+const alRectLightGroupStart: string =
+  """<g class="qrLight" fill="{light}">"""
+
+const alRectLightGroupEnd: string =
+  """</g>"""
 
 type
   Percentage = range[0f32..100f32]
@@ -108,17 +127,25 @@ func printSvg*(
     result.add fmt(moPathEnd)
   if alRad or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
-    template innerRadius(lvl: range[1'i8..2'i8]): float32 =
-      if alRadPx == 0: 0f
-      elif alRadPx-lvl <= 0: 1f / (lvl * 2)
-      else: alRadPx-lvl
-    func drawRoundedRect(x, y, size: uint8, r: float32, m, c: string): string =
-      fmt(alignmentPatternRect)
-    template drawRoundedAlPattern(x, y: uint8): string =
-      drawRoundedRect(x, y, 7'u8, alRadPx, "dark", dark) &
-      drawRoundedRect(x+1, y+1, 5'u8, innerRadius 1, "light", light) &
-      drawRoundedRect(x+2, y+2, 3'u8, innerRadius 2, "dark", dark)
-    result.add drawRoundedAlPattern(0'u8, 0'u8)
-    result.add drawRoundedAlPattern(size-7, 0'u8)
-    result.add drawRoundedAlPattern(0'u8, size-7)
+    template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
+      when lvl == 0: alRadPx
+      else:
+        if alRadPx == 0: 0f
+        elif alRadPx-lvl <= 0: 1f / (lvl * 2)
+        else: alRadPx-lvl
+    func drawRoundedRect(x, y, size: uint8, r: float32): string =
+      fmt(alRect)
+    template drawAlPatterns(lvl: range[0'i8..2'i8], c: untyped) {.dirty.} =
+      result.add(
+        fmt(`alRect c GroupStart`) &
+        drawRoundedRect(0'u8+lvl, 0'u8+lvl, 7'u8-lvl*2, innerRadius lvl) &
+        drawRoundedRect(size-7'u8+lvl, 0'u8+lvl, 7'u8-lvl*2, innerRadius lvl) &
+        drawRoundedRect(0'u8+lvl, size-7+lvl, 7'u8-lvl*2, innerRadius lvl) &
+        `alRect c GroupEnd`
+      )
+    result.add alRectGroupStart
+    drawAlPatterns 0, dark
+    drawAlPatterns 1, light
+    drawAlPatterns 2, dark
+    result.add alRectGroupEnd
   result.add svgEnd
