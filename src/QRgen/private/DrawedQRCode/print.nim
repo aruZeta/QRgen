@@ -38,16 +38,16 @@ const svgHeader: string =
 
 const svgEnd: string = "</svg>"
 
-const modulePath: string =
+const moPath: string =
   """M{x},{y}h1v1h-1Z"""
 
-const modulePathStart: string =
+const moPathStart: string =
   """<path class="qrDark" fill="{dark}" d=""""
 
-const modulePathEnd: string =
+const moPathEnd: string =
   "\"></path>"
 
-const moduleRect: string =
+const moRect: string =
   """<rect""" &
   """ x="{x.float32+moSep:<3}" y="{y.float32+moSep}"""" &
   """ width="{1-moSep*2}"""" &
@@ -55,10 +55,10 @@ const moduleRect: string =
   """ rx="{moRadPx}"""" &
   """></rect>"""
 
-const rectGroupStart: string =
+const moRectGroupStart: string =
   """<g fill="{dark}" class="qrDark qrRounded qrModules">"""
 
-const rectGroupEnd: string =
+const moRectGroupEnd: string =
   """</g>"""
 
 const alignmentPatternRect: string =
@@ -96,16 +96,16 @@ func printSvg*(
     drawRegion 7'u8, size, size-7, size, s
   if moRad or forceUseRect:
     let moRadPx: float32 = (0.5 - moSep) * moRad / 100
-    result.add fmt(rectGroupStart)
-    drawQRModulesOnly moduleRect
-    result.add rectGroupEnd
+    result.add fmt(moRectGroupStart)
+    drawQRModulesOnly moRect
+    result.add moRectGroupEnd
   else:
-    result.add fmt(modulePathStart)
+    result.add fmt(moPathStart)
     if alRad:
-      drawQRModulesOnly modulePath
+      drawQRModulesOnly moPath
     else:
-      drawRegion 0'u8, size, 0'u8, size, modulePath
-    result.add fmt(modulePathEnd)
+      drawRegion 0'u8, size, 0'u8, size, moPath
+    result.add fmt(moPathEnd)
   if alRad or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: range[1'i8..2'i8]): float32 =
