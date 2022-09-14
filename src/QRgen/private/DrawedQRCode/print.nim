@@ -49,16 +49,16 @@ const modulePathEnd: string =
 
 const moduleRect: string =
   """<rect class="qrDark qrRounded qrModule"""" &
-  """ fill="{dark}" x="{x.float32+moSep:<.3}" y="{y.float32+moSep:<.3}"""" &
-  """ width="{1-moSep*2:<.3}"""" &
-  """ height="{1-moSep*2:<.3}"""" &
-  """ rx="{moRadPx:<.3}"""" &
+  """ fill="{dark}" x="{x.float32+moSep:<3}" y="{y.float32+moSep}"""" &
+  """ width="{1-moSep*2}"""" &
+  """ height="{1-moSep*2}"""" &
+  """ rx="{moRadPx}"""" &
   """></rect>"""
 
 const alignmentPatternRect: string =
   """<rect class="qr{m} qrRounded qrAlignment"""" &
   """ fill="{c}" x="{x}" y="{y}" width="{size}" height="{size}"""" &
-  """ rx="{r:<.3}"></rect>"""
+  """ rx="{r}"></rect>"""
 
 type
   Percentage = range[0f32..100f32]
