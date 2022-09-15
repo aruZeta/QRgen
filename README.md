@@ -110,7 +110,9 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
 
 Since the generated SVGs have css classes, we can do stuff like this:
 
-https://user-images.githubusercontent.com/68018085/188283528-45b2daf7-ff61-4930-a757-fd6d0846939c.mp4
+https://user-images.githubusercontent.com/68018085/190470749-66090814-08fe-45b5-881d-a96b272374be.mp4
+
+https://user-images.githubusercontent.com/68018085/190470760-8a5b5a30-5812-4777-8e05-8d2b250a9113.mp4
 
 Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
