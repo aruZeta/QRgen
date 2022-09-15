@@ -64,7 +64,7 @@ const moRectGroupEnd: string =
 
 const alRect: string =
   """<rect""" &
-  """ x="{x}" y="{y}" width="{size}" height="{size}"""" &
+  """ x="{x}" y="{y}" width="{s}" height="{s}"""" &
   """ rx="{r}"></rect>"""
 
 const alRectGroupStart: string =
@@ -133,16 +133,15 @@ func printSvg*(
         if alRadPx == 0: 0f
         elif alRadPx-lvl <= 0: 1f / (lvl * 2)
         else: alRadPx-lvl
-    func drawRoundedRect(x, y, size: uint8, r: float32): string =
-      fmt(alRect)
+    func drawRoundedRect(x, y: uint8, s, r: float32): string = fmt(alRect)
     template drawAlPatterns(lvl: range[0'i8..2'i8], c: untyped) {.dirty.} =
-      result.add(
-        fmt(`alRect c GroupStart`) &
-        drawRoundedRect(0'u8+lvl, 0'u8+lvl, 7'u8-lvl*2, innerRadius lvl) &
-        drawRoundedRect(size-7'u8+lvl, 0'u8+lvl, 7'u8-lvl*2, innerRadius lvl) &
-        drawRoundedRect(0'u8+lvl, size-7+lvl, 7'u8-lvl*2, innerRadius lvl) &
-        `alRect c GroupEnd`
-      )
+      template s: float32 = 7-lvl*2
+      template r: float32 = innerRadius(lvl)
+      result.add fmt(`alRect c GroupStart`)
+      result.add drawRoundedRect(0'u8+lvl, 0'u8+lvl, s, r)
+      result.add drawRoundedRect(size-7'u8+lvl, 0'u8+lvl, s, r)
+      result.add drawRoundedRect(0'u8+lvl, size-7+lvl, s, r)
+      result.add `alRect c GroupEnd`
     result.add alRectGroupStart
     drawAlPatterns 0, dark
     drawAlPatterns 1, light
