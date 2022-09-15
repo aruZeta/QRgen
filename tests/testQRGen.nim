@@ -59,7 +59,7 @@ benchmarkTest "Testing separation":
       alRad = 100,
       moRad = 0,
       forceUseRect = true,
-      moSep = 0.05
+      moSep = 12.5
     )
   )
   writeFile(
@@ -68,7 +68,7 @@ benchmarkTest "Testing separation":
       "#1d2021", "#98971a",
       alRad = 100,
       moRad = 50,
-      moSep = 0.05
+      moSep = 12.5
     )
   )
   writeFile(
@@ -77,7 +77,7 @@ benchmarkTest "Testing separation":
       "#1d2021", "#98971a",
       alRad = 100,
       moRad = 100,
-      moSep = 0.05
+      moSep = 12.5
     )
   )
   writeFile(
@@ -86,6 +86,6 @@ benchmarkTest "Testing separation":
       "#1d2021", "#98971a",
       alRad = 100,
       moRad = 100,
-      moSep = 0.4
+      moSep = 100
     )
   )
