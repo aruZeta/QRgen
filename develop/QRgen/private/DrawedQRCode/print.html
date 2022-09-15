@@ -121,18 +121,34 @@ window.addEventListener('DOMContentLoaded', main);
 <li>
   <a class="reference reference-toplevel" href="#10" id="60">Consts</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#alignmentPatternRect"
-    title="alignmentPatternRect: string = &quot;&lt;rect class=\&quot;qr{m} qrRounded qrAlignment\&quot; fill=\&quot;{c}\&quot; x=\&quot;{x}\&quot; y=\&quot;{y}\&quot; width=\&quot;{size}\&quot; height=\&quot;{size}\&quot; rx=\&quot;{r}\&quot;&gt;&lt;/rect&gt;&quot;">alignmentPatternRect</a></li>
-  <li><a class="reference" href="#modulePath"
-    title="modulePath: string = &quot;&quot;&quot;M{x},{y}h1v1h-1Z&quot;&quot;&quot;">modulePath</a></li>
-  <li><a class="reference" href="#modulePathEnd"
-    title="modulePathEnd: string = &quot;\&quot;&gt;&lt;/path&gt;&quot;">modulePathEnd</a></li>
-  <li><a class="reference" href="#modulePathStart"
-    title="modulePathStart: string = &quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;">modulePathStart</a></li>
-  <li><a class="reference" href="#moduleRect"
-    title="moduleRect: string = &quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{x.float32+moSep:&lt;3}\&quot; y=\&quot;{y.float32+moSep}\&quot; width=\&quot;{1-moSep*2}\&quot; height=\&quot;{1-moSep*2}\&quot; rx=\&quot;{moRadPx}\&quot;&gt;&lt;/rect&gt;&quot;">moduleRect</a></li>
+      <li><a class="reference" href="#alRect"
+    title="alRect: string = &quot;&lt;rect x=\&quot;{x}\&quot; y=\&quot;{y}\&quot; width=\&quot;{s}\&quot; height=\&quot;{s}\&quot; rx=\&quot;{r}\&quot;&gt;&lt;/rect&gt;&quot;">alRect</a></li>
+  <li><a class="reference" href="#alRectDarkGroupEnd"
+    title="alRectDarkGroupEnd: string = &quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;">alRectDarkGroupEnd</a></li>
+  <li><a class="reference" href="#alRectDarkGroupStart"
+    title="alRectDarkGroupStart: string = &quot;&quot;&quot;&lt;g class=&quot;qrDark&quot; fill=&quot;{dark}&quot;&gt;&quot;&quot;&quot;">alRectDarkGroupStart</a></li>
+  <li><a class="reference" href="#alRectGroupEnd"
+    title="alRectGroupEnd: string = &quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;">alRectGroupEnd</a></li>
+  <li><a class="reference" href="#alRectGroupStart"
+    title="alRectGroupStart: string = &quot;&quot;&quot;&lt;g class=&quot;qrRounded qrAlPatterns&quot;&gt;&quot;&quot;&quot;">alRectGroupStart</a></li>
+  <li><a class="reference" href="#alRectLightGroupEnd"
+    title="alRectLightGroupEnd: string = &quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;">alRectLightGroupEnd</a></li>
+  <li><a class="reference" href="#alRectLightGroupStart"
+    title="alRectLightGroupStart: string = &quot;&quot;&quot;&lt;g class=&quot;qrLight&quot; fill=&quot;{light}&quot;&gt;&quot;&quot;&quot;">alRectLightGroupStart</a></li>
+  <li><a class="reference" href="#moPath"
+    title="moPath: string = &quot;&quot;&quot;M{x},{y}h1v1h-1Z&quot;&quot;&quot;">moPath</a></li>
+  <li><a class="reference" href="#moPathEnd"
+    title="moPathEnd: string = &quot;\&quot;&gt;&lt;/path&gt;&quot;">moPathEnd</a></li>
+  <li><a class="reference" href="#moPathStart"
+    title="moPathStart: string = &quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;">moPathStart</a></li>
+  <li><a class="reference" href="#moRect"
+    title="moRect: string = &quot;&lt;rect x=\&quot;{x.float32+moSep:&lt;3}\&quot; y=\&quot;{y.float32+moSep}\&quot; width=\&quot;{1-moSep*2}\&quot; height=\&quot;{1-moSep*2}\&quot; rx=\&quot;{moRadPx}\&quot;&gt;&lt;/rect&gt;&quot;">moRect</a></li>
+  <li><a class="reference" href="#moRectGroupEnd"
+    title="moRectGroupEnd: string = &quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;">moRectGroupEnd</a></li>
+  <li><a class="reference" href="#moRectGroupStart"
+    title="moRectGroupStart: string = &quot;&quot;&quot;&lt;g fill=&quot;{dark}&quot; class=&quot;qrDark qrRounded qrModules&quot;&gt;&quot;&quot;&quot;">moRectGroupStart</a></li>
   <li><a class="reference" href="#svgEnd"
-    title="svgEnd: string = &quot;&lt;/svg&gt;&quot;">svgEnd</a></li>
+    title="svgEnd: string = &quot;&quot;&quot;&lt;/svg&gt;&quot;&quot;&quot;">svgEnd</a></li>
   <li><a class="reference" href="#svgHeader"
     title="svgHeader: string = &quot;&lt;svg class=\&quot;{class}\&quot; id=\&quot;{id}\&quot; version=\&quot;1.1\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot; viewBox=\&quot;-5 -5 {size+10} {size+10}\&quot;&gt;&lt;path class=\&quot;qrLight\&quot; fill=\&quot;{light}\&quot; d=\&quot;M-5,-5h{size+10}v{size+10}h-{size+10}Z\&quot;&gt;&lt;/path&gt;&quot;">svgHeader</a></li>
 
@@ -207,14 +223,31 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L64"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L89"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L64" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L89" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="Separation">
 <dt><pre><span class="Identifier">Separation</span> <span class="Other">=</span> <span class="Identifier">range</span><span class="Other">[</span><span class="FloatNumber">0.0'f32</span> <span class="Operator">..</span> <span class="FloatNumber">0.4'f32</span><span class="Other">]</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L90"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L90" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+
+</dl></div>
+<div class="section" id="10">
+<h1><a class="toc-backref" href="#10">Consts</a></h1>
+<dl class="item">
+<div id="alRect">
+<dt><pre><span class="Identifier">alRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect x=\&quot;{x}\&quot; y=\&quot;{y}\&quot; width=\&quot;{s}\&quot; height=\&quot;{s}\&quot; rx=\&quot;{r}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
 <dd>
 
 
@@ -225,73 +258,152 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-
-</dl></div>
-<div class="section" id="10">
-<h1><a class="toc-backref" href="#10">Consts</a></h1>
-<dl class="item">
-<div id="alignmentPatternRect">
-<dt><pre><span class="Identifier">alignmentPatternRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect class=\&quot;qr{m} qrRounded qrAlignment\&quot; fill=\&quot;{c}\&quot; x=\&quot;{x}\&quot; y=\&quot;{y}\&quot; width=\&quot;{size}\&quot; height=\&quot;{size}\&quot; rx=\&quot;{r}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
+<div id="alRectDarkGroupEnd">
+<dt><pre><span class="Identifier">alRectDarkGroupEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L58"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L79"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L58" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L79" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="modulePath">
-<dt><pre><span class="Identifier">modulePath</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;M{x},{y}h1v1h-1Z&quot;&quot;&quot;</span></pre></dt>
+<div id="alRectDarkGroupStart">
+<dt><pre><span class="Identifier">alRectDarkGroupStart</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;g class=&quot;qrDark&quot; fill=&quot;{dark}&quot;&gt;&quot;&quot;&quot;</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L41"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L76"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L41" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L76" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="modulePathEnd">
-<dt><pre><span class="Identifier">modulePathEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;\&quot;&gt;&lt;/path&gt;&quot;</span></pre></dt>
+<div id="alRectGroupEnd">
+<dt><pre><span class="Identifier">alRectGroupEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L47"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L73"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L47" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L73" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="modulePathStart">
-<dt><pre><span class="Identifier">modulePathStart</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;</span></pre></dt>
+<div id="alRectGroupStart">
+<dt><pre><span class="Identifier">alRectGroupStart</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;g class=&quot;qrRounded qrAlPatterns&quot;&gt;&quot;&quot;&quot;</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L44"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L70"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L44" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L70" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="moduleRect">
-<dt><pre><span class="Identifier">moduleRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect class=\&quot;qrDark qrRounded qrModule\&quot; fill=\&quot;{dark}\&quot; x=\&quot;{x.float32+moSep:&lt;3}\&quot; y=\&quot;{y.float32+moSep}\&quot; width=\&quot;{1-moSep*2}\&quot; height=\&quot;{1-moSep*2}\&quot; rx=\&quot;{moRadPx}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
+<div id="alRectLightGroupEnd">
+<dt><pre><span class="Identifier">alRectLightGroupEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;</span></pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L50"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L85"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L50" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L85" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="alRectLightGroupStart">
+<dt><pre><span class="Identifier">alRectLightGroupStart</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;g class=&quot;qrLight&quot; fill=&quot;{light}&quot;&gt;&quot;&quot;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L82"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L82" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="moPath">
+<dt><pre><span class="Identifier">moPath</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;M{x},{y}h1v1h-1Z&quot;&quot;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L42"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L42" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="moPathEnd">
+<dt><pre><span class="Identifier">moPathEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;\&quot;&gt;&lt;/path&gt;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L48"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L48" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="moPathStart">
+<dt><pre><span class="Identifier">moPathStart</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;path class=&quot;qrDark&quot; fill=&quot;{dark}&quot; d=&quot;&quot;&quot;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L45"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L45" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="moRect">
+<dt><pre><span class="Identifier">moRect</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;rect x=\&quot;{x.float32+moSep:&lt;3}\&quot; y=\&quot;{y.float32+moSep}\&quot; width=\&quot;{1-moSep*2}\&quot; height=\&quot;{1-moSep*2}\&quot; rx=\&quot;{moRadPx}\&quot;&gt;&lt;/rect&gt;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L51"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L51" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="moRectGroupEnd">
+<dt><pre><span class="Identifier">moRectGroupEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;/g&gt;&quot;&quot;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L62"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L62" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="moRectGroupStart">
+<dt><pre><span class="Identifier">moRectGroupStart</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;g fill=&quot;{dark}&quot; class=&quot;qrDark qrRounded qrModules&quot;&gt;&quot;&quot;&quot;</span></pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L59"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L59" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
 <div id="svgEnd">
-<dt><pre><span class="Identifier">svgEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&lt;/svg&gt;&quot;</span></pre></dt>
+<dt><pre><span class="Identifier">svgEnd</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;&quot;&quot;&lt;/svg&gt;&quot;&quot;&quot;</span></pre></dt>
 <dd>
 
 
@@ -329,9 +441,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L70"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L95"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L70" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L95" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -359,9 +471,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L67"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/DrawedQRCode/print.nim#L92"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L67" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/DrawedQRCode/print.nim#L92" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -392,7 +504,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-14 07:10:22 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-15 08:12:57 UTC</small>
       </div>
     </div>
   </div>

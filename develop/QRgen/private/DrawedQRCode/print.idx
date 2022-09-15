@@ -2,11 +2,19 @@ size	QRgen/private/DrawedQRCode/print.html#size.t	print: size(): uint8
 printTerminal	QRgen/private/DrawedQRCode/print.html#printTerminal,DrawedQRCode	print: printTerminal(self: DrawedQRCode)	
 svgHeader	QRgen/private/DrawedQRCode/print.html#svgHeader	print: svgHeader	
 svgEnd	QRgen/private/DrawedQRCode/print.html#svgEnd	print: svgEnd	
-modulePath	QRgen/private/DrawedQRCode/print.html#modulePath	print: modulePath	
-modulePathStart	QRgen/private/DrawedQRCode/print.html#modulePathStart	print: modulePathStart	
-modulePathEnd	QRgen/private/DrawedQRCode/print.html#modulePathEnd	print: modulePathEnd	
-moduleRect	QRgen/private/DrawedQRCode/print.html#moduleRect	print: moduleRect	
-alignmentPatternRect	QRgen/private/DrawedQRCode/print.html#alignmentPatternRect	print: alignmentPatternRect	
+moPath	QRgen/private/DrawedQRCode/print.html#moPath	print: moPath	
+moPathStart	QRgen/private/DrawedQRCode/print.html#moPathStart	print: moPathStart	
+moPathEnd	QRgen/private/DrawedQRCode/print.html#moPathEnd	print: moPathEnd	
+moRect	QRgen/private/DrawedQRCode/print.html#moRect	print: moRect	
+moRectGroupStart	QRgen/private/DrawedQRCode/print.html#moRectGroupStart	print: moRectGroupStart	
+moRectGroupEnd	QRgen/private/DrawedQRCode/print.html#moRectGroupEnd	print: moRectGroupEnd	
+alRect	QRgen/private/DrawedQRCode/print.html#alRect	print: alRect	
+alRectGroupStart	QRgen/private/DrawedQRCode/print.html#alRectGroupStart	print: alRectGroupStart	
+alRectGroupEnd	QRgen/private/DrawedQRCode/print.html#alRectGroupEnd	print: alRectGroupEnd	
+alRectDarkGroupStart	QRgen/private/DrawedQRCode/print.html#alRectDarkGroupStart	print: alRectDarkGroupStart	
+alRectDarkGroupEnd	QRgen/private/DrawedQRCode/print.html#alRectDarkGroupEnd	print: alRectDarkGroupEnd	
+alRectLightGroupStart	QRgen/private/DrawedQRCode/print.html#alRectLightGroupStart	print: alRectLightGroupStart	
+alRectLightGroupEnd	QRgen/private/DrawedQRCode/print.html#alRectLightGroupEnd	print: alRectLightGroupEnd	
 Percentage	QRgen/private/DrawedQRCode/print.html#Percentage	print: Percentage	
 Separation	QRgen/private/DrawedQRCode/print.html#Separation	print: Separation	
 toBool	QRgen/private/DrawedQRCode/print.html#toBool.c,Percentage	print: toBool(self: Percentage): bool	
