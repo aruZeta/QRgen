@@ -25,8 +25,7 @@ amount of pure-nim stdlib modules.
 - Supports all EC (Error Correction) levels: `L`, `M`, `Q` and `H`.
 - Supports `numeric mode`, `alphanumeric mode` and `byte mode`.
 - Supports printing a QR code on your terminal via standard output.
-- Supports printing a QR code to SVG, with custom colors, rounded
-alignment patterns and rounded data modules.
+- Supports printing a QR code to SVG, with custom colors, using circles, etc.
 
 ## Usage
 
@@ -39,7 +38,6 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
   <thead>
     <tr>
       <th align="center">Terminal</th>
-      <th align="center">SVG</th>
     </tr>
   </thead>
   <tbody>
@@ -48,16 +46,25 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
         <pre>myQR.printTerminal</pre>
         <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/terminal-example.png" width="200px" height="200px"/>
       </td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th align="center">SVG</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <td align="center">
         <pre>myQR.printSvg</pre>
         <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-example.svg" width="200px" height="200px" />
+        <p>Generic QR with white background and black foreground.</p>
       </td>
     </tr>
   </tbody>
   <thead>
     <tr>
       <th align="center">SVG with colors</th>
-      <th align="center">SVG with circles</th>
     </tr>
   </thead>
   <tbody>
@@ -65,33 +72,41 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a")</pre>
         <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-colors-example.svg" width="200px" height="200px" />
+        <p><code>"#1d2021"</code> is the "light" or "background" color</p>
+        <p><code>"#98971a"</code> is the "dark" or "foreground" color</p>
       </td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th align="center">SVG with circles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <td align="center">
-        <pre>myQR.printSvg("#1d2021","#98971a",2)</pre>
+        <pre>myQR.printSvg("#1d2021","#98971a",60)</pre>
         <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
+        <p><code>60</code> sets the alignment pattern's roundness to 60%</p>
       </td>
     </tr>
   </tbody>
   <thead>
     <tr>
       <th align="center">Svg with too much circles</th>
-      <th align="center"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td align="center">
-        <pre>myQR.printSvg("#1d2021","#98971a",3.5,0.4)</pre>
+        <pre>myQR.printSvg("#1d2021","#98971a",100,100)</pre>
         <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
-      </td>
-      <td align="center">
+        <p>The last <code>100</code> sets the module's roundness to 100%
+        (a perfect circle)</p>
       </td>
     </tr>
   </tbody>
 </table>
-
-Note: in SVGs, colors are optional and default to white background and black
-modules.
 
 Since the generated SVGs have css classes, we can do stuff like this:
 
