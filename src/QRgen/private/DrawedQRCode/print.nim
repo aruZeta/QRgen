@@ -50,9 +50,9 @@ const moPathEnd: string =
 
 const moRect: string =
   """<rect""" &
-  """ x="{x.float32+moSep:<3}" y="{y.float32+moSep}"""" &
-  """ width="{1-moSep*2}"""" &
-  """ height="{1-moSep*2}"""" &
+  """ x="{x.float32+moSepPx:<3}" y="{y.float32+moSepPx}"""" &
+  """ width="{1-moSepPx*2}"""" &
+  """ height="{1-moSepPx*2}"""" &
   """ rx="{moRadPx}"""" &
   """></rect>"""
 
@@ -87,7 +87,6 @@ const alRectLightGroupEnd: string =
 
 type
   Percentage = range[0f32..100f32]
-  Separation = range[0f32..0.4f32]
 
 converter toBool(self: Percentage): bool =
   self > Percentage.low
@@ -98,7 +97,7 @@ func printSvg*(
   dark = "#000000",
   alRad: Percentage = 0,
   moRad: Percentage = 0,
-  moSep: Separation = 0.1,
+  moSep: Percentage = 25,
   class: string = "qrCode",
   id: string = "",
   forceUseRect: bool = false
@@ -113,8 +112,9 @@ func printSvg*(
     drawRegion 0'u8, size, 7'u8, size-7, s
     drawRegion 7'u8, size-7, 0'u8, 7'u8, s
     drawRegion 7'u8, size, size-7, size, s
+  let moSepPx: float32 = 0.4 * moSep / 100
   if moRad or forceUseRect:
-    let moRadPx: float32 = (0.5 - moSep) * moRad / 100
+    let moRadPx: float32 = (0.5 - moSepPx) * moRad / 100
     result.add fmt(moRectGroupStart)
     drawQRModulesOnly moRect
     result.add moRectGroupEnd
