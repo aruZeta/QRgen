@@ -265,6 +265,14 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="qrCharacters: getAlphanumericValue(c: char): uint8" href="QRgen/private/qrCharacters.html#getAlphanumericValue%2Cchar">qrCharacters: getAlphanumericValue(c: char): uint8</a></li>
           </ul></dd>
+<dt><a name="getMostEfficientMode" href="#getMostEfficientMode"><span>getMostEfficientMode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="QRCode: getMostEfficientMode(data: string): QRMode" href="QRgen/private/QRCode.html#getMostEfficientMode%2Cstring">QRCode: getMostEfficientMode(data: string): QRMode</a></li>
+          </ul></dd>
+<dt><a name="getSmallestVersion" href="#getSmallestVersion"><span>getSmallestVersion:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="QRCode: getSmallestVersion(data: string; mode: QRMode; ecLevel: QRECLevel): QRVersion" href="QRgen/private/QRCode.html#getSmallestVersion%2Cstring%2CQRMode%2CQRECLevel">QRCode: getSmallestVersion(data: string; mode: QRMode; ecLevel: QRECLevel): QRVersion</a></li>
+          </ul></dd>
 <dt><a name="group1BlockDataCodewords" href="#group1BlockDataCodewords"><span>group1BlockDataCodewords:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="qrCapacities: group1BlockDataCodewords" href="QRgen/private/qrCapacities.html#group1BlockDataCodewords">qrCapacities: group1BlockDataCodewords</a></li>
@@ -355,25 +363,19 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="newQR" href="#newQR"><span>newQR:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="QRgen: newQR(data: string; ecLevel: QRECLevel = qrECL): DrawedQRCode" href="QRgen.html#newQR%2Cstring%2CQRECLevel">QRgen: newQR(data: string; ecLevel: QRECLevel = qrECL): DrawedQRCode</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="QRgen: newQR(data: string; mode: QRMode; ecLevel: QRECLevel = qrECL): DrawedQRCode" href="QRgen.html#newQR%2Cstring%2CQRMode%2CQRECLevel">QRgen: newQR(data: string; mode: QRMode; ecLevel: QRECLevel = qrECL): DrawedQRCode</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="QRgen: newQR(data: string; mode: QRMode; version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode" href="QRgen.html#newQR%2Cstring%2CQRMode%2CQRVersion%2CQRECLevel">QRgen: newQR(data: string; mode: QRMode; version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="QRgen: newQR(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode" href="QRgen.html#newQR%2Cstring%2CQRVersion%2CQRECLevel">QRgen: newQR(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): DrawedQRCode</a></li>
+          data-doc-search-tag="QRgen: newQR(data: string; ecLevel: QRECLevel = qrECL;
+      mode: QRMode = data.getMostEfficientMode;
+      version: QRVersion = data.getSmallestVersion(mode, ecLevel)): DrawedQRCode" href="QRgen.html#newQR%2Cstring%2CQRECLevel%2CQRMode%2CQRVersion">QRgen: newQR(data: string; ecLevel: QRECLevel = qrECL;
+      mode: QRMode = data.getMostEfficientMode;
+      version: QRVersion = data.getSmallestVersion(mode, ecLevel)): DrawedQRCode</a></li>
           </ul></dd>
 <dt><a name="newQRCode" href="#newQRCode"><span>newQRCode:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="QRCode: newQRCode(data: string; ecLevel: QRECLevel = qrECL): QRCode" href="QRgen/private/QRCode.html#newQRCode%2Cstring%2CQRECLevel">QRCode: newQRCode(data: string; ecLevel: QRECLevel = qrECL): QRCode</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="QRCode: newQRCode(data: string; mode: QRMode; ecLevel: QRECLevel = qrECL): QRCode" href="QRgen/private/QRCode.html#newQRCode%2Cstring%2CQRMode%2CQRECLevel">QRCode: newQRCode(data: string; mode: QRMode; ecLevel: QRECLevel = qrECL): QRCode</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="QRCode: newQRCode(data: string; mode: QRMode; version: QRVersion;
-          ecLevel: QRECLevel = qrECL): QRCode" href="QRgen/private/QRCode.html#newQRCode%2Cstring%2CQRMode%2CQRVersion%2CQRECLevel">QRCode: newQRCode(data: string; mode: QRMode; version: QRVersion;
-          ecLevel: QRECLevel = qrECL): QRCode</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="QRCode: newQRCode(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): QRCode" href="QRgen/private/QRCode.html#newQRCode%2Cstring%2CQRVersion%2CQRECLevel">QRCode: newQRCode(data: string; version: QRVersion; ecLevel: QRECLevel = qrECL): QRCode</a></li>
+          data-doc-search-tag="QRCode: newQRCode(data: string; ecLevel: QRECLevel = qrECL;
+          mode: QRMode = data.getMostEfficientMode;
+          version: QRVersion = data.getSmallestVersion(mode, ecLevel)): QRCode" href="QRgen/private/QRCode.html#newQRCode%2Cstring%2CQRECLevel%2CQRMode%2CQRVersion">QRCode: newQRCode(data: string; ecLevel: QRECLevel = qrECL;
+          mode: QRMode = data.getMostEfficientMode;
+          version: QRVersion = data.getSmallestVersion(mode, ecLevel)): QRCode</a></li>
           </ul></dd>
 <dt><a name="nextByte" href="#nextByte"><span>nextByte:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -389,15 +391,11 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="printSvg" href="#printSvg"><span>printSvg:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="print: printSvg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;; dark: string = &quot;#000000&quot;): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring">print: printSvg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;; dark: string = &quot;#000000&quot;): string</a></li>
-          <li><a class="reference external"
           data-doc-search-tag="print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange%5B%5D">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]): string</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]; moRad: range[0.0&apos;f32 .. 0.4&apos;f32]): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2Crange%5B%5D%2Crange%5B%5D">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: range[0.0&apos;f32 .. 3.5&apos;f32]; moRad: range[0.0&apos;f32 .. 0.4&apos;f32]): string</a></li>
+         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cstring%2Cstring%2Cbool">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
+         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string</a></li>
           </ul></dd>
 <dt><a name="printTerminal" href="#printTerminal"><span>printTerminal:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -448,7 +446,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-12 06:38:37 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-16 10:15:48 UTC</small>
       </div>
     </div>
   </div>
