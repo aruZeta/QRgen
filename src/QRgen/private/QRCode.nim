@@ -76,8 +76,12 @@ proc newQRCode*(
   mode: QRMode = data.getMostEfficientMode,
   version: QRVersion = data.getSmallestVersion(mode, ecLevel),
 ): QRCode =
-  ## Creates a new `QRCode` object with the specified `data`, `mode`, `version`
-  ## and `ecLevel`.
+  ## Creates a new `QRCode` object with the specified `data`, `ecLevel`, `mode`
+  ## and `version`.
+  ##
+  ## .. note:: By default `mode` will be the most efficient mode to encode
+  ##    `data`, `version` will be the smallest QR version where `data` can
+  ##    fit, and `version` will be the lowest level.
   ##
   ## .. note:: Only the size will be checked.
   result = QRCode(mode: mode, version: version, ecLevel: ecLevel, data: data)
