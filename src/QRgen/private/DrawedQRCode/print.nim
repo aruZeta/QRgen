@@ -102,6 +102,40 @@ func printSvg*(
   id: string = "",
   forceUseRect: bool = false
 ): string =
+  ## Print a `DrawedQRCode` in SVG format (returned as a `string`).
+  ##
+  ## .. note:: You can pass the hexadecimal color values light and dark,
+  ##    which represent the background color and the dark module's color,
+  ##    respectively. By default light is white (`#ffffff`) and dark is black
+  ##    (`#000000`).
+  ##
+  ## .. note:: You can make the alignment patterns circles by passing `alRad`,
+  ##    and the modules by passing `moRad`. These values are a `Percentage`, a
+  ##    value between `0` and `100` (inclusive) which determines the roundness,
+  ##    `0` being a square and `100` a perfect circle. By default these are set
+  ##    to `0`.
+  ##
+  ## .. note:: When the roundness of both alignment patterns and modules is
+  ##    `0`, both will be drawed in the same `<path>`; if only the modules
+  ##    roundness is set `0`, those will be drawed in a `<path>` and the
+  ##    alignment patterns with a `<rect>`; if both are not `0` then both will
+  ##    be drawed using `<rect>`. If you want to draw both with `<rect>` even
+  ##    if they have roundness set to `0`, you need to set `forceUseRect` to
+  ##    `true`.
+  ##
+  ## .. note:: Modules drawed as a rect have a separation from each other
+  ##    specified by `moSep`, which is a `Percentage`, a value between `0`
+  ##    and `100` (inclusive) which determines the separation, `0` being no
+  ##    separation and `100` making the modules minuscule. By default it is
+  ##    `25` (0.1 separation on a 1 width module, making it have 0.8 width).
+  ##
+  ## .. note:: You can pass a custom id and class to set to `<svg>`, by default
+  ##    the class is `qrCode`, depending on the color a tag will have `qrLight`
+  ##    or `qrDark`, `<rect>` will have `qrRounded`, a tag drawing modules
+  ##    `qrModules`, a tag drawing alignment patterns `qrAlPatterns`. 
+  ##
+  ## .. note:: `<rect>` will be grouped inside a `<g>` which will set the
+  ##    classes and fill color.
   result = fmt(svgHeader)
   template drawRegion(ax, bx, ay, by: uint8, s: static string) {.dirty.} =
     for y in ay..<by:
