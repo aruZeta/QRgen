@@ -93,6 +93,19 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
       </td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <pre>myQR.printSvg("#1d2021","#98971a",100,100,50)</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-separation-example.svg" width="200px" height="200px" />
+        <p>
+          The last <code>50</code> sets the module's separation to 50%
+          (making the module having a width of 1 into a width of 0.6,
+          with margin 0.2 in all sides.
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 Since the generated SVGs have css classes, we can do stuff like this:
