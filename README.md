@@ -48,6 +48,8 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
       </td>
     </tr>
   </tbody>
+</table>
+<table>
   <thead>
     <tr>
       <th align="center">SVG</th>
