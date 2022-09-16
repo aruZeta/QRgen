@@ -61,13 +61,6 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
         <p>Generic QR with white background and black foreground.</p>
       </td>
     </tr>
-  </tbody>
-  <thead>
-    <tr>
-      <th align="center">SVG with colors</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a")</pre>
@@ -76,13 +69,6 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
         <p><code>"#98971a"</code> is the "dark" or "foreground" color</p>
       </td>
     </tr>
-  </tbody>
-  <thead>
-    <tr>
-      <th align="center">SVG with circles</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a",60)</pre>
@@ -90,13 +76,6 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
         <p><code>60</code> sets the alignment pattern's roundness to 60%</p>
       </td>
     </tr>
-  </tbody>
-  <thead>
-    <tr>
-      <th align="center">Svg with too much circles</th>
-    </tr>
-  </thead>
-  <tbody>
     <tr>
       <td align="center">
         <pre>myQR.printSvg("#1d2021","#98971a",100,100)</pre>
