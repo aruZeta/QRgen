@@ -16,6 +16,4 @@ alRectDarkGroupEnd	QRgen/private/DrawedQRCode/print.html#alRectDarkGroupEnd	prin
 alRectLightGroupStart	QRgen/private/DrawedQRCode/print.html#alRectLightGroupStart	print: alRectLightGroupStart	
 alRectLightGroupEnd	QRgen/private/DrawedQRCode/print.html#alRectLightGroupEnd	print: alRectLightGroupEnd	
 Percentage	QRgen/private/DrawedQRCode/print.html#Percentage	print: Percentage	
-Separation	QRgen/private/DrawedQRCode/print.html#Separation	print: Separation	
-toBool	QRgen/private/DrawedQRCode/print.html#toBool.c,Percentage	print: toBool(self: Percentage): bool	
-printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,Percentage,Percentage,Separation,string,string,bool	print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;\n         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Separation = 0.1;\n         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string	
+printSvg	QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,Percentage,Percentage,Percentage,string,string,bool	print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;\n         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;\n         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string	
