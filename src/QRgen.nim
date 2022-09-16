@@ -41,4 +41,10 @@ proc newQR*(
   mode: QRMode = data.getMostEfficientMode,
   version: QRVersion = data.getSmallestVersion(mode, ecLevel),
 ): DrawedQRCode =
+  ## Creates a new `DrawedQRCode` object with the specified `data`, `ecLevel`,
+  ## `mode` and `version`.
+  ##
+  ## .. note:: By default `mode` will be the most efficient mode to encode
+  ##    `data`, `version` will be the smallest QR version where `data` can
+  ##    fit, and `version` will be the lowest level.
   newQRCode(data, ecLevel, mode, version).encode.draw
