@@ -7,7 +7,9 @@ when defined(js):
   import
     std/[jsconsole]
 
-template size: uint8 = self.drawing.size
+template size: uint8 =
+  ## Helper template to get the size of the passed `DrawedQRCode`'s `drawing`.
+  self.drawing.size
 
 proc printTerminal*(self: DrawedQRCode) =
   ## Print a `DrawedQRCode` to the terminal using `stdout`.
@@ -87,6 +89,7 @@ const alRectLightGroupEnd: string =
 
 type
   Percentage = range[0f32..100f32]
+    ## A value between `0` and `100` (inclusive).
 
 func printSvg*(
   self: DrawedQRCode,
