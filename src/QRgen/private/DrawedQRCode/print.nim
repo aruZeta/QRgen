@@ -88,9 +88,6 @@ const alRectLightGroupEnd: string =
 type
   Percentage = range[0f32..100f32]
 
-converter toBool(self: Percentage): bool =
-  self > Percentage.low
-
 func printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
@@ -147,19 +144,19 @@ func printSvg*(
     drawRegion 7'u8, size-7, 0'u8, 7'u8, s
     drawRegion 7'u8, size, size-7, size, s
   let moSepPx: float32 = 0.4 * moSep / 100
-  if moRad or forceUseRect:
+  if moRad > 0 or forceUseRect:
     let moRadPx: float32 = (0.5 - moSepPx) * moRad / 100
     result.add fmt(moRectGroupStart)
     drawQRModulesOnly moRect
     result.add moRectGroupEnd
   else:
     result.add fmt(moPathStart)
-    if alRad:
+    if alRad > 0:
       drawQRModulesOnly moPath
     else:
       drawRegion 0'u8, size, 0'u8, size, moPath
     result.add fmt(moPathEnd)
-  if alRad or forceUseRect:
+  if alRad > 0 or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
       when lvl == 0: alRadPx
