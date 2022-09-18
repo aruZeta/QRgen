@@ -127,9 +127,9 @@ func printSvg*(
   moSep: Percentage = 25,
   class: string = "qrCode",
   id: string = "",
+  forceUseRect: bool = false,
   svgImg: string = "",
-  svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords,
-  forceUseRect: bool = false
+  svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
 ): string =
   ## Print a `DrawedQRCode` in SVG format (returned as a `string`).
   ##
