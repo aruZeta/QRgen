@@ -98,3 +98,45 @@ benchmarkTest "Testing separation":
       moSep = 100
     )
   )
+
+benchmarkTest "Testing svg insertion":
+  let qr = newQR("https://github.com/aruZeta/QRgen", ecLevel = qrECH)
+  writeFile(
+    "build" / "testingSvgInsertion.svg",
+    qr.printSvg(
+      "#1d2021", "#fabd2f",
+      alRad = 100,
+      moRad = 100,
+      svgImg = readFile("tests" / "testSvgInsert.svg")
+    )
+  )
+  let qr2 = newQR("https://github.com/aruZeta/QRgen", ecLevel = qrECQ)
+  writeFile(
+    "build" / "testingSvgInsertion2.svg",
+    qr2.printSvg(
+      "#1d2021", "#fabd2f",
+      alRad = 100,
+      moRad = 100,
+      svgImg = readFile("tests" / "testSvgInsert.svg")
+    )
+  )
+  let qr3 = newQR("https://github.com/aruZeta/QRgen", ecLevel = qrECM)
+  writeFile(
+    "build" / "testingSvgInsertion3.svg",
+    qr3.printSvg(
+      "#1d2021", "#fabd2f",
+      alRad = 100,
+      moRad = 100,
+      svgImg = readFile("tests" / "testSvgInsert.svg")
+    )
+  )
+  let qr4 = newQR("https://github.com/aruZeta/QRgen", ecLevel = qrECL)
+  writeFile(
+    "build" / "testingSvgInsertion4.svg",
+    qr4.printSvg(
+      "#1d2021", "#fabd2f",
+      alRad = 100,
+      moRad = 100,
+      svgImg = readFile("tests" / "testSvgInsert.svg")
+    )
+  )
