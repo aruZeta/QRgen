@@ -28,6 +28,8 @@
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           nim-1-6-6
+          # For emacs
+          pkgs.nimlsp
         ];
       };
     };
