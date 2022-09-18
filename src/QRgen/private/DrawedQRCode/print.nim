@@ -87,6 +87,17 @@ const alRectLightGroupStart: string =
 const alRectLightGroupEnd: string =
   """</g>"""
 
+const svgEmbedStart: string =
+  """<image""" &
+  """ x="10"""" &
+  """ y="10"""" &
+  """ width="10"""" &
+  """ height="10"""" &
+  """ href="data:image/svg+xml,"""
+
+const svgEmbedEnd: string =
+  """"/>"""
+
 type
   Percentage = range[0f32..100f32]
     ## A value between `0` and `100` (inclusive).
@@ -132,7 +143,7 @@ func printSvg*(
   ## .. note:: You can pass a custom id and class to set to `<svg>`, by default
   ##    the class is `qrCode`, depending on the color a tag will have `qrLight`
   ##    or `qrDark`, `<rect>` will have `qrRounded`, a tag drawing modules
-  ##    `qrModules`, a tag drawing alignment patterns `qrAlPatterns`. 
+  ##    `qrModules`, a tag drawing alignment patterns `qrAlPatterns`.
   ##
   ## .. note:: `<rect>` will be grouped inside a `<g>` which will set the
   ##    classes and fill color.
@@ -181,4 +192,21 @@ func printSvg*(
     drawAlPatterns 1, light
     drawAlPatterns 2, dark
     result.add alRectGroupEnd
+  if svgImg.len > 0:
+    result.add svgEmbedStart
+    for i in 0..<svgImg.len:
+      case svgImg[i]
+      of '<': result.add "%3c"
+      of '>': result.add "%3e"
+      of '"': result.add '\''
+      of '\'': result.add "%27"
+      of '#': result.add "%23"
+      of ',': result.add "%2c"
+      of ';': result.add "%3b"
+      of ' ':
+        if svgImg[i-1] != ' ':
+          result.add ' '
+      of '\c', '\l': discard
+      else: result.add svgImg[i]
+    result.add svgEmbedEnd
   result.add svgEnd
