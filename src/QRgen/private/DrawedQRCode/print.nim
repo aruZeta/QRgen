@@ -1,6 +1,6 @@
 import
   "."/[type],
-  ".."/[Drawing],
+  ".."/[Drawing, qrTypes],
   std/[strformat]
 
 when defined(js):
@@ -89,10 +89,10 @@ const alRectLightGroupEnd: string =
 
 const svgEmbedStart: string =
   """<image""" &
-  """ x="10"""" &
-  """ y="10"""" &
-  """ width="10"""" &
-  """ height="10"""" &
+  """ x="{svgImgCoords.x}"""" &
+  """ y="{svgImgCoords.y}"""" &
+  """ width="{svgImgCoords.w}"""" &
+  """ height="{svgImgCoords.h}"""" &
   """ href="data:image/svg+xml,"""
 
 const svgEmbedEnd: string =
@@ -101,6 +101,22 @@ const svgEmbedEnd: string =
 type
   Percentage = range[0f32..100f32]
     ## A value between `0` and `100` (inclusive).
+
+func genDefaultCoords(self: DrawedQRCode): tuple[x,y,w,h: uint8] =
+  let size: uint8 = (self.drawing.size div (
+    case self.ecLevel
+    of qrECL: 24
+    of qrECM: 12
+    of qrECQ: 6
+    of qrECH: 3
+  ) div 2) * 2 + 1
+  let margin: uint8 = (self.drawing.size - size) div 2
+  result = (
+    x: margin,
+    y: margin,
+    w: size,
+    h: size
+  )
 
 func printSvg*(
   self: DrawedQRCode,
@@ -111,6 +127,8 @@ func printSvg*(
   moSep: Percentage = 25,
   class: string = "qrCode",
   id: string = "",
+  svgImg: string = "",
+  svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords,
   forceUseRect: bool = false
 ): string =
   ## Print a `DrawedQRCode` in SVG format (returned as a `string`).
@@ -193,7 +211,7 @@ func printSvg*(
     drawAlPatterns 2, dark
     result.add alRectGroupEnd
   if svgImg.len > 0:
-    result.add svgEmbedStart
+    result.add fmt(svgEmbedStart)
     for i in 0..<svgImg.len:
       case svgImg[i]
       of '<': result.add "%3c"
