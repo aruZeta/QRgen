@@ -118,6 +118,22 @@ func genDefaultCoords(self: DrawedQRCode): tuple[x,y,w,h: uint8] =
     h: size
   )
 
+func encodeSvgEmbed(result: var string, svgImg: string) =
+  for i in 0..<svgImg.len:
+    case svgImg[i]
+    of '<': result.add "%3c"
+    of '>': result.add "%3e"
+    of '"': result.add '\''
+    of '\'': result.add "%27"
+    of '#': result.add "%23"
+    of ',': result.add "%2c"
+    of ';': result.add "%3b"
+    of ' ':
+      if svgImg[i-1] != ' ':
+        result.add ' '
+    of '\c', '\l': discard
+    else: result.add svgImg[i]
+
 func printSvg*(
   self: DrawedQRCode,
   light = "#ffffff",
@@ -212,19 +228,6 @@ func printSvg*(
     result.add alRectGroupEnd
   if svgImg.len > 0:
     result.add fmt(svgEmbedStart)
-    for i in 0..<svgImg.len:
-      case svgImg[i]
-      of '<': result.add "%3c"
-      of '>': result.add "%3e"
-      of '"': result.add '\''
-      of '\'': result.add "%27"
-      of '#': result.add "%23"
-      of ',': result.add "%2c"
-      of ';': result.add "%3b"
-      of ' ':
-        if svgImg[i-1] != ' ':
-          result.add ' '
-      of '\c', '\l': discard
-      else: result.add svgImg[i]
+    result.encodeSvgEmbed svgImg
     result.add svgEmbedEnd
   result.add svgEnd
