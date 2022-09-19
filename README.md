@@ -106,6 +106,21 @@ let myQR = newQR("https://github.com/aruZeta/QRgen")
       </td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        Here we will need the highest EC level, for a better result (bigger logo):
+        <pre>let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)</pre>
+        <pre>myQR.printSvg("#1d2021","#98971a",100,100,svgImg=readFile("QRgen-logo.svg"))</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-embed-example.svg" width="200px" height="200px" />
+        <p>
+          <code>svgImg</code> adds an SVG image embed in the center of generated
+          QR code, so we can pass it the contents of an SVG file, here a logo, and
+          the result as you can see is the actual QRgen logo.
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 Since the generated SVGs have css classes, we can do stuff like this:
