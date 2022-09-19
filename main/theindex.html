@@ -393,9 +393,13 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
          alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
-         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cstring%2Cstring%2Cbool">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false;
+         svgImg: string = &quot;&quot;;
+         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cstring%2Cstring%2Cbool%2Cstring%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
          alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
-         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string</a></li>
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false;
+         svgImg: string = &quot;&quot;;
+         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): string</a></li>
           </ul></dd>
 <dt><a name="printTerminal" href="#printTerminal"><span>printTerminal:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -446,7 +450,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-16 10:15:48 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-19 16:10:08 UTC</small>
       </div>
     </div>
   </div>
