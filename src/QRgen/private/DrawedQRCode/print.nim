@@ -181,6 +181,15 @@ func printSvg*(
   ##
   ## .. note:: `<rect>` will be grouped inside a `<g>` which will set the
   ##    classes and fill color.
+  ##
+  ## .. note:: You can embed an SVG in the generated QR code, as a logo for
+  ##    example, by passinng a string with the SVG's content to `svgImg`.
+  ##
+  ## .. note:: By default the embedded SVG will be drawed in the center of the
+  ##    QR, and it's size will vary depending on the `ecLevel` the QR code was
+  ##    made with, the higher the `ecLevel` the bigger the embedded image will
+  ##    be. You can change this by setting `svgImgCoords`, which contains a
+  ##    tuple with the `x,y` position of `svgImg` and it's width an height.
   result = fmt(svgHeader)
   template drawRegion(ax, bx, ay, by: uint8, s: static string) {.dirty.} =
     for y in ay..<by:
