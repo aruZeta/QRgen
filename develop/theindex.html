@@ -311,6 +311,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="EncodedQRCode: encodeOnly(qr: QRCode): EncodedQRCode" href="QRgen/private/EncodedQRCode/EncodedQRCode.html#encodeOnly%2CQRCode">EncodedQRCode: encodeOnly(qr: QRCode): EncodedQRCode</a></li>
           </ul></dd>
+<dt><a name="encodeSvgEmbed" href="#encodeSvgEmbed"><span>encodeSvgEmbed:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="print: encodeSvgEmbed(result: var string; svgImg: string)" href="QRgen/private/DrawedQRCode/print.html#encodeSvgEmbed%2Cstring%2Cstring">print: encodeSvgEmbed(result: var string; svgImg: string)</a></li>
+          </ul></dd>
 <dt><a name="evaluateCondition1" href="#evaluateCondition1"><span>evaluateCondition1:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="calcPenalty: evaluateCondition1(self: DrawedQRCode): uint16" href="QRgen/private/DrawedQRCode/calcPenalty.html#evaluateCondition1%2CDrawedQRCode">calcPenalty: evaluateCondition1(self: DrawedQRCode): uint16</a></li>
@@ -356,6 +360,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="g2BlockPositions" href="#g2BlockPositions"><span>g2BlockPositions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="interleaveDataCodewords: g2BlockPositions(self: EncodedQRCode): uint16" href="QRgen/private/EncodedQRCode/interleaveDataCodewords.html#g2BlockPositions.i%2CEncodedQRCode">interleaveDataCodewords: g2BlockPositions(self: EncodedQRCode): uint16</a></li>
+          </ul></dd>
+<dt><a name="genDefaultCoords" href="#genDefaultCoords"><span>genDefaultCoords:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="print: genDefaultCoords(self: DrawedQRCode): tuple[x, y, w, h: uint8]" href="QRgen/private/DrawedQRCode/print.html#genDefaultCoords%2CDrawedQRCode">print: genDefaultCoords(self: DrawedQRCode): tuple[x, y, w, h: uint8]</a></li>
           </ul></dd>
 <dt><a name="getAlphanumericValue" href="#getAlphanumericValue"><span>getAlphanumericValue:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -561,9 +569,13 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
          alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
-         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cstring%2Cstring%2Cbool">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false;
+         svgImg: string = &quot;&quot;;
+         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): string" href="QRgen/private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cstring%2Cstring%2Cbool%2Cstring%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
          alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
-         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false): string</a></li>
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; forceUseRect: bool = false;
+         svgImg: string = &quot;&quot;;
+         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): string</a></li>
           </ul></dd>
 <dt><a name="printTerminal" href="#printTerminal"><span>printTerminal:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -601,6 +613,14 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="utils: step(start, stop, step: int): int" href="QRgen/private/EncodedQRCode/utils.html#step.i%2Cint%2Cint%2Cint">utils: step(start, stop, step: int): int</a></li>
           </ul></dd>
+<dt><a name="svgEmbedEnd" href="#svgEmbedEnd"><span>svgEmbedEnd:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="print: svgEmbedEnd" href="QRgen/private/DrawedQRCode/print.html#svgEmbedEnd">print: svgEmbedEnd</a></li>
+          </ul></dd>
+<dt><a name="svgEmbedStart" href="#svgEmbedStart"><span>svgEmbedStart:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="print: svgEmbedStart" href="QRgen/private/DrawedQRCode/print.html#svgEmbedStart">print: svgEmbedStart</a></li>
+          </ul></dd>
 <dt><a name="svgEnd" href="#svgEnd"><span>svgEnd:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="print: svgEnd" href="QRgen/private/DrawedQRCode/print.html#svgEnd">print: svgEnd</a></li>
@@ -626,7 +646,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-16 10:17:16 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-19 11:53:06 UTC</small>
       </div>
     </div>
   </div>
