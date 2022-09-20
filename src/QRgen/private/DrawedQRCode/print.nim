@@ -13,21 +13,21 @@ template size: uint8 =
 
 proc printTerminal*(self: DrawedQRCode) =
   ## Print a `DrawedQRCode` to the terminal using `stdout`.
-  template log(s: string) =
-    when defined(js):
-      console.log s
-    else:
-      stdout.write s
-  log "\n\n\n\n\n"
+  var result: string = newStringOfCap((size.uint16 * 2 + 11) * size + 10)
+  result.add "\n\n\n\n\n"
   for y in 0'u8..<size:
-    log "          "
+    result.add "          "
     for x in 0'u8..<size:
-      log(
+      result.add(
         if self.drawing[x, y]: "██"
         else: "  "
       )
-    log "\n"
-  log "\n\n\n\n\n"
+    result.add "\n"
+  result.add "\n\n\n\n\n"
+  when defined(js):
+    console.log result
+  else:
+    stdout.write result
 
 const svgHeader: string =
   # SVG tag start
