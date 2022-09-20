@@ -25,7 +25,7 @@ proc printTerminal*(self: DrawedQRCode) =
     result.add "\n"
   result.add "\n\n\n\n\n"
   when defined(js):
-    console.log result
+    console.log result.cstring
   else:
     stdout.write result
 
