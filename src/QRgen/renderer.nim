@@ -1,5 +1,9 @@
 import
-  "."/private/[DrawedQRCode/DrawedQRCode, Drawing],
+  "."/private/[
+    DrawedQRCode/DrawedQRCode,
+    DrawedQRCode/print,
+    Drawing
+  ],
   pkg/[pixie]
 
 proc renderImg*(
@@ -7,6 +11,7 @@ proc renderImg*(
   light: string = "#ffffff",
   dark: string = "#000000",
   pixels: uint32 = 512,
+  moRad: Percentage = 0,
   centerImage: Image = Image(width: 0, height: 0),
   centerImageBlendMode = NormalBlend
 ): Image =
@@ -19,18 +24,21 @@ proc renderImg*(
     ctx = result.newContext
   ctx.fillStyle = dark
   ctx.strokeStyle = dark
-  for y in 0'u8..<self.drawing.size:
-    for x in 0'u8..<self.drawing.size:
-      if self.drawing[x, y]:
-        let pos = vec2(
-          (pixelsMargin + x * modulePixels).float,
-          (pixelsMargin + y * modulePixels).float
-        )
-        let size = vec2(modulePixels.float, modulePixels.float)
-        ctx.fillRect(rect(pos, size))
-        # circles just for fun:
-        # let re = rect(pos, wh)
-        # ctx.fillCircle(Circle(pos: pos, radius: (ss.float / 1.5 ).float))
+  template drawModules(f: untyped) {.dirty.} =
+    let size = vec2(modulePixels.float, modulePixels.float)
+    for y in 0'u8..<self.drawing.size:
+      for x in 0'u8..<self.drawing.size:
+        if self.drawing[x, y]:
+          let pos = vec2(
+            (pixelsMargin + x * modulePixels).float,
+            (pixelsMargin + y * modulePixels).float
+          )
+          f
+  if moRad > 0:
+    let moRadPx: float = (modulePixels.float / 2) * moRad / 100
+    drawModules ctx.fillRoundedRect(rect(pos, size), moRadPx)
+  else:
+    drawModules ctx.fillRect(rect(pos, size))
   #var outputImg = newImage(pixels, pixelSize)
   #outputImg.draw(image, scale(vec2( pixels / tmpPixelSize, pixelSize / tmpPixelSize )))
   #if centerImage.width > 0 and centerImage.height > 0:
