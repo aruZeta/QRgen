@@ -12,6 +12,13 @@ benchmarkTest "Testing png":
     "build" / "testingPng.png"
   )
 
+benchmarkTest "Testing png with less pixels":
+  let qr = newQR("https://github.com/aruZeta/QRgen")
+  writeFile(
+    qr.renderImg(pixels = 100),
+    "build" / "testingPng2.png"
+  )
+
 benchmarkTest "Testing png with colors":
   let qr = newQR("https://github.com/aruZeta/QRgen")
   writeFile(

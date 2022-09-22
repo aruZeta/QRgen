@@ -15,13 +15,17 @@ proc renderImg*(
   centerImage: Image = Image(width: 0, height: 0),
   centerImageBlendMode = NormalBlend
 ): Image =
-  result = newImage(pixels.int, pixels.int)
-  result.fill(light)
   let
     modules: uint8 = self.drawing.size + 10
     modulePixels: uint16 = (pixels div modules).uint16
-    pixelsMargin: uint16 = (pixels mod modules).uint16 mod 2 + modulePixels * 5
-    ctx = result.newContext
+    pixelsMargin: uint16 = (pixels mod modules).uint16 div 2 + modulePixels*5
+    actualSize: uint32 = modulePixels.uint32*(modules-10) + (pixelsMargin+1)*2
+  let pixels =
+    if actualSize < pixels: actualSize
+    else: pixels
+  result = newImage(pixels.int, pixels.int)
+  result.fill(light)
+  let ctx = result.newContext
   ctx.fillStyle = dark
   ctx.strokeStyle = dark
   template drawModules(f: untyped) {.dirty.} =
