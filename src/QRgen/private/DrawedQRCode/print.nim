@@ -213,7 +213,7 @@ func printSvg*(
     else:
       drawRegion 0'u8, size, 0'u8, size, moPath
     result.add fmt(moPathEnd)
-  if alRad > 0 or forceUseRect:
+  if alRad > 0 or moRad > 0 or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
       when lvl == 0: alRadPx
