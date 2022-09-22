@@ -4,8 +4,8 @@ import
 
 proc renderImg*(
   self: DrawedQRCode,
-  light: string | ColorRGB = rgb(255, 255, 255),
-  dark: string | ColorRGB = rgb(0,0,0),
+  light: string = "#ffffff",
+  dark: string = "#000000",
   pixels: uint32 = 512,
   centerImage: Image = Image(width: 0, height: 0),
   centerImageBlendMode = NormalBlend
