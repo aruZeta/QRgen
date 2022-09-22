@@ -1,7 +1,7 @@
 import
   "."/[myTestSuite],
   QRgen,
-  QRgen/png,
+  QRgen/renderer,
   std/[os],
   pkg/[pixie]
 
