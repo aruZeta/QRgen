@@ -32,11 +32,10 @@ task gendocs, "Generate documentation in docs folder":
     &"--git.url:\"{repo}\"",
     (if dir == "develop": "--docInternal"
      else: ""),
-    "--outdir:docs",
-    "--path:src",
     &"--git.commit:{dir}",
   ].join " "
-  exec &"nim doc {flags} {mainFile}"
+  exec &"nim doc {flags} --path:.. --outdir:docs/QRgen src/QRgen/renderer.nim"
+  exec &"nim doc {flags} --path:. --outdir:docs {mainFile}"
 
 task test, "Run tests on /test":
   let flags = [
