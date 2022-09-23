@@ -38,6 +38,33 @@ proc renderImg*(
   img: Image = Image(width: 0, height: 0),
   imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
 ): Image =
+  ## Print a `DrawedQRCode` in PNG format (returned as a `Image` from pixie).
+  ##
+  ## .. note:: You can pass the hexadecimal color values light and dark,
+  ##    which represent the background color and the dark module's color,
+  ##    respectively. By default light is white (`#ffffff`) and dark is black
+  ##    (`#000000`).
+  ##
+  ## .. note:: You can make the alignment patterns circles by passing `alRad`,
+  ##    and the modules by passing `moRad`. These values are a `Percentage`, a
+  ##    value between `0` and `100` (inclusive) which determines the roundness,
+  ##    `0` being a square and `100` a perfect circle. By default these are set
+  ##    to `0`.
+  ##
+  ## .. note:: You can separate the modules from each other by
+  ##    specifying `moSep`, which is a `Percentage`, a value between `0`
+  ##    and `100` (inclusive) which determines the separation, `0` being no
+  ##    separation and `100` making the modules minuscule. By default it is
+  ##    `25` (0.1 separation on a 1 width module, making it have 0.8 width).
+  ##
+  ## .. note:: You can embed an `Image` in the generated QR code, as a logo for
+  ##    example, by passinng it to `img`.
+  ##
+  ## .. note:: By default the embedded `Image` will be drawed in the center of
+  ##    the QR, and it's size will vary depending on the `ecLevel` the QR code
+  ##    was made with, the higher the `ecLevel` the bigger the embedded image
+  ##    will be. You can change this by setting `imgCoords`, which contains a
+  ##    tuple with the `x,y` position of `img` and it's width an height.
   let
     modules: uint8 = self.drawing.size + 10
     modulePixels: uint16 = (pixels div modules).uint16
