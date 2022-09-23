@@ -129,6 +129,81 @@ https://user-images.githubusercontent.com/68018085/190470749-66090814-08fe-45b5-
 
 https://user-images.githubusercontent.com/68018085/190470760-8a5b5a30-5812-4777-8e05-8d2b250a9113.mp4
 
+<table>
+  <thead>
+    <tr>
+      <th align="center">PNG</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">
+        <pre>myQR.renderImg</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-example.png" width="200px" height="200px" />
+        <p>Generic QR with white background and black foreground.</p>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <pre>myQR.renderImg("#1d2021","#98971a")</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-colors-example.png" width="200px" height="200px" />
+        <p><code>"#1d2021"</code> is the "light" or "background" color</p>
+        <p><code>"#98971a"</code> is the "dark" or "foreground" color</p>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <pre>myQR.renderImg("#1d2021","#98971a",60)</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-rounded-example.png" width="200px" height="200px"/>
+        <p><code>60</code> sets the alignment pattern's roundness to 60%</p>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <pre>myQR.renderImg("#1d2021","#98971a",100,100)</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-very-rounded-example.png" width="200px" height="200px" />
+        <p>The last <code>100</code> sets the module's roundness to 100%
+        (a perfect circle)</p>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <pre>myQR.renderImg("#1d2021","#98971a",100,100,50)</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-separation-example.png" width="200px" height="200px" />
+        <p>
+          The last <code>50</code> sets the module's separation to 50%
+          (making the module having a width of 1 into a width of 0.6,
+          with margin 0.2 in all sides.
+        </p>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        Here we will need the highest EC level, for a better result (bigger logo):
+        <pre>let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)</pre>
+        <pre>myQR.renderImg("#1d2021","#98971a",100,100,img=readImage("QRgen-logo.png"))</pre>
+        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-embed-example.png" width="200px" height="200px" />
+        <p>
+          <code>img</code> embeds an <code>Image</code> in the center
+          of generated QR code, so we can use pixie's <code>readImage</code>
+          to read a PNG file, here a logo, and the result as you can see is
+          the actual QRgen logo.
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
 
