@@ -56,7 +56,7 @@ task test, "Run tests on /test":
     if fileName[0..3] == "test" and fileName[^4..^1] == ".nim":
       exec &"nim c -r {flags} {file.path}"
 
-task benchmark, "Run tests on /test":
+task benchmark, "Run benchmarks on /test":
   let flags = [
     "--colors:on",
     "--verbosity:0",
