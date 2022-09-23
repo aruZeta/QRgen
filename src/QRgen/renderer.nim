@@ -2,13 +2,30 @@ import
   "."/private/[
     DrawedQRCode/DrawedQRCode,
     DrawedQRCode/print,
-    Drawing
+    Drawing,
+    qrTypes
   ],
   pkg/[pixie]
 
 template size: uint8 =
   ## Helper template to get the size of the passed `DrawedQRCode`'s `drawing`.
   self.drawing.size
+
+func genDefaultCoords(self: DrawedQRCode): tuple[x,y,w,h: uint8] =
+  let size: uint8 = (self.drawing.size div (
+    case self.ecLevel
+    of qrECL: 24
+    of qrECM: 12
+    of qrECQ: 6
+    of qrECH: 3
+  ) div 2) * 2 + 1
+  let margin: uint8 = (self.drawing.size - size) div 2
+  result = (
+    x: margin,
+    y: margin,
+    w: size,
+    h: size
+  )
 
 proc renderImg*(
   self: DrawedQRCode,
@@ -18,8 +35,8 @@ proc renderImg*(
   alRad: Percentage = 0,
   moRad: Percentage = 0,
   moSep: Percentage = 25,
-  centerImage: Image = Image(width: 0, height: 0),
-  centerImageBlendMode = NormalBlend
+  img: Image = Image(width: 0, height: 0),
+  imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
 ): Image =
   let
     modules: uint8 = self.drawing.size + 10
@@ -91,12 +108,12 @@ proc renderImg*(
     drawAlPatterns 0, "dark"
     drawAlPatterns 1, "light"
     drawAlPatterns 2, "dark"
-  #var outputImg = newImage(pixels, pixelSize)
-  #outputImg.draw(image, scale(vec2( pixels / tmpPixelSize, pixelSize / tmpPixelSize )))
-  #if centerImage.width > 0 and centerImage.height > 0:
-    #let cpos = vec2(
-      #((pixels / 2) - (centerImage.width / 2).float),
-      #((pixels / 2) - (centerImage.height / 2).float),
-    #)
-    #outputImg.draw(centerImage, transform = translate(cpos), blendMode = centerImageBlendMode)
-  #return outputImg
+  if img.width > 0 and img.height > 0:
+    template calc(n: uint8): float32 = (n * modulePixels).float32
+    ctx.drawImage(
+      img,
+      (calc imgCoords.x) + pixelsMargin.float32,
+      (calc imgCoords.y) + pixelsMargin.float32,
+      calc imgCoords.w,
+      calc imgCoords.h
+    )
