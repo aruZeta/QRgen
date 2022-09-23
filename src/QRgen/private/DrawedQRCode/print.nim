@@ -99,7 +99,7 @@ const svgEmbedEnd: string =
   """"/>"""
 
 type
-  Percentage = range[0f32..100f32]
+  Percentage* = range[0f32..100f32]
     ## A value between `0` and `100` (inclusive).
 
 func genDefaultCoords(self: DrawedQRCode): tuple[x,y,w,h: uint8] =

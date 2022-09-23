@@ -47,7 +47,7 @@ task test, "Run tests on /test":
     "--hint:LineTooLong:on",
     "--hint:XDeclaredButNotUsed:on",
     "-w:on",
-    "--styleCheck:error",
+    "--styleCheck:hint",
     "--spellsuggest:auto",
     "-f"
   ].join " "

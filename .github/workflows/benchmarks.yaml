@@ -31,4 +31,5 @@ jobs:
       - name: Run benchmarks
         run: |
           nix shell -c nimble install benchy -y
+          nix shell -c nimble install pixie -y
           nix shell -c nimble benchmark

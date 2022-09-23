@@ -30,4 +30,5 @@ jobs:
           name: my-dotfiles # Holds the cached flake, so not to build it
       - name: Run tests
         run: |
+          nix shell -c nimble install pixie -y
           nix shell -c nimble test
