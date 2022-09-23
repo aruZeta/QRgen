@@ -11,6 +11,11 @@
 ## `the print module<QRgen/private/DrawedQRCode/print.html#12>`_
 ## to learn about all print options.
 ##
+## Check
+## `the renderer module<QRgen/renderer.html#12>`_
+## to learn about rendering QR codes into pixie's `Image` objectsn which can
+## be rendered to PNG and other formats.
+##
 ## # Usage example
 ##
 ## Here is a basic example to generate a QR code of an URL and show it

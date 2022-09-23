@@ -1,3 +1,15 @@
+## # An optional QR renderer using pixie
+##
+## This module contains a QR renderer using pixie, which can be used to render
+## QR's into PNG images (and any format pixie supports) with an almost equal
+## API to `printSvg` (some parameter names vary, you can specify the size in
+## pixels of the resulting image and there is no `forceUseRect`).
+## You can find pixie `here<https://github.com/treeform/pixie>`_.
+##
+## As said, this module requires the pixie nimble package, and it's also not
+## exported by default, so to avoid requiring pixie for the whole project
+## when `printSvg` does not use it.
+
 import
   "."/private/[
     DrawedQRCode/DrawedQRCode,
