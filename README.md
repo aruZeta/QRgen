@@ -34,94 +34,113 @@ import QRgen
 let myQR = newQR("https://github.com/aruZeta/QRgen")
 ```
 
-<table>
-  <thead>
-    <tr>
-      <th align="center">Terminal</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.printTerminal</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/terminal-example.png" width="200px" height="200px"/>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
-      <th align="center">SVG</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.printSvg</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-example.svg" width="200px" height="200px" />
-        <p>Generic QR with white background and black foreground.</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.printSvg("#1d2021","#98971a")</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-colors-example.svg" width="200px" height="200px" />
-        <p><code>"#1d2021"</code> is the "light" or "background" color</p>
-        <p><code>"#98971a"</code> is the "dark" or "foreground" color</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.printSvg("#1d2021","#98971a",60)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
-        <p><code>60</code> sets the alignment pattern's roundness to 60%</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.printSvg("#1d2021","#98971a",100,100)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
-        <p>The last <code>100</code> sets the module's roundness to 100%
-        (a perfect circle)</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.printSvg("#1d2021","#98971a",100,100,50)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-separation-example.svg" width="200px" height="200px" />
-        <p>
-          The last <code>50</code> sets the module's separation to 50%
-          (making the module having a width of 1 into a width of 0.6,
-          with margin 0.2 in all sides.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        Here we will need the highest EC level, for a better result (bigger logo):
-        <pre>let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)</pre>
-        <pre>myQR.printSvg("#1d2021","#98971a",100,100,svgImg=readFile("QRgen-logo.svg"))</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-embed-example.svg" width="200px" height="200px" />
-        <p>
-          <code>svgImg</code> adds an SVG image embed in the center of generated
-          QR code, so we can pass it the contents of an SVG file, here a logo, and
-          the result as you can see is the actual QRgen logo.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+### Terminal
+
+```nim
+myQR.printTerminal
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/terminal-example.png" width="200px" height="200px"/>
+</p>
+
+---
+
+### SVG
+
+#### Generic QR with white background and black foreground
+
+```nim
+myQR.printSvg
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-example.svg" width="200px" height="200px" />
+</p>
+
+---
+
+#### Changing the background and foreground colors
+
+```nim
+myQR.printSvg("#1d2021","#98971a")
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-colors-example.svg" width="200px" height="200px" />
+</p>
+
+`"#1d2021"` sets the "light" or "background" color.
+`"#98971a"` sets the "dark" or "foreground" color.
+
+---
+
+#### Making the alignment patterns rounded
+
+```nim
+myQR.printSvg("#1d2021","#98971a",60)
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
+</p>
+
+`60` sets the alignment patterns' roundness to 60%.
+
+---
+
+#### Making the modules rounded
+
+```nim
+myQR.printSvg("#1d2021","#98971a",100,100)
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
+</p>
+
+The first `100` sets the alignment patterns' roundness to 100%
+and the last `100` sets the module's roundness to 100% too
+(both are a perfect circle).
+
+---
+
+#### Changing the separation of the modules
+
+```nim
+myQR.printSvg("#1d2021","#98971a",100,100,50)
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-separation-example.svg" width="200px" height="200px" />
+</p>
+
+The last `50` sets the module's separation to 50% (making the module having a
+width of 1 into a width of 0.6, with margin 0.2 in all sides.
+
+---
+
+#### Embedding another SVG in the generated QR code
+
+Here we will need the highest EC level, for a better result (bigger logo):
+
+```nim
+let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)
+```
+
+```nim
+myQR.printSvg("#1d2021","#98971a",100,100,svgImg=readFile("QRgen-logo.svg"))
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-embed-example.svg" width="200px" height="200px" />
+</p>
+
+`svgImg` adds an SVG image embed in the center of generated
+QR code, so we can pass it the contents of an SVG file, here a logo, and
+the result as you can see is the actual QRgen logo.
+
+---
 
 Since the generated SVGs have css classes, we can do stuff like this:
 
@@ -129,86 +148,111 @@ https://user-images.githubusercontent.com/68018085/190470749-66090814-08fe-45b5-
 
 https://user-images.githubusercontent.com/68018085/190470760-8a5b5a30-5812-4777-8e05-8d2b250a9113.mp4
 
-<table>
-  <thead>
-    <tr>
-      <th align="center">PNG</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.renderImg</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-example.png" width="200px" height="200px" />
-        <p>Generic QR with white background and black foreground.</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.renderImg("#1d2021","#98971a")</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-colors-example.png" width="200px" height="200px" />
-        <p><code>"#1d2021"</code> is the "light" or "background" color</p>
-        <p><code>"#98971a"</code> is the "dark" or "foreground" color</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.renderImg("#1d2021","#98971a",60)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-rounded-example.png" width="200px" height="200px"/>
-        <p><code>60</code> sets the alignment pattern's roundness to 60%</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.renderImg("#1d2021","#98971a",100,100)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-very-rounded-example.png" width="200px" height="200px" />
-        <p>The last <code>100</code> sets the module's roundness to 100%
-        (a perfect circle)</p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        <pre>myQR.renderImg("#1d2021","#98971a",100,100,50)</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-separation-example.png" width="200px" height="200px" />
-        <p>
-          The last <code>50</code> sets the module's separation to 50%
-          (making the module having a width of 1 into a width of 0.6,
-          with margin 0.2 in all sides.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td align="center">
-        Here we will need the highest EC level, for a better result (bigger logo):
-        <pre>let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)</pre>
-        <pre>myQR.renderImg("#1d2021","#98971a",100,100,img=readImage("QRgen-logo.png"))</pre>
-        <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-embed-example.png" width="200px" height="200px" />
-        <p>
-          <code>img</code> embeds an <code>Image</code> in the center
-          of generated QR code, so we can use pixie's <code>readImage</code>
-          to read a PNG file, here a logo, and the result as you can see is
-          the actual QRgen logo.
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+---
+
+### PNG
+
+#### Generic QR with white background and black foreground
+
+```nim
+myQR.renderImg
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-example.png" width="200px" height="200px" />
+</p>
+
+---
+
+#### Changing the background and foreground colors
+
+```nim
+myQR.renderImg("#1d2021","#98971a")
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-colors-example.png" width="200px" height="200px" />
+</p>
+
+`"#1d2021"` sets the "light" or "background" color.
+`"#98971a"` sets the "dark" or "foreground" color.
+
+---
+
+#### Making the alignment patterns rounded
+
+```nim
+myQR.renderImg("#1d2021","#98971a",60)
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-rounded-example.png" width="200px" height="200px"/>
+</p>
+
+`60` sets the alignment patterns' roundness to 60%.
+
+---
+
+#### Making the modules rounded
+
+```nim
+myQR.renderImg("#1d2021","#98971a",100,100)
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-very-rounded-example.png" width="200px" height="200px" />
+</p>
+
+The first `100` sets the alignment patterns' roundness to 100%
+and the last `100` sets the module's roundness to 100% too
+(both are a perfect circle).
+
+---
+
+#### Changing the separation of the modules
+
+```nim
+myQR.renderImg("#1d2021","#98971a",100,100,50)
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-separation-example.png" width="200px" height="200px" />
+</p>
+
+The last `50` sets the module's separation to 50% (making the module having a
+width of 1 into a width of 0.6, with margin 0.2 in all sides.
+
+---
+
+#### Embedding another PNG in the generated QR code
+
+Here we will need the highest EC level, for a better result (bigger logo):
+
+```nim
+let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)
+```
+
+```nim
+myQR.renderImg("#1d2021","#98971a",100,100,img=readImage("QRgen-logo.png"))
+```
+
+<p align="center">
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-embed-example.png" width="200px" height="200px" />
+</p>
+
+`img` embeds an `Image` in the center of the generated QR code,
+so we can use pixie's `readImage` to read a PNG file, here a logo,
+and the result as you can see is the actual QRgen logo.
+
+---
 
 Note that you can change the resolution of the generated image by setting
 `pixels` to a higher value, by default it's set to 512 pixels
 (both width and height).
 
-Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
+## Documentation
+
+Check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
 
 # License
