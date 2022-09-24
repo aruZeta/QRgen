@@ -34,6 +34,7 @@ jobs:
       - name: Build docs
         run: |
           cd source
+          nix shell -c nimble install pixie -y
           nix shell -c nimble gendocs ${{ github.ref_name }}
           cd ..
       - name: Move docs to destination
