@@ -147,6 +147,7 @@ class="link-seesrc" target="_blank">Source</a>
 <h1><a class="toc-backref" id="the-main-qrgen-api" href="#the-main-qrgen-api">The main QRgen API</a></h1><p>The main QRgen API provides a single procedure to create qr codes, <tt class="docutils literal"><span class="pre"><span class="Identifier">newQR</span></span></tt> and another procedure to print them to an output format, <tt class="docutils literal"><span class="pre"><span class="Identifier">print</span></span></tt>.</p>
 <p>It does also provide the required Types and Defects you may need to store the result of both procedures or to pass them arguments. You can find those in the <a class="reference external" href="#19">export section</a>.</p>
 <p>Check <a class="reference external" href="QRgen/private/DrawedQRCode/print.html#12">the print module</a> to learn about all print options.</p>
+<p>Check <a class="reference external" href="QRgen/renderer.html#12">the renderer module</a> to learn about rendering QR codes into pixie's <tt class="docutils literal"><span class="pre"><span class="Identifier">Image</span></span></tt> objectsn which can be rendered to PNG and other formats.</p>
 
 <h1><a class="toc-backref" id="usage-example" href="#usage-example">Usage example</a></h1><p>Here is a basic example to generate a QR code of an URL and show it in your terminal:</p>
 
@@ -173,9 +174,9 @@ Creates a new <tt class="docutils literal"><span class="pre"><span class="Identi
 By default <tt class="docutils literal"><span class="pre"><span class="Identifier">mode</span></span></tt> will be the most efficient mode to encode <tt class="docutils literal"><span class="pre"><span class="Identifier">data</span></span></tt>, <tt class="docutils literal"><span class="pre"><span class="Identifier">version</span></span></tt> will be the smallest QR version where <tt class="docutils literal"><span class="pre"><span class="Identifier">data</span></span></tt> can fit, and <tt class="docutils literal"><span class="pre"><span class="Identifier">version</span></span></tt> will be the lowest level.</div>
 
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/main/src/QRgen.nim#L38"
+href="https://github.com/aruZeta/QRgen/tree/main/src/QRgen.nim#L43"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L38" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen.nim#L43" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -184,7 +185,7 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="19">
 <h1><a class="toc-backref" href="#19">Exports</a></h1>
 <dl class="item">
-<a href="QRgen/private/DrawedQRCode/type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a>, <a href="QRgen/private/DrawedQRCode/print.html#printTerminal,DrawedQRCode"><span class="Identifier">printTerminal</span></a>, <a href="QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,Percentage,Percentage,Percentage,string,string,bool,string,tuple[uint8,uint8,uint8,uint8]"><span class="Identifier">printSvg</span></a>, <a href="QRgen/private/QRCode.html#DataSizeDefect"><span class="Identifier">DataSizeDefect</span></a>, <a href="QRgen/private/qrTypes.html#QRVersion"><span class="Identifier">QRVersion</span></a>, <a href="QRgen/private/qrTypes.html#QRMode"><span class="Identifier">QRMode</span></a>, <a href="QRgen/private/qrTypes.html#QRECLevel"><span class="Identifier">QRECLevel</span></a>
+<a href="QRgen/private/DrawedQRCode/type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a>, <a href="QRgen/private/DrawedQRCode/print.html#Percentage"><span class="Identifier">Percentage</span></a>, <a href="QRgen/private/DrawedQRCode/print.html#printTerminal,DrawedQRCode"><span class="Identifier">printTerminal</span></a>, <a href="QRgen/private/DrawedQRCode/print.html#printSvg,DrawedQRCode,string,string,Percentage,Percentage,Percentage,string,string,bool,string,tuple[uint8,uint8,uint8,uint8]"><span class="Identifier">printSvg</span></a>, <a href="QRgen/private/QRCode.html#DataSizeDefect"><span class="Identifier">DataSizeDefect</span></a>, <a href="QRgen/private/qrTypes.html#QRVersion"><span class="Identifier">QRVersion</span></a>, <a href="QRgen/private/qrTypes.html#QRMode"><span class="Identifier">QRMode</span></a>, <a href="QRgen/private/qrTypes.html#QRECLevel"><span class="Identifier">QRECLevel</span></a>
 </dl></div>
 
   </div>
@@ -194,7 +195,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-20 07:21:24 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-24 10:35:15 UTC</small>
       </div>
     </div>
   </div>
