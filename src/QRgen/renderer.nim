@@ -84,7 +84,7 @@ proc renderImg*(
     else:
       drawRegion 0'u8, size, 0'u8, size, ctx.fillRect(rect(pos, s))
   if alRad > 0 or moRad > 0:
-    let alRadPx: float32 = modulePixels.float32 * 3.5 * alRad / 100
+    let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
       when lvl == 0: alRadPx
       else:
@@ -94,7 +94,7 @@ proc renderImg*(
     template drawAlPatterns(lvl: range[0'i8..2'i8], c: untyped) {.dirty.} =
       template s1: float32 = ((7-lvl*2) * modulePixels).float32
       template s: Vec2 {.dirty.} = vec2(s1, s1)
-      template r: float32 = innerRadius(lvl)
+      template r: float32 = innerRadius(lvl) * modulePixels.float32
       template vec2F(a, b: untyped): Vec2 = vec2(a.calcPos, b.calcPos)
       when c == "light":
         ctx.fillStyle = light
