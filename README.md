@@ -25,7 +25,11 @@ amount of pure-nim stdlib modules.
 - Supports all EC (Error Correction) levels: `L`, `M`, `Q` and `H`.
 - Supports `numeric mode`, `alphanumeric mode` and `byte mode`.
 - Supports printing a QR code on your terminal via standard output.
-- Supports printing a QR code to SVG, with custom colors, using circles, etc.
+- Supports printing a QR code to SVG, with custom colors, using circles,
+embedding SVG logos etc.
+- Supports rendering a QR code to pixie's `Image`, with the same features
+as SVG (but can embed more image formats). `Image` can be exported to
+various formats, like PNG.
 
 ## Usage
 
