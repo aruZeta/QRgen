@@ -204,6 +204,10 @@ https://user-images.githubusercontent.com/68018085/190470760-8a5b5a30-5812-4777-
   </tbody>
 </table>
 
+Note that you can change the resolution of the generated image by setting
+`pixels` to a higher value, by default it's set to 512 pixels
+(both width and height).
+
 Also, check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
 
