@@ -1,0 +1,12 @@
+QRCapacity	QRgen/private/qrCapacities.html#QRCapacity	qrCapacities: QRCapacity	
+numericModeCapacities	QRgen/private/qrCapacities.html#numericModeCapacities	qrCapacities: numericModeCapacities	
+alphanumericModeCapacities	QRgen/private/qrCapacities.html#alphanumericModeCapacities	qrCapacities: alphanumericModeCapacities	
+byteModeCapacities	QRgen/private/qrCapacities.html#byteModeCapacities	qrCapacities: byteModeCapacities	
+totalDataCodewords	QRgen/private/qrCapacities.html#totalDataCodewords	qrCapacities: totalDataCodewords	
+group1Blocks	QRgen/private/qrCapacities.html#group1Blocks	qrCapacities: group1Blocks	
+group1BlockDataCodewords	QRgen/private/qrCapacities.html#group1BlockDataCodewords	qrCapacities: group1BlockDataCodewords	
+group2Blocks	QRgen/private/qrCapacities.html#group2Blocks	qrCapacities: group2Blocks	
+group2BlockDataCodewords	QRgen/private/qrCapacities.html#group2BlockDataCodewords	qrCapacities: group2BlockDataCodewords	
+blockECCodewords	QRgen/private/qrCapacities.html#blockECCodewords	qrCapacities: blockECCodewords	
+alignmentPatternLocations	QRgen/private/qrCapacities.html#alignmentPatternLocations	qrCapacities: alignmentPatternLocations	
+QR Capacities	QRgen/private/qrCapacities.html#qr-capacities	 QR Capacities	
