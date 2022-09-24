@@ -31,10 +31,10 @@ proc renderImg*(
   self: DrawedQRCode,
   light: string = "#ffffff",
   dark: string = "#000000",
-  pixels: uint32 = 512,
   alRad: Percentage = 0,
   moRad: Percentage = 0,
   moSep: Percentage = 25,
+  pixels: uint32 = 512,
   img: Image = Image(width: 0, height: 0),
   imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
 ): Image =
