@@ -1,6 +1,6 @@
 # Package
 
-version       = "2.1.1"
+version       = "2.2.0"
 author        = "aruZeta"
 description   = "A QR code generation library."
 license       = "MIT"
