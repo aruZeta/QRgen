@@ -152,6 +152,16 @@ https://user-images.githubusercontent.com/68018085/190470760-8a5b5a30-5812-4777-
 
 ### PNG
 
+Note: The PNG renderer is not exported with `QRgen` since it depends on `pixie`
+([check pixie here](https://github.com/treeform/pixie)). To use it you will need
+to add this import (and obviously install `pixie`):
+
+```nim
+import QRgen/renderer
+```
+
+---
+
 #### Generic QR with white background and black foreground
 
 ```nim
@@ -250,11 +260,13 @@ Note that you can change the resolution of the generated image by setting
 `pixels` to a higher value, by default it's set to 512 pixels
 (both width and height).
 
+---
+
 ## Documentation
 
 Check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
 know more about the main API.
 
-# License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
