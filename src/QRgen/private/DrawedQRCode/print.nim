@@ -124,7 +124,7 @@ func encodeSvgEmbed(result: var string, svgImg: string) =
     of '<': result.add "%3c"
     of '>': result.add "%3e"
     of '"': result.add '\''
-    of '\'': result.add "%27"
+    of '\'': result.add "%22"
     of '#': result.add "%23"
     of ',': result.add "%2c"
     of ';': result.add "%3b"
