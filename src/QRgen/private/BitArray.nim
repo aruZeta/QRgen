@@ -105,17 +105,6 @@ template unsafeDelete*(self: var BitArray, pos: uint16) =
   ## .. warning:: This is unsafe since `pos` is not updated.
   self.data.delete pos
 
-template unsafeSet*(
-  self: var BitArray,
-  pos: uint16 | BackwardsIndex,
-  val: uint8
-) =
-  ## Sets the value from `data` in position `pos` to `val`.
-  ##
-  ## .. warning:: This is unsafe since you may be setting the value of bits
-  ##    not yet reached by `pos`, which would then be overwritten.
-  self.data[pos] = val
-
 template len*(self: BitArray): int =
   ## Get the len of `self.data`.
   ## Used nstead of writing `data.data.len` in other modules.
