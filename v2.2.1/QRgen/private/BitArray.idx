@@ -1,0 +1,12 @@
+BitArray	QRgen/private/BitArray.html#BitArray	BitArray: BitArray	
+newBitArray	QRgen/private/BitArray.html#newBitArray,uint16	BitArray: newBitArray(size: uint16): BitArray	
+`[]`	QRgen/private/BitArray.html#[].t,BitArray,SomeInteger	BitArray: `[]`(self: BitArray; i: SomeInteger): uint8	
+`[]`	QRgen/private/BitArray.html#[].t,BitArray,HSlice[T,S]	BitArray: `[]`[T, S](self: BitArray; i: HSlice[T, S]): seq[uint8]	
+`[]=`	QRgen/private/BitArray.html#[]=.t,BitArray,SomeInteger,uint8	BitArray: `[]=`(self: var BitArray; i: SomeInteger; val: uint8)	
+nextByte	QRgen/private/BitArray.html#nextByte,BitArray	BitArray: nextByte(self: var BitArray): uint8	
+add	QRgen/private/BitArray.html#add,BitArray,SomeUnsignedInt,uint8	BitArray: add(self: var BitArray; val: SomeUnsignedInt; len: uint8)	
+unsafeAdd	QRgen/private/BitArray.html#unsafeAdd.t,BitArray,uint8	BitArray: unsafeAdd(self: var BitArray; val: uint8)	
+unsafeDelete	QRgen/private/BitArray.html#unsafeDelete.t,BitArray,uint16	BitArray: unsafeDelete(self: var BitArray; pos: uint16)	
+unsafeSet	QRgen/private/BitArray.html#unsafeSet.t,BitArray,,uint8	BitArray: unsafeSet(self: var BitArray; pos: uint16 | BackwardsIndex; val: uint8)	
+len	QRgen/private/BitArray.html#len.t,BitArray	BitArray: len(self: BitArray): int	
+Bit array implementation	QRgen/private/BitArray.html#bit-array-implementation	 Bit array implementation	

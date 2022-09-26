@@ -1,0 +1,2 @@
+encodeDataCodewords	QRgen/private/EncodedQRCode/encodeDataCodewords.html#encodeDataCodewords,EncodedQRCode,string	encodeDataCodewords: encodeDataCodewords(self: var EncodedQRCode; data: string)	
+finishDataEncoding	QRgen/private/EncodedQRCode/encodeDataCodewords.html#finishDataEncoding,EncodedQRCode	encodeDataCodewords: finishDataEncoding(self: var EncodedQRCode)	
