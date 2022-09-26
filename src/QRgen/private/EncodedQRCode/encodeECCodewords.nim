@@ -50,7 +50,15 @@ proc encodeECCodewords*(self: var EncodedQRCode) =
       let actualEcPos: uint16 =
         positions[^1] + (blockECCodewords[self].uint16 * i)
       let factor = self.data[j] xor self.data[actualEcPos]
-      self.data.unsafeDelete actualEcPos
-      self.data.unsafeAdd 0
+      when not defined(js):
+        moveMem(
+         self.data[actualECPos].addr,
+         self.data[actualEcPos+1].addr,
+         cast[uint16](self.data.len) - actualEcPos - 1'u8
+        )
+        self.data.unsafeSet ^1, 0'u8
+      else:
+        self.data.unsafeDelete actualEcPos
+        self.data.unsafeAdd 0
       for k in 0'u8..<degree:
         self.data[actualEcPos+k] ^= (gf256Mod285Multiply(generator[k], factor))

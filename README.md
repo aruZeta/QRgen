@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/logo.svg"
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/logo.svg"
 width="300px" height="300px" />
 </p>
 
@@ -45,7 +45,7 @@ myQR.printTerminal
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/terminal-example.png" width="200px" height="200px"/>
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/terminal-example.png" width="200px" height="200px"/>
 </p>
 
 ---
@@ -59,7 +59,7 @@ myQR.printSvg
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-example.svg" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-example.svg" width="200px" height="200px" />
 </p>
 
 ---
@@ -71,7 +71,7 @@ myQR.printSvg("#1d2021","#98971a")
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-colors-example.svg" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-colors-example.svg" width="200px" height="200px" />
 </p>
 
 `"#1d2021"` sets the "light" or "background" color.
@@ -86,7 +86,7 @@ myQR.printSvg("#1d2021","#98971a",60)
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-rounded-example.svg" width="200px" height="200px"/>
 </p>
 
 `60` sets the alignment patterns' roundness to 60%.
@@ -100,7 +100,7 @@ myQR.printSvg("#1d2021","#98971a",100,100)
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-very-rounded-example.svg" width="200px" height="200px" />
 </p>
 
 The first `100` sets the alignment patterns' roundness to 100%
@@ -116,7 +116,7 @@ myQR.printSvg("#1d2021","#98971a",100,100,50)
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-separation-example.svg" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-separation-example.svg" width="200px" height="200px" />
 </p>
 
 The last `50` sets the module's separation to 50% (making the module having a
@@ -137,7 +137,7 @@ myQR.printSvg("#1d2021","#98971a",100,100,svgImg=readFile("QRgen-logo.svg"))
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/svg-embed-example.svg" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-embed-example.svg" width="200px" height="200px" />
 </p>
 
 `svgImg` adds an SVG image embed in the center of generated
@@ -173,7 +173,7 @@ myQR.renderImg
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/png-example.png" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-example.png" width="200px" height="200px" />
 </p>
 
 ---
@@ -185,7 +185,7 @@ myQR.renderImg("#1d2021","#98971a")
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/png-colors-example.png" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-colors-example.png" width="200px" height="200px" />
 </p>
 
 `"#1d2021"` sets the "light" or "background" color.
@@ -200,7 +200,7 @@ myQR.renderImg("#1d2021","#98971a",60)
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/png-rounded-example.png" width="200px" height="200px"/>
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-rounded-example.png" width="200px" height="200px"/>
 </p>
 
 `60` sets the alignment patterns' roundness to 60%.
@@ -214,7 +214,7 @@ myQR.renderImg("#1d2021","#98971a",100,100)
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/png-very-rounded-example.png" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-very-rounded-example.png" width="200px" height="200px" />
 </p>
 
 The first `100` sets the alignment patterns' roundness to 100%
@@ -230,7 +230,7 @@ myQR.renderImg("#1d2021","#98971a",100,100,50)
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/png-separation-example.png" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-separation-example.png" width="200px" height="200px" />
 </p>
 
 The last `50` sets the module's separation to 50% (making the module having a
@@ -251,7 +251,7 @@ myQR.renderImg("#1d2021","#98971a",100,100,img=readImage("QRgen-logo.png"))
 ```
 
 <p align="center">
-<img src="https://github.com/aruZeta/QRgen/blob/main/share/img/png-embed-example.png" width="200px" height="200px" />
+<img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-embed-example.png" width="200px" height="200px" />
 </p>
 
 `img` embeds an `Image` in the center of the generated QR code,
@@ -268,8 +268,8 @@ Note that you can change the resolution of the generated image by setting
 
 ## Documentation
 
-Check the [docs](https://aruzeta.github.io/QRgen/main/QRgen.html) to
-know more about the main API.
+Check the [docs](https://aruzeta.github.io/QRgen/develop/QRgen.html) to
+know more about the develop API.
 
 ## License
 
