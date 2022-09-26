@@ -164,6 +164,11 @@ window.addEventListener('DOMContentLoaded', main);
     title="unsafeDelete(self: var BitArray; pos: uint16)">unsafeDelete(self: var BitArray; pos: uint16)</a></li>
 
   </ul>
+  <ul class="simple nested-toc-section">unsafeSet
+      <li><a class="reference" href="#unsafeSet.t%2CBitArray%2C%2Cuint8"
+    title="unsafeSet(self: var BitArray; pos: uint16 | BackwardsIndex; val: uint8)">unsafeSet(self: var BitArray; pos: uint16 | BackwardsIndex; val: uint8)</a></li>
+
+  </ul>
 
   </ul>
 </li>
@@ -307,9 +312,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Get the len of <tt class="docutils literal"><span class="pre"><span class="Identifier">self</span><span class="Operator">.</span><span class="Identifier">data</span></span></tt>. Used nstead of writing <tt class="docutils literal"><span class="pre"><span class="Identifier">data</span><span class="Operator">.</span><span class="Identifier">data</span><span class="Operator">.</span><span class="Identifier">len</span></span></tt> in other modules.
 &nbsp;&nbsp;<a
-href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/BitArray.nim#L108"
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/BitArray.nim#L119"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/BitArray.nim#L108" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/BitArray.nim#L119" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -341,6 +346,20 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
+<div id="unsafeSet.t,BitArray,,uint8">
+<dt><pre><span class="Keyword">template</span> <a href="#unsafeSet.t%2CBitArray%2C%2Cuint8"><span class="Identifier">unsafeSet</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="BitArray.html#BitArray"><span class="Identifier">BitArray</span></a><span class="Other">;</span> <span class="Identifier">pos</span><span class="Other">:</span> <span class="Identifier">uint16</span> <span class="Operator">|</span> <span class="Identifier">BackwardsIndex</span><span class="Other">;</span> <span class="Identifier">val</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">)</span></pre></dt>
+<dd>
+
+Sets the value from <tt class="docutils literal"><span class="pre"><span class="Identifier">data</span></span></tt> in position <tt class="docutils literal"><span class="pre"><span class="Identifier">pos</span></span></tt> to <tt class="docutils literal"><span class="pre"><span class="Identifier">val</span></span></tt>.<div class="admonition admonition-warning"><span class="admonition-warning-text"><b>Warning:</b></span>
+This is unsafe since you may be setting the value of bits not yet reached by <tt class="docutils literal"><span class="pre"><span class="Identifier">pos</span></span></tt>, which would then be overwritten.</div>
+
+&nbsp;&nbsp;<a
+href="https://github.com/aruZeta/QRgen/tree/develop/src/QRgen/private/BitArray.nim#L108"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/aruZeta/QRgen/edit/devel/src/QRgen/private/BitArray.nim#L108" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
 
 </dl></div>
 
@@ -351,7 +370,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-26 16:01:59 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-26 16:15:10 UTC</small>
       </div>
     </div>
   </div>
