@@ -45,8 +45,7 @@ proc renderImg*(
   dark: string = "#000000",
   alRad: Percentage = 0,
   moRad: Percentage = 0,
-  moSep: Percentage = 25,
-  forceSep: bool = false,
+  moSep: Percentage = 0,
   pixels: uint32 = 512,
   img: Image = Image(width: 0, height: 0),
   imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
@@ -106,7 +105,7 @@ proc renderImg*(
     drawRegion 0'u8, size, 7'u8, size-7, f
     drawRegion 7'u8, size-7, 0'u8, 7'u8, f
     drawRegion 7'u8, size, size-7, size, f
-  if moRad > 0 or forceSep:
+  if moRad > 0 or moSep > 0:
     let
       moSepPx: float32 = modulePixels.float32 * 0.4 * moSep / 100
       s: Vec2 = vec2(
@@ -126,7 +125,7 @@ proc renderImg*(
       drawQRModulesOnly ctx.fillRect(rect(pos, s))
     else:
       drawRegion 0'u8, size, 0'u8, size, ctx.fillRect(rect(pos, s))
-  if alRad > 0 or moRad > 0 or forceSep:
+  if alRad > 0 or moRad > 0 or moSep > 0:
     let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
       when lvl == 0: alRadPx
