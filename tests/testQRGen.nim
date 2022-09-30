@@ -58,7 +58,7 @@ benchmarkTest "Testing separation":
       "#1d2021", "#98971a",
       alRad = 100,
       moRad = 0,
-      forceUseRect = true,
+      forceSep = true,
       moSep = 12.5
     )
   )
@@ -96,6 +96,16 @@ benchmarkTest "Testing separation":
       alRad = 100,
       moRad = 100,
       moSep = 100
+    )
+  )
+  writeFile(
+    "build" / "testingSeparation6.svg",
+    qr.printSvg(
+      "#1d2021", "#98971a",
+      alRad = 0,
+      moRad = 0,
+      moSep = 0,
+      forceSep = true
     )
   )
 
