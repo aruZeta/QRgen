@@ -47,66 +47,34 @@ benchmarkTest "Testing very rounded svg":
   let qr = newQR("https://github.com/aruZeta/QRgen")
   writeFile(
     "build" / "testingVeryRoundedSvg.svg",
-    qr.printSvg("#1d2021", "#98971a", alRad = 100, moRad = 100)
+    qr.printSvg("#1d2021", "#98971a", 100, 100, 25)
   )
 
 benchmarkTest "Testing separation":
   let qr = newQR("https://github.com/aruZeta/QRgen")
   writeFile(
     "build" / "testingSeparation.svg",
-    qr.printSvg(
-      "#1d2021", "#98971a",
-      alRad = 100,
-      moRad = 0,
-      forceSep = true,
-      moSep = 12.5
-    )
+    qr.printSvg("#1d2021", "#98971a", alRad = 100, moSep = 12.5)
   )
   writeFile(
     "build" / "testingSeparation2.svg",
-    qr.printSvg(
-      "#1d2021", "#98971a",
-      alRad = 100,
-      moRad = 50,
-      moSep = 12.5
-    )
+    qr.printSvg("#1d2021", "#98971a", 100, 50, 12.5)
   )
   writeFile(
     "build" / "testingSeparation3.svg",
-    qr.printSvg(
-      "#1d2021", "#98971a",
-      alRad = 100,
-      moRad = 100,
-      moSep = 12.5
-    )
+    qr.printSvg("#1d2021", "#98971a", 100, 100, 12.5)
   )
   writeFile(
     "build" / "testingSeparation4.svg",
-    qr.printSvg(
-      "#1d2021", "#98971a",
-      alRad = 100,
-      moRad = 100,
-      moSep = 50
-    )
+    qr.printSvg("#1d2021", "#98971a", 100, 100, 50)
   )
   writeFile(
     "build" / "testingSeparation5.svg",
-    qr.printSvg(
-      "#1d2021", "#98971a",
-      alRad = 100,
-      moRad = 100,
-      moSep = 100
-    )
+    qr.printSvg("#1d2021", "#98971a", 100, 100, 100)
   )
   writeFile(
     "build" / "testingSeparation6.svg",
-    qr.printSvg(
-      "#1d2021", "#98971a",
-      alRad = 0,
-      moRad = 0,
-      moSep = 0,
-      forceSep = true
-    )
+    qr.printSvg("#1d2021", "#98971a", forceUseRect = true)
   )
 
 benchmarkTest "Testing svg insertion":
@@ -115,8 +83,7 @@ benchmarkTest "Testing svg insertion":
     "build" / "testingSvgInsertion.svg",
     qr.printSvg(
       "#1d2021", "#fabd2f",
-      alRad = 100,
-      moRad = 100,
+      100, 100, 25,
       svgImg = readFile("tests" / "testSvgInsert.svg")
     )
   )
@@ -125,8 +92,7 @@ benchmarkTest "Testing svg insertion":
     "build" / "testingSvgInsertion2.svg",
     qr2.printSvg(
       "#1d2021", "#fabd2f",
-      alRad = 100,
-      moRad = 100,
+      100, 100, 25,
       svgImg = readFile("tests" / "testSvgInsert.svg")
     )
   )
@@ -135,8 +101,7 @@ benchmarkTest "Testing svg insertion":
     "build" / "testingSvgInsertion3.svg",
     qr3.printSvg(
       "#1d2021", "#fabd2f",
-      alRad = 100,
-      moRad = 100,
+      100, 100, 25,
       svgImg = readFile("tests" / "testSvgInsert.svg")
     )
   )
@@ -145,8 +110,7 @@ benchmarkTest "Testing svg insertion":
     "build" / "testingSvgInsertion4.svg",
     qr4.printSvg(
       "#1d2021", "#fabd2f",
-      alRad = 100,
-      moRad = 100,
+      100, 100, 25,
       svgImg = readFile("tests" / "testSvgInsert.svg")
     )
   )
