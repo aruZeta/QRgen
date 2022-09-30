@@ -36,14 +36,14 @@ benchmarkTest "Testing rounded alignment patterns":
 benchmarkTest "Testing rounded modules":
   let qr = newQR("https://github.com/aruZeta/QRgen")
   writeFile(
-    qr.renderImg("#1d2021", "#98971a", moRad = 100),
+    qr.renderImg("#1d2021", "#98971a", moRad = 100, moSep = 25),
     "build" / "testingRoundedModulesPng.png"
   )
 
 benchmarkTest "Testing very rounded png":
   let qr = newQR("https://github.com/aruZeta/QRgen")
   writeFile(
-    qr.renderImg("#1d2021", "#98971a", 100, 100),
+    qr.renderImg("#1d2021", "#98971a", 100, 100, 25),
     "build" / "testingVeryRoundedPng.png"
   )
 
@@ -54,7 +54,7 @@ benchmarkTest "Testing separation":
     "build" / "testingSeparationPng.png"
   )
   writeFile(
-    qr.renderImg("#1d2021", "#98971a", moSep = 50, forceSep = true),
+    qr.renderImg("#1d2021", "#98971a", moSep = 50),
     "build" / "testingSeparationPng2.png"
   )
 
@@ -63,7 +63,7 @@ benchmarkTest "Testing image embedding":
   writeFile(
     qr.renderImg(
       "#1d2021", "#fabd2f",
-      100, 100,
+      100, 100, 25,
       img = readImage("tests" / "testPngInsert.png")
     ),
     "build" / "testingPngInsertion.png"
