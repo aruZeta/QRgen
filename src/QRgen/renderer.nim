@@ -119,7 +119,7 @@ proc renderImg*(
         modulePixels.float32,
         modulePixels.float32
       )
-    if alRad > 0 or forceSep:
+    if alRad > 0:
       drawQRModulesOnly ctx.fillRect(rect(pos, s))
     else:
       drawRegion 0'u8, size, 0'u8, size, ctx.fillRect(rect(pos, s))
