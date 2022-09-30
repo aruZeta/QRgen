@@ -144,7 +144,8 @@ func printSvg*(
   class: string = "qrCode",
   id: string = "",
   svgImg: string = "",
-  svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
+  svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords,
+  forceUseRect: bool = false
 ): string =
   ## Print a `DrawedQRCode` in SVG format (returned as a `string`).
   ##
@@ -200,7 +201,7 @@ func printSvg*(
     drawRegion 7'u8, size-7, 0'u8, 7'u8, s
     drawRegion 7'u8, size, size-7, size, s
   let moSepPx: float32 = 0.4 * moSep / 100
-  if moRad > 0 or moSep > 0:
+  if moRad > 0 or moSep > 0 or forceUseRect:
     let moRadPx: float32 = (0.5 - moSepPx) * moRad / 100
     result.add fmt(moRectGroupStart)
     drawQRModulesOnly moRect
@@ -212,7 +213,7 @@ func printSvg*(
     else:
       drawRegion 0'u8, size, 0'u8, size, moPath
     result.add fmt(moPathEnd)
-  if alRad > 0 or moRad > 0 or moSep > 0:
+  if alRad > 0 or moRad > 0 or moSep > 0 or forceUseRect:
     let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
       when lvl == 0: alRadPx
