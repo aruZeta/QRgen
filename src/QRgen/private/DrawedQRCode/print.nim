@@ -141,9 +141,9 @@ func printSvg*(
   alRad: Percentage = 0,
   moRad: Percentage = 0,
   moSep: Percentage = 25,
+  forceUseRect: bool = false,
   class: string = "qrCode",
   id: string = "",
-  forceUseRect: bool = false,
   svgImg: string = "",
   svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
 ): string =
