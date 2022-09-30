@@ -141,7 +141,7 @@ func printSvg*(
   alRad: Percentage = 0,
   moRad: Percentage = 0,
   moSep: Percentage = 25,
-  forceUseRect: bool = false,
+  forceSep: bool = false,
   class: string = "qrCode",
   id: string = "",
   svgImg: string = "",
@@ -165,7 +165,7 @@ func printSvg*(
   ##    roundness is set `0`, those will be drawed in a `<path>` and the
   ##    alignment patterns with a `<rect>`; if both are not `0` then both will
   ##    be drawed using `<rect>`. If you want to draw both with `<rect>` even
-  ##    if they have roundness set to `0`, you need to set `forceUseRect` to
+  ##    if they have roundness set to `0`, you need to set `forceSep` to
   ##    `true`.
   ##
   ## .. note:: Modules drawed as a rect have a separation from each other
@@ -201,7 +201,7 @@ func printSvg*(
     drawRegion 7'u8, size-7, 0'u8, 7'u8, s
     drawRegion 7'u8, size, size-7, size, s
   let moSepPx: float32 = 0.4 * moSep / 100
-  if moRad > 0 or forceUseRect:
+  if moRad > 0 or forceSep:
     let moRadPx: float32 = (0.5 - moSepPx) * moRad / 100
     result.add fmt(moRectGroupStart)
     drawQRModulesOnly moRect
@@ -213,7 +213,7 @@ func printSvg*(
     else:
       drawRegion 0'u8, size, 0'u8, size, moPath
     result.add fmt(moPathEnd)
-  if alRad > 0 or moRad > 0 or forceUseRect:
+  if alRad > 0 or moRad > 0 or forceSep:
     let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
       when lvl == 0: alRadPx
