@@ -140,8 +140,7 @@ func printSvg*(
   dark = "#000000",
   alRad: Percentage = 0,
   moRad: Percentage = 0,
-  moSep: Percentage = 25,
-  forceSep: bool = false,
+  moSep: Percentage = 0,
   class: string = "qrCode",
   id: string = "",
   svgImg: string = "",
@@ -201,7 +200,7 @@ func printSvg*(
     drawRegion 7'u8, size-7, 0'u8, 7'u8, s
     drawRegion 7'u8, size, size-7, size, s
   let moSepPx: float32 = 0.4 * moSep / 100
-  if moRad > 0 or forceSep:
+  if moRad > 0 or moSep > 0:
     let moRadPx: float32 = (0.5 - moSepPx) * moRad / 100
     result.add fmt(moRectGroupStart)
     drawQRModulesOnly moRect
@@ -213,7 +212,7 @@ func printSvg*(
     else:
       drawRegion 0'u8, size, 0'u8, size, moPath
     result.add fmt(moPathEnd)
-  if alRad > 0 or moRad > 0 or forceSep:
+  if alRad > 0 or moRad > 0 or moSep > 0:
     let alRadPx: float32 = 3.5 * alRad / 100
     template innerRadius(lvl: static range[0'i8..2'i8]): float32 =
       when lvl == 0: alRadPx
