@@ -53,6 +53,10 @@ benchmarkTest "Testing separation":
     qr.renderImg("#1d2021", "#98971a", moRad = 100, moSep = 50),
     "build" / "testingSeparationPng.png"
   )
+  writeFile(
+    qr.renderImg("#282828", "#98971a", 0, 0, 50, true),
+    "build" / "testingSeparationPng2.png"
+  )
 
 benchmarkTest "Testing image embedding":
   let qr = newQR("https://github.com/aruZeta/QRgen", ecLevel = qrECH)

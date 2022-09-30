@@ -98,6 +98,16 @@ benchmarkTest "Testing separation":
       moSep = 100
     )
   )
+  writeFile(
+    "build" / "testingSeparation6.svg",
+    qr.printSvg(
+      "#1d2021", "#98971a",
+      alRad = 0,
+      moRad = 0,
+      moSep = 0,
+      forceUseRect = true
+    )
+  )
 
 benchmarkTest "Testing svg insertion":
   let qr = newQR("https://github.com/aruZeta/QRgen", ecLevel = qrECH)
