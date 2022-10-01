@@ -287,6 +287,9 @@ Check my simple terminal app's code, [QRterm](https://github.com/aruZeta/QRterm)
 which uses this library to generate QR codes from your terminal, and also it's
 [logo generator](https://github.com/aruZeta/QRterm/blob/develop/src/generateLogo.nim).
 
+Also check
+[this repo's logo and its README images generator](https://github.com/aruZeta/QRgen/blob/develop/src/generateRepoImages.nim).
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
