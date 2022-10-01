@@ -5,6 +5,7 @@ author        = "aruZeta"
 description   = "A QR code generation library."
 license       = "MIT"
 srcDir        = "src"
+skipFiles     = @["generateRepoImages.nim"]
 
 # Dependencies
 
