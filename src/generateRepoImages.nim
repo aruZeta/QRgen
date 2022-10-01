@@ -20,8 +20,8 @@ proc savePng(p: string, img: Image) = writeFile(img, sharePath p)
 saveSvg "svg-example.svg",qrL.printSvg()
 saveSvg "svg-colors-example.svg",qrL.printSvg("#1d2021","#98971a")
 saveSvg "svg-rounded-example.svg",qrL.printSvg("#1d2021","#98971a",60)
-saveSvg "svg-very-rounded-example.svg",qrL.printSvg("#1d2021","#98971a",100,100,25)
-saveSvg "svg-separation-example.svg",qrL.printSvg("#1d2021","#98971a",100,100,50)
+saveSvg "svg-very-rounded-example.svg",qrL.printSvg("#1d2021","#98971a",100,100)
+saveSvg "svg-separation-example.svg",qrL.printSvg("#1d2021","#98971a",100,100,25)
 saveSvg "svg-embed-example.svg",qrH.printSvg(
   "#1d2021","#fabd2f",100,100,25,
   svgImg=readFile(testsPath "testSvgInsert.svg")
@@ -32,8 +32,8 @@ saveSvg "svg-embed-example.svg",qrH.printSvg(
 savePng "png-example.png",qrL.renderImg()
 savePng "png-colors-example.png",qrL.renderImg("#1d2021","#98971a")
 savePng "png-rounded-example.png",qrL.renderImg("#1d2021","#98971a",60)
-savePng "png-very-rounded-example.png",qrL.renderImg("#1d2021","#98971a",100,100,25)
-savePng "png-separation-example.png",qrL.renderImg("#1d2021","#98971a",100,100,50)
+savePng "png-very-rounded-example.png",qrL.renderImg("#1d2021","#98971a",100,100)
+savePng "png-separation-example.png",qrL.renderImg("#1d2021","#98971a",100,100,25)
 savePng "png-embed-example.png",qrH.renderImg(
   "#1d2021","#fabd2f",100,100,25,
   img=readImage(testsPath "testPngInsert.png")

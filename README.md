@@ -97,7 +97,7 @@ myQR.printSvg("#1d2021","#98971a",60)
 #### Making the modules rounded
 
 ```nim
-myQR.printSvg("#1d2021","#98971a",100,100,25)
+myQR.printSvg("#1d2021","#98971a",100,100)
 ```
 
 <p align="center">
@@ -105,23 +105,21 @@ myQR.printSvg("#1d2021","#98971a",100,100,25)
 </p>
 
 The first `100` sets the alignment patterns' roundness to 100%
-while the second `100` sets the module's roundness to 100% too
-and the last `25` sets the separation of the modules to 25%, so they are not
-next to each other.
+while the second `100` sets the module's roundness to 100% too.
 
 ---
 
 #### Changing the separation of the modules
 
 ```nim
-myQR.printSvg("#1d2021","#98971a",100,100,50)
+myQR.printSvg("#1d2021","#98971a",100,100,25)
 ```
 
 <p align="center">
 <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-separation-example.svg" width="200px" height="200px" />
 </p>
 
-The last `50` sets the module's separation to 50%.
+The last `25` sets the module's separation to 25%.
 
 ---
 
@@ -224,7 +222,7 @@ myQR.renderImg("#1d2021","#98971a",60)
 #### Making the modules rounded
 
 ```nim
-myQR.renderImg("#1d2021","#98971a",100,100,25)
+myQR.renderImg("#1d2021","#98971a",100,100)
 ```
 
 <p align="center">
@@ -232,23 +230,21 @@ myQR.renderImg("#1d2021","#98971a",100,100,25)
 </p>
 
 The first `100` sets the alignment patterns' roundness to 100%
-while the second `100` sets the module's roundness to 100% too
-and the last `25` sets the separation of the modules to 25%, so they are not
-next to each other.
+while the second `100` sets the module's roundness to 100% too.
 
 ---
 
 #### Changing the separation of the modules
 
 ```nim
-myQR.renderImg("#1d2021","#98971a",100,100,50)
+myQR.renderImg("#1d2021","#98971a",100,100,25)
 ```
 
 <p align="center">
 <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-separation-example.png" width="200px" height="200px" />
 </p>
 
-The last `50` sets the module's separation to 50%.
+The last `25` sets the module's separation to 25%.
 
 ---
 
