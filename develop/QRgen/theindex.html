@@ -562,14 +562,14 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="printSvg" href="#printSvg"><span>printSvg:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
-         forceSep: bool = false; class: string = &quot;qrCode&quot;; id: string = &quot;&quot;;
-         svgImg: string = &quot;&quot;;
-         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): string" href="private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cbool%2Cstring%2Cstring%2Cstring%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
-         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 25;
-         forceSep: bool = false; class: string = &quot;qrCode&quot;; id: string = &quot;&quot;;
-         svgImg: string = &quot;&quot;;
-         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): string</a></li>
+         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 0;
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; svgImg: string = &quot;&quot;;
+         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords;
+         forceUseRect: bool = false): string" href="private/DrawedQRCode/print.html#printSvg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cstring%2Cstring%2Cstring%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D%2Cbool">print: printSvg(self: DrawedQRCode; light = &quot;#ffffff&quot;; dark = &quot;#000000&quot;;
+         alRad: Percentage = 0; moRad: Percentage = 0; moSep: Percentage = 0;
+         class: string = &quot;qrCode&quot;; id: string = &quot;&quot;; svgImg: string = &quot;&quot;;
+         svgImgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords;
+         forceUseRect: bool = false): string</a></li>
           </ul></dd>
 <dt><a name="printTerminal" href="#printTerminal"><span>printTerminal:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -599,12 +599,12 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="renderer: renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
           dark: string = &quot;#000000&quot;; alRad: Percentage = 0;
-          moRad: Percentage = 0; moSep: Percentage = 25; forceSep: bool = false;
-          pixels: uint32 = 512; img: Image = Image(width: 0, height: 0);
-          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): Image" href="renderer.html#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cbool%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D">renderer: renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
+          moRad: Percentage = 0; moSep: Percentage = 0; pixels: uint32 = 512;
+          img: Image = Image(width: 0, height: 0);
+          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): Image" href="renderer.html#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D">renderer: renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
           dark: string = &quot;#000000&quot;; alRad: Percentage = 0;
-          moRad: Percentage = 0; moSep: Percentage = 25; forceSep: bool = false;
-          pixels: uint32 = 512; img: Image = Image(width: 0, height: 0);
+          moRad: Percentage = 0; moSep: Percentage = 0; pixels: uint32 = 512;
+          img: Image = Image(width: 0, height: 0);
           imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): Image</a></li>
           </ul></dd>
 <dt><a name="size" href="#size"><span>size:</span></a></dt><dd><ul class="simple">
@@ -658,7 +658,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-09-30 19:26:36 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-01 09:24:24 UTC</small>
       </div>
     </div>
   </div>
