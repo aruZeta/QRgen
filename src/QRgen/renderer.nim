@@ -67,10 +67,7 @@ proc renderImg*(
   ##    specifying `moSep`, which is a `Percentage`, a value between `0`
   ##    and `100` (inclusive) which determines the separation, `0` being no
   ##    separation and `100` making the modules minuscule. By default it is
-  ##    `25` (0.1 separation on a 1 width module, making it have 0.8 width).
-  ##
-  ## .. note:: Separation will only work when `moRad` is not 0, if you want
-  ##    to force it set `forceSep` to `true`.
+  ##    `0`, and the recommended max value is `25`.
   ##
   ## .. note:: You can embed an `Image` in the generated QR code, as a logo for
   ##    example, by passinng it to `img`.
