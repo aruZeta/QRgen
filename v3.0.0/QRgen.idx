@@ -1,0 +1,3 @@
+newQR	QRgen.html#newQR,string,QRECLevel,QRMode,QRVersion	QRgen: newQR(data: string; ecLevel: QRECLevel = qrECL;\n      mode: QRMode = data.getMostEfficientMode;\n      version: QRVersion = data.getSmallestVersion(mode, ecLevel)): DrawedQRCode	
+The main QRgen API	QRgen.html#the-main-qrgen-api	 The main QRgen API	
+Usage example	QRgen.html#usage-example	 Usage example	
