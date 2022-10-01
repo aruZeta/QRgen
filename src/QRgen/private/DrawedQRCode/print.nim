@@ -160,19 +160,23 @@ func printSvg*(
   ##    `0` being a square and `100` a perfect circle. By default these are set
   ##    to `0`.
   ##
+  ## .. note:: You can change the separation of the modules from one another
+  ##    by setting `moSep`, which is a `Percentage`, a value between `0` and
+  ##    `100` (inclusive) which determines the separation, `0` being no
+  ##    separation and `100` making the modules minuscule. By default it is
+  ##    `0`, and the recommended max value is `25`.
+  ##
   ## .. note:: When the roundness of both alignment patterns and modules is
   ##    `0`, both will be drawed in the same `<path>`; if only the modules
   ##    roundness is set `0`, those will be drawed in a `<path>` and the
   ##    alignment patterns with a `<rect>`; if both are not `0` then both will
-  ##    be drawed using `<rect>`. If you want to draw both with `<rect>` even
-  ##    if they have roundness set to `0`, you need to set `forceSep` to
-  ##    `true`.
+  ##    be drawed using `<rect>`. An special case is when `moSep` is larger
+  ##    than `0`, no matter the roundness everything will be drawed using
+  ##    `<rect>` too.
   ##
-  ## .. note:: Modules drawed as a rect have a separation from each other
-  ##    specified by `moSep`, which is a `Percentage`, a value between `0`
-  ##    and `100` (inclusive) which determines the separation, `0` being no
-  ##    separation and `100` making the modules minuscule. By default it is
-  ##    `25` (0.1 separation on a 1 width module, making it have 0.8 width).
+  ## .. note:: If you want to force drawing both alignment patterns and modules
+  ##    using `<rect>`, no matter the roundness or separation, set
+  ##    `forceUseRect` to `true`.
   ##
   ## .. note:: You can pass a custom id and class to set to `<svg>`, by default
   ##    the class is `qrCode`, depending on the color a tag will have `qrLight`
