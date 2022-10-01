@@ -97,7 +97,7 @@ myQR.printSvg("#1d2021","#98971a",60)
 #### Making the modules rounded
 
 ```nim
-myQR.printSvg("#1d2021","#98971a",100,100)
+myQR.printSvg("#1d2021","#98971a",100,100,25)
 ```
 
 <p align="center">
@@ -105,8 +105,9 @@ myQR.printSvg("#1d2021","#98971a",100,100)
 </p>
 
 The first `100` sets the alignment patterns' roundness to 100%
-and the last `100` sets the module's roundness to 100% too
-(both are a perfect circle).
+while the second `100` sets the module's roundness to 100% too
+and the last `25` sets the separation of the modules to 25%, so they are not
+next to each other.
 
 ---
 
@@ -120,8 +121,7 @@ myQR.printSvg("#1d2021","#98971a",100,100,50)
 <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/svg-separation-example.svg" width="200px" height="200px" />
 </p>
 
-The last `50` sets the module's separation to 50% (making the module having a
-width of 1 into a width of 0.6, with margin 0.2 in all sides.
+The last `50` sets the module's separation to 50%.
 
 ---
 
@@ -134,7 +134,7 @@ let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)
 ```
 
 ```nim
-myQR.printSvg("#1d2021","#98971a",100,100,svgImg=readFile("QRgen-logo.svg"))
+myQR.printSvg("#1d2021","#98971a",100,100,25,svgImg=readFile("QRgen-logo.svg"))
 ```
 
 <p align="center">
@@ -159,11 +159,24 @@ https://user-images.githubusercontent.com/68018085/190470760-8a5b5a30-5812-4777-
 
 Note: The PNG renderer is not exported with `QRgen` since it depends on `pixie`
 ([check pixie here](https://github.com/treeform/pixie)). To use it you will need
-to add this import (and obviously install `pixie`):
+to add this import:
 
 ```nim
 import QRgen/renderer
 ```
+
+And obviously install and import `pixie` too.
+
+Note: `renderImg` returns an `Image` which to the save as let's say a PNG, you
+will need to do:
+
+```nim
+let myQRImg = renderImg(...)
+writeFile(myQRImg, "path/to/save/it.png")
+```
+
+You can check [pixie](https://github.com/treeform/pixie) to learn about more
+formats you can save an `Image` as.
 
 ---
 
@@ -211,7 +224,7 @@ myQR.renderImg("#1d2021","#98971a",60)
 #### Making the modules rounded
 
 ```nim
-myQR.renderImg("#1d2021","#98971a",100,100)
+myQR.renderImg("#1d2021","#98971a",100,100,25)
 ```
 
 <p align="center">
@@ -219,8 +232,9 @@ myQR.renderImg("#1d2021","#98971a",100,100)
 </p>
 
 The first `100` sets the alignment patterns' roundness to 100%
-and the last `100` sets the module's roundness to 100% too
-(both are a perfect circle).
+while the second `100` sets the module's roundness to 100% too
+and the last `25` sets the separation of the modules to 25%, so they are not
+next to each other.
 
 ---
 
@@ -234,8 +248,7 @@ myQR.renderImg("#1d2021","#98971a",100,100,50)
 <img src="https://github.com/aruZeta/QRgen/blob/develop/share/img/png-separation-example.png" width="200px" height="200px" />
 </p>
 
-The last `50` sets the module's separation to 50% (making the module having a
-width of 1 into a width of 0.6, with margin 0.2 in all sides.
+The last `50` sets the module's separation to 50%.
 
 ---
 
@@ -248,7 +261,7 @@ let myQR = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)
 ```
 
 ```nim
-myQR.renderImg("#1d2021","#98971a",100,100,img=readImage("QRgen-logo.png"))
+myQR.renderImg("#1d2021","#98971a",100,100,25,img=readImage("QRgen-logo.png"))
 ```
 
 <p align="center">
