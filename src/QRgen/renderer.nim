@@ -47,9 +47,9 @@ proc renderImg*(
   moRad: Percentage = 0,
   moSep: Percentage = 0,
   pixels: uint32 = 512,
-  padding: uint8 = 5,
   img: Image = Image(width: 0, height: 0),
-  imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
+  imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords,
+  padding: uint8 = 5
 ): Image =
   ## Print a `DrawedQRCode` in PNG format (returned as a `Image` from pixie).
   ##
