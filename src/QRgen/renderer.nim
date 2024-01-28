@@ -47,6 +47,7 @@ proc renderImg*(
   moRad: Percentage = 0,
   moSep: Percentage = 0,
   pixels: uint32 = 512,
+  padding: uint8 = 5,
   img: Image = Image(width: 0, height: 0),
   imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords
 ): Image =
@@ -78,10 +79,10 @@ proc renderImg*(
   ##    will be. You can change this by setting `imgCoords`, which contains a
   ##    tuple with the `x,y` position of `img` and it's width an height.
   let
-    modules: uint8 = self.drawing.size + 10
+    modules: uint8 = self.drawing.size + padding * 2
     modulePixels: uint16 = (pixels div modules).uint16
-    pixelsMargin: uint16 = (pixels mod modules).uint16 div 2 + modulePixels*5
-    actualSize: uint32 = modulePixels.uint32*(modules-10) + (pixelsMargin+1)*2
+    pixelsMargin: uint16 = (pixels mod modules).uint16 div 2 + modulePixels * padding
+    actualSize: uint32 = modulePixels.uint32*(modules-(padding * 2)) + (pixelsMargin+1)*2
   let pixels: uint32 =
     if actualSize < pixels: actualSize
     else: pixels
