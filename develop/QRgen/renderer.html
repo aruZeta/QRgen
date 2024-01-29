@@ -118,16 +118,18 @@ window.addEventListener('DOMContentLoaded', main);
 
   </ul>
   <ul class="simple nested-toc-section">renderImg
-      <li><a class="reference" href="#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D"
+      <li><a class="reference" href="#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D%2Cuint8"
     title="renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
           dark: string = &quot;#000000&quot;; alRad: Percentage = 0;
           moRad: Percentage = 0; moSep: Percentage = 0; pixels: uint32 = 512;
           img: Image = Image(width: 0, height: 0);
-          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): Image">renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
+          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords;
+          padding: uint8 = 5): Image">renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
           dark: string = &quot;#000000&quot;; alRad: Percentage = 0;
           moRad: Percentage = 0; moSep: Percentage = 0; pixels: uint32 = 512;
           img: Image = Image(width: 0, height: 0);
-          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): Image</a></li>
+          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords;
+          padding: uint8 = 5): Image</a></li>
 
   </ul>
 
@@ -181,13 +183,14 @@ class="link-seesrc" target="_blank">Source</a>
 
 </dd>
 </div>
-<div id="renderImg,DrawedQRCode,string,string,Percentage,Percentage,Percentage,uint32,Image,tuple[uint8,uint8,uint8,uint8]">
-<dt><pre><span class="Keyword">proc</span> <a href="#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D"><span class="Identifier">renderImg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="private/DrawedQRCode/type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">;</span> <span class="Identifier">light</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;#ffffff&quot;</span><span class="Other">;</span>
+<div id="renderImg,DrawedQRCode,string,string,Percentage,Percentage,Percentage,uint32,Image,tuple[uint8,uint8,uint8,uint8],uint8">
+<dt><pre><span class="Keyword">proc</span> <a href="#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D%2Cuint8"><span class="Identifier">renderImg</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="private/DrawedQRCode/type.html#DrawedQRCode"><span class="Identifier">DrawedQRCode</span></a><span class="Other">;</span> <span class="Identifier">light</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;#ffffff&quot;</span><span class="Other">;</span>
                <span class="Identifier">dark</span><span class="Other">:</span> <span class="Identifier">string</span> <span class="Other">=</span> <span class="StringLit">&quot;#000000&quot;</span><span class="Other">;</span> <span class="Identifier">alRad</span><span class="Other">:</span> <a href="private/DrawedQRCode/print.html#Percentage"><span class="Identifier">Percentage</span></a> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span>
                <span class="Identifier">moRad</span><span class="Other">:</span> <a href="private/DrawedQRCode/print.html#Percentage"><span class="Identifier">Percentage</span></a> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span> <span class="Identifier">moSep</span><span class="Other">:</span> <a href="private/DrawedQRCode/print.html#Percentage"><span class="Identifier">Percentage</span></a> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span>
                <span class="Identifier">pixels</span><span class="Other">:</span> <span class="Identifier">uint32</span> <span class="Other">=</span> <span class="DecNumber">512</span><span class="Other">;</span> <span class="Identifier">img</span><span class="Other">:</span> <span class="Identifier">Image</span> <span class="Other">=</span> <span class="Identifier">Image</span><span class="Other">(</span><span class="Identifier">width</span><span class="Other">:</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="Identifier">height</span><span class="Other">:</span> <span class="DecNumber">0</span><span class="Other">)</span><span class="Other">;</span>
-               <span class="Identifier">imgCoords</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">,</span> <span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">]</span> <span class="Other">=</span> <span class="Identifier">self</span><span class="Other">.</span><span class="Identifier">genDefaultCoords</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Image</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">PixieError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span></span>.}</pre></dt>
+               <span class="Identifier">imgCoords</span><span class="Other">:</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">x</span><span class="Other">,</span> <span class="Identifier">y</span><span class="Other">,</span> <span class="Identifier">w</span><span class="Other">,</span> <span class="Identifier">h</span><span class="Other">:</span> <span class="Identifier">uint8</span><span class="Other">]</span> <span class="Other">=</span> <span class="Identifier">self</span><span class="Other">.</span><span class="Identifier">genDefaultCoords</span><span class="Other">;</span>
+               <span class="Identifier">padding</span><span class="Other">:</span> <span class="Identifier">uint8</span> <span class="Other">=</span> <span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Image</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">PixieError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Print a <tt class="docutils literal"><span class="pre"><span class="Identifier">DrawedQRCode</span></span></tt> in PNG format (returned as a <tt class="docutils literal"><span class="pre"><span class="Identifier">Image</span></span></tt> from pixie).<div class="admonition admonition-info"><span class="admonition-info-text"><b>Note:</b></span>
@@ -235,7 +238,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-01 11:43:26 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-01-29 16:36:35 UTC</small>
       </div>
     </div>
   </div>

@@ -609,11 +609,13 @@ window.addEventListener('DOMContentLoaded', main);
           dark: string = &quot;#000000&quot;; alRad: Percentage = 0;
           moRad: Percentage = 0; moSep: Percentage = 0; pixels: uint32 = 512;
           img: Image = Image(width: 0, height: 0);
-          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): Image" href="renderer.html#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D">renderer: renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
+          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords;
+          padding: uint8 = 5): Image" href="renderer.html#renderImg%2CDrawedQRCode%2Cstring%2Cstring%2CPercentage%2CPercentage%2CPercentage%2Cuint32%2CImage%2Ctuple%5Buint8%2Cuint8%2Cuint8%2Cuint8%5D%2Cuint8">renderer: renderImg(self: DrawedQRCode; light: string = &quot;#ffffff&quot;;
           dark: string = &quot;#000000&quot;; alRad: Percentage = 0;
           moRad: Percentage = 0; moSep: Percentage = 0; pixels: uint32 = 512;
           img: Image = Image(width: 0, height: 0);
-          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords): Image</a></li>
+          imgCoords: tuple[x, y, w, h: uint8] = self.genDefaultCoords;
+          padding: uint8 = 5): Image</a></li>
           </ul></dd>
 <dt><a name="size" href="#size"><span>size:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -666,7 +668,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-10-01 11:43:31 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-01-29 16:36:38 UTC</small>
       </div>
     </div>
   </div>
