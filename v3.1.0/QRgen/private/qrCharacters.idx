@@ -1,0 +1,6 @@
+numericValues	QRgen/private/qrCharacters.html#numericValues	qrCharacters: numericValues	
+alphaValues	QRgen/private/qrCharacters.html#alphaValues	qrCharacters: alphaValues	
+specialValues	QRgen/private/qrCharacters.html#specialValues	qrCharacters: specialValues	
+alphaNumericValues	QRgen/private/qrCharacters.html#alphaNumericValues	qrCharacters: alphaNumericValues	
+getAlphanumericValue	QRgen/private/qrCharacters.html#getAlphanumericValue,char	qrCharacters: getAlphanumericValue(c: char): uint8	
+QR Characters	QRgen/private/qrCharacters.html#qr-characters	 QR Characters	
